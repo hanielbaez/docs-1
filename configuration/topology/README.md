@@ -1,0 +1,99 @@
+# Topology
+
+Another important keyword recognized by HASH Core is `topology.` The topology keyword sits at the top level of the properties object and drives a handful of important hardware-accelerated calculations used by behaviors in our simulation. A topology configuration might look like this:
+
+```javascript
+[{
+    "topology": {
+        "x_bounds": [0, 20],
+        "y_bounds": [0, 20],
+        "z_bounds": [0, 20],
+
+        // This is the same as setting "wrapping_preset": "torus"
+        "wrap_x_mode": "continuous",
+        "wrap_y_mode": "continuous"
+
+        // Additionally, we can force 3D simulations to wrap along the Z axis
+        "wrap_z_mode": "continuous",
+        
+        // A global distance function agents use to localize
+        "distance_function": "chebyshev"
+        
+        // A global search radius
+        "search_radius": 10
+    },
+    ...
+}]
+```
+
+Configuring topology properly lets you leverage HASH's built-in hardware acceleration to quickly find neighbors in the simulation, define extents of the simulation area, and navigate an agent from point A to B. 
+
+{% hint style="success" %}
+It's best to let HASH do the heavy lifting for you, especially for computationally-intensive work that we've already optimized.
+{% endhint %}
+
+
+
+
+
+## 
+
+## \*\*\*\*
+
+#### Nearest-neighbor calculations
+
+**Search Radius**
+
+Internally, HASH Core maintains a list of neighbors for each agent and updates the list with each time step. As agents move, their list of neighbors automatically updates - agents further away than a given search radius are removed and agents within the search radius are added. In the properties tab, this can be defined via a "search\_radius" keyword:
+
+```javascript
+[{
+    "topology": {
+        ...
+        "search_radius":10
+    }
+}]
+```
+
+Any agents automatically found within the search radius of a given agent can be accessed through the agent's context. In practice, an example agent behavior would look like:
+
+```javascript
+(state, context) => {
+    let { neighbors } = context;
+    for (let neighbor of neighbors) {
+        ...
+    }
+}
+```
+
+In addition to being able to set the search radius for all agents in the simulation, it is possible for the user to override the search radius for individual agents. This can be done dynamically but is typically done in the initial state definition.
+
+```javascript
+properties => {
+    ...
+    let all_seeing_agent = {
+        agent_id: 1,
+        name: "Eye of Sauron",
+        search_radius: 10000000
+    }
+}
+```
+
+**Distance Functions**
+
+In addition to setting the search radius, it is also possible to set the distance function that HASH Core uses to compute the distance between agents. This can only be set in the properties tab from a handful of prebuilt distance functions.
+
+* `manhattan` or `taxicab`: L1 norm distance function that return the grid distance between two points
+* `euclidean`: L2 norm distance function that returns the direct distance between two points 
+* `euclidean_squared`: Similar to euclidean but distances are left squared for performance reasons. 
+* `chebyshev` or `conway`: L-infinity norm distance function that return the longest distance in x, y, and z
+
+```javascript
+[{
+    "topology": {
+        ...
+        "distance_function": "manhattan"
+    }
+}]
+```
+

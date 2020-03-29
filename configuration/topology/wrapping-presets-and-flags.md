@@ -1,0 +1,34 @@
+---
+description: Granular control of how the world is presented to HASH Core
+---
+
+# Wrapping Presets and Flags
+
+In [Bounds and Wrapping](bounds-and-wrapping.md) we showed how you could set wrapping presets to determine how the topology of the simulation works. Here, we'll show some flags to get even more granular control of HASH Core's topology engine.
+
+Each pair of borders share a specific wrapping behavior. This could be any one of:
+
+* `continuous` : Pacman-style wrapping where the agent is teleported to the opposite border 
+* `reflection`: Agents are bounced off against borders 
+* `offset_reflection`: Agents are reflected and shifted halfway along the border 
+* `none`: agents fly off to infinity
+
+These can easily set in the properties by the way of:
+
+```javascript
+{
+  "topology": {
+    "x_bounds":[-30, 30],
+    "y_bounds":[-30, 30],
+    "z_bounds":[-15, 15],
+    "wrap_x_mode": "continuous",
+    "wrap_y_mode": "continuous",
+    "wrap_x_mode": "reflection",
+  }
+}
+```
+
+{% hint style="warning" %}
+Note that `offset_reflection` is a special case and is not supported for the Z axis - it will only infer shifts along either the X or Y axes.
+{% endhint %}
+

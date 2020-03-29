@@ -1,0 +1,36 @@
+---
+description: Learn the basic terminology
+---
+
+# Agent Based Modeling Basics
+
+Agent-based modeling \(ABM\) is an incredibly powerful tool to simulate scenarios with complex deterministic behavior. 
+
+In contrast with traditional simulation and modeling, agent-based modelers describe the behavior of _individual agents,_ rather than using formulas to describe the behavior of the system as a whole. This allows for complex interactions to emerge from basic rules. On HASH, we call these rules _behaviors._ 
+
+A popular example of an agent based simulation is Conway's Game of Life - a simulation performed on a grid, where each cell can be alive or dead. Here, the cells are _agents_, and the rules are _behaviors._ The behaviors for Conway's Game of Life are as follows:
+
+> 1. Any live cell with two or three neighbors survives.
+> 2. Any dead cell with three live neighbors becomes a live cell.
+> 3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
+
+{% hint style="info" %}
+Check out the [Conway Game of Life HASH Model](https://hash.ai/index/5de93f49d4b4c15ea799dcd9/conway%27s-game-of-life) 
+{% endhint %}
+
+These simple interactions produce what is called _emergent behavior_, where simple rules create complex results.  Play with the HASH model and try modifying the initial state. Some arrangements of agents produce "machines" - arrangements of agents - that can move across the grid or even generate new groups of agents.
+
+John Conway spent many years of his career exploring the search space of his game of life, exhausting nearly every possible combination of agent and behavior. What took Conway years of his life, you can do in just a few minutes by setting up experiments, analysis, and leveraging the power of cloud computation with HASH Core.
+
+
+
+
+
+
+
+
+
+
+
+
+
