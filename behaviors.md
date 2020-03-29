@@ -7,7 +7,7 @@ description: Giving agents agency and specifying laws of the universe
 Agents can be sent messages by other agents through their `name` or `id`.
 
 {% hint style="info" %}
-Agent names _must_ be strings.
+Any agent's `name` must be a string.
 {% endhint %}
 
 {% hint style="danger" %}
