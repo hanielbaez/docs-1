@@ -37,7 +37,7 @@ struct Agent {
 {% endtab %}
 {% endtabs %}
 
-Naming your agent is entirely opiontla. The simplest possible agent is simply `{}` \(although it won't do much of anything!\)
+Naming your agent is entirely optional. The simplest possible agent is simply `{}` \(although it won't do much of anything!\)
 
 Your agents can contain any fields you want. Here's an agent we have that uses the Monte-Carlo method to approximate the value of pi via randomness:
 
