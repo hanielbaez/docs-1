@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Overview](README.md)
-* [Agent Based Modeling Basics](agent-based-modeling-basics-1.md)
+* [Agent-Based Modeling Basics](agent-based-modeling-basics-1.md)
 * [Agents](anatomy-of-an-agent/README.md)
   * [Initial State](anatomy-of-an-agent/initial-state.md)
   * [Messages](anatomy-of-an-agent/agent-messages.md)
