@@ -1,6 +1,6 @@
 # Topology
 
-Another important keyword recognized by HASH Core is `topology.` The topology keyword sits at the top level of the properties object and drives a handful of important hardware-accelerated calculations used by behaviors in our simulation. A topology configuration might look like this:
+Another important keyword recognized by HASH Core is `topology`. The topology keyword sits at the top level of the properties object and drives a handful of important hardware-accelerated calculations used by behaviors in our simulation. A topology configuration might look like this:
 
 ```javascript
 [{
@@ -31,14 +31,6 @@ Configuring topology properly lets you leverage HASH's built-in hardware acceler
 {% hint style="success" %}
 It's best to let HASH do the heavy lifting for you, especially for computationally-intensive work that we've already optimized.
 {% endhint %}
-
-
-
-
-
-## 
-
-## \*\*\*\*
 
 #### Nearest-neighbor calculations
 

@@ -1,3 +1,7 @@
+---
+description: Getting started with HASH
+---
+
 # Overview
 
 Welcome to [HASH](https://hash.ai), an end-to-end platform for quickly creating rich, massively parallelizable simulations.

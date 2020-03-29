@@ -1,3 +1,7 @@
+---
+description: Where simulated life begins
+---
+
 # Initial State
 
 HASH simulations start life in the `initialState` file in your editor. In here we generate the initial conditions, or _starting state_ of the simulated world. There are two ways to populate this. You can:

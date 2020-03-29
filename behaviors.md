@@ -1,6 +1,18 @@
+---
+description: Giving agents agency and specifying laws of the universe
+---
+
 # Behaviors
 
-Agents can be sent messages by other agents through their id or name. Please do not try to set or change an agent id. Agent names _must_ be strings.
+Agents can be sent messages by other agents through their `name` or `id`.
+
+{% hint style="info" %}
+Agent names _must_ be strings.
+{% endhint %}
+
+{% hint style="danger" %}
+Please do not try to set or change an agent id. 
+{% endhint %}
 
 Agents can \(and typically do\) have behaviors:
 

@@ -1,3 +1,7 @@
+---
+description: The beating hearts of agent-based models
+---
+
 # Agents
 
 As the name suggests, **agents** lie at the heart of _agent_-based modeling.
