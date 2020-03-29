@@ -1,6 +1,8 @@
 # Agents
 
-Agents are the core of **Agent** Based Modeling. Every agent has a name and a unique identifier. As a user, you can change the name, but not the ID, so don't bother including the field when generating agents.
+As the name suggests, **agents** lie at the heart of _agent_-based modeling.
+
+Every agent has a name and a unique identifier. As a simulation creator, you can set and change the name, but not the ID, so don't worry about including this when creating agents.
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -31,9 +33,9 @@ struct Agent {
 {% endtab %}
 {% endtabs %}
 
-Of course, it's entirely optional to have a name - in fact the simplest possible agent is `{}`  though it won't do much of anything. From here, your agents can have any field you want them to have.
+Naming your agent is entirely opiontla. The simplest possible agent is simply `{}` \(although it won't do much of anything!\)
 
-Here's an agent we have that uses the Monte-Carlo method to approximate the value of pi via randomness:
+Your agents can contain any fields you want. Here's an agent we have that uses the Monte-Carlo method to approximate the value of pi via randomness:
 
 ```javascript
 LeaderAgent {
@@ -47,7 +49,7 @@ LeaderAgent {
 }
 ```
 
-Notice how we use multiple custom fields to store data in the agent. This will come in handy during the analysis phase where we can actually see how these values changed during the simulation.
+Notice how we use multiple custom fields to store data in the agent. This will come in handy during the _analysis_ phase where we can actually see how these values changed during the simulation.
 
 ### 
 
