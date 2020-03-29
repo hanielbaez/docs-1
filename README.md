@@ -6,7 +6,7 @@ Welcome to [HASH](https://hash.ai), an end-to-end platform for quickly creating 
 As a new user, the best way to learn HASH is to browse our [gallery of examples](https://hash.ai/index/search?categoryID=5dc3da74cc0cf804dcc66a5c) to find toy simulations with interesting dynamics you can tinker with
 {% endhint %}
 
-Simulations in HASH might be a bit different than what you're used to. We leverage the core concepts of agent based modeling - composable _agents_ and _behaviors, ****_to make it faster and easier for you to study the complex dynamics of the problem you're trying to solve.
+Simulations in HASH might be a bit different than what you're used to. We leverage the core concepts of agent based modeling - composable _agents_ and _behaviors,_ to make it faster and easier for you to study the complex dynamics of the problem you're trying to solve.
 
 Read up on [Agent Based Modeling Basics](agent-based-modeling-basics-1.md) if you're new to ABM or if you want to better understand how these concepts translate into HASH.
 
