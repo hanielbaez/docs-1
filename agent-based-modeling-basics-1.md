@@ -20,7 +20,7 @@ Check out [Conway's Game of Life](https://hash.ai/index/5de93f49d4b4c15ea799dcd9
 
 These simple interactions produce what is called _emergent behavior_, where simple rules create complex results. Try playing with the HASH model and modifying its initial state. Some arrangements of agents produce "machines" - arrangements of agents - that can move across the grid or even generate new groups of agents.
 
-John Conway spent many years of his career exploring the search space of his game of life, exhausting nearly every possible combination of agent and behavior. What took Conway years of his life, you can do in just a few minutes by setting up experiments, analysis, and leveraging the power of cloud computation with HASH Core.
+John Conway spent many years of his career exploring the search space of his game of life. What took Conway years of his life, you can do in just a few minutes by setting up experiments, analysis, and leveraging the power of cloud computation within HASH Core.
 
 
 
