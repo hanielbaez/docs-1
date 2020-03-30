@@ -13,7 +13,9 @@
     * [Wrapping Presets and Flags](configuration/topology/wrapping-presets-and-flags.md)
     * [Distance Functions](configuration/topology/distance-functions.md)
 * [Shortcuts](shortcuts.md)
-* [Untitled](untitled.md)
+* [Outputs](untitled/README.md)
+  * [Views](untitled/views.md)
+  * [API](untitled/api.md)
 
 ## Getting Started Tutorial
 
