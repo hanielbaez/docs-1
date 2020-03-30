@@ -56,10 +56,8 @@ Our people whiz about this simulated world, moving back and forth between grocer
 
 This tutorial is split into three sections: 
 
-* Adding unique characteristics to the People agents.
-* Creating a Hospital agent
-  * Giving it the ability to test people to see if they're sick, and provide intensive care to those who are especially sick.
-*   Running an experiment
-
-
+1. Adding unique characteristics to the People agents.
+2. Creating a Hospital agent
+   * Giving it the ability to test people to see if they're sick, and provide intensive care to those who are especially sick.
+3.   Running an experiment
 

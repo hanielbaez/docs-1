@@ -24,13 +24,3 @@ Try playing with the HASH model and modifying its initial state. Some arrangemen
 
 Game of Life enthusiasts have spent years exploring the search space of the model and its possible creations. What took Conway weeks can now be done in seconds, and with HASH you can set up experiments, run analyses, and leverage the power of cloud computing directly in your browser.
 
-
-
-
-
-
-
-
-
-
-

@@ -55,5 +55,3 @@ LeaderAgent {
 
 Notice how we use multiple custom fields to store data in the agent. This will come in handy during the _analysis_ phase where we can actually see how these values changed during the simulation.
 
-### 
-

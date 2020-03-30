@@ -1,7 +1,6 @@
 # Create testing behavior
 
-To start let**'**s create a message from the person agent that contains the basics - they’re requesting a test. In the known behavior file, add:  
-
+To start let**'**s create a message from the person agent that contains the basics - they’re requesting a test. In the known behavior file, add:
 
 ```text
 function check_hospital(state){
@@ -16,15 +15,13 @@ function check_hospital(state){
  }
 ```
 
-When run the check\_hospital function will send a message to the hospital with type test and data.test\_sick. But, we only want to send it when a person suspects that they are sick. We can add a property called time\_to\_symptoms. That’s how long it takes for a person to start showing symptoms.  
-
+When run the check\_hospital function will send a message to the hospital with type test and data.test\_sick. But, we only want to send it when a person suspects that they are sick. We can add a property called time\_to\_symptoms. That’s how long it takes for a person to start showing symptoms.
 
 ```text
  "time_to_symptoms" : 5,
 ```
 
-You'll need to also add it to the top of the test\_for\_virus behavior file.  
-
+You'll need to also add it to the top of the test\_for\_virus behavior file.
 
 ```text
 const { time_to_symptoms } = context.properties;
@@ -34,8 +31,7 @@ if (state.infected && state.infection_length >= time_to_symptoms) {
  }
 ```
 
-Now after a certain period of time the person agent will get suspicious they’re sick, and send a message to hospital.  
-
+Now after a certain period of time the person agent will get suspicious they’re sick, and send a message to hospital.
 
 ```text
  const test_messages = context.messages.filter(m=> m.type == "test");
@@ -43,16 +39,11 @@ Now after a certain period of time the person agent will get suspicious they’r
 
 On the receiving end we need to add a message handler for the hospital. Create a new behavior file called test\_for\_virus. 
 
-The messages that arrive in an agent’s mailbox are those addressed to its id or name.  
+The messages that arrive in an agent’s mailbox are those addressed to its id or name.
 
+While right now it’s not necessary to filter by type == test, it’s good practice when, in the future, we send a wider variety of messages to the Hospital.
 
-
-
-While right now it’s not necessary to filter by type == test, it’s good practice when, in the future, we send a wider variety of messages to the Hospital.  
-
-
-So what should we tell our patient? If the person is sick the test should detect that they are sick; right now the only time a person messages the hospital is if they’re sick, so testing will be easy!  
-
+So what should we tell our patient? If the person is sick the test should detect that they are sick; right now the only time a person messages the hospital is if they’re sick, so testing will be easy!
 
 Let's check all of the messages and respond to each person, letting them know they are in fact sick.
 
@@ -80,8 +71,7 @@ Back in the known\_infection file, we similarly want to check for any messages a
  })
 ```
 
-Now that our agent knows it’s sick, what should we do? When you’re sick, you should stay home and rest. So should our person agents. We can change an agent’s behavior set during a simulation, for instance by removing their movement behavior and setting their position to their home. The home\_movement file contains the logic for altering the person’s movement pattern based on their status.  In check\_infected, set the health status as “returning” or, if they’re already at home, home.  
-
+Now that our agent knows it’s sick, what should we do? When you’re sick, you should stay home and rest. So should our person agents. We can change an agent’s behavior set during a simulation, for instance by removing their movement behavior and setting their position to their home. The `home_movement` file contains the logic for altering the person’s movement pattern based on their status.  In `check_infected`, set the health status as “returning” or, if they’re already at home, home.
 
 ```text
 let msgs = context.messages.filter((msg) => msg.type == "test_result");
@@ -93,8 +83,7 @@ state.home_status = state.home_status !== "home" ? "returning" : "home";
  })
 ```
 
-Now our full page looks like.  
-
+Now our full page looks like this:
 
 ```text
 (state, context) => {
@@ -126,8 +115,7 @@ if (state.infected && state.infection_length == time_to_symptoms) {
 
 Run the simulation - our people are now being socially conscious and going back home when they’re sick. Hooray for well-being.
 
-Of course, we’ve got one final part of the cycle to finish. Eventually the person will get better, and when they do they should feel free to leave their house. In the infection behavior file, reintroduce the movement behavior once a person has recovered.  
-
+Of course, we’ve got one final part of the cycle to finish. Eventually the person will get better, and when they do they should feel free to leave their house. In the infection behavior file, reintroduce the movement behavior once a person has recovered.
 
 ```javascript
  

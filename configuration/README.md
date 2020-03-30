@@ -19,5 +19,3 @@ With the configuration tools available to you, you can:
 Play around with simulations in HASH Index to get a feel for how these flags change simulation dynamics
 {% endhint %}
 
-### 
-
