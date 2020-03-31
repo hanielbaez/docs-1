@@ -20,7 +20,7 @@ These simple interactions produce what is called _emergent behavior_, where simp
 Check out [Conway's Game of Life](https://hash.ai/index/5de93f49d4b4c15ea799dcd9/conway%27s-game-of-life) model in HASH
 {% endhint %}
 
-Try playing with the HASH model and modifying its initial state. Some arrangements of agents produce "spaceships" - arrangements of agents - that can move across the grid or even generate new groups of agents.
+Try playing with the HASH model and modifying its initial state. Some arrangements of agents produce arrangements of agents known as "spaceships" that move across the grid as a group and can even generate new groups of agents.
 
 Game of Life enthusiasts have spent years exploring the search space of the model and its possible creations. What took Conway weeks can now be done in seconds, and with HASH you can set up experiments, run analyses, and leverage the power of cloud computing directly in your browser.
 
