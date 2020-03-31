@@ -11,7 +11,7 @@ HASH simulations start life in the `initialState` file in your editor. In here w
 
 Here's what explicitly defining your agents might look like:
 
-![A simple set of agents ](../.gitbook/assets/image%20%281%29.png)
+![A simple set of agents ](../.gitbook/assets/image%20%286%29.png)
 
 With "creator" agents you can initialize more interesting models. By accessing published behaviors, we can very easily generate common agent placements. These behaviors can be found in the lower left corner; click on them to add them to your simulation:
 
@@ -21,19 +21,19 @@ With "creator" agents you can initialize more interesting models. By accessing p
 
 Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://core.hash.ai/simulation/5e7d1664d945ef290d54be43/rabbits-grass-weeds), while grass and weeds grow around them. :
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%285%29.png)
 
 You can see that we've added a few behaviors to our "creator" agent, and templates as well.  
 
 `Create Grids` looks at the agent templates in the "grid\_templates" array, in this case the "ground". We're copying it to fill the space defined in the bounds of our "topology" field in`properties`:
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 Then `Create Scatters` distributes the "rabbits" across the topology. Each one is placed in a random location.
 
 Now we want to make a few adjustments to the agents we've generated which require a bit more logic. Luckily we can make use of the composable nature of HASH behaviors. `Create Grids` and `Create Scatters` has created  an "agents" object in our creator and filled it. We can access those agents by using the "template\_name" as a key: 
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%284%29.png)
 
 Here we've randomly assigned the color of our "ground" agents, and given each of the "rabbits" a random starting amount of energy.
 
