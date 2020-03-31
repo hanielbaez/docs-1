@@ -27,7 +27,7 @@
 
 ## Extra
 
-* [Specs Requirements](extra/specs-requirements.md)
+* [System Requirements](extra/specs-requirements.md)
 * [Outputs](extra/untitled-1/README.md)
   * [Views](extra/untitled-1/views.md)
   * [API](extra/untitled-1/api.md)
