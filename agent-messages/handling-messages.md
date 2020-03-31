@@ -2,7 +2,7 @@
 
 So far, we've talked about sending messages. What happens when an agent receives a message?
 
-As we've mentioned previously, the Context passed to every agent provides a list of messages in the agent's inbox in the `messages` field. Here, we can iterate through the list of messages sent to the agent and make some decisions.z
+As we've mentioned previously, the Context passed to every agent provides a list of messages in the agent's inbox in the `messages` field. Here, we can iterate through the list of messages sent to the agent and make some decisions.
 
 ```javascript
 Context {
@@ -10,17 +10,63 @@ Context {
         /* access to the simulation's global constants, aka the 'Properties' tab. */
     },
     neighbors: [
-        /* A collection of the agent's neighbors.
+        /* 
+        A collection of the agent's neighbors.
         Neighbors are calculated using the 'position' field.
         */
     ],
     messages: [
-        /*  
-            Any messages send to the given agent on this step.
-            If the agent wants to preserve access to these on future steps, they'll need to store them in their own state.
-         */
+    /*  
+        Any messages send to the given agent on this step.
+        If the agent wants to preserve access to these on future steps, they'll need to store them in their own state.
+    */
     ],
     /* other context values to come. */
 }
 ```
+
+It's best to think of the `messages` field like a mailbox. When sending a message, we put the message in the outbox  under the `messages` field on state. When receving a message, it will show up in our inbox, under the `messages` field on context. Notice the distinction between the two. Context is immutable and any accidental changes made to it will not be propogated.
+
+{% hint style="info" %}
+Send messages with `state`, and receive messages with `context`.
+{% endhint %}
+
+Handling the messages here would be pretty simple - just iterating through the messages array in Context.
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```python
+(state, context) => {
+    for (const message in context.messages) {
+        ...
+    }
+    return state;
+}
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    for message in context.messages:
+        .....
+    
+    return state
+```
+{% endtab %}
+
+{% tab title="Rust" %}
+```rust
+fn (state: AgentState, context: &Context) -> AgentState {
+    context.messages
+           .iter()
+           .map(|m: &Message| {...});
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+
 
