@@ -14,10 +14,6 @@
     * [Bounds and Wrapping](configuration/topology/bounds-and-wrapping.md)
     * [Wrapping Presets and Flags](configuration/topology/wrapping-presets-and-flags.md)
     * [Distance Functions](configuration/topology/distance-functions.md)
-* [Shortcuts](shortcuts.md)
-* [Outputs](untitled/README.md)
-  * [Views](untitled/views.md)
-  * [API](untitled/api.md)
 
 ## Getting Started Tutorial
 
@@ -26,4 +22,13 @@
 * [Create a Hospital](getting-started-tutorial/create-a-hospital.md)
 * [Create testing behavior](getting-started-tutorial/create-testing-behavior.md)
 * [Create an ICU](getting-started-tutorial/create-an-icu.md)
+
+## Extra
+
+* [Specs Requirements](extra/specs-requirements.md)
+* [Outputs](extra/untitled-1/README.md)
+  * [Views](extra/untitled-1/views.md)
+  * [API](extra/untitled-1/api.md)
+* [Shortcuts](extra/shortcuts.md)
+* [Untitled](extra/untitled.md)
 
