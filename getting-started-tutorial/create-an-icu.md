@@ -4,8 +4,8 @@ So now we can tell people they’re sick, and when they hear they’re sick they
 
 Let’s breakdown what we’ll need to modify in our existing model:
 
-1. Severity. Right now a person is infected or not infected, but we want to delineate between mild and severe cases. 
-2. ICU Capacity. A hospital, so long as it has room in its intensive care unit, should treat severe cases. Instead of going home, the person will move to the hospital and stay there until they’re recovered.
+1. **Severity.** Right now a person is infected or not infected, but we want to delineate between mild and severe cases. 
+2. **ICU Capacity.** A hospital, so long as it has room in its intensive care unit, should treat severe cases. Instead of going home, the person will move to the hospital and stay there until they’re recovered.
 
 In your properties tab, add a value for icu\_beds. This represents the number of icu beds that a hospital has.
 
