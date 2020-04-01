@@ -2,7 +2,7 @@
 
 Click over to your initial state file. It should look like this:
 
-```text
+```javascript
 (properties) =>[{
    agent_id: "homes_and_people",
    position: [0, 0],
