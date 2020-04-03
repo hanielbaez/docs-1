@@ -9,8 +9,10 @@
 * [Messages](agent-messages/README.md)
   * [Built-in message handlers](agent-messages/built-in-message-handlers.md)
   * [Handling Messages](agent-messages/handling-messages.md)
+* [Datasets](datasets.md)
 * [Analysis](analysis.md)
 * [Experiments](experiments.md)
+* [Views](views.md)
 * [Configuration](configuration/README.md)
   * [Basic Properties](configuration/basic-properties.md)
   * [Topology](configuration/topology/README.md)
@@ -29,9 +31,5 @@
 ## Extra
 
 * [System Requirements](extra/specs-requirements.md)
-* [Outputs](extra/untitled-1/README.md)
-  * [Views](extra/untitled-1/views.md)
-  * [API](extra/untitled-1/api.md)
 * [Shortcuts](extra/shortcuts.md)
-* [Untitled](extra/untitled.md)
 
