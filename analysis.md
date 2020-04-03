@@ -108,6 +108,8 @@ The "plots" list contains collections which define the different plots that visu
 
  HASH implements the [plot.ly](https://plotly.com/javascript/) API. By default the x-axis represents the step of the simulation. You can use line,  bar, or area charts, among others.
 
+As a shortcut you may replace the "data" and "type" field with a "timeseries" array. Any outputs you place in the array will be plotted as lines.
+
 For more details on all these fields, check out the [plotly.js docs](https://plot.ly/javascript/reference/). Since HASH uses Plotly behind the scenes, HASH plots support any valid value for layout, type, and data supported in the API.
 
   
