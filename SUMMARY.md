@@ -13,7 +13,6 @@
   * [Handling Messages](agent-messages/handling-messages.md)
 * [Datasets](datasets.md)
 * [Analysis](analysis.md)
-* [Experiments](experiments.md)
 * [Views](views.md)
 * [Configuration](configuration/README.md)
   * [Basic Properties](configuration/basic-properties.md)
