@@ -18,16 +18,16 @@ HASH gives you a hand by creating some default outputs and plots for you, which 
 
 Outputs is a collection of JSON objects of the form
 
-```text
+```javascript
 "outputs": {
     "feature": [
         {
             Operation
         },
-{
-Operation
-}
-...
+        {
+            Operation
+        }
+        ...
     ]
 }
 ```
@@ -36,7 +36,7 @@ The “feature” is a constructed feature of your simulation. What do you want 
 
 You derive the value by defining a series of operations to perform that will output the value. So in our 
 
-```text
+```javascript
    "over_fifty": [
    {
        "op": "filter",
