@@ -27,7 +27,7 @@
 * [Getting Started with HASH](getting-started-tutorial/getting-started-with-hash.md)
 * [Add heterogeneity](getting-started-tutorial/add-heterogeneity.md)
 * [Create a Hospital](getting-started-tutorial/create-a-hospital.md)
-* [Create testing behavior](getting-started-tutorial/create-testing-behavior.md)
+* [Create Testing Behavior](getting-started-tutorial/create-testing-behavior.md)
 * [Create an ICU](getting-started-tutorial/create-an-icu.md)
 
 ## Extra

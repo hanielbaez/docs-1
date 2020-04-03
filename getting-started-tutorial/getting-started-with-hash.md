@@ -6,6 +6,8 @@ description: 'Estimated time: 30 mins'
 
 ## Tutorial: Build a Hospital
 
+>
+
 In this tutorial we're going to augment one of our existing epidemiological simulations and add a hospital. Along the way you'll learn key features of HASH Core and how to use agent based modeling to simulate and answer complex questions.  
 
 You can view our finished product here , but for now start by opening our starter template and copying it into your H-Drive.
