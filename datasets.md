@@ -21,7 +21,7 @@ HASH parses imported datasets and generates a new field for you in your simulati
 
 **Current example**
 
-```text
+```javascript
 [{
 "data": {
       "New York Census QuickFacts": [
