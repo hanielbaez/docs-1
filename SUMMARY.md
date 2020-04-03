@@ -9,6 +9,7 @@
 * [Messages](agent-messages/README.md)
   * [Built-in message handlers](agent-messages/built-in-message-handlers.md)
   * [Handling Messages](agent-messages/handling-messages.md)
+* [Analysis](analysis.md)
 * [Experiments](experiments.md)
 * [Configuration](configuration/README.md)
   * [Basic Properties](configuration/basic-properties.md)
