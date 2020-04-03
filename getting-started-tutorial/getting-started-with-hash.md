@@ -1,16 +1,14 @@
 ---
-description: 'Estimated time: 30 mins'
+description: 'Estimated time: 20 mins'
 ---
 
 # Getting Started with HASH
 
 ## Tutorial: Build a Hospital
 
->
-
 In this tutorial we're going to augment one of our existing epidemiological simulations and add a hospital. Along the way you'll learn key features of HASH Core and how to use agent based modeling to simulate and answer complex questions.  
 
-You can view our finished product here , but for now start by opening our starter template and copying it into your H-Drive.
+ [Start by opening our base template](https://hash.ai/index/5e86c068eb2a710a4a2fe11e/getting-started-base) and copying it into your H-Drive.
 
 {% hint style="info" %}
 If you start editing an example simulation it will be automatically copied into your H-Drive. Alternatively click copy in the top banner of the page.
