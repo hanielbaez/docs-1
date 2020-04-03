@@ -14,7 +14,7 @@ Simulations in HASH might be a bit different than what you're used to. We levera
 
 Read up on [Agent-Based Modeling Basics](agent-based-modeling-basics-1.md) if you're new to ABM or if you want to better understand how these concepts translate into HASH.
 
-You'll quickly find that the key to success in HASH is understanding and working with [Agents](anatomy-of-an-agent/) and [Behaviors](behaviors.md).
+You'll quickly find that the key to success in HASH is understanding and working with [Agents](anatomy-of-an-agent/) and [Behaviors](behaviors/).
 
 Quickly get started by playing with examples from the [HASH Index](https://hash.ai/index) or carry on reading to learn more about the tools provided to you by the HASH platform.
 

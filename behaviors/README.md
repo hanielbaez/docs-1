@@ -4,14 +4,14 @@ description: Giving agents agency and specifying laws of the universe
 
 # Behaviors
 
-Agents can be sent messages by other agents through their `name` or `id`.
+Agents can be sent messages by other agents through their `name` or `agent_id`.
 
 {% hint style="info" %}
 Any agent's `name` must be a string.
 {% endhint %}
 
 {% hint style="danger" %}
-Please do not try to set or change an agent id. 
+Please do not try to set or change an `agent_id`. 
 {% endhint %}
 
 Agents can \(and typically do\) have behaviors:
@@ -29,7 +29,7 @@ Behaviors are pure functions in the form of: `(last_state, context) => [next_sta
 
 The exact semantics vary by programming language, but in spirit every behavior is a pure function which receives a given agent's last state, the world context visible to that agent, and outputs its next state, potentially along with the states of some to-be-created agents.
 
-Most behaviors output a single state with the same agent\_id as they received. For example, this behavior:
+Most behaviors output a single state with the same `agent_id` as they received. For example, the following behavior code causes an agent to move along the x-axis:
 
 ```javascript
 (state, context) => {
@@ -38,9 +38,7 @@ Most behaviors output a single state with the same agent\_id as they received. F
 }
 ```
 
-causes an agent to move along the x axis.
-
-Agents can create new agents by sending a message to the special "hash" id. This is covered more in-depth in [Messages](agent-messages/handling-messages.md).
+Agents can create new agents by sending a message to the special `hash` `agent_id`. This is covered more in-depth in [Messages](../agent-messages/handling-messages.md).
 
 
 
