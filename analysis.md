@@ -2,25 +2,27 @@
 
 ### What is Simulation Analysis?
 
-When performing a simulation using HASH, you describe agents that interact with each other within a given environment. The result of the simulation is determined by many factors:
+When running a simulation using HASH, you describe a system of agents that interact with each other in a given environment. The result of the simulation is determined by many factors:
 
-* the starting conditions
+* the initial conditions
+* the behaviors assigned to each agent
 * randomness
-* the behavior code assigned to each agent
 
-While the simulation is running, and when it is done, you want to obtain insights on what is happening. Is a certain variable converging to a value? Are there interesting emergent patterns? How do starting conditions and randomness affect the simulation?
+While the simulation is running you may be able to glean insight from visually observing your model. To supplement this, HASH provides you with a **Plots** view that can allow you to learn more about your simulation. For instance:
 
-You can answer these questions with HASH's simulation analysis! It allows you to define simulation "outputs" and display them as  plots using the state of the simulation at a given timestep.
+* Is a certain variable converging upon a value? 
+* What emergent phenomena are appearing? 
+* How do stochasticity and the  initial conditions  affect the simulation run?
 
-HASH gives you a hand by creating some default outputs and plots for you, which you can then manually tweak. The analysis file is organized as a JSON object with two major properties, outputs and plots. 
+These are the kinds of questions you can answer with HASH's analysis capabilities. It allows you to define "outputs" which you can then plot. The **analysis.json** file is organized as a JSON object with two major properties, outputs and plots. 
 
 ### Outputs
 
-Outputs is a collection of JSON objects of the form
+The **analysis.json** file contains two objects within it: "outputs" and "plots".  Outputs is an object collection of JSON objects of the form
 
 ```javascript
 "outputs": {
-    "feature": [
+    "feature_1": [
         {
             Operation
         },
@@ -28,13 +30,14 @@ Outputs is a collection of JSON objects of the form
             Operation
         }
         ...
+    ],
+    "feature_2": [
+    ...
     ]
 }
 ```
 
-The “feature” is a constructed feature of your simulation. What do you want to know about your analysis? For example if you have a collection of agents with an age attribute, you might want to count the number over 50. 
-
-You derive the value by defining a series of operations to perform that will output the value. So in our 
+The “feature” is an output of your simulation, represented as an array of data. For example, if you have a collection of agents with an age attribute, you might want to count the number over 50. You will chain together operations like so: 
 
 ```javascript
    "over_fifty": [
@@ -48,30 +51,33 @@ You derive the value by defining a series of operations to perform that will out
    ],
 ```
 
-Operations are either comparison operators or aggregator operators. Aggregation operations are usually placed after comparison operations. Like many data pipelines you first filter your data to the set you're interested in, and then aggregate it into a final metric.
+It's likely that the most common operation you'll use is "filter". You can filter with numeric, boolean, and string values. The valid comparisons are listed below:
 
-| Operation | Type |
+| Comparison Name | Comparison Description |
 | :--- | :--- |
-| eq | comparison |
-| neq | comparison |
-| lt | comparison |
-| lte | comparison |
-| gt | comparison |
-| gte | comparison |
-| count | aggregator |
-| sum | aggregator |
-| min | aggregator |
-| max | aggregator |
-| mean | aggregator |
-| movingAverage | aggregator |
-| get | aggregator |
-| filter | aggregator |
+| eq | Equal to \(===\) |
+| neq | Not equal to \(!==\) |
+| lt | Less than \(&lt;\) |
+| lte | Less than or equal to \(&lt;=\) |
+| gt | Greater than \(&gt;\) |
+| gte | Greater than or equal to \(&gt;=\) |
+
+The other operations besides "filter" are listed below. Most of these operations are aggregators: they will reduce the current output array to a single value. In general, an output feature will contain a number of "filters", a "get" and an aggregator. Like many data pipelines you first filter your data to the set you're interested in, and then aggregate it into a final metric.
+
+| Operator Name | Additional Arguments | Operator Description |
+| :--- | :--- | :--- |
+| filter | _field_, _comparison_, _value_ | Filter the current output with the given _comparison_ and _value_ on the given _field_  of each element  |
+| count | n/a | Count the number of agents in the current output |
+| get | _field_ | Map the value from a field onto each element of the current output |
+| sum | n/a | Sum over the elements of the current output |
+| min | n/a | Return the minimum of the elements in the current output |
+| max | n/a | Return the maximum of the elements in the current output |
+| mean | n/a | Return the mean of the elements in the current output |
+| movingAverage | _window_ | Return the moving average with _window_ length |
 
 ### Plots
 
-Plots is an array containing a set of javascript objects which define the plots that visualize the outputs. 
-
-The basic configuration of a chart:
+The "plots" list contains collections which define the different plots that visualize the outputs. The basic configuration of a plot includes a name, data, type, layout, and position field:
 
 ```javascript
   {
@@ -100,11 +106,9 @@ The basic configuration of a chart:
    },
 ```
 
- 
+ HASH implements the [plot.ly](https://plotly.com/javascript/) API. By default the x-axis represents the step of the simulation. You can use line,  bar, or area charts, among others.
 
-HASH implements Plotly plots. By default the x axis reflects the current timestep. You can use line,  bar, or area charts.
-
-For more details on the layout and config fields, check out the [Plotly.js docs](https://plot.ly/javascript/reference/). Since HASH uses Plotly behind the scenes, HASH plots support any valid value for layout and config that Plotly supports.
+For more details on all these fields, check out the [plotly.js docs](https://plot.ly/javascript/reference/). Since HASH uses Plotly behind the scenes, HASH plots support any valid value for layout, type, and data supported in the API.
 
   
   
