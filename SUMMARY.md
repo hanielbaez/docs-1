@@ -7,6 +7,7 @@
   * [Anatomy](anatomy-of-an-agent/anatomy.md)
 * [Behaviors](behaviors/README.md)
   * [Built-in behaviors](behaviors/built-in-behaviors.md)
+  * [Composable behaviors](behaviors/composable-behaviors.md)
 * [Messages](agent-messages/README.md)
   * [Built-in message handlers](agent-messages/built-in-message-handlers.md)
   * [Handling Messages](agent-messages/handling-messages.md)
