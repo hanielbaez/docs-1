@@ -54,10 +54,10 @@ We have four distinct agents in the model. Three are locations - homes, grocerie
 
 Our people whiz about this simulated world, moving back and forth between groceries, work, and their homes, and occasionally \(depending on our parameters\), get sick. 
 
-This tutorial is split into three sections: 
+This tutorial is split into four sections: 
 
 1. Adding unique characteristics to the People agents.
 2. Creating a Hospital agent
-   * Giving it the ability to test people to see if they're sick, and provide intensive care to those who are especially sick.
-3.   Running an experiment
+3. Giving the Hospital the ability to test people to see if they're sick
+4. Creating intensive care behaviors for those who are especially sick.
 
