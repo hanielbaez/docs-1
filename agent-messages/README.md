@@ -72,5 +72,5 @@ fn behavior(state: AgentState, context: Context) {
 
 Messages are produced during a step, but are not delievered and processed until the next step.
 
-![Data flow for a single step in  HASH simulation](../.gitbook/assets/image%20%2810%29.png)
+![Data flow for a single step in  HASH simulation](../.gitbook/assets/image%20%2812%29.png)
 
