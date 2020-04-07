@@ -40,15 +40,7 @@ We have four distinct agents in the model. Three are locations - homes, grocerie
       "height": 2,
       "color": "grey"
     }
-  ],
-  "people_template": 
-    {
-      "behaviors": ["infection", "check_infected", "daily_movement_2"],
-      "health_status": "healthy",
-      "was_sick": false,
-      "home_status": "home",
-      "severity": "moderate"
-    }
+  ]
 //...
 ```
 
