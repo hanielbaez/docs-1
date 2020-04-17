@@ -21,6 +21,10 @@
     * [Wrapping Presets and Flags](configuration/topology/wrapping-presets-and-flags.md)
     * [Distance Functions](configuration/topology/distance-functions.md)
 
+## Hello, World!
+
+* [Hello, HASH!](hello-world/hello-hash.md)
+
 ## Extending Epidemic Model
 
 * [Build a Hospital](extending-epidemic-model/getting-started-with-hash.md)
@@ -33,8 +37,4 @@
 
 * [System Requirements](extra/specs-requirements.md)
 * [Shortcuts](extra/shortcuts.md)
-
-## Hello, World!
-
-* [Hello, HASH!](hello-world/hello-hash.md)
 
