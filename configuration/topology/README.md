@@ -3,7 +3,7 @@
 Another important keyword recognized by HASH Core is `topology`. The topology keyword sits at the top level of the properties object and drives a handful of important hardware-accelerated calculations used by behaviors in our simulation. A topology configuration might look like this:
 
 ```javascript
-[{
+{
     "topology": {
         "x_bounds": [0, 20],
         "y_bounds": [0, 20],
@@ -23,7 +23,7 @@ Another important keyword recognized by HASH Core is `topology`. The topology ke
         "search_radius": 10
     },
     ...
-}]
+}
 ```
 
 Configuring topology properly lets you leverage HASH's built-in hardware acceleration to quickly find neighbors in the simulation, define extents of the simulation area, and navigate an agent from point A to B. 
@@ -39,12 +39,12 @@ It's best to let HASH do the heavy lifting for you, especially for computational
 Internally, HASH Core maintains a list of neighbors for each agent and updates the list with each time step. As agents move, their list of neighbors automatically updates - agents further away than a given search radius are removed and agents within the search radius are added. In the properties tab, this can be defined via a "search\_radius" keyword:
 
 ```javascript
-[{
+{
     "topology": {
         ...
         "search_radius":10
     }
-}]
+}
 ```
 
 Any agents automatically found within the search radius of a given agent can be accessed through the agent's context. In practice, an example agent behavior would look like:
@@ -81,11 +81,11 @@ In addition to setting the search radius, it is also possible to set the distanc
 * `chebyshev` or `conway`: L-infinity norm distance function that return the longest distance in x, y, and z
 
 ```javascript
-[{
+{
     "topology": {
         ...
         "distance_function": "manhattan"
     }
-}]
+}
 ```
 

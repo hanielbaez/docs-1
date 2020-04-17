@@ -11,10 +11,10 @@ If, for example, we wanted to cap the height of all trees in a forest simulation
 The properties tab would look something like:
 
 ```javascript
-[{
+{
     "maxTreeHeight":50,
     ...
-}]
+}
 ```
 
 The associated tree growth behavior would follow:
@@ -39,10 +39,10 @@ function numAgents(){
 const numTrees = numAgents();
 const numCows = numAgents();
 
-[{
+{
     "initialTrees": numTrees,
     "initialCows": numCows,
     ...
-}]
+}
 ```
 
