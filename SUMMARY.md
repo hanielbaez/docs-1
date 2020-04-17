@@ -21,16 +21,20 @@
     * [Wrapping Presets and Flags](configuration/topology/wrapping-presets-and-flags.md)
     * [Distance Functions](configuration/topology/distance-functions.md)
 
-## Getting Started Tutorial
+## Extending Epidemic Model
 
-* [Getting Started with HASH](getting-started-tutorial/getting-started-with-hash.md)
-* [Add heterogeneity](getting-started-tutorial/add-heterogeneity.md)
-* [Create a Hospital](getting-started-tutorial/create-a-hospital.md)
-* [Create Testing Behavior](getting-started-tutorial/create-testing-behavior.md)
-* [Create an ICU](getting-started-tutorial/create-an-icu.md)
+* [Build a Hospital](extending-epidemic-model/getting-started-with-hash.md)
+* [Add heterogeneity](extending-epidemic-model/add-heterogeneity.md)
+* [Create a Hospital](extending-epidemic-model/create-a-hospital.md)
+* [Create Testing Behavior](extending-epidemic-model/create-testing-behavior.md)
+* [Create an ICU](extending-epidemic-model/create-an-icu.md)
 
 ## Extra
 
 * [System Requirements](extra/specs-requirements.md)
 * [Shortcuts](extra/shortcuts.md)
+
+## Hello, World!
+
+* [Hello, HASH!](hello-world/hello-hash.md)
 
