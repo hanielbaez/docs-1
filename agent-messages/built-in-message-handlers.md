@@ -32,13 +32,14 @@ Do note that **case sensitivity** **matters**. If a message is sent to `bill`, i
 
 {% tab title="Python" %}
 ```python
-    message =	{
-      "brand": "schelling",
-      "type": "data_point",
-      "data": {
-        "num_agents": 50
-      }
-    }
+def behavior(state, context):
+    state.messages.append({
+      "to": "HASH",
+      "type": "remove_agent",
+      "data": { "agent_id": "Bill"}
+    })
+    
+    return state
 ```
 {% endtab %}
 
@@ -68,7 +69,7 @@ Here, anything in the data field will be used to create the new agent. The `newb
         type: "create_agent",
         data: {
             parent: state.agent_id, 
-            behaviors: ["newborn"]
+            behaviors: ["newborn.js"]
         }
     });
     return state;
@@ -79,23 +80,16 @@ Here, anything in the data field will be used to create the new agent. The `newb
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-  # we can use either a dict
-
-  message =	{
-    "to": "schelling",
-    "type": "data_point",
-    "data": {
-      "num_agents": 50
-    }
-  }
-  
-  # or a class
-  
-  message = Message()
-  
-  state.messages.append(message)
-
-  return state
+    state.messages.append({
+        "to": "HASH",
+        "type": "create_agent",
+        "data": {
+            "parent": state.agent_id, 
+            "behaviors": ["newborn.py"]
+        }
+    })
+    
+    return state
 ```
 {% endtab %}
 
