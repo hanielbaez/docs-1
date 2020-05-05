@@ -20,6 +20,7 @@
     * [Bounds and Wrapping](configuration/topology/bounds-and-wrapping.md)
     * [Wrapping Presets and Flags](configuration/topology/wrapping-presets-and-flags.md)
     * [Distance Functions](configuration/topology/distance-functions.md)
+* [Libraries](libraries.md)
 
 ## Hello, World!
 
