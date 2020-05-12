@@ -12,7 +12,7 @@ This is key to handling the computational complexity of large simulations as it 
 
 ## Race Conditions
 
-HASH avoids race conditions through isolation of state. Agents calculating the next step \(t + 1\) are only able to use the information they currently have available to them; the state and content from the current step \(t\). Because each agent has a private state HASH won't run into merge conflicts - only one thing, the agent itself, can change its state - the updates that will create t + 1 are applied synchronously. Messages are collected and distributed by the engine between t and t+1.
+HASH avoids race conditions through isolation of state. Agents calculating the next step \(t + 1\) are only able to use the information they currently have available to them; the state and context from the current step \(t\). Because each agent has a private state HASH won't run into merge conflicts - only one thing, the agent itself, can change its state - the updates that will create t + 1 are applied synchronously. Messages are collected and distributed by the engine between t and t+1.
 
 There won't be a situation where the order in which an agent is run affects the next state of the simulation. however you might encounter something like a race condition if you don't take into account the "travel time" of messages.
 
