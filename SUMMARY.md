@@ -12,7 +12,7 @@
   * [Built-in message handlers](agent-messages/built-in-message-handlers.md)
   * [Handling Messages](agent-messages/handling-messages.md)
 * [Datasets](datasets/README.md)
-  * [Publishing Data to Index](datasets/publishing-data-to-index.md)
+  * [Publishing Datasets to Index](datasets/publishing-data-to-index.md)
 * [Analysis](analysis.md)
 * [Views](views.md)
 * [Configuration](configuration/README.md)

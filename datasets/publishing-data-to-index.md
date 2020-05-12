@@ -1,4 +1,4 @@
-# Publishing Data to Index
+# Publishing Datasets to Index
 
 You can share your datasets with others by publishing them to Index.
 
