@@ -11,7 +11,8 @@
 * [Messages](agent-messages/README.md)
   * [Built-in message handlers](agent-messages/built-in-message-handlers.md)
   * [Handling Messages](agent-messages/handling-messages.md)
-* [Datasets](datasets.md)
+* [Datasets](datasets/README.md)
+  * [Publishing Data to Index](datasets/publishing-data-to-index.md)
 * [Analysis](analysis.md)
 * [Views](views.md)
 * [Configuration](configuration/README.md)
@@ -36,6 +37,7 @@
 
 ## Extra
 
+* [Design Considerations](extra/design-considerations.md)
 * [System Requirements](extra/specs-requirements.md)
 * [Shortcuts](extra/shortcuts.md)
 

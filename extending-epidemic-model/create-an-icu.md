@@ -33,7 +33,7 @@ If you reset the simulation and click on the hospital agent the inspect modal wi
 
 Open the check\_infected file. A person agent is sending a request to the hospital to test them; now they should also send personal information to the hospital. In particular we want to know how likely it is they're at\_risk of. It’s a little bit of a handwave that they are directly sending their at\_risk level - you can imagine they’re sending a blood/spit sample and don’t know what it contains, or providing demographic info like their age or pre-existing conditions.
 
-Include a key,value in the message data packet for at\_risk .
+Include a key, value in the message data packet for at\_risk .
 
 ```javascript
 // check_infected.js
@@ -141,7 +141,7 @@ Infection.js handles the logic for infection state.
 This is another opportunity to use message passing. We'll create a message to send to the Hospital telling them that the person has recovered.
 
 {% hint style="info" %}
-A key paradigm for HASH is message passing. HASH is based on the [actor model](https://en.wikipedia.org/wiki/Actor_model), and message passing between actors is key for creating complex systems.
+A key paradigm for HASH is message passing. HASH is based on the [actor model](https://en.wikipedia.org/wiki/Actor_model), and message passing between agents is how agents interact w/ one another.
 {% endhint %}
 
 ```javascript
