@@ -40,5 +40,5 @@ One other potential pitfall is forgetting that behaviors run in sequential order
 state.behaviors = ["behaviorA", "behaviorB"]
 ```
 
-A message would be sent before you check if you've already received a response.
+A message would be sent before the agent checks if they've received a response.
 
