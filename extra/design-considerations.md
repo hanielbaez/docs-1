@@ -14,7 +14,7 @@ This is key to handling the computational complexity of large simulations as it 
 
 HASH avoids race conditions through isolation of state. Agents calculating the next step \(t + 1\) are only able to use the information they currently have available to them; the state and context from the current step \(t\). Because each agent has a private state HASH won't run into merge conflicts - only one thing, the agent itself, can change its state - the updates that will create t + 1 are applied synchronously. Messages are collected and distributed by the engine between t and t+1.
 
-There won't be a situation where the order in which an agent is run affects the next state of the simulation. however you might encounter something like a race condition if you don't take into account the "travel time" of messages.
+There won't be a situation where the order in which an agent is run affects the next state of the simulation. However you might encounter something like a race condition if you don't take into account the "travel time" of messages.
 
 Since HASH implements an actor oriented paradigm, information is sent between agents through messages. If on timestep 1 Agent A sends Agent B a message, Agent B will receive it and be able to act on the message in timestep 2. The earliest Agent A could receive a response is in timestep 3. 
 
