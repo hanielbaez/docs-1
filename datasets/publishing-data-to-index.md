@@ -10,7 +10,7 @@ From the publish modal add descriptions, keywords, and schemas to your data.
 
 ![Publish Modal](../.gitbook/assets/screen-shot-2020-05-12-at-1.22.27-pm.png)
 
-The data will be referenced in a simulation as:
+The dataset will be referenced in a simulation as:
 
 ```text
 "@[user-handle]/[short-name]/[dataset].[csv/json]"
@@ -18,7 +18,7 @@ The data will be referenced in a simulation as:
 
 ## Publishing as an organization
 
-If you're part of an organization, you can publish the dataset as an org.
+If you're part of an organization, you can publish the dataset on behalf of that organization. To create a new organization go to [HASH.ai &gt; account &gt; orgs](https://hash.ai/account/orgs). From there you can view the organizations you're a member of and create new ones. When you publish a dataset in a simulation it will be referenced as:
 
 ```text
 "@[org-handle]/[short-name]/[dataset].[csv/json]"
