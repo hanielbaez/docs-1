@@ -1,6 +1,6 @@
 # Create a Hospital
 
-Select initialState.json. It should look like:
+Open up the `init.json` file. It should look like:
 
 ```javascript
 [
@@ -35,16 +35,16 @@ Select initialState.json. It should look like:
 ]
 ```
 
-initialJson defines our initial agent\(s\), which in this case is a creator agent. It has a set of four behaviors that will populate our world. In order:
+`init.json` defines our 'initial state', including those agent\(s\) which should be present in the world. In this case we're using some 'creator' utility functions, attached to a setup agent, who plays no role in our experiments beyond helping get our world set up correctly. This setup agent has four behaviors attached to it which will help populate our world. In order:
 
-* First run @hash/create\_scatters.js. This is a [shared behavior](../behaviors/) that, when added to an agent, will create all of the associated "scatter\_templates". It's called scatter because it's scattering the child agents around the map.
-* Second it will run create\_people.js, a behavior local to this simulation. In this behavior we've defined our people agents and associated them with their homes, offices, and groceries.
-* Third is the @hash/create\_agents.js - in the previous two functions we didn't fully create our agents, we just added them to an agents object on the "creator agent". This behavior iterates through that object and sends messages to the [reserved hash keyword create\_agent](https://app.gitbook.com/@hash-1/s/core/~/drafts/-M3yIAt-weMIyGiVronu/agent-messages/built-in-message-handlers) to instantiate all of our new agents.
-* Finally fourth it runs @hash/remove\_self.js, which will appropriately enough remove itself from the simulation. We don't want to constantly be generating new grocery stores!
+* First run `@hash/create_scatters.js`. This is a [shared behavior](../behaviors/) \([Index](https://hash.ai/index/5e754c3e792e5d85f4cdb5c4/create-scatters)\) that, when added to an agent, will create all of the associated "scatter\_templates". It's called _scatter_ because it's scattering the child agents around the map.
+* Second it will run `create_people.js`, a behavior local to this simulation. In this behavior we've defined our people agents and associated them with their homes, offices, and groceries.
+* Third is the `@hash/create_agents.js` - another shared behavior \([Index](https://hash.ai/index/5e754d6c792e5d442bcdb5c8/create-agents)\). In our previous two functions we didn't fully create our agents, we just added them to an agents object on the "creator agent". This third behavior iterates through that object and sends messages to the [reserved hash keyword create\_agent](https://app.gitbook.com/@hash-1/s/core/~/drafts/-M3yIAt-weMIyGiVronu/agent-messages/built-in-message-handlers) to instantiate all of our new agents.
+* Finally the agent runs `@hash/remove_self.js`, which will appropriately enough remove itself from the simulation. We don't want to constantly be generating new grocery stores, which is what we'd end up with here otherwise!
 
-This creator pattern is a common and recommended method for generating multiple agents, and it’s worth taking the time to look into the files double check your understanding.
+This kind of 'creator agent' pattern is a common and recommended method for generating lots of agents, especially as part of your [initial state](https://docs.hash.ai/core/anatomy-of-an-agent/initial-state). It’s worth double-checking to make sure you always fully understand what's going on in this step and that no mistakes have been made.
 
-Now that we understand how you can create an agent, let’s create a hospital. Since we’re not dynamically generating multiple hospitals, we could just add the hospital directly in our initialState page.
+Now that we understand how to instantiate our agents, let’s create a hospital. Since we’re not dynamically generating multiple hospitals, we could just add the hospital directly in our `init.json` initial state page.
 
 ```javascript
 {
@@ -57,7 +57,7 @@ Now that we understand how you can create an agent, let’s create a hospital. S
 
 ```
 
-Or, we can follow the creator pattern and add it as a "stack" \(as it's at a specific location\). To do that we'd add stack\_templates to our agent, as well as add the @hash/create\_stacks.js behavior. Since it's a shared behavior, you can search in the index panel in the lower left for it. Double click and it will be added to your simulation.
+Or, we can follow the creator pattern and add it as a "stack" \(as it's at a specific location\). To do that we'd add `stack_templates` to our agent, as well as add the `@hash/create_stacks.js` behavior. Since it's a shared behavior, you can search in the index panel in the lower left for it. Double click and it will be added to your simulation.
 
 ![It&apos;s easy to find powerful behaviors in the Index to add to your models \(or share your own!\) ](../.gitbook/assets/screen-shot-2020-04-02-at-9.48.14-pm.png)
 
@@ -86,10 +86,10 @@ Or, we can follow the creator pattern and add it as a "stack" \(as it's at a spe
 
 You can set the position, color, and height as whatever you’d like. 
 
-* Position is an \[x,y\] array that determines the location of the agent on the 3d viewer.
+* Position is an \[x,y\] array that determines the location of the agent on the 3D viewer.
 * Height can be any integer - the default size is 1. 
 
-Click Reset Simulation in the bottom right under the 3d viewer. If you added the hospital directly to  initialState you should see it appear in the viewer - if you're using create\_stacks then click Start Simulation. After three frames you should see it.  Congratulations, you’ve built your first hospital! We’re proud of you.
+Click Reset Simulation in the bottom right under the 3D viewer. If you added the hospital directly to  `init.json` you should see it appear in the viewer - if you're using `create_stacks` then click Start Simulation. After three frames you should see it.  Congratulations, you’ve built your first hospital! We’re proud of you.
 
 At the moment the hospital doesn’t do anything. It just sits there, begging for a purpose. So let's add some functionality. There’s two things we want our hospital to do. 
 

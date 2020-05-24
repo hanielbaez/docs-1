@@ -7,13 +7,13 @@ Let’s breakdown what we’ll need to modify in our existing model:
 1. **At risk.** Right now a person is infected or not infected, but we want to delineate between the mild and severe cases. 
 2. **ICU Capacity.** A hospital, so long as it has room in its intensive care unit, should treat severe cases. Instead of going home, the person will move to the hospital and stay there until they’re recovered.
 
-On your Hospital initialization \(in initialJson.js\), add a value for icu\_beds. This will represent the number of icu beds that a hospital has.
+On your Hospital initialization \(in `init.json`\), add a value for `icu_beds`. This will represent the number of Intensive Care Unit beds that a hospital has.
 
 ```javascript
  "icu_beds": 10,
 ```
 
-In the initialState model, expand the hospital agent and add a value for icu\_capacity.
+In `init.json` , expand the hospital agent by adding a value for `icu_capacity`.
 
 ```javascript
 {
@@ -27,13 +27,13 @@ In the initialState model, expand the hospital agent and add a value for icu\_ca
 
 ```
 
-If you reset the simulation and click on the hospital agent the inspect modal will now display the value for icu\_beds. Click the inverted pyramid to select/deselect displayed attributes.
+If you reset the simulation and click on the hospital agent the inspect modal will now display the value for `icu_beds`. Click the inverted pyramid to select/deselect displayed attributes.
 
 ![](https://lh4.googleusercontent.com/PqbkGFIaaymIjL1HVPBW6Ca1abWdk_VAS46jf5hFyUlCGu6wAcPy7v0oZtApKkSP_ewJjWj3yg4YDJ0bQCGQGFuSMJ7T_Cd_RLu8Px8gbFoVmhhsLClTrSe_GlDHIFFx-Ps8tVME)
 
-Open the check\_infected file. A person agent is sending a request to the hospital to test them; now they should also send personal information to the hospital. In particular we want to know how likely it is they're at\_risk of. It’s a little bit of a handwave that they are directly sending their at\_risk level - you can imagine they’re sending a blood/spit sample and don’t know what it contains, or providing demographic info like their age or pre-existing conditions.
+Open the `check_infected` file. A person agent is sending a request to the hospital to test them; now they should also send personal information to the hospital. In particular we want to know how likely it is they're `at_risk` of complications from the disease. It’s a little bit of a hand-wave that they are directly sending their `at_risk` level - you can imagine they’re sending a blood/spit sample and don’t know what it contains, or providing demographic info like their age or pre-existing conditions. In a more complicated model we'd likely determine their `at_risk` degree from a variety of different measures.
 
-Include a key, value in the message data packet for at\_risk .
+In this case, let's include a key-value pair in the message data packet for `at_risk` .
 
 ```javascript
 // check_infected.js
@@ -50,7 +50,7 @@ function check_hospital(state){
  }
 ```
 
-Open the test\_for\_virus file and, in our message parsing loop, add control-flow logic to differentiate the risky cases from the non-risky cases.
+Open the `test_for_virus` file and, in our message parsing loop, add control-flow logic to differentiate the risky cases from the non-risky cases.
 
 ```javascript
  test_messages.forEach((m) => {
@@ -110,7 +110,7 @@ Let’s return to our person agent. They’ve just received a message from the h
 
 With this change if a person finds out they have a severe case, their destination is set as the hospital. 
 
-We'll need to make a change to the daily\_movement file as well, to prevent the agent from moving away once they've arrived at the icu until they're better.
+We'll need to make a change to the `daily_movement` file as well, to prevent the agent from moving away once they've arrived at the icu until they're better.
 
 ```javascript
     //daily_movement.js line39
@@ -119,14 +119,14 @@ We'll need to make a change to the daily\_movement file as well, to prevent the 
     }
 ```
 
-When they recover, the polite thing to do is let the hospital know they’re leaving and that there’s a free ICU bed available. And actually leave the be too!
+When they recover, we want agents to signal to the hospital that they’re leaving and that there’s a free ICU bed available. And then, of course, we want agents to actually leave!
 
-We need to add: 
+We need to add:
 
 * A message sender that, when a person is recovered, sends a message to the hospital that they’re better.
-* A message handler that increments the hospital's icu\_capacity by 1 when it receives the “recovered” message.
+* A message handler that increments the hospital's `icu_capacity` by 1 when it receives the “recovered” message.
 
-Infection.js handles the logic for infection state.
+`infection.js` handles the logic for infection state.
 
 ```text
    if (state.infection_duration === 0) {
@@ -164,7 +164,7 @@ A key paradigm for HASH is message passing. HASH is based on the [actor model](h
   
 ```
 
-And finally lets handle the message logic on the Hospitals side.
+Finally, let's handle the message logic on the Hospitals side:
 
 ```javascript
  const recovered_messages = context.messages.filter(m=> m.type == "recovered");
@@ -175,7 +175,9 @@ And finally lets handle the message logic on the Hospitals side.
 
 ```
 
-Congratulations you've added a hospital and  behaviors to your simulation. Hopefully you can see how adding agents and behaviors can quickly create models that mirror the real world.
+Congratulations! You've added a hospital and some basic behaviors to your simulation. You should now be starting to see how adding agents and behaviors can quickly create models that mirror the real world.
 
-\[Coming Soon: Creating Plots\]
+{% hint style="info" %}
+**Coming soon:** creating plots in this epidemic model. In the meantime, learn more about HASH's [analysis tools](https://docs.hash.ai/core/analysis) in general terms.
+{% endhint %}
 

@@ -1,6 +1,6 @@
 # Create Testing Behavior
 
-To start let**'**s create a message from the Person agent that contains the basics - they’re requesting a test. In the check\_infected.js behavior file, add a [message](../agent-messages/) function:
+To start let**'**s create a message from the Person agent that contains the basics - they’re requesting a test. In the `check_infected.js` behavior file, add a [message](../agent-messages/) function:
 
 ```javascript
 function check_hospital(state){
@@ -15,16 +15,16 @@ function check_hospital(state){
  }
 ```
 
-When our person agent runs the check\_hospital behavior, it will now send a message to the agent named  Hospital, with metadata of type test and a data packet that contains the boolean variable test\_sick.
+When our person agent runs the `check_hospital` behavior, it will now send a message to the agent named  Hospital, with metadata of type test and a data packet that contains the boolean variable `test_sick`.
 
-But we don't want our Person agent to be spamming the Hospital with requests to be tested - we only want to send it when the Person suspects that they are sick. We can add a property called time\_to\_symptoms. That’s how long it takes for a person to start showing symptoms.
+But we don't want our Person agent to be spamming the Hospital with requests to be tested - we only want to send it when the Person suspects that they are sick. We can add a property called `time_to_symptoms`. That’s how long it takes for a person to start showing symptoms.
 
 ```javascript
  // properties.json
  "time_to_symptoms" : 5,
 ```
 
-You'll need to add it to the top of the check\_infected behavior file, and add logic so it only sends a message after "symptoms" have developed.
+You'll need to add it to the top of the `check_infected` behavior file, and add logic so it only sends a message after "symptoms" have developed.
 
 ```javascript
 (state, context) => {
@@ -52,7 +52,7 @@ if (state.infected && state.infection_length >= time_to_symptoms) {
 
 Now after a certain period of time the person agent will get suspicious they’re sick, and send a message to the hospital.
 
-On the receiving end we need to add a message handler for the hospital. Create a new behavior file called test\_for\_virus.js:
+On the receiving end we need to add a message handler for the hospital. Create a new behavior file called `test_for_virus.js`:
 
 ```javascript
 //test_for_virus.js
@@ -72,7 +72,7 @@ And add a message handler. Every timestep an agent receives in its "mailbox" all
 While right now it’s not necessary to filter by type == test, it’s good practice when, in the future, we send a wider variety of messages to the Hospital.
 {% endhint %}
 
-Make sure to attach it to the Hospital - you can add a behavior to an agent by pushing it in the behaviors array. Since we know we'll always want the behavior associated with the hospital, add it in your initialState.json
+Make sure to attach it to the Hospital - you can add a behavior to an agent by pushing it in the behaviors array. Since we know we'll always want the behavior associated with the hospital, add it in your `init.json` initial state file.
 
 
 
@@ -105,7 +105,7 @@ Let's check all of the messages and respond to each person, letting them know th
 
 ```
 
-Back in  check\_infection.js file, we similarly want to check for any messages about our tests.
+Back in `check_infection.js` , we similarly want to check for any messages about our tests.
 
 ```javascript
  let msgs = context.messages.filter((msg) => msg.type == "test_result");
@@ -118,7 +118,7 @@ Back in  check\_infection.js file, we similarly want to check for any messages a
 
 Now that our agent knows it’s sick, what should we do? When you’re sick, you should stay home and rest. So should our Person agents. 
 
-The daily\_movement.js file contains our agent's  movement logic. Importantly, we can have a Person go to a new destination by setting, `state.destination = state["new_destination"]`  so long as the new\_destination is one that it has a "location for". Select the create\_people.js file. At line 16 you can see we assign each Person agent a grocery or office as their go-to grocery or office, and we store the position as a property on the Person. 
+The `daily_movement.js` file contains our agent's  movement logic. Importantly, we can have a Person go to a new destination by setting, `state.destination = state["new_destination"]`  so long as the `new_destination` is one that it has a "location for". Select the `create_people.js` file. At line 16 you can see we assign each Person agent a grocery or office as their go-to grocery or office, and we store the position as a property on the Person. 
 
 ```javascript
 //create_people.js
@@ -195,8 +195,9 @@ if (state.infected && state.infection_length == time_to_symptoms) {
  }
 ```
 
-Run the simulation - our people are now being socially conscious and going back home when they’re sick. Hooray for well-being!
+Run the simulation - our people are now being socially conscious and going back home when they’re sick. Hooray for well-being! 
 
-\[Extension\] Account for false negatives. Just like in real life tests have a chance of being wrong, add a chance the hospital sends back a false negative response and change the response behavior  
-
+{% hint style="success" %}
+**Extension:** try accounting for false negatives. Just like in real life tests are sometimes less than 100% accurate. Introduce the possibility that the hospital sends back a false negative and change the response behavior.
+{% endhint %}
 

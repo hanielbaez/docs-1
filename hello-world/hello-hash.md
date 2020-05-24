@@ -50,36 +50,36 @@ When you've finished adding positions to your agents, click **Reset Simulation**
 
 ### Saying Hello
 
-The agents are polite and would like to say hello to one another. We can give the agents "greeting" [behaviors](https://docs.hash.ai/core/behaviors). In initialState.json add file names into each of the behavior arrays.
+Alice and Bob aren't very interesting right now. Let's teach them some manners. We can give the agents [behaviors](https://docs.hash.ai/core/behaviors) that enable them to act more interestingly, and respond to each other as well as their environment. In **init.json** let's add some file names into each of the behavior arrays.
 
 ```javascript
 [
   { 
-    "agent_name": "Bob", 
-    "behaviors": ["hello_bob.js"],
+    "agent_name": "Alice", 
+    "behaviors": ["hello_alice.js"],
     "position": [0,0] 
   }, 
   { 
-    "agent_name": "Alice", 
-    "behaviors": ["hello_alice.js"],
+    "agent_name": "Bob", 
+    "behaviors": ["hello_bob.js"],
     "position": [2,0] 
   }
 ] 
 ```
 
-Then create the files by clicking the new file button in the left hand sidebar.
+We can then create corresponding behavior files by clicking the **New File** button in the left hand files sidebar.
 
 ![](../.gitbook/assets/screen-shot-2020-04-16-at-7.51.31-am.png)
 
-In hello\_bob.js, we want to send a message **from** Bob **to** Alice. 
+In **hello\_bob.js**, we want to send a message **from** Bob **to** Alice. 
 
-HASH has built in support for message passing. Push a message object to an agents message array, and it will deliver the message to the target agent in the next timestep. We need to add three things to our message.
+HASH has built in support for message passing. Push a message object to an agent's message array, and it will deliver the message to the target agent in the next timestep. We need to add three things to our message.
 
-* to: agent\_id or agent\_name
-* type: a string that identifies the type of message that is being sent
-* data: A JSON object containing the message data
+* `to`: the `agent_id` or an `agent_name`
+* `type`: a string that identifies the type of message that is being sent
+* `data`: a JSON object containing the message data
 
-Since we're only sending a message to one agent, Alice, we can use the agent\_name in the to field, and let's call the type of message a "greeting". And in our data packet, we can write a nice greeting.
+Since we're only sending a message to one agent, Alice, we can use her `agent_name` in the `to` field. Let's call this type of message a "greeting", and add a friendly greeting in the data payload.
 
 ```javascript
 (state, context) => {
@@ -94,11 +94,11 @@ state.messages.push({
 }
 ```
 
-Run the simulation. You won't see anything in the 3d viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice._The Bob agent is sending the same message every timestep._ 
+Now let's click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _Bob is sending this same message every timestep._ 
 
-In our hello\_alice.js function, we want to receive the messages and do something when we get it.
+In our **hello\_alice.js** function, we want to ensure Alice knows how to handle messages she receives. When an agent receives a message addressed to them, it's stored in their "context", under `context.messages`. Agents can iterate through their messages array and act on specific messages.
 
-When an agent receives a message addressed to them, it's stored in their "context", under context.messages. The agent can iterate through the messages array and act on specific messages. Let's find all of the messages that are greetings.
+Let's find all of the messages that are greetings:
 
 ```javascript
 const greetings = context.messages.filter(msg => msg.type == "greeting");
@@ -107,7 +107,7 @@ if (greetings.length > 0) {
 }
 ```
 
-Adding visual indicators of state changes is an easy way to communicate what's happening in your simulation. Change Alice's color when they receive a greeting. 
+Adding visual indicators of state changes is an easy way to communicate what's happening in your simulation. We're going to change Alice's color when receiving a greeting:
 
 ```javascript
 (state, context) => {
@@ -119,9 +119,9 @@ Adding visual indicators of state changes is an easy way to communicate what's h
 }
 ```
 
-Now reset your simulation and run it. On the second timestep the Alice agent will change color to blue. Neat! 
+Now **reset** your simulation and **run** it. On the second timestep you should notice that Alice's agent changes color to blue. Neat!
 
-To respond to Bob, we can send a message back addressed to the first message sender, with an appropriate response.
+To respond to Bob's greeting, we can send a message back addressed to the first message sender, with an appropriate response.
 
 ```javascript
 (state, context) => {
@@ -133,7 +133,7 @@ To respond to Bob, we can send a message back addressed to the first message sen
         to: m.from,
         type: "greeting",
         data: {
-          msg: "Go away, Bob! I’m social-distancing"
+          msg: "Go away, I’m social-distancing!"
         }
       })
   })
@@ -142,9 +142,9 @@ To respond to Bob, we can send a message back addressed to the first message sen
 }
 ```
 
-We're iterating through the filtered messages and pushing to Alice's message array a new message, addressed to whichever agent sent the message, greeting them back.
+Here we're iterating through filtered messages and pushing a new message to Alice's message array, addressed to whichever agent sent the message, 'greeting' them back.
 
-Back in hello\_bob.js, we can add a similar message handler for Bob. 
+Over in **hello\_bob.js**, we can add a similar message handler for Bob, too. 
 
 ```javascript
 (state, context) => {
@@ -163,9 +163,9 @@ Back in hello\_bob.js, we can add a similar message handler for Bob.
 }
 ```
 
-Reset and run the simulation. Alice and Bob turn blue and red, respectively, after they receive the others greeting.
+**Reset** and **run** your simulation once again. Alice and Bob turn blue and red, respectively, after they receive the others greeting.
 
-It's a little boring to just have them stay red and blue though. We can make it more interesting by having them flip colors whenever they receive a new message.
+It's a little boring to just have them stay red and blue throughout the rest of the simulation. We can help visualize that more is going on in the simulation by having both agents flip colors whenever they receive a new message.
 
 ```javascript
     state.color = state.color == "blue" ? "green" : "blue"
@@ -177,24 +177,24 @@ It's a little boring to just have them stay red and blue though. We can make it 
 
 ![Hello HASH!](../.gitbook/assets/blocks_flipping.gif)
 
-Finally, since Alice clearly would like some socially responsible distance from Bob, we can add movement to the agents. Using the builtin "random\_movement" behavior, each agent will move about the landspace at random.
+Finally, since Alice clearly would like some socially-responsible distance from Bob, we can add movement to the agents. Using the builtin "random\_movement" behavior, each agent will move about the environment at random.
 
 ```javascript
 [ 
   { 
-    "agent_name": "Bob",
+    "agent_name": "Alice",
     "behaviors": ["hello_bob.js", "random_movement"], 
-    "position": [1,1] 
+    "position": [0,0] 
   },
   { 
-    "agent_name": "Alice", 
+    "agent_name": "Bob", 
     "behaviors": ["hello_alice.js", "random_movement"], 
-    "position": [0,0] 
+    "position": [2,0] 
   }
 ] 
 ```
 
-To prevent them from expanding the bounds of the map, select properties.json and add x and y bounds.
+To prevent our agents from straying too far, we can set [bounds](https://docs.hash.ai/core/configuration/topology/bounds-and-wrapping) on their environment in the `globals.json` file as follows:
 
 ```javascript
 {
