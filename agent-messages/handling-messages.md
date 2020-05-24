@@ -1,8 +1,8 @@
 # Handling Messages
 
-So far, we've talked about sending messages. What happens when an agent receives a message?
+**What happens when an agent receives a message?**
 
-As we've mentioned previously, the Context passed to every agent provides a list of messages in the agent's inbox in the `messages` field. Here, we can iterate through the list of messages sent to the agent and make some decisions.
+Context passed to every agent provides a list of messages in the agent's inbox in the `messages` field. Here, we can iterate through the list of messages sent to the agent and make some decisions.
 
 ```javascript
 Context {
@@ -25,10 +25,15 @@ Context {
 }
 ```
 
-It's best to think of the `messages` field like a mailbox. When sending a message, we put the message in the outbox  under the `messages` field on state. When receving a message, it will show up in our inbox, under the `messages` field on context. Notice the distinction between the two. Context is immutable and any accidental changes made to it will not be propogated.
+It's best to think of the `messages` field like a mailbox.
+
+* When **sending** a message, we put the message in the outbox  under the `messages` field on state.
+* When **receiving** a message, it will show up in our inbox, under the `messages` field on context.
+
+Notice the distinction. Context is immutable and any accidental changes made to it will not propagate.
 
 {% hint style="info" %}
-Send messages with `state`, and receive messages with `context`.
+Send messages with `state`, and receive them with `context`.
 {% endhint %}
 
 Handling the messages here would be pretty simple - just iterating through the messages array in Context.

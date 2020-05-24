@@ -4,7 +4,7 @@ description: Where simulated life begins
 
 # Initial State
 
-HASH simulations start life in the `initialState` file in your editor. In here we generate the initial conditions, or _starting state_ of the simulated world. There are two ways to populate this. You can:
+HASH simulations start life in the `init.json` file in your editor. In this file we generate the starting conditions, or _initial state_ of the simulated world. There are two ways to populate this. You can:
 
 1. Explicitly define the agents that will be in your model; or
 2. You can define "creator" agents with behaviors that will generate more complex initial states. You can do this with published behaviors, or create your own.
@@ -29,9 +29,9 @@ You can see that we've added a few behaviors to our "creator" agent, and templat
 
 ![](../.gitbook/assets/image%20%2811%29.png)
 
-Then `Create Scatters` distributes the "rabbits" across the topology. Each one is placed in a random location.
+Next, `Create Scatters` distributes the "rabbits" across the environment. Each one is placed in a random location within the bounds specified in the `topology`.
 
-Now we want to make a few adjustments to the agents we've generated which require a bit more logic. Luckily we can make use of the composable nature of HASH behaviors. `Create Grids` and `Create Scatters` has created  an "agents" object in our creator and filled it. We can access those agents by using the "template\_name" as a key: 
+Now we want to make a few adjustments to the agents we've generated which requires a bit more logic. Luckily for us, HASH behaviors are composable. `Create Grids` and `Create Scatters` have created  "agent" objects in our creator and filled them. We can access those agents by using the "template\_name" as a key: 
 
 ![](../.gitbook/assets/image%20%286%29.png)
 

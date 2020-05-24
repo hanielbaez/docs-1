@@ -1,10 +1,16 @@
 # Datasets
 
-HASH allows you to incorporate your own data into simulations, or download datasets from HASH Index. Data can be used in HASH to instantiate agents within a simulation, or to augment and enhance the properties of any number of agents.
+**Data can be used in HASH to instantiate agents within a simulation, or to augment and enhance the properties of any number of agents.**
+
+HASH allows you to incorporate your own data into simulations, or download datasets from [HASH Index](https://hash.ai/index).
 
 ### Importing your own data in HASH
 
-To import your own datasets into HASH, first navigate to your [HASH Drive](https://hash.ai/drive) and use the 'Add New' button to initiate a data upload or sync.
+To import your own datasets into HASH, first navigate to your [HASH Drive](https://hash.ai/drive) and use the 'Add New' button to initiate a data upload.
+
+{% hint style="info" %}
+**Coming soon:** data syncing from remote sources is currently only achievable through [Engine](https://hash.ai/engine), but remains on our roadmap for Core.
+{% endhint %}
 
 ### Integrating data into a simulation
 
@@ -16,7 +22,7 @@ HASH parses imported datasets and generates a new field for you in your simulati
 * If a dataset is a CSV file, we parse it into an array of JSON objects with values keyed under the headers in the first row.
 
 {% hint style="info" %}
-**Coming up...** we will be streamlining this process shortly, providing more optionality around parsing treatment, and expanding support for the types of datasets ingestable by HASH.
+**Coming soon:** we will be streamlining this process shortly, providing more optionality around parsing treatment, and expanding support for the types of datasets ingestible by HASH.
 {% endhint %}
 
 **Current example**

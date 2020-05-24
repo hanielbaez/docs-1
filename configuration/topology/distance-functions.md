@@ -4,7 +4,7 @@ description: How far away is one agent from another?
 
 # Distance Functions
 
-When finding the neighbors of agents in a simulation, HASH Core depends on a few important flags to produce accurate results. One such flag is the underlying distance calculations between agents in the simulation. These flags are accessible via topology configuration in properties. The topology field of your properties will look something like:
+When finding the neighbors of agents in a simulation, HASH depends on a few important flags to produce accurate results. One such flag is the underlying distance calculations between agents in the simulation. These flags are accessible via topology configuration in properties. The topology field of your `globals.json` file will look something like:
 
 ```javascript
 [{
@@ -33,5 +33,5 @@ When finding the neighbors of agents in a simulation, HASH Core depends on a few
 The default distance function is conway - make sure to change it depending on your use case! 
 {% endhint %}
 
-Currently, HASH Core doesn't support multiple distance functions in a single simulation.
+Currently, HASH doesn't support multiple distance functions in a single simulation.
 

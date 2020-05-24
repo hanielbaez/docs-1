@@ -1,6 +1,6 @@
 # Topology
 
-Another important keyword recognized by HASH Core is `topology`. The topology keyword sits at the top level of the properties object and drives a handful of important hardware-accelerated calculations used by behaviors in our simulation. A topology configuration might look like this:
+Another important keyword recognized by HASH Core is `topology`. The topology keyword sits at the top level of the `globals.json` file object and drives a handful of important hardware-accelerated calculations used by behaviors in our simulation. A topology configuration might look like this:
 
 ```javascript
 {
@@ -36,7 +36,7 @@ It's best to let HASH do the heavy lifting for you, especially for computational
 
 **Search Radius**
 
-Internally, HASH Core maintains a list of neighbors for each agent and updates the list with each time step. As agents move, their list of neighbors automatically updates - agents further away than a given search radius are removed and agents within the search radius are added. In the properties tab, this can be defined via a "search\_radius" keyword:
+Internally, HASH's Engine maintains a list of neighbors for each agent and updates the list with each time step. As agents move, their list of neighbors automatically updates - agents further away than a given search radius are removed and agents within the search radius are added. In the properties tab, this can be defined via a "search\_radius" keyword:
 
 ```javascript
 {
@@ -73,12 +73,12 @@ properties => {
 
 **Distance Functions**
 
-In addition to setting the search radius, it is also possible to set the distance function that HASH Core uses to compute the distance between agents. This can only be set in the properties tab from a handful of prebuilt distance functions.
+In addition to setting the search radius, it is also possible to set the distance function that the engine uses to compute the distance between agents. This can only be set in the `globals.json` file. The following pre-built distance functions are supported:
 
 * `manhattan` or `taxicab`: L1 norm distance function that return the grid distance between two points
 * `euclidean`: L2 norm distance function that returns the direct distance between two points 
 * `euclidean_squared`: Similar to euclidean but distances are left squared for performance reasons. 
-* `chebyshev` or `conway`: L-infinity norm distance function that return the longest distance in x, y, and z
+* `chebyshev` or `conway`: L-infinity norm distance function that return the longest distance in **x**, **y**, and **z**
 
 ```javascript
 {

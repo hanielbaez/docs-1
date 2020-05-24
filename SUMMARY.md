@@ -16,7 +16,7 @@
 * [Analysis](analysis.md)
 * [Views](views.md)
 * [Configuration](configuration/README.md)
-  * [Basic Properties](configuration/basic-properties.md)
+  * [Globals](configuration/basic-properties.md)
   * [Topology](configuration/topology/README.md)
     * [Bounds and Wrapping](configuration/topology/bounds-and-wrapping.md)
     * [Wrapping Presets and Flags](configuration/topology/wrapping-presets-and-flags.md)

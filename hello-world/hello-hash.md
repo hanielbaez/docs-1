@@ -8,43 +8,45 @@ description: 'Get started creating agents in our Hello, HASH tutorial!'
 
 We're going to create a basic agent based model where two agents will exchange pleasantries. 
 
-To start create a new, empty simulation. _File &gt; New Simulation._
+To start, create a new simulation file from scratch by using the _File_ menu and clicking _New Simulation._
 
-Select initialState.json in the lefthand side panel. You'll see an empty pair of square brackets.
+In your new simulation workspace, open the **init.json** file ****shown in the lefthand side panel. You'll see an empty pair of square brackets.
 
- initialState.json defines the starting state of a simulation as a collection of objects in a JSON array. Add two agents into the array, and give them names. You're welcome to call them whatever you want, but I like the standard convention of Alice and Bob.
+The **init.json** file defines the 'initial state' or starting point of a simulation as a collection of objects in a JSON array.
+
+We'll begin by adding two agents into the array, and give them names.
 
 ```javascript
 [ 
   { 
-    "agent_name": "Bob" 
+    "agent_name": "Alice" 
   },
   { 
-    "agent_name": "Alice"
+    "agent_name": "Bob"
   } 
 ] 
 ```
 
-_"agent\_name" is a_ [_reserved keyword on agents_](https://docs.hash.ai/core/anatomy-of-an-agent) _that lets us reference a specific agent by a string._
+_`"agent_name"` is a_ [_reserved keyword on agents_](https://docs.hash.ai/core/anatomy-of-an-agent) _that lets us reference a specific agent by a string._
 
-Click the Start Simulating button, and then select the raw output tab in the viewer. You've created two agents named Bob and Alice. 
+Click the **Start Simulating** button beneath the workspace's right-hand view-pane, and then select the raw output tab in the viewer. Congratulations! You've given life to Alice and Bob. 
 
-However, if you click the 3d viewer tab, you'll notice... nothing. The agents aren't rendered because they don't have a position. Let's add a position to each agent.
+However, if you toggle back from the raw output view to the 3D viewer, you may notice... nothing at all. Alice and Bob haven't been rendered, because they haven't been given a position in space. Let's go ahead and fix that.
 
 ```javascript
 [ 
   { 
-    "agent_name": "Bob", 
-    "position": [1,1] 
-  },
-  { 
     "agent_name": "Alice", 
     "position": [0,0] 
+  },
+  { 
+    "agent_name": "Bob", 
+    "position": [2,0] 
   }
 ] 
 ```
 
-Click reset simulation. Now we've got two green block representing our two agents.
+When you've finished adding positions to your agents, click **Reset Simulation**. You should now see two blobs in the 3D viewer representing our agents.
 
 ### Saying Hello
 
@@ -55,12 +57,12 @@ The agents are polite and would like to say hello to one another. We can give th
   { 
     "agent_name": "Bob", 
     "behaviors": ["hello_bob.js"],
-    "position": [1,1] 
+    "position": [0,0] 
   }, 
   { 
     "agent_name": "Alice", 
     "behaviors": ["hello_alice.js"],
-    "position": [0,0] 
+    "position": [2,0] 
   }
 ] 
 ```

@@ -4,7 +4,7 @@ description: Granular control of how the world is presented to HASH Core
 
 # Wrapping Presets and Flags
 
-In [Bounds and Wrapping](bounds-and-wrapping.md) we showed how you could set wrapping presets to determine how the topology of the simulation works. Here, we'll show some flags to get even more granular control of HASH Core's topology engine.
+In [Bounds and Wrapping](bounds-and-wrapping.md) we showed how you could set wrapping presets to determine how the topology of the simulation works. Here, we'll show some flags to get even more granular control of HASH's topology engine.
 
 Each pair of borders share a specific wrapping behavior. This could be any one of:
 
@@ -13,7 +13,7 @@ Each pair of borders share a specific wrapping behavior. This could be any one o
 * `offset_reflection`: Agents are reflected and shifted halfway along the border 
 * `none`: agents fly off to infinity
 
-These can easily set in the properties by the way of:
+These can easily set in the `globals.json` file by the way of:
 
 ```javascript
 {

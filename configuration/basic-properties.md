@@ -1,18 +1,16 @@
----
-description: Become a Pro with the Properties tab
----
+# Globals
 
-# Basic Properties
+Global variables are defined in the `globals.json` file present within every simulation. These variables are immutable while the simulation is running and are accessible to all agents simultaneously.
 
-The properties tab is the place to define global characteristics for our simulation. The simulation properties are immutable while the simulation is running and are accessible to all agents simultaneously. Accessing the properties of the simulation is as simple as using the keyword `properties` in our agent behavior. To change properties while the simulation is running, make sure to pause the simulation, make the appropriate changes, and resume.
+Accessing the properties of the simulation is as simple as using the keyword `properties` in our agent behavior.
 
-If, for example, we wanted to cap the height of all trees in a forest simulation, simply check the properties object for our globally-defined `"maxTreeHeight"` attribute.
+To change properties while the simulation is running, make sure to pause the simulation, make the appropriate changes, and resume.
 
-The properties tab would look something like:
+If, for example, we wanted to cap the height of all trees in a [forest simulation](https://hash.ai/index/5e065650196c3fbd41d8bd43/forest), we might introduce the global variable `"maxTreeHeight"`. The `globals.json` file would contain something like:
 
 ```javascript
 {
-    "maxTreeHeight":50,
+    "maxTreeHeight": 50,
     ...
 }
 ```

@@ -18,7 +18,7 @@ The dataset will be referenced in a simulation as:
 
 ## Publishing as an organization
 
-If you're part of an organization, you can publish the dataset on behalf of that organization. To create a new organization go to [HASH.ai &gt; account &gt; orgs](https://hash.ai/account/orgs). From there you can view the organizations you're a member of and create new ones. When you publish a dataset in a simulation it will be referenced as:
+If you're part of an organization, you can publish the dataset on behalf of that organization. To create a new organization go to [HASH.ai &gt; Account &gt; Orgs](https://hash.ai/account/orgs). From there you can view the organizations you're a member of and create new ones. When you publish a dataset in a simulation it will be referenced as:
 
 ```text
 "@[org-handle]/[short-name]/[dataset].[csv/json]"

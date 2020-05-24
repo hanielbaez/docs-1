@@ -13,7 +13,7 @@ Currently, the most powerful built-in message handlers allow agents to add or re
 Any agent can remove any other agent with a special message sent directly to `hash`. Here, we remove an agent with the agent\_id of `Bill`. Before the next step starts executing, the message will be processed and `Bill` will be removed \(sorry Bill!\). 
 
 {% hint style="warning" %}
-Do note that **case sensitivity** **matters**. If a message is sent to `bill`, it will not get sent to `Bill`.
+**Case sensitivity** **matters.** If a message is sent to `bill`, it will not be received by `Bill`. The only exception to this rule is that any message sent to hASh, Hash, HASH, haSh, or any similar variant will be forwarded to the master `hash` agent.
 {% endhint %}
 
 {% tabs %}
@@ -50,9 +50,7 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
-However, our goal is to prevent you from shooting yourself in the foot, so any message sent to hASh, Hash, HASH, haSh, etc. will all get forwarded straight to `hash`. This is the only exception to the rule!
-
-If a "remove\_agent" message gets sent without a specified agent\_id, then the agent\_id defaults to that of the sender. Of course, we suggest including setting the field as  `state.agent_id`  for readability but it can be used as shorthand.
+If a "remove\_agent" message is sent without a specified agent\_id, then the agent\_id defaults to that of the sender. We suggest setting the field as  `state.agent_id`  for readability but it can be used as shorthand.
 
 ### Creating Agents via Messages
 
