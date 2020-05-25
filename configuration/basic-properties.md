@@ -27,20 +27,3 @@ The associated tree growth behavior would follow:
 }
 ```
 
-Interestingly, the properties tab is actually interpreted as JavaScript which allows the use functional programming, variables, and constant definitions. For instance, if we wanted the simulation to start out with even numbers of tree and fire agents, we could drive our parameters with a variable and a function. An advanced use case of using JavaScript functionality to drive simulation parameters would be sweeping set of parameters or loading data in from an external source.
-
-```javascript
-function numAgents(){
-    return 20
-}
-
-const numTrees = numAgents();
-const numCows = numAgents();
-
-{
-    "initialTrees": numTrees,
-    "initialCows": numCows,
-    ...
-}
-```
-
