@@ -1,8 +1,12 @@
 # Composable behaviors
 
-**All user-authored behaviors, regardless of language, are** _**composable**_**.** This means they can be combined in any fashion with any number of others behaviors. Python and JavaScript behaviors can co-mingle and a single agent can be driven by behaviors programmed in multiple languages by a wide range of people.
+**All user-authored behaviors, regardless of language, are** _**composable**_**.** This means they can be combined in any fashion with any number of others behaviors.
 
-**All user-authored behaviors can be shared on HASH Index.** Behaviors published in this way can be mapped to schemas for easy-discovery during the agent creation process, and downloaded by anybody with a HASH account. You can publish by right-clicking on a behavior you've created in the **Simulation Files** sidebar and selecting Publish Behavior to Index. 
+Python and JavaScript behaviors can co-mingle and a single agent can be driven by behaviors programmed in multiple languages by a wide range of people.
+
+**All user-authored behaviors can be shared on HASH Index.** Behaviors published in this way can be mapped to schemas for easy-discovery during the agent creation process, and downloaded by anybody with a HASH account.
+
+You can publish by right-clicking on a behavior you've created in the **Simulation Files** sidebar and selecting Publish Behavior to Index. 
 
 ![Publishing a behavior to Index](../.gitbook/assets/image.png)
 
