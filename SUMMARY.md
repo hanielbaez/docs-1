@@ -4,6 +4,8 @@
 * [Agent-Based Modeling Basics](agent-based-modeling-basics-1.md)
 * [Agents](anatomy-of-an-agent/README.md)
   * [Initial State](anatomy-of-an-agent/initial-state.md)
+  * [State](anatomy-of-an-agent/state.md)
+  * [Context](anatomy-of-an-agent/context.md)
   * [Anatomy](anatomy-of-an-agent/anatomy.md)
 * [Behaviors](behaviors/README.md)
   * [Composable behaviors](behaviors/composable-behaviors.md)
