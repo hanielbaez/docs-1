@@ -2,9 +2,9 @@
 description: Where simulated life begins
 ---
 
-# Initial State
+# Initial Agents
 
-HASH simulations start life in the `init.json` file in your editor. In this file we generate the starting conditions, or _initial state_ of the simulated world. There are two ways to populate this. You can:
+HASH simulations start life in the `init.json` file in your editor. In this file we generate the starting state, or _initial conditions_ of the simulated world. There are two ways to populate this. You can:
 
 1. Explicitly define the agents that will be in your model; or
 2. You can define "creator" agents with behaviors that will generate more complex initial states. You can do this with published behaviors, or create your own.
@@ -52,7 +52,7 @@ state.messages.push({
 
 ```
 
-If you'd like to explore another simple example that uses these published behaviors, take a look at the [Forest Fires model](https://core.hash.ai/simulation/5e7a36d4d945ef56af54bd3a), or the [Rock,  Paper, Scissors model](https://core.hash.ai/simulation/5e7a44d2d945ef3e5d54bd55).
+If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://core.hash.ai/simulation/5e7a36d4d945ef56af54bd3a) or [Rock,  Paper, Scissors](https://core.hash.ai/simulation/5e7a44d2d945ef3e5d54bd55) simulations.
 
 {% hint style="info" %}
 If you ever feel like you might be "re-inventing the wheel," make sure to check out [HASH Index](https://hash.ai/index/search?contentType=Behavior&sort=relevance&query=create&page=1) in case someone else has shared a similar behavior.

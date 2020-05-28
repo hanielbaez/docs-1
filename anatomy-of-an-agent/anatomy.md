@@ -6,7 +6,7 @@ While an agent can store arbitrary data in its own state, some state values have
 { 
   agent_id: string // auto-created identifier. Agents receive messages to their ID.
   agent_name: string // optional identifier. Agent's receive messages to their name. 
-  behaviors: [] // Names of the hash library behaviors that the agent apply to advance their state every simulation step N to N+1. 
+  behaviors: [] // Filenames of the behaviors that the agent apply to advance their state every simulation step N to N+1. 
   messages: [] // Outbound messages from agent 
   position: [x, y, z]// display's agents in the viewer and used to calculate neighbors 
 }
