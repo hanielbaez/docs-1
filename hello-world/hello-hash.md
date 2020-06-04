@@ -82,26 +82,26 @@ HASH has built in support for message passing. Push a message object to an agent
 Since we're only sending a message to one agent, Alice, we can use her `agent_name` in the `to` field. Let's call this type of message a "greeting", and add a friendly greeting in the data payload.
 
 ```javascript
-(state, context) => {
-state.messages.push({
-    to: "Alice",
-    type: "greeting",
-    data: {
-      msg: "Hello, Alice."
-    }
-  })
+function behavior(state, context) {
+  state.addMessage({
+      to: "Alice",
+      type: "greeting",
+      data: {
+        msg: "Hello, Alice."
+      }
+    })
   return state;
 }
 ```
 
-Now let's click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _Bob is sending this same message every timestep._ 
+Now lets click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _Bob is sending this same message every timestep._ 
 
 In our **hello\_alice.js** function, we want to ensure Alice knows how to handle messages she receives. When an agent receives a message addressed to them, it's stored in their "context", under `context.messages`. Agents can iterate through their messages array and act on specific messages.
 
 Let's find all of the messages that are greetings:
 
 ```javascript
-const greetings = context.messages.filter(msg => msg.type == "greeting");
+const greetings = context.messages().filter(msg => msg.type == "greeting");
 if (greetings.length > 0) {
     //do something
 }
@@ -110,10 +110,10 @@ if (greetings.length > 0) {
 Adding visual indicators of state changes is an easy way to communicate what's happening in your simulation. We're going to change Alice's color when receiving a greeting:
 
 ```javascript
-(state, context) => {
-  const greetings = context.messages.filter(msg => msg.type == "greeting");
+function behavior(state, context) {
+  const greetings = context.messages().filter(msg => msg.type == "greeting");
   if (greetings.length > 0) {
-    state.color = "blue";
+    state.set("color", "blue");
   }
   return state;
 }
@@ -124,19 +124,19 @@ Now **reset** your simulation and **run** it. On the second timestep you should 
 To respond to Bob's greeting, we can send a message back addressed to the first message sender, with an appropriate response.
 
 ```javascript
-(state, context) => {
-  const greetings = context.messages.filter(msg => msg.type == "greeting");
+function behavior(state, context) {
+  const greetings = context.messages().filter(msg => msg.type == "greeting");
   if (greetings.length > 0) {
-    state.color = "blue";
+    state.set("color", "blue");
     greetings.forEach(m => {
-    state.messages.push({
+    state.addMessage({
         to: m.from,
         type: "greeting",
         data: {
           msg: "Go away, I’m social-distancing!"
         }
       })
-  })
+    })
   }
   return state;
 }
@@ -147,12 +147,12 @@ Here we're iterating through filtered messages and pushing a new message to Alic
 Over in **hello\_bob.js**, we can add a similar message handler for Bob, too. 
 
 ```javascript
-(state, context) => {
-  const greetings = context.messages.filter(msg => msg.type == "greeting");
-  if (greetings.length > 0){
-    state.color = "red"
+function behavior(state, context) {
+  const greetings = context.messages().filter(msg => msg.type == "greeting");
+  if (greetings.length > 0) {
+        state.set("color", "red");
   }
-  state.messages.push({
+  state.addMessage({
     to: "Alice",
     type: "greeting",
     data: {
@@ -165,30 +165,55 @@ Over in **hello\_bob.js**, we can add a similar message handler for Bob, too.
 
 **Reset** and **run** your simulation once again. Alice and Bob turn blue and red, respectively, after they receive the others greeting.
 
-It's a little boring to just have them stay red and blue throughout the rest of the simulation. We can help visualize that more is going on in the simulation by having both agents flip colors whenever they receive a new message.
+It's a little boring to just have them stay red and blue throughout the rest of the simulation. We can help visualize better what's going on in the simulation by having both agents flip colors whenever they receive a new message. The logic we want isL
 
 ```javascript
-    state.color = state.color == "blue" ? "green" : "blue"
+    color = color == "blue" ? "green" : "blue"
 ```
 
+or:
+
 ```javascript
-    state.color = state.color == "purple" ? "red" : "purple"
+    color = color == "purple" ? "red" : "purple"
+```
+
+We'll need to refactor our code slightly to implement this - instead of using state.set\("color", "blue"\) we'll first get the field value and assign it to a variable, color, and then set the field as the variables value at the end of the behavior file \(a common pattern in HASH simulations\).
+
+```javascript
+function behavior(state, context) {
+  const greetings = context.messages().filter(msg => msg.type == "greeting");
+  let color = state.get("color")
+  if (greetings.length > 0) {
+    color = color == "purple" ? "red" : "purple"
+  }
+  state.addMessage({
+    to: "Alice",
+    type: "greeting",
+    data: {
+      msg: "Hello, Alice."
+    }
+  })
+  state.set("color", color)
+  return state;
+}
 ```
 
 ![Hello HASH!](../.gitbook/assets/blocks_flipping.gif)
 
-Finally, since Alice clearly would like some socially-responsible distance from Bob, we can add movement to the agents. Using the builtin "random\_movement" behavior, each agent will move about the environment at random.
+Finally, since Alice clearly would like some socially-responsible distance from Bob, we can add movement to the agents. I'm going to use a shared behavior @hash/random\_movement.rs , to let each agent will move about the environment at random. I'll import the behavior from the HASH Index, and then add the file name to each agent.
+
+![](../.gitbook/assets/movement.gif)
 
 ```javascript
 [ 
   { 
     "agent_name": "Alice",
-    "behaviors": ["hello_bob.js", "random_movement"], 
+    "behaviors": ["hello_bob.js", "@hash/random_movement.rs"], 
     "position": [0,0] 
   },
   { 
     "agent_name": "Bob", 
-    "behaviors": ["hello_alice.js", "random_movement"], 
+    "behaviors": ["hello_alice.js", "@hash/random_movement.rs"], 
     "position": [2,0] 
   }
 ] 
