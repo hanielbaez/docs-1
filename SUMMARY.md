@@ -28,13 +28,13 @@
 
 * [Hello, HASH!](hello-world/hello-hash.md)
 
-## Extending Epidemic Model
+## Tutorials
 
-* [Build a Hospital](extending-epidemic-model/getting-started-with-hash.md)
-* [Add heterogeneity](extending-epidemic-model/add-heterogeneity.md)
-* [Create a Hospital](extending-epidemic-model/create-a-hospital.md)
-* [Create Testing Behavior](extending-epidemic-model/create-testing-behavior.md)
-* [Create an ICU](extending-epidemic-model/create-an-icu.md)
+* [Extending an Epidemic Model](tutorials/extending-an-epidemic-model/README.md)
+  * [Add heterogeneity](tutorials/extending-an-epidemic-model/add-heterogeneity.md)
+  * [Create a Hospital](tutorials/extending-an-epidemic-model/create-a-hospital.md)
+  * [Create Testing Behavior](tutorials/extending-an-epidemic-model/create-testing-behavior.md)
+  * [Create an ICU](tutorials/extending-an-epidemic-model/create-an-icu.md)
 
 ## Extra
 
