@@ -30,6 +30,19 @@ Example:
 
 This behavior takes in the current state and [context](context.md) of the agent, adds 1 to the age property stored on the state, and then returns the state. 
 
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+function behavior(state, context){
+    let age = state.get("age");
+    age += 1;
+    state.set("age", age);
+    return state;
+}
+```
+{% endtab %}
+
+{% tab title="Python" %}
 ```python
 def behavior(state, context):
     age = state.get("age")
@@ -37,6 +50,8 @@ def behavior(state, context):
     state.set("age", age)
     return state
 ```
+{% endtab %}
+{% endtabs %}
 
 or, using modify
 
