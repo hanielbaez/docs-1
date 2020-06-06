@@ -25,7 +25,7 @@ Most behaviors output a single state with the same `agent_id` as they received. 
 
 ```javascript
 (state, context) => {
-    state.position[0] += 1;
+    state.modify("position", position => position[0] += 1);
     return state;
 }
 ```

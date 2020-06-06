@@ -2,13 +2,13 @@
 
 Besides their [**state**](state.md), an agent always has access to their **context**. The context is the parts of the simulation that the agent is exposed to; another way of thinking about it is that an agent's context are the parts of the simulation  that the agent "can see".
 
-The context is an object with two functions, **neighbors\(\)** and **messages\(\)**, ****and a nested key-value object, **globals**.
+The context is an object with three functions, **neighbors\(\), messages\(\)**, and **globals\(\)**.
 
 ```javascript
 Context {
-    globals: {
-        /* an immutable JSON object of the simulation's constants,
-           as defined in globals.json */
+    globals(): {
+        /* returns an immutable JSON object of the simulation's 
+           constants, as defined in globals.json */
     },
     neighbors(): [
         /* Returns a collection of the agent's neighbors.

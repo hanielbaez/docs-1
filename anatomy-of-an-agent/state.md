@@ -18,19 +18,47 @@ LeaderAgent {
 
 Notice how we use multiple custom fields to store data in the agent.
 
-Important: Only the agent can modify its own state. For example an agent could have a [behavior](../behaviors/) that modifies its age field.
+## Getting and Setting State
+
+The state object has accessor methods for getting and setting state.
+
+* state.get\(field\_name\) : returns the value of the field
+* state.set\(field\_name, value\) : sets the field as the value
+* state.modify\(field\_name, fn\(field\): return value\) : get's and sets the field.
+
+Example:
+
+This behavior takes in the current state and [context](context.md) of the agent, adds 1 to the age property stored on the state, and then returns the state. 
 
 ```python
 def behavior(state, context):
-    state.age += 1
+    age = state.get("age")
+    age += 1
+    state.set("age", age)
     return state
 ```
 
-This behavior takes in the current state and [context](context.md) of the agent, adds 1 to the age property stored on the state, and then returns the state. Since the behavior is being run by the agent, it can change the state.
+or, using modify
 
-{% hint style="info" %}
-If an agent wants to prompt another agent to perform a state change, it can [send a message](../agent-messages/) to trigger an update. 
-{% endhint %}
+{% tabs %}
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    state.modify("age", age: return age += 1)
+    return state
+```
+{% endtab %}
+
+{% tab title="Javascript" %}
+```javascript
+function behavior(state, context) {
+    state.modify("age", age => age + 1)
+}
+```
+{% endtab %}
+{% endtabs %}
+
+Important: Only the agent can modify its own state. If an agent wants to prompt another agent to perform a state change, it can send a message to trigger an update. 
 
 {% hint style="info" %}
 Agents can read one another's state - for example if agent "foo" is a [neighbor](context.md) of agent "bar", agent "bar" can access the fields of agent "foo", it just can't make any changes to those fields. That's what makes the state _**private**_.

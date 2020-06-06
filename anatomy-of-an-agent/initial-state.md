@@ -11,29 +11,31 @@ HASH simulations start life in the `init.json` file in your editor. In this file
 
 Here's what explicitly defining your agents might look like:
 
-![A simple set of agents ](../.gitbook/assets/image%20%288%29.png)
+![Defining five agents in init.json](../.gitbook/assets/screen-shot-2020-05-30-at-5.41.03-pm.png)
 
-With "creator" agents you can initialize more interesting models. By accessing published behaviors, we can very easily generate common agent placements. These behaviors can be found in the lower left corner; click on them to add them to your simulation:
+With "creator" agents you can initialize more dynamic models. 
+
+For example, by accessing published behaviors, we can very easily generate common agent placements. These behaviors can be found in the lower left corner; click on them to add them to your simulation:
 
 * `Create Grids`:  copy an agent to every unit within the topology bounds
 * `Create Scatters`: copy an agent to random locations within the topology bounds 
 * `Create Stacks`: copy an agent multiple times to the same location
 
-Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://core.hash.ai/simulation/5e7d1664d945ef290d54be43/rabbits-grass-weeds), while grass and weeds grow around them. :
+Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://core.hash.ai/simulation/5e7d1664d945ef290d54be43/rabbits-grass-weeds), while grass and weeds grow around them:
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/screen-shot-2020-05-30-at-5.43.10-pm.png)
 
-You can see that we've added a few behaviors to our "creator" agent, and templates as well.  
+There's a singly agent, named creator, that has a set of behaviors that will reference the "templates" we attached as properties on the creator agent.
 
-`Create Grids` looks at the agent templates in the "grid\_templates" array, in this case the "ground". We're copying it to fill the space defined in the bounds of our "topology" field in`properties`:
+`Create Grids` looks at the agent templates in the "grid\_templates" array, in this case the "ground". We're copying it to fill the space defined in the bounds of our "topology" field in`globals.json`:
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/screen-shot-2020-05-30-at-5.45.24-pm.png)
 
 Next, `Create Scatters` distributes the "rabbits" across the environment. Each one is placed in a random location within the bounds specified in the `topology`.
 
-Now we want to make a few adjustments to the agents we've generated which requires a bit more logic. Luckily for us, HASH behaviors are composable. `Create Grids` and `Create Scatters` have created  "agent" objects in our creator and filled them. We can access those agents by using the "template\_name" as a key: 
+Now we want to make a few adjustments to the agents we've generated which requires a bit more logic. Luckily for us, HASH behaviors are composable. `Create Grids` and `Create Scatters` have created  "agent" objects in our creator and filled them. We access those agents by using the "template\_name" as a key: 
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/screen-shot-2020-05-30-at-5.49.04-pm.png)
 
 Here we've randomly assigned the color of our "ground" agents, and given each of the "rabbits" a random starting amount of energy.
 
