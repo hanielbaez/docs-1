@@ -1,6 +1,6 @@
 # State
 
-Every agent has a private **state**. The agent's state reflects the... well the state of the agent! Is the agent of height 1 or height 2? Is the agent's name "foo" or it's name = "bar"? These fields are expressed and saved on the agent's state. 
+Every agent has a private **state**. Is the agent of height 1 or height 2? Is the agent's name "foo" or it's name = "bar"? These fields are expressed and saved on the agent's state. 
 
 Your agents can have any fields you want. Here's an agent that uses the Monte-Carlo method to approximate the value of pi via randomness:
 
