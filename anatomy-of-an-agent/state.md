@@ -22,9 +22,9 @@ Notice how we use multiple custom fields to store data in the agent.
 
 The state object has accessor methods for getting and setting state.
 
-* state.get\(field\_name\) : returns the value of the field
-* state.set\(field\_name, value\) : sets the field as the value
-* state.modify\(field\_name, fn\(field\): return value\) : get's and sets the field.
+* state.**get**\(field\_name\) : returns the value of the field
+* state.**set**\(field\_name, value\) : sets the field as the value
+* state.**modify**\(field\_name, fn\(field\): return value\) : gets and sets the field.
 
 Example:
 
