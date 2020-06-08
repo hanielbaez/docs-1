@@ -24,3 +24,9 @@ Using the playbar at the bottom of the right-hand view pane you can scrub forwar
 
 **The underlying JSON of any individual step is accessible from the 'Raw Output' tab.** This can be useful for debugging models during development, and allows for the raw state of simulations to be exported for further analysis.
 
+## Step Explorer
+
+**Dive into the statistics and distribution of any single step in the simulation**  Select, filter, and visualize all the data of all the agents in your simulation with just a few clicks. Check out how to use the Step Explorer on an existing set of data here: [https://sanddance.js.org/app/](https://sanddance.js.org/app/)
+
+
+
