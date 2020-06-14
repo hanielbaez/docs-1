@@ -25,6 +25,8 @@ HASH parses imported datasets and generates a new field for you in your simulati
 **Coming soon:** we will be streamlining this process shortly, providing more optionality around parsing treatment, and expanding support for the types of datasets ingestible by HASH.
 {% endhint %}
 
+If you wish to explore the universe of data available in HASH outside of Core, you can do so [directly within the Index](https://hash.ai/index/search?contentType=Dataset&sort=popularity). As with behaviors, we attempt to match all data published to the HASH Index to the type of '[Thing](https://hash.ai/index/schemas/Thing)' it represents in a global unified schema which subsequently makes finding data that accurately represents agents at the desired level of granularity easy.
+
 **Current example**
 
 ```javascript
