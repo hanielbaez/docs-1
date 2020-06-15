@@ -6,7 +6,7 @@ description: Getting started with HASH
 
 Welcome to [HASH](https://hash.ai), an end-to-end platform for quickly creating rich, massively parallelizable simulations.
 
-## Getting started
+## Getting Started
 
 {% hint style="success" %}
 As a new user, the best way to learn HASH is to browse our [gallery of examples](https://hash.ai/index/search?categoryID=5dc3da74cc0cf804dcc66a5c) to find toy simulations with interesting dynamics you can tinker with
@@ -20,7 +20,11 @@ You'll quickly find that the key to success in HASH is understanding and working
 
 Quickly get started by playing with examples from the [HASH Index](https://hash.ai/index) or carry on reading to learn more about the tools provided to you by the HASH platform.
 
-## Community support
+## Community & Support
 
 You can also check out the [community forum](https://community.hash.ai/) or [join our public Slack](https://join.slack.com/t/hashpublic/shared_invite/zt-70tweypd-v8euYwEyrd7rM~ZCMhfzZw).
+
+## Upcoming Features
+
+You can view our [changelog](https://hash.ai/updates) of recent updates to the platform, or check out our [roadmap](https://hash.ai/roadmap) to learn more about our future plans for HASH.
 
