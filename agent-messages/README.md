@@ -10,13 +10,15 @@ Agents can create a message to send to either another agent or the simulation en
 {% tab title="JavaScript" %}
 ```javascript
 (state, context) => {
-    state.messages.push({
+    let messages = state.get("messages")
+    messages.push({
         to: "schelling",
         type: "data_point",
         data: {
             num_agents: 50
         }
     });
+    state.set("messages", messages)
     return state;
 }
 ```
@@ -26,7 +28,8 @@ Agents can create a message to send to either another agent or the simulation en
 ```python
 def behavior(state, context):
   # we can use either a dict
-
+  messages = state.get("messages")
+  
   message =	{
     "to": "schelling",
     "type": "data_point",
@@ -39,7 +42,9 @@ def behavior(state, context):
   
   message = Message()
   
-  state.messages.append(message)
+  messages.append(message)
+
+  state.set("messages", messages)
 
   return state
   
@@ -70,7 +75,11 @@ fn behavior(state: AgentState, context: Context) {
 * `type`: the type of message being sent for the message handler to select the right course of action
 * `data`: any data you want to send along with the message
 
-Messages are produced during a step, but are not delievered and processed until the next step.
+{% hint style="info" %}
+You can use the helper function .addMessage\(to&lt;String&gt;, type&lt;String&gt;, data&lt;Dict&gt;\) to add messages directly to the state messages field.
+{% endhint %}
+
+Messages are produced during a step, but are not delivered and processed until the next step.
 
 ![Data flow for a single step in  HASH simulation](../.gitbook/assets/image%20%2812%29.png)
 
