@@ -69,7 +69,11 @@ fn behavior(state: AgentState, context: Context) {
 {% endtab %}
 {% endtabs %}
 
- You'll notice that each message is comprised of three fields: "to", "type", and "data." 
+{% hint style="info" %}
+If you want to jump right into code you can take a look at our [Message Passing Colors ](https://hash.ai/index/5e1c9163fee0a34d2f9be2c6/message-passing-colors)simulation, which demos message passing among many agents.
+{% endhint %}
+
+You'll notice that each message is comprised of three fields: "to", "type", and "data." 
 
 * `to`:  the name or ID of the agent that the message will be deliever to
 * `type`: the type of message being sent for the message handler to select the right course of action
