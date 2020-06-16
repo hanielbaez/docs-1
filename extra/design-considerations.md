@@ -23,7 +23,7 @@ You can run into trouble with a naive message sending pattern where an agent sen
 ```javascript
 // Potentially Bad 
 
-(state, behavior) => {
+function behavior(state, behavior) {
     if (!receivedResponse) {
         sendStateChangeMessage()
     }
@@ -37,8 +37,8 @@ You can avoid this in several ways, including modifying Agent A's send behavior 
 One other potential pitfall is forgetting that behaviors run in sequential order. So if in Behavior A you send a message and in Behavior B you check if you received a message and set receivedRespone = True, if the agents behavior array is:
 
 ```javascript
-state.behaviors = ["behaviorA", "behaviorB"]
+ ["behaviorA", "behaviorB"]
 ```
 
-A message would be sent before the agent checks if they've received a response.
+a message would be sent before the agent checks if they've received a response.
 
