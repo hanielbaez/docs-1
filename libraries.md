@@ -2,7 +2,7 @@
 
 ## Python Packages
 
-We run Python3 in the browser and [currently support all of the packages that Pyodide does](https://github.com/iodide-project/pyodide/tree/master/packages). These include:
+We run Python3 in the browser through [Pyodide](https://github.com/iodide-project/pyodide) and [currently support all of the packages that Pyodide does](https://github.com/iodide-project/pyodide/tree/master/packages). These include:
 
 | Package | Description |
 | :--- | :--- |
