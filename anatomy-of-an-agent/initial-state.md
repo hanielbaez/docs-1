@@ -15,6 +15,10 @@ Here's what explicitly defining your agents might look like:
 
 With "creator" agents you can initialize more dynamic models. 
 
+{% hint style="info" %}
+If you want to jump right into code you can take a look at our [Initialization Demo ](https://hash.ai/index/5e7548ed792e5d5adecdb5bd/initialization-demo)which demos creator agents.
+{% endhint %}
+
 For example, by accessing published behaviors, we can very easily generate common agent placements. These behaviors can be found in the lower left corner; click on them to add them to your simulation:
 
 * `Create Grids`:  copy an agent to every unit within the topology bounds

@@ -27,7 +27,7 @@ We'll begin by adding two agents into the array, and give them names.
 ] 
 ```
 
-_`"agent_name"` is a_ [_reserved keyword on agents_](https://docs.hash.ai/core/anatomy-of-an-agent) _that lets us reference a specific agent by a string._
+_`agent_name` is a_ [_reserved keyword on agents_](https://docs.hash.ai/core/anatomy-of-an-agent) _- you can reference and send messages through `agent_name`._
 
 Click the **Start Simulating** button beneath the workspace's right-hand view-pane, and then select the raw output tab in the viewer. Congratulations! You've given life to Alice and Bob. 
 
@@ -46,11 +46,11 @@ However, if you toggle back from the raw output view to the 3D viewer, you may n
 ] 
 ```
 
-When you've finished adding positions to your agents, click **Reset Simulation**. You should now see two blobs in the 3D viewer representing our agents.
+When you've finished adding positions to your agents, click **Reset Simulation**. You should now see two blocks in the 3D viewer representing our agents.
 
 ### Saying Hello
 
-Alice and Bob aren't very interesting right now. Let's teach them some manners. We can give the agents [behaviors](https://docs.hash.ai/core/behaviors) that enable them to act more interestingly, and respond to each other as well as their environment. In **init.json** let's add some file names into each of the behavior arrays.
+Alice and Bob aren't very interesting right now. Let's teach them some manners. We can give the agents [behaviors](https://docs.hash.ai/core/behaviors) that enable them to act and respond to each other as well as their environment. In **init.json** let's add some file names into each of the behavior arrays.
 
 ```javascript
 [
@@ -67,13 +67,15 @@ Alice and Bob aren't very interesting right now. Let's teach them some manners. 
 ] 
 ```
 
-We can then create corresponding behavior files by clicking the **New File** button in the left hand files sidebar.
+We can then create the corresponding behavior files by clicking the **New File** button in the left hand files sidebar.
 
 ![](../.gitbook/assets/screen-shot-2020-04-16-at-7.51.31-am.png)
 
 In **hello\_bob.js**, we want to send a message **from** Bob **to** Alice. 
 
-HASH has built in support for message passing. Push a message object to an agent's message array, and it will deliver the message to the target agent in the next timestep. We need to add three things to our message.
+HASH has built in support for message passing. Push a message object to an agent's message array, and it will deliver the message to the target agent in the next timestep. The message array attached to an agent's state is like its outbox. 
+
+A message has three parts:
 
 * `to`: the `agent_id` or an `agent_name`
 * `type`: a string that identifies the type of message that is being sent
@@ -83,20 +85,22 @@ Since we're only sending a message to one agent, Alice, we can use her `agent_na
 
 ```javascript
 function behavior(state, context) {
-  state.addMessage({
-      to: "Alice",
-      type: "greeting",
-      data: {
+  state.addMessage(
+      "Alice",
+      "greeting",
+      {
         msg: "Hello, Alice."
       }
-    })
+  )
   return state;
 }
 ```
 
-Now lets click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _Bob is sending this same message every timestep._ 
+\_\_[_state.addMessage is a helper function_](../agent-messages/) _for pushing messages to the state messages array._
 
-In our **hello\_alice.js** function, we want to ensure Alice knows how to handle messages she receives. When an agent receives a message addressed to them, it's stored in their "context", under `context.messages`. Agents can iterate through their messages array and act on specific messages.
+Now click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _**Bob is sending this same message every timestep to Alice.**_ 
+
+In our **hello\_alice.js** function, we want Alice to handle messages she receives. When an agent receives a message addressed to them, it's stored in their "context", in `context.messages()`.  `context.messages()` is like an agents inbox. Agents can iterate through their messages array and act on specific messages.
 
 Let's find all of the messages that are greetings:
 
@@ -129,13 +133,13 @@ function behavior(state, context) {
   if (greetings.length > 0) {
     state.set("color", "blue");
     greetings.forEach(m => {
-    state.addMessage({
-        to: m.from,
-        type: "greeting",
-        data: {
+    state.addMessage(
+        m.from,
+        "greeting",
+        {
           msg: "Go away, I’m social-distancing!"
         }
-      })
+      )
     })
   }
   return state;
@@ -152,13 +156,13 @@ function behavior(state, context) {
   if (greetings.length > 0) {
         state.set("color", "red");
   }
-  state.addMessage({
-    to: "Alice",
-    type: "greeting",
-    data: {
-      msg: "Hello, Alice."
-    }
-  })
+  state.addMessage(
+      "Alice",
+      "greeting",
+      {
+        msg: "Hello, Alice."
+      }
+  )
   return state;
 }
 ```
