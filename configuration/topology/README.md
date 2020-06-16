@@ -61,7 +61,7 @@ Any agents automatically found within the search radius of a given agent can be 
 In addition to being able to set the search radius for all agents in the simulation, it is possible for the user to override the search radius for individual agents. This can be done dynamically but is typically done in the initial state definition.
 
 ```javascript
-properties => {
+function(state,context) {
     ...
     let all_seeing_agent = {
         agent_id: 1,

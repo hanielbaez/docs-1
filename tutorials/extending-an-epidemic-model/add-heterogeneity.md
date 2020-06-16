@@ -27,7 +27,7 @@ When we instantiate a Person, they'll have a 50% chance of being at\_risk from t
 Of course during different scenarios and experiments we might want to vary the likelihood that someone will be at risk. Instead of hardcoding the likelihood, we will add a property called at\_risk\_percent.
 
 ```javascript
-// properties.json
+// globals.json
 {
 ...
 "at_risk_percent": 0.05,
@@ -37,14 +37,16 @@ Of course during different scenarios and experiments we might want to vary the l
 
 ```javascript
 //create_people.js
-(state, context) => {
+function behavior(state, context) {
 
-    const { people_per_home, at_risk_percent } = context.properties;
+    const { people_per_home, at_risk_percent } = context.globals();
     ...
-    state.agents["people"].push({
+    let agents = state.get("agents")
+    agents["people"].push({
       ...
       at_risk: Math.random() < at_risk_percent ? true : false,
     }
+    state.set("agents", agents)
     
     return state;
 }

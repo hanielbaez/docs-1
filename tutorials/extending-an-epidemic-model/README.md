@@ -9,7 +9,7 @@ We've provided a number of agents and behaviors to simulate a virus spreading th
 There are four distinct agents in the model. Three are locations - homes, groceries, and offices. The fourth are people. 
 
 ```javascript
- //initialState lines 9-35
+ //init.json lines 9-35
  //...
    "scatter_templates": [
     {

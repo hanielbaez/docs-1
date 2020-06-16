@@ -18,12 +18,14 @@ If, for example, we wanted to cap the height of all trees in a [forest simulatio
 The associated tree growth behavior would follow:
 
 ```javascript
-(state, properties) => {
+function behavior(state, context) {
     ...
-    if (state.height + growth <= properties['maxTreeHeight']) {
+    if (state.height + growth <= context.globals()['maxTreeHeight']) {
         growtree()
     }
     ...
 }
 ```
+
+
 

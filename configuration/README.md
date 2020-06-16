@@ -4,7 +4,7 @@ description: Configure your simulations for optimal performance and functionalit
 
 # Configuration
 
-Imagine having sit down in front of a blank Python file and yet again import Numpy, Matplotlib, and SciPy just to start plotting some results. With HASH, you're just a few configuration flags away from getting the key insights faster than you ever could before.
+Imagine sitting down in front of a blank Python file and yet again configuring your environment, importing Numpy, Matplotlib, and SciPy, just to start plotting some results. We aim to avoid that with HAS by making configuration 
 
 HASH Core is extremely flexible right out of the box, filled with optimizations and tools that make developing simulations easier than ever.
 

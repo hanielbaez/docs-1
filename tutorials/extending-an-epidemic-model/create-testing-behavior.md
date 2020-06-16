@@ -20,25 +20,25 @@ When our person agent runs the `check_hospital` behavior, it will now send a mes
 But we don't want our Person agent to be spamming the Hospital with requests to be tested - we only want to send it when the Person suspects that they are sick. We can add a property called `time_to_symptoms`. That’s how long it takes for a person to start showing symptoms.
 
 ```javascript
- // properties.json
+ // globals.json
  "time_to_symptoms" : 5,
 ```
 
 You'll need to add it to the top of the `check_infected` behavior file, and add logic so it only sends a message after "symptoms" have developed.
 
 ```javascript
-(state, context) => {
+function behavior(state, context) {
 
-const { time_to_symptoms } = context.properties;
+const { time_to_symptoms } = context.globals();
 
 function check_hospital(state){
-   state.messages.push({
-     to: "Hospital",
-     type: "test",
-     data: {
+   state.addMessage(
+     "Hospital",
+     "test",
+     {
        test_sick: true,
      }
-   })
+   )
    return state;
  }
  
@@ -56,7 +56,7 @@ On the receiving end we need to add a message handler for the hospital. Create a
 
 ```javascript
 //test_for_virus.js
-(state, context) => {
+function behavior(state, context) {
   return state;
 }
 ```
@@ -65,7 +65,7 @@ And add a message handler. Every timestep an agent receives in its "mailbox" all
 
 ```javascript
 //test_for_virus.js
-  const test_messages = context.messages.filter(m=> m.type == "test");
+  const test_messages = context.messages().filter(m=> m.type == "test");
 ```
 
 {% hint style="info" %}
@@ -77,12 +77,12 @@ Make sure to attach it to the Hospital - you can add a behavior to an agent by p
 
 
 ```javascript
- // initialState.json
+ // init.json
    {
     "template_name": "hospitals",
     "template_count": 1,
     "template_position": "center",
-    "behaviors": ["test_for_virus"],
+    "behaviors": ["test_for_virus.js"],
     "height": 4,
     "color": "blue",
   }
@@ -94,10 +94,10 @@ Let's check all of the messages and respond to each person, letting them know th
 
 ```javascript
  test_messages.forEach((m) => {
-    state.messages.push({
-     to: m.from,
-     type: "test_result",
-     data: {
+    state.addMessage({
+     m.from,
+     "test_result",
+     {
        sick: true,
      }
    })
@@ -108,7 +108,7 @@ Let's check all of the messages and respond to each person, letting them know th
 Back in `check_infection.js` , we similarly want to check for any messages about our tests.
 
 ```javascript
- let msgs = context.messages.filter((msg) => msg.type == "test_result");
+ let msgs = context.messages().filter((msg) => msg.type == "test_result");
  msgs.forEach(msg => {
    if (msg.data.sick) {
      //do something
@@ -123,10 +123,11 @@ The `daily_movement.js` file contains our agent's  movement logic. Importantly, 
 ```javascript
 //create_people.js
       // Randomly assign grocery store, office
-      const grocery = random_choice(state.agents["groceries"]).position;
-      const office = random_choice(state.agents["offices"]).position;
+      let agents = state.get("agents")
+      const grocery = random_choice(agents["groceries"]).position;
+      const office = random_choice(agents["offices"]).position;
 
-      state.agents["people"].push({
+      agents["people"].push({
         behaviors: ["infection.js", "check_infected.js", "daily_movement.js"],
         position: home.position,
         home: home.position,
@@ -139,11 +140,11 @@ We're going to need to add the hospital as a potential destination as well.
 ```javascript
 //create_people.js
       // Randomly assign grocery store, office, and hospital
-      const grocery = random_choice(state.agents["groceries"]).position;
-      const office = random_choice(state.agents["offices"]).position;
-      const hospital = random_choice(state.agents["hospitals"]).position;
+      const grocery = random_choice(agents["groceries"]).position;
+      const office = random_choice(agents["offices"]).position;
+      const hospital = random_choice(agents["hospitals"]).position;
 
-      state.agents["people"].push({
+      agents["people"].push({
         behaviors: ["infection.js", "check_infected.js", "daily_movement.js"],
         position: home.position,
         home: home.position,
@@ -152,15 +153,15 @@ We're going to need to add the hospital as a potential destination as well.
         hospital,
 ```
 
-If we set `state.destination = state["hospital"]` the Person will head to the hospital \(we'll need that in the future\).
+If we `state.set("destination", hospital)` the Person will head to the hospital \(we'll need that in the future\).
 
 For now though in `check_infected`, you can set the destination as home.
 
 ```javascript
-let msgs = context.messages.filter((msg) => msg.type == "test_result");
+let msgs = context.messages().filter((msg) => msg.type == "test_result");
  msgs.forEach(msg => {
    if (msg.data.sick) {
-      state.destination = state["home"]; 
+      state.set("destination", state.get("home"); 
    }
  })
 ```
@@ -168,12 +169,12 @@ let msgs = context.messages.filter((msg) => msg.type == "test_result");
 Now our full page looks like this:
 
 ```javascript
-(state, context) => {
-  const { time_to_symptoms } = context.properties;
+function behavior(state, context) {
+  const { time_to_symptoms } = context.globals();
  
  
 function check_hospital(state){
-   state.messages.push({
+   state.addMessage({
      to: "Hospital",
      type: "test",
      data: {
@@ -183,15 +184,15 @@ function check_hospital(state){
    return state;
  }
  
-let msgs = context.messages.filter((msg) => msg.type == "test_result");
+let msgs = context.messages().filter((msg) => msg.type == "test_result");
  msgs.forEach(msg => {
    if (msg.data.sick) {
-      state.destination = state["home"]; 
+      state.set(destination, state.get("home")); 
    }
  })
  
-if (state.infected && state.infection_length == time_to_symptoms) {
-   state = check_hospital(state);
+if (state.get("infected") && state.get("infection_length") == time_to_symptoms) {
+   check_hospital(state);
  }
 ```
 

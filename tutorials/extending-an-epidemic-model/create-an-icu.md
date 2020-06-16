@@ -38,14 +38,14 @@ In this case, let's include a key-value pair in the message data packet for `at_
 ```javascript
 // check_infected.js
 function check_hospital(state){
-   state.messages.push({
-     to: "Hospital",
-     type: "test",
-     data: {
+   state.addMessages({
+     "Hospital",
+     "test",
+     {
        test_sick: true,
        at_risk: state.at_risk
      }
-   })
+   )
    return state;
  }
 ```
@@ -55,7 +55,7 @@ Open the `test_for_virus` file and, in our message parsing loop, add control-flo
 ```javascript
  test_messages.forEach((m) => {
 ... 
-    if (state.icu_beds && m.at_risk) {
+    if (state.get("icu_beds") && m.at_risk) {
       icu_or_home = false;
     }	//add logic
    }   
@@ -66,8 +66,8 @@ Open the `test_for_virus` file and, in our message parsing loop, add control-flo
 When a person is seriously ill, they get a bed in the hospital, so long as there’s a bed to give:
 
 ```javascript
-   if (state.icu_beds && m.at_risk) {
-      state.icu_beds -= 1;
+   if (state.get("icu_beds") && m.at_risk) {
+      state.modify("icu_beds", icu => icu - 1;
       icu_or_home = true;
     } else {
       icu_or_home = false;
@@ -79,18 +79,18 @@ Let’s add a flag that the person has a case severe enough that they will stay 
 ```javascript
    let icu_or_home = false;
    ...
-   if (state.icu_beds && m.at_risk) {
-     state.icu_beds -= 1;
+   if (state.get("icu_beds") && m.at_risk) {
+      state.modify("icu_beds", icu => icu - 1;
      icu_or_home = true;
    }
-   state.messages.push({
-     to: m.from,
-     type: "test_result",
-     data: {
+   state.addMessage({
+     m.from,
+     "test_result",
+     {
        sick: true,
        icu_or_home: icu_or_home,
      }
-   })
+   )
 ```
 
 Let’s return to our person agent. They’ve just received a message from the hospital telling them if they're sick and if they should go home or come to the hospital. We already have the mild case handled - they go home. We need to add logic for the severe case:
@@ -98,13 +98,13 @@ Let’s return to our person agent. They’ve just received a message from the h
 ```javascript
   //A person checks for messages from the hospital telling them their
  //test results
- let msgs = context.messages.filter((msg) => msg.type == "test_result");
+ let msgs = context.messages().filter((msg) => msg.type == "test_result");
   msgs.forEach(msg => {
    if (msg.data.sick && msg.data.icu_or_home) {
-      state.icu = true; 
-      state.destination = state["hospital"];      
+      state.set("icu", true); 
+      state.set("destination", state.get("hospital"));      
    } else if (msg.data.sick) {
-     state.destination = state["home"]; 
+     state.set("destination", state.get("home")); 
  })
 ```
 
@@ -128,11 +128,10 @@ We need to add:
 
 `infection.js` handles the logic for infection state.
 
-```text
-   if (state.infection_duration === 0) {
-      // should be a property
-      state.health_status = Math.random() < immunity_proportion ? "immune" : "healthy";
-      state.color = "green";
+```javascript
+   if (state.get("infection_duration") === 0) {
+      state.set("health_status", Math.random() < immunity_proportion ? "immune" : "healthy");
+      state.set("color", "green");
       //notify the hospital the person has recovered
      //TODO
     }
@@ -145,21 +144,21 @@ A key paradigm for HASH is message passing. HASH is based on the [actor model](h
 {% endhint %}
 
 ```javascript
- if (state.infection_duration === 0) {
-      // should be a property
-      state.health_status = Math.random() < immunity_proportion ? "immune" : "healthy";
-      state.color = "green";
-       if (state.icu) {
-        state.messages.push({
-          to: "Hospital",
-          type: "recovered",
-          data: {
+   if (state.get("infection_duration") === 0) {
+      state.set("health_status", Math.random() < immunity_proportion ? "immune" : "healthy");
+      state.set("color", "green");
+      
+       if (state.get("icu")) {
+        state.addMessage(
+          "Hospital",
+          "recovered",
+          {
             msg: "All Better!"
           }
-        })
-        state.icu = false;
-        state.destination = state["home"];
-        state.out = true;
+        )
+        state.set("icu", false);
+        state.set("destination", state.get("home"));
+        state.set("out", true);
       }
   
 ```
@@ -167,10 +166,10 @@ A key paradigm for HASH is message passing. HASH is based on the [actor model](h
 Finally, let's handle the message logic on the Hospitals side:
 
 ```javascript
- const recovered_messages = context.messages.filter(m=> m.type == "recovered");
+ const recovered_messages = context.messages().filter(m=> m.type == "recovered");
  //Frees up a bed for each (recovered,severe) case
  recovered_messages.forEach((m) => {
-   state.icu_beds += 1
+   state.modify("icu_beds", icu => icu + 1)
  })
 
 ```

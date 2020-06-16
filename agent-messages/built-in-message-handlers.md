@@ -19,12 +19,14 @@ Any agent can remove any other agent with a special message sent directly to `ha
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-(state, context) => {
-    state.messages.push({
+function behavior(state, context) {
+    let messages = state.get("messages")
+    messages.push({
         to: "hash",
         type: "remove_agent"
         data: { agent_id: "Bill" },
     });
+    state.set("messages", messages)
     return state;
 }
 ```
@@ -33,19 +35,14 @@ Any agent can remove any other agent with a special message sent directly to `ha
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    state.messages.append({
+    messages = state.get("messages")
+    messages.append({
       "to": "HASH",
       "type": "remove_agent",
       "data": { "agent_id": "Bill"}
     })
-    
+    state.set("messages", messages)
     return state
-```
-{% endtab %}
-
-{% tab title="Rust" %}
-```rust
-
 ```
 {% endtab %}
 {% endtabs %}
@@ -61,8 +58,9 @@ Here, anything in the data field will be used to create the new agent. The `newb
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-(state, context) => {
-    state.messages.push({
+function behavior(state, context) {
+    messages = state.get("messages")
+    messages.push({
         to: "hash",
         type: "create_agent",
         data: {
@@ -70,6 +68,7 @@ Here, anything in the data field will be used to create the new agent. The `newb
             behaviors: ["newborn.js"]
         }
     });
+    state.set("messages", messages)
     return state;
 }
 ```
@@ -78,7 +77,8 @@ Here, anything in the data field will be used to create the new agent. The `newb
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    state.messages.append({
+    messages = state.get("messages")
+    messages.append({
         "to": "HASH",
         "type": "create_agent",
         "data": {
@@ -86,14 +86,8 @@ def behavior(state, context):
             "behaviors": ["newborn.py"]
         }
     })
-    
+    state.set("messages", messages)
     return state
-```
-{% endtab %}
-
-{% tab title="Rust" %}
-```
-
 ```
 {% endtab %}
 {% endtabs %}

@@ -6,16 +6,16 @@ Context passed to every agent provides a list of messages in the agent's inbox i
 
 ```javascript
 Context {
-    properties: {
+    globals(): {
         /* access to the simulation's global constants, aka the 'Properties' tab. */
     },
-    neighbors: [
+    neighbors(): [
         /* 
         A collection of the agent's neighbors.
         Neighbors are calculated using the 'position' field.
         */
     ],
-    messages: [
+    messages(): [
     /*  
         Any messages send to the given agent on this step.
         If the agent wants to preserve access to these on future steps, they'll need to store them in their own state.
@@ -41,8 +41,8 @@ Handling the messages here would be pretty simple - just iterating through the m
 {% tabs %}
 {% tab title="JavaScript" %}
 ```python
-(state, context) => {
-    for (const message in context.messages) {
+function behavior(state, context) {
+    for (const message in context.messages()) {
         ...
     }
     return state;
@@ -53,7 +53,7 @@ Handling the messages here would be pretty simple - just iterating through the m
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    for message in context.messages:
+    for message in context.messages():
         .....
     
     return state
@@ -63,7 +63,7 @@ def behavior(state, context):
 {% tab title="Rust" %}
 ```rust
 fn (state: AgentState, context: &Context) -> AgentState {
-    context.messages
+    context.messages()
            .iter()
            .map(|m: &Message| {...});
 }
