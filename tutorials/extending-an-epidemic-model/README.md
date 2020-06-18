@@ -42,7 +42,7 @@ There are four distinct agents in the model. Three are locations - homes, grocer
 
 Our people agents whiz about this simulated world, moving back and forth between groceries, work, and their homes, and occasionally \(depending on the parameters\), get sick. 
 
-The rest of the tutorial will cover:
+The rest of the tutorial will cover extending this model in Javascript:
 
 1. Adding unique characteristics to the People agents.
 2. Creating a Hospital agent

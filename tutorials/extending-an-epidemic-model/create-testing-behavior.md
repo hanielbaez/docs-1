@@ -3,15 +3,10 @@
 To start let**'**s create a message from the Person agent that contains the basics - they’re requesting a test. In the `check_infected.js` behavior file, add a [message](../../agent-messages/) function:
 
 ```javascript
-function check_hospital(state){
-   state.messages.push({
-     to: "Hospital",
-     type: "test",
-     data: {
-       test_sick: true,
-     }
+function check_hospital(state) {
+   state.addMessage("Hospital", "test", {
+      test_sick: true,
    })
-   return state;
  }
 ```
 
@@ -28,44 +23,30 @@ You'll need to add it to the top of the `check_infected` behavior file, and add 
 
 ```javascript
 function behavior(state, context) {
+  const { time_to_symptoms } = context.globals();
 
-const { time_to_symptoms } = context.globals();
-
-function check_hospital(state){
-   state.addMessage(
-     "Hospital",
-     "test",
-     {
+  function check_hospital(){
+    state.addMessage("Hospital", "test", {
        test_sick: true,
-     }
-   )
-   return state;
- }
+    })
+  }
  
 
-if (state.infected && state.infection_length >= time_to_symptoms) {
-   state = check_hospital(state);
- }
-   return state;
+  if (state.get("infected") && state.get("infection_length") >= time_to_symptoms) {
+    state = check_hospital();
+  }
 }
 ```
 
 Now after a certain period of time the person agent will get suspicious they’re sick, and send a message to the hospital.
 
-On the receiving end we need to add a message handler for the hospital. Create a new behavior file called `test_for_virus.js`:
+On the receiving end we need to add a message handler for the hospital. Create a new behavior file called `test_for_virus.js`. Add a message handler, so that every timestep an agent receives in its "mailbox" all the messages directed to its `agent_id` or `agent_name`:
 
 ```javascript
 //test_for_virus.js
 function behavior(state, context) {
-  return state;
+    const test_messages = context.messages().filter(m => m.type === "test");
 }
-```
-
-And add a message handler. Every timestep an agent receives in its "mailbox" all the messages directed to its `agent_id` or `agent_name`
-
-```javascript
-//test_for_virus.js
-  const test_messages = context.messages().filter(m=> m.type == "test");
 ```
 
 {% hint style="info" %}
@@ -73,8 +54,6 @@ While right now it’s not necessary to filter by type == test, it’s good prac
 {% endhint %}
 
 Make sure to attach it to the Hospital - you can add a behavior to an agent by pushing it in the behaviors array. Since we know we'll always want the behavior associated with the hospital, add it in your `init.json` initial state file.
-
-
 
 ```javascript
  // init.json
@@ -93,22 +72,20 @@ So what should we tell our patient? If the person is sick the test should detect
 Let's check all of the messages and respond to each person, letting them know they are in fact sick.
 
 ```javascript
- test_messages.forEach((m) => {
-    state.addMessage({
-     m.from,
-     "test_result",
-     {
-       sick: true,
-     }
-   })
-}
+ test_messages.forEach(m => .addMessage({
+   m.from,
+   "test_result",
+   {
+     sick: true,
+   }
+ }))
 
 ```
 
 Back in `check_infection.js` , we similarly want to check for any messages about our tests.
 
 ```javascript
- let msgs = context.messages().filter((msg) => msg.type == "test_result");
+ let msgs = context.messages().filter(msg => msg.type === "test_result");
  msgs.forEach(msg => {
    if (msg.data.sick) {
      //do something
@@ -158,7 +135,7 @@ If we `state.set("destination", hospital)` the Person will head to the hospital 
 For now though in `check_infected`, you can set the destination as home.
 
 ```javascript
-let msgs = context.messages().filter((msg) => msg.type == "test_result");
+let msgs = context.messages().filter(msg => msg.type === "test_result");
  msgs.forEach(msg => {
    if (msg.data.sick) {
       state.set("destination", state.get("home"); 
@@ -172,28 +149,23 @@ Now our full page looks like this:
 function behavior(state, context) {
   const { time_to_symptoms } = context.globals();
  
+  function check_hospital(){
+     state.addMessage("Hospital", "test",{
+         test_sick: true,
+     });
+   }
  
-function check_hospital(state){
-   state.addMessage({
-     to: "Hospital",
-     type: "test",
-     data: {
-       test_sick: true,
+  let msgs = context.messages().filter(msg => msg.type === "test_result");
+   msgs.forEach(msg => {
+     if (msg.data.sick) {
+        state.set(destination, state.get("home")); 
      }
    })
-   return state;
- }
- 
-let msgs = context.messages().filter((msg) => msg.type == "test_result");
- msgs.forEach(msg => {
-   if (msg.data.sick) {
-      state.set(destination, state.get("home")); 
+   
+  if (state.get("infected") && state.get("infection_length") === time_to_symptoms) {
+     check_hospital();
    }
- })
- 
-if (state.get("infected") && state.get("infection_length") == time_to_symptoms) {
-   check_hospital(state);
- }
+}
 ```
 
 Run the simulation - our people are now being socially conscious and going back home when they’re sick. Hooray for well-being! 

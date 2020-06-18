@@ -4,7 +4,7 @@ One thing that sets agent-based modeling apart from analytic techniques or syste
 
 These different values can allow our agents to all behave in slightly different ways, or cause other agents to interact with them differently.
 
-In our [Getting Started](https://hash.ai/index/5e86c068eb2a710a4a2fe11e/getting-started-base) model, we'll start by providing our agents with an 'at\_risk' property. Different people agents will have different chances of having a severe response to getting sick. In create\_people.js, add a line for the property at\_risk: 
+In our [Getting Started](https://hash.ai/index/5e86c068eb2a710a4a2fe11e/getting-started-base) model, we'll start by providing our agents with an 'at\_risk' property. Different people agents will have different chances of having a severe response to getting sick. In create\_people.js, new agents are defined starting on line 26. In that block of code, add a line for the property at\_risk: 
 
 ```javascript
 {
@@ -16,15 +16,16 @@ at_risk: Math.random() < 0.5 ? true : false,
 In infection.js, when a Person agent gets infected, let's add logic to determine the severity of the infection. In line 80:
 
 ```javascript
- const severe_chance = state.at_risk ? at_risk_chance_of_severe : chance_of_severe;
-   if ((state.severity === "moderate") && (Math.random() < severe_chance)) {
-     state.severity = "severe";
-   }
+const severe_chance = state.at_risk ? at_risk_chance_of_severe : chance_of_severe;
+ 
+if ((state.get("severity") === "moderate") && (Math.random() < severe_chance)) {
+    state.set("severity", severe);
+}
 ```
 
-When we instantiate a Person, they'll have a 50% chance of being at\_risk from the virus, and if they're infected, they'll have a different likelihoods of getting a severe infection. These likelihoods are defined in the properties tab.
+When we instantiate a Person currently, they'll have a 50% chance of being at\_risk from the virus, and if they're infected, they'll have a different likelihoods of getting a severe infection. These likelihoods are defined in the properties tab.
 
-Of course during different scenarios and experiments we might want to vary the likelihood that someone will be at risk. Instead of hardcoding the likelihood, we will add a property called at\_risk\_percent.
+Of course during different scenarios and experiments we might want to vary the likelihood that someone will be at risk. Instead of hardcoding the likelihood, we will add a property called at\_risk\_percent. Here we set it to 5%.
 
 ```javascript
 // globals.json
@@ -38,17 +39,16 @@ Of course during different scenarios and experiments we might want to vary the l
 ```javascript
 //create_people.js
 function behavior(state, context) {
-
     const { people_per_home, at_risk_percent } = context.globals();
     ...
+    
     let agents = state.get("agents")
     agents["people"].push({
       ...
       at_risk: Math.random() < at_risk_percent ? true : false,
     }
-    state.set("agents", agents)
     
-    return state;
+    state.set("agents", agents)
 }
 ```
 

@@ -37,28 +37,23 @@ In this case, let's include a key-value pair in the message data packet for `at_
 
 ```javascript
 // check_infected.js
-function check_hospital(state){
-   state.addMessages({
-     "Hospital",
-     "test",
-     {
+function check_hospital(){
+   state.addMessages("Hospital", "test", {
        test_sick: true,
        at_risk: state.at_risk
-     }
-   )
-   return state;
+    })
  }
 ```
 
 Open the `test_for_virus` file and, in our message parsing loop, add control-flow logic to differentiate the risky cases from the non-risky cases.
 
 ```javascript
- test_messages.forEach((m) => {
-... 
+test_messages.forEach(m => {
+    ... 
     if (state.get("icu_beds") && m.at_risk) {
       icu_or_home = false;
-    }	//add logic
-   }   
+    }	
+    // add logic
 })
 
 ```
@@ -67,7 +62,7 @@ When a person is seriously ill, they get a bed in the hospital, so long as there
 
 ```javascript
    if (state.get("icu_beds") && m.at_risk) {
-      state.modify("icu_beds", icu => icu - 1;
+      state.modify("icu_beds", icu => icu - 1);
       icu_or_home = true;
     } else {
       icu_or_home = false;
@@ -77,35 +72,32 @@ When a person is seriously ill, they get a bed in the hospital, so long as there
 Let’s add a flag that the person has a case severe enough that they will stay in the hospital; this is how we’ll let the person know they either need to stay at the hospital or they can rest up at home. Modify the message sent to include that variable.
 
 ```javascript
-   let icu_or_home = false;
-   ...
-   if (state.get("icu_beds") && m.at_risk) {
-      state.modify("icu_beds", icu => icu - 1;
-     icu_or_home = true;
-   }
-   state.addMessage({
-     m.from,
-     "test_result",
-     {
-       sick: true,
-       icu_or_home: icu_or_home,
-     }
-   )
+let icu_or_home = false;
+...
+if (state.get("icu_beds") && m.at_risk) {
+    state.modify("icu_beds", icu => icu - 1;
+    icu_or_home = true;
+}
+
+state.addMessage(m.from, "test_result", {
+    sick: true,
+    icu_or_home: icu_or_home,
+})
 ```
 
 Let’s return to our person agent. They’ve just received a message from the hospital telling them if they're sick and if they should go home or come to the hospital. We already have the mild case handled - they go home. We need to add logic for the severe case:
 
 ```javascript
-  //A person checks for messages from the hospital telling them their
- //test results
- let msgs = context.messages().filter((msg) => msg.type == "test_result");
-  msgs.forEach(msg => {
+//A person checks for messages from the hospital telling them their test results
+let msgs = context.messages().filter(msg => msg.type === "test_result");
+
+msgs.forEach(msg => {
    if (msg.data.sick && msg.data.icu_or_home) {
       state.set("icu", true); 
       state.set("destination", state.get("hospital"));      
    } else if (msg.data.sick) {
-     state.set("destination", state.get("home")); 
- })
+      state.set("destination", state.get("home")); 
+})
 ```
 
 With this change if a person finds out they have a severe case, their destination is set as the hospital. 
@@ -114,8 +106,8 @@ We'll need to make a change to the `daily_movement` file as well, to prevent the
 
 ```javascript
     //daily_movement.js line39
-    if (state.social_distancing || state.icu) {
-      return state;
+    if (state.get("social_distancing") || state.get("icu")) {
+      return;
     }
 ```
 
@@ -129,12 +121,11 @@ We need to add:
 `infection.js` handles the logic for infection state.
 
 ```javascript
-   if (state.get("infection_duration") === 0) {
-      state.set("health_status", Math.random() < immunity_proportion ? "immune" : "healthy");
-      state.set("color", "green");
-      //notify the hospital the person has recovered
-     //TODO
-    }
+if (state.get("infection_duration") === 0) {
+    state.set("health_status", Math.random() < immunity_proportion ? "immune" : "healthy");
+    state.set("color", "green");
+    //TODO: notify the hospital the person has recovered
+}
 ```
 
 This is another opportunity to use message passing. We'll create a message to send to the Hospital telling them that the person has recovered.
@@ -144,33 +135,28 @@ A key paradigm for HASH is message passing. HASH is based on the [actor model](h
 {% endhint %}
 
 ```javascript
-   if (state.get("infection_duration") === 0) {
-      state.set("health_status", Math.random() < immunity_proportion ? "immune" : "healthy");
-      state.set("color", "green");
-      
-       if (state.get("icu")) {
-        state.addMessage(
-          "Hospital",
-          "recovered",
-          {
+if (state.get("infection_duration") === 0) {
+    state.set("health_status", Math.random() < immunity_proportion ? "immune" : "healthy");
+    state.set("color", "green");
+    
+    if (state.get("icu")) {
+        state.addMessage("Hospital", "recovered", {
             msg: "All Better!"
-          }
-        )
+        })
         state.set("icu", false);
         state.set("destination", state.get("home"));
         state.set("out", true);
-      }
-  
+    }
+}
+
 ```
 
 Finally, let's handle the message logic on the Hospitals side:
 
 ```javascript
- const recovered_messages = context.messages().filter(m=> m.type == "recovered");
+ const recovered_messages = context.messages().filter(m => m.type === "recovered");
  //Frees up a bed for each (recovered,severe) case
- recovered_messages.forEach((m) => {
-   state.modify("icu_beds", icu => icu + 1)
- })
+ recovered_messages.forEach(m => state.modify("icu_beds", icu => icu + 1));
 
 ```
 
