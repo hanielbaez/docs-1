@@ -7,7 +7,7 @@ description: How far away is one agent from another?
 When finding the neighbors of agents in a simulation, HASH depends on a few important flags to produce accurate results. One such flag is the underlying distance calculations between agents in the simulation. These flags are accessible via topology configuration in properties. The topology field of your `globals.json` file will look something like:
 
 ```javascript
-[{
+{
     "topology": {
         // A global distance function agents use to localize
         "distance_function": "chebyshev"
@@ -16,7 +16,7 @@ When finding the neighbors of agents in a simulation, HASH depends on a few impo
         "search_radius": 10
     },
     ...
-}]
+}
 ```
 
 ### Options

@@ -80,7 +80,7 @@ The other operations besides "filter" are listed below. Most of these operations
 The "plots" list contains collections which define the different plots that visualize the outputs. The basic configuration of a plot includes a name, data, type, layout, and position field:
 
 ```javascript
-  {
+  "plots": [{
      "title": "title",
      "layout": {
        "width": "% of analysis view width",
@@ -104,6 +104,8 @@ The "plots" list contains collections which define the different plots that visu
        }
      ]
    },
+   ...
+   ]
 ```
 
 By default the x-axis represents the step of the simulation. You can use line, bar, or area charts, among others.

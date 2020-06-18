@@ -83,6 +83,8 @@ A message has three parts:
 
 Since we're only sending a message to one agent, Alice, we can use her `agent_name` in the `to` field. Let's call this type of message a "greeting", and add a friendly greeting in the data payload.
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
   state.addMessage(
@@ -92,9 +94,23 @@ function behavior(state, context) {
         msg: "Hello, Alice."
       }
   )
-  return state;
 }
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+  state.add_message(
+      "Alice",
+      "greeting",
+      {
+        "msg": "Hello, Alice."
+      }
+  )
+```
+{% endtab %}
+{% endtabs %}
 
 \_\_[_state.addMessage is a helper function_](../agent-messages/) _for pushing messages to the state messages array._
 
@@ -104,55 +120,104 @@ In our **hello\_alice.js** function, we want Alice to handle messages she receiv
 
 Let's find all of the messages that are greetings:
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
-const greetings = context.messages().filter(msg => msg.type == "greeting");
-if (greetings.length > 0) {
-    //do something
+function behavior(state, context) {
+  const greetings = context.messages().filter(msg => msg.type === "greeting");
+  
+  if (greetings.length > 0) {
+        // do something
+    }
 }
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    greetings = filter(lambda m: m.type == "greeting", context.messages())
+  
+    if (len(greetings) > 0):
+        # do something
+```
+{% endtab %}
+{% endtabs %}
 
 Adding visual indicators of state changes is an easy way to communicate what's happening in your simulation. We're going to change Alice's color when receiving a greeting:
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
-  const greetings = context.messages().filter(msg => msg.type == "greeting");
+  const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
     state.set("color", "blue");
   }
-  return state;
 }
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    greetings = list(filter(lambda m: m.type == "greeting", context.messages()))
+  
+    if (len(greetings) > 0):
+        state.set("color", "blue")
+```
+{% endtab %}
+{% endtabs %}
 
 Now **reset** your simulation and **run** it. On the second timestep you should notice that Alice's agent changes color to blue. Neat!
 
 To respond to Bob's greeting, we can send a message back addressed to the first message sender, with an appropriate response.
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
-  const greetings = context.messages().filter(msg => msg.type == "greeting");
+  const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
     state.set("color", "blue");
-    greetings.forEach(m => {
-    state.addMessage(
-        m.from,
-        "greeting",
-        {
-          msg: "Go away, I’m social-distancing!"
-        }
-      )
-    })
+    
+    greetings.forEach(m => state.addMessage(
+      m.from, 
+      "greeting", 
+      {
+        msg: "Go away, I’m social-distancing!"
+      }
+    ));
   }
-  return state;
 }
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    greetings = list(filter(lambda m: m.type == "greeting", context.messages()))
+  
+    if (len(greetings) > 0):
+        state.set("color", "blue")
+        
+        for greeting in greetings:
+            state.add_message(greeting.from, "greeting", {
+                "msg": "Go away, I’m social-distancing!"
+            })
+```
+{% endtab %}
+{% endtabs %}
 
 Here we're iterating through filtered messages and pushing a new message to Alice's message array, addressed to whichever agent sent the message, 'greeting' them back.
 
 Over in **hello\_bob.js**, we can add a similar message handler for Bob, too. 
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
-  const greetings = context.messages().filter(msg => msg.type == "greeting");
+  const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
         state.set("color", "red");
   }
@@ -163,44 +228,91 @@ function behavior(state, context) {
         msg: "Hello, Alice."
       }
   )
-  return state;
 }
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    greetings = list(filter(lambda m: m.type == "greeting", context.messages()))
+  
+    if (len(greetings) > 0):
+        state.set("color", "red")
+    
+    state.add_message(
+      "Alice",
+      "greeting",
+      {
+        "msg": "Hello, Alice."
+      }
+  )
+```
+{% endtab %}
+{% endtabs %}
 
 **Reset** and **run** your simulation once again. Alice and Bob turn blue and red, respectively, after they receive the others greeting.
 
-It's a little boring to just have them stay red and blue throughout the rest of the simulation. We can help visualize better what's going on in the simulation by having both agents flip colors whenever they receive a new message. The logic we want isL
+It's a little boring to just have them stay red and blue throughout the rest of the simulation. We can help visualize better what's going on in the simulation by having both agents flip colors whenever they receive a new message. The logic we want is:
 
 ```javascript
-    color = color == "blue" ? "green" : "blue"
+    color = color === "blue" ? "green" : "blue"
 ```
 
 or:
 
 ```javascript
-    color = color == "purple" ? "red" : "purple"
+    color = color === "purple" ? "red" : "purple"
 ```
 
 We'll need to refactor our code slightly to implement this - instead of using state.set\("color", "blue"\) we'll first get the field value and assign it to a variable, color, and then set the field as the variables value at the end of the behavior file \(a common pattern in HASH simulations\).
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
-  const greetings = context.messages().filter(msg => msg.type == "greeting");
-  let color = state.get("color")
+  const greetings = context.messages().filter(msg => msg.type === "greeting");
+  
+  
   if (greetings.length > 0) {
+    let color = state.get("color")
     color = color == "purple" ? "red" : "purple"
+    state.set("color", color)
   }
-  state.addMessage({
-    to: "Alice",
-    type: "greeting",
-    data: {
+  
+  state.addMessage(
+    "Alice", 
+    "greeting", 
+    {
       msg: "Hello, Alice."
     }
-  })
-  state.set("color", color)
-  return state;
+  )
 }
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    greetings = list(filter(lambda m: m.type == "greeting", context.messages()))
+  
+    if (len(greetings) > 0):
+        color = state.get("color")
+        color = color == "purple" ? "red" : "purple"
+        state.set("color", "red")
+    
+    state.add_message(
+      "Alice",
+      "greeting",
+      {
+        "msg": "Hello, Alice."
+      }
+  )
+```
+{% endtab %}
+{% endtabs %}
+
+
 
 ![Hello HASH!](../.gitbook/assets/blocks_flipping.gif)
 

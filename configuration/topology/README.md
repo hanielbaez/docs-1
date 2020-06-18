@@ -49,26 +49,49 @@ Internally, HASH's Engine maintains a list of neighbors for each agent and updat
 
 Any agents automatically found within the search radius of a given agent can be accessed through the agent's context. In practice, an example agent behavior would look like:
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
-(state, context) => {
-    let { neighbors } = context;
-    for (let neighbor of neighbors) {
+function behavior(state, context) {
+    const neighbors = context.neighbors()
+    
+    for (const neighbor of neighbors) {
         ...
     }
+    
+    // OR
+    
+    neighbors.forEach(n => {
+        ...
+    });
 }
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    neighbors = context.neighbors()
+    
+    for neighbor in neighbors:
+        ...
+    
+    # OR
+    
+    map(lambda n: ..., neighbors)
+}
+```
+{% endtab %}
+{% endtabs %}
 
 In addition to being able to set the search radius for all agents in the simulation, it is possible for the user to override the search radius for individual agents. This can be done dynamically but is typically done in the initial state definition.
 
 ```javascript
-function(state,context) {
-    ...
-    let all_seeing_agent = {
-        agent_id: 1,
-        name: "Eye of Sauron",
-        search_radius: 10000000
-    }
-}
+[{
+    "agent_id": 1,
+    "name": "Eye of Sauron",
+    "search_radius": 10000000
+}]
 ```
 
 **Distance Functions**

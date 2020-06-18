@@ -40,11 +40,18 @@ Handling the messages here would be pretty simple - just iterating through the m
 
 {% tabs %}
 {% tab title="JavaScript" %}
-```python
+```javascript
 function behavior(state, context) {
     for (const message in context.messages()) {
         ...
     }
+    
+    // OR
+    
+    context.messages().forEach(m => {
+        ...
+    })
+    
     return state;
 }
 ```
@@ -54,9 +61,7 @@ function behavior(state, context) {
 ```python
 def behavior(state, context):
     for message in context.messages():
-        .....
-    
-    return state
+        ...
 ```
 {% endtab %}
 
@@ -70,8 +75,4 @@ fn (state: AgentState, context: &Context) -> AgentState {
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
-
 

@@ -17,6 +17,8 @@ If, for example, we wanted to cap the height of all trees in a [forest simulatio
 
 The associated tree growth behavior would follow:
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
     ...
@@ -26,6 +28,19 @@ function behavior(state, context) {
     ...
 }
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    ...    
+    if state.height + growth <= context.globals()['maxTreeHeight']):
+        growtree()
+    ...
+
+```
+{% endtab %}
+{% endtabs %}
 
 
 

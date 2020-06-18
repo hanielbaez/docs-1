@@ -20,14 +20,7 @@ Any agent can remove any other agent with a special message sent directly to `ha
 {% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
-    let messages = state.get("messages")
-    messages.push({
-        to: "hash",
-        type: "remove_agent"
-        data: { agent_id: "Bill" },
-    });
-    state.set("messages", messages)
-    return state;
+    state.addMessage("hash", "remove_agent", { agent_id: "Bill" });
 }
 ```
 {% endtab %}
@@ -35,14 +28,7 @@ function behavior(state, context) {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    messages = state.get("messages")
-    messages.append({
-      "to": "HASH",
-      "type": "remove_agent",
-      "data": { "agent_id": "Bill"}
-    })
-    state.set("messages", messages)
-    return state
+    state.add_message("HASH", "remove_agent", { "agent_id": "Bill"})
 ```
 {% endtab %}
 {% endtabs %}
@@ -59,17 +45,10 @@ Here, anything in the data field will be used to create the new agent. The `newb
 {% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
-    messages = state.get("messages")
-    messages.push({
-        to: "hash",
-        type: "create_agent",
-        data: {
-            parent: state.agent_id, 
-            behaviors: ["newborn.js"]
-        }
+    state.addMessage("hash", "create_agent", {
+        parent: state.agent_id, 
+        behaviors: ["newborn.js"]
     });
-    state.set("messages", messages)
-    return state;
 }
 ```
 {% endtab %}
@@ -77,17 +56,10 @@ function behavior(state, context) {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    messages = state.get("messages")
-    messages.append({
-        "to": "HASH",
-        "type": "create_agent",
-        "data": {
-            "parent": state.agent_id, 
-            "behaviors": ["newborn.py"]
-        }
+    state.add_message("HASH", "create_agent", {
+        "parent": state.agent_id, 
+        "behaviors": ["newborn.py"]
     })
-    state.set("messages", messages)
-    return state
 ```
 {% endtab %}
 {% endtabs %}

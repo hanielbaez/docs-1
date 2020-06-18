@@ -18,8 +18,8 @@ function behavior(state, context) {
             num_agents: 50
         }
     });
+    
     state.set("messages", messages)
-    return state;
 }
 ```
 {% endtab %}
@@ -45,8 +45,6 @@ def behavior(state, context):
   messages.append(message)
 
   state.set("messages", messages)
-
-  return state
   
   
 #########################
@@ -56,15 +54,6 @@ class Message:
   data = { "num_agents": 50 }
 
 
-```
-{% endtab %}
-
-{% tab title="Rust" %}
-```rust
-fn behavior(state: AgentState, context: Context) {
-    
-
-}
 ```
 {% endtab %}
 {% endtabs %}
@@ -95,7 +84,7 @@ function behavior(state, context) {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-  state.addMessage("foo", "bar", {msg: "hello"})
+  state.add_message("foo", "bar", {msg: "hello"})
 ```
 {% endtab %}
 {% endtabs %}

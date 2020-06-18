@@ -5,14 +5,14 @@ Often, you don't want your agents to move ad infinitum. You might be simulating 
 A gas particle in a box might have a topology configuration like:
 
 ```javascript
-[{
+{
     "topology": {
         "x_bounds": [0, 20],
         "y_bounds": [0, 20],
         "z_bounds": [0, 20],        
         "wrapping_preset": "reflection"
     }
-}]
+}
 ```
 
 Notice the `"wrapping_preset": "reflection"`  - this tells us that the agent will bounce off the borders, similar to how a ball might be reflected against a wall. If the agent has a direction, the direction will be flipped. This isn't always perfect though, so try to move the agent only once per chain of behaviors.

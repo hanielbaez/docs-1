@@ -49,14 +49,24 @@ Our creator then runs two more published behaviors. `Create Agents` sends messag
 You can create new agents during your simulation by sending a message to the reserved hash keyword.
 {% endhint %}
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
-state.messages.push({
-  to: "hash",
-  type: "create_agent",
-  data: { ...agent_details }
+state.addMessage("hash", "create_agent", {
+    ...agent_details
  })
 
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+state.add_message("hash", "create_agent", {
+    ...agent_details
+ })
+```
+{% endtab %}
+{% endtabs %}
 
 If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://core.hash.ai/simulation/5e7a36d4d945ef56af54bd3a) or [Rock,  Paper, Scissors](https://core.hash.ai/simulation/5e7a44d2d945ef3e5d54bd55) simulations.
 

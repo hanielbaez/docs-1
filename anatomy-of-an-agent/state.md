@@ -5,7 +5,8 @@ is Every agent has a private **state**. Is the agent of height 1 or height 2? Is
 Your agents can have any fields you want. Here's an agent that uses the Monte-Carlo method to approximate the value of pi via randomness:
 
 ```javascript
-LeaderAgent {
+// LeaderAgent
+{
     spawned_datapoints: 0,
     neighbor_points: 0,
     pi_estimate: 0,
@@ -37,7 +38,6 @@ function behavior(state, context){
     let age = state.get("age");
     age += 1;
     state.set("age", age);
-    return state;
 }
 ```
 {% endtab %}
@@ -48,7 +48,6 @@ def behavior(state, context):
     age = state.get("age")
     age += 1
     state.set("age", age)
-    return state
 ```
 {% endtab %}
 {% endtabs %}
@@ -59,8 +58,7 @@ or, using modify
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    state.modify("age", age: return age += 1)
-    return state
+    state.modify("age", lambda age: age + 1)
 ```
 {% endtab %}
 
@@ -78,4 +76,6 @@ Important: Only the agent can modify its own state. If an agent wants to prompt 
 {% hint style="info" %}
 Agents can read one another's state - for example if agent "foo" is a [neighbor](context.md) of agent "bar", agent "bar" can access the fields of agent "foo", it just can't make any changes to those fields. That's what makes the state _**private**_.
 {% endhint %}
+
+
 
