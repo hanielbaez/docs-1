@@ -136,7 +136,7 @@ function behavior(state, context) {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    greetings = filter(lambda m: m.type == "greeting", context.messages())
+    greetings = filter(lambda m: m['type'] == "greeting", context.messages())
   
     if (len(greetings) > 0):
         # do something
@@ -161,7 +161,7 @@ function behavior(state, context) {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    greetings = list(filter(lambda m: m.type == "greeting", context.messages()))
+    greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
   
     if (len(greetings) > 0):
         state.set("color", "blue")
@@ -196,7 +196,7 @@ function behavior(state, context) {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    greetings = list(filter(lambda m: m.type == "greeting", context.messages()))
+    greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
   
     if (len(greetings) > 0):
         state.set("color", "blue")
@@ -235,7 +235,7 @@ function behavior(state, context) {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    greetings = list(filter(lambda m: m.type == "greeting", context.messages()))
+    greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
   
     if (len(greetings) > 0):
         state.set("color", "red")
@@ -294,7 +294,7 @@ function behavior(state, context) {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    greetings = list(filter(lambda m: m.type == "greeting", context.messages()))
+    greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
   
     if (len(greetings) > 0):
         color = state.get("color")
