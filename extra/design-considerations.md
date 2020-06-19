@@ -8,15 +8,31 @@ description: Important considerations to keep in mind when building your simulat
 
 HASH is designed around an [actor oriented programming model](https://en.wikipedia.org/wiki/Actor_model). Each agent in a simulation is an actor with its own private state. The only way one actor affects another actor is through sending messages. 
 
-This is key to handling the computational complexity of large simulations as it removes the need for lock-based synchronization, and it also makes designing simulations easier. You can trust that an agent's state will only be changed by that agent, so you can cleanly separate the input and outputs of an agent - its message handling - from the agents internal behaviors. 
+This is key to handling the computational complexity of large simulations as it removes the need for lock-based synchronization and it makes designing simulations easier. You can trust that an agent's state will only be changed by that agent, so you can cleanly separate the input and outputs of an agent - its message handling - from the agents internal behaviors. 
+
+The key is to think of your code in terms of communication between agents.
+
+
 
 ## Race Conditions
 
-HASH avoids race conditions through isolation of state. Agents calculating the next step \(t + 1\) are only able to use the information they currently have available to them; the state and context from the current step \(t\). Because each agent has a private state HASH won't run into merge conflicts - only one thing, the agent itself, can change its state - the updates that will create t + 1 are applied synchronously. Messages are collected and distributed by the engine between t and t+1.
+HASH avoids race conditions through isolation of state. Agents calculating the next step \(t + 1\) are only able to use the information they currently have available to them; the state and context from the current step \(t\). Because each agent has a private state HASH won't run into merge conflicts - only one thing, the agent itself, can change its state. 
+
+The updates that will create t + 1 are applied synchronously. Messages are collected and distributed by the engine between t and t+1.
 
 There won't be a situation where the order in which an agent is run affects the next state of the simulation. However you might encounter something like a race condition if you don't take into account the "travel time" of messages.
 
 Since HASH implements an actor oriented paradigm, information is sent between agents through messages. If on timestep 1 Agent A sends Agent B a message, Agent B will receive it and be able to act on the message in timestep 2. The earliest Agent A could receive a response is in timestep 3. 
+
+
+
+
+
+
+
+I think of this problem as how, in a truly parallel environment, do you structure agents to operate in sequence.
+
+
 
 You can run into trouble with a naive message sending pattern where an agent sends messages until it receives a response.
 

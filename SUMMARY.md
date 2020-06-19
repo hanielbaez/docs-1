@@ -39,6 +39,7 @@
 ## Extra
 
 * [Design Considerations](extra/design-considerations.md)
+* [Error Reference](extra/error-reference.md)
 * [System Requirements](extra/specs-requirements.md)
 * [Shortcuts](extra/shortcuts.md)
 
