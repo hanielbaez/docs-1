@@ -298,8 +298,9 @@ def behavior(state, context):
   
     if (len(greetings) > 0):
         color = state.get("color")
-        color = color == "purple" ? "red" : "purple"
-        state.set("color", "red")
+        if(color
+        color = red if color == "purple" else "purple"
+        state.set("color", color)
     
     state.add_message(
       "Alice",
