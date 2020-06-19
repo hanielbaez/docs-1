@@ -24,5 +24,6 @@ There are a number of others which the simulation viewer looks at to try to infe
 
 * `direction [i64, i64, i64]`: if provided, will render the agent as a cone oriented along that unit vector
 
-* `color [string]`: if provided, will color the agent.  Named colors \("red", "green", "blue", etc.\) are supported, alongside hex color codes \(`#223344`\) and RGB values \(`rgb(12,244,155)`\).
+* `color [string]`: if provided, will color the agent.  Named colors \("red", "green", "blue", etc.\) are supported, alongside hex color codes \(`#223344`\) and RGB values \(`rgb(12,244,155)`\). 
+* `search_radius [i64]`: context.neighbors\(\) will return a list of all the agents within the search radius.
 

@@ -12,7 +12,8 @@ Context {
     },
     neighbors(): [
         /* Returns a collection of the agent's neighbors.
-        Neighbors are calculated using the 'position' field.
+        Neighbors are calculated using the 'position' field and search_radius
+        Both must be set to return neighbors.
         */
     ],
     messages(): [
