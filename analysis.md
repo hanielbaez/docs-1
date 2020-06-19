@@ -114,3 +114,9 @@ As a shortcut you may replace the "data" and "type" field with a "timeseries" ar
 
 HASH uses Plotly behind the scenes to render charts and graphs. As such, the platform supports any valid value it supports for layout, type, and data as [documented in their API](https://plotly.com/javascript/reference/).
 
+### Exporting Simulation Runs
+
+You can save the data from any of your simulation runs by right clicking on an individual run and clicking export as JSON Files.
+
+![](.gitbook/assets/screen-shot-2020-06-18-at-7.41.03-pm.png)
+
