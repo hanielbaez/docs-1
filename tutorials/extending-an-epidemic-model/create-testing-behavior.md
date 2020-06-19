@@ -138,7 +138,7 @@ For now though in `check_infected`, you can set the destination as home.
 let msgs = context.messages().filter(msg => msg.type === "test_result");
  msgs.forEach(msg => {
    if (msg.data.sick) {
-      state.set("destination", state.get("home"); 
+      state.set("destination", state.get("home")); 
    }
  })
 ```
