@@ -78,7 +78,7 @@ Let's check all of the messages and respond to each person, letting them know th
    {
      sick: true,
    }
- }))
+ ))
 
 ```
 
