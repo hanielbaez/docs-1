@@ -72,7 +72,7 @@ So what should we tell our patient? If the person is sick the test should detect
 Let's check all of the messages and respond to each person, letting them know they are in fact sick.
 
 ```javascript
- test_messages.forEach(m => .addMessage({
+ test_messages.forEach(m => state.addMessage(
    m.from,
    "test_result",
    {
