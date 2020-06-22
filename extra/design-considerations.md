@@ -10,11 +10,7 @@ HASH is designed around an [actor oriented programming model](https://en.wikiped
 
 This is key to handling the computational complexity of large simulations as it removes the need for lock-based synchronization and it makes designing simulations easier. You can trust that an agent's state will only be changed by that agent, so you can cleanly separate the input and outputs of an agent - its message handling - from the agents internal behaviors. 
 
-The key is to think of your code in terms of communication between agents.
-
-
-
-## Race Conditions
+## Timing and Race Conditions
 
 HASH avoids race conditions through isolation of state. Agents calculating the next step \(t + 1\) are only able to use the information they currently have available to them; the state and context from the current step \(t\). Because each agent has a private state HASH won't run into merge conflicts - only one thing, the agent itself, can change its state. 
 
