@@ -24,6 +24,10 @@
     * [Distance Functions](configuration/topology/distance-functions.md)
 * [Libraries](libraries.md)
 
+## Concepts
+
+* [Designing with the Actor Model](concepts/design-considerations.md)
+
 ## Hello, World!
 
 * [Hello, HASH!](hello-world/hello-hash.md)
@@ -38,7 +42,6 @@
 
 ## Extra
 
-* [Design Considerations](extra/design-considerations.md)
 * [Error Reference](extra/error-reference.md)
 * [System Requirements](extra/specs-requirements.md)
 * [Shortcuts](extra/shortcuts.md)
