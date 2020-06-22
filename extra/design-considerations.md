@@ -24,13 +24,7 @@ There won't be a situation where the order in which an agent is run affects the 
 
 Since HASH implements an actor oriented paradigm, information is sent between agents through messages. If on timestep 1 Agent A sends Agent B a message, Agent B will receive it and be able to act on the message in timestep 2. The earliest Agent A could receive a response is in timestep 3. 
 
-
-
-
-
-
-
-I think of this problem as how, in a truly parallel environment, do you structure agents to operate in sequence.
+![](../.gitbook/assets/image%20%2815%29.png)
 
 
 
