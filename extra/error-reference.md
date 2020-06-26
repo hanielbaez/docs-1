@@ -2,7 +2,7 @@
 description: Errors and what they mean
 ---
 
-# Error Reference
+# Error Reference & Debugging
 
 <table>
   <thead>
@@ -46,7 +46,13 @@ description: Errors and what they mean
   </tbody>
 </table>
 
-
-
 We're expanding this list with more errors, explanations, and fixes. If you encounter an error that is unclear, [let us know](https://hashpublic.slack.com/archives/C0151PYN1T4).
+
+### Debugging
+
+A few tips for debugging errors:
+
+* You can use console.log\(\) in JavaScript behaviors or print\(\) in Python behaviors to output the value of a variable or an expression to the developer console \(Ctrl+Shift+J on Windows or Ctrl+Option\_J on Mac\).
+* The Raw Output panel displays the full state of your simulation, which can be useful for figuring out what's going on. Keep in mind though it generates it for the last completed time-step - if your simulation has an error in the middle of a time-step the Raw Output panel will only show you the state that you entered the time-step with.
+* Often it's easiest to debug simulations with the bare minimum number of agents, to make it easier to track what's going on. Try reducing the number you create to simplify.
 

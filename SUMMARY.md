@@ -42,7 +42,7 @@
 
 ## Extra
 
-* [Error Reference](extra/error-reference.md)
+* [Error Reference & Debugging](extra/error-reference.md)
 * [System Requirements](extra/specs-requirements.md)
 * [Shortcuts](extra/shortcuts.md)
 
