@@ -39,6 +39,14 @@
   * [Create a Hospital](tutorials/extending-an-epidemic-model/create-a-hospital.md)
   * [Create Testing Behavior](tutorials/extending-an-epidemic-model/create-testing-behavior.md)
   * [Create an ICU](tutorials/extending-an-epidemic-model/create-an-icu.md)
+* [Building the Local Competition Model](tutorials/building-the-local-competition-model/README.md)
+  * [Phase 1: Building a Simple Hotelling Model in 2D](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/README.md)
+    * [Set Up Environment](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/set-up-environment.md)
+    * [Initialization](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/initialization.md)
+    * [Query Customers](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/query-customers.md)
+    * [Customer Reply](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/customer-reply.md)
+    * [Business Collect and Update](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/business-collect-and-update.md)
+    * [Phase 1 Final Code](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/phase-1-final-code.md)
 
 ## Extra
 
