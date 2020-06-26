@@ -25,7 +25,7 @@ For example, by accessing published behaviors, we can very easily generate commo
 * `Create Scatters`: copy an agent to random locations within the topology bounds 
 * `Create Stacks`: copy an agent multiple times to the same location
 
-Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://core.hash.ai/simulation/5e7d1664d945ef290d54be43/rabbits-grass-weeds), while grass and weeds grow around them:
+Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://hash.ai/index/5e4b6aa3c9c6f7504be4f605/rabbits-grass-weeds), while grass and weeds grow around them:
 
 ![](../.gitbook/assets/screen-shot-2020-05-30-at-5.43.10-pm.png)
 
@@ -68,7 +68,7 @@ state.add_message("hash", "create_agent", {
 {% endtab %}
 {% endtabs %}
 
-If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://core.hash.ai/simulation/5e7a36d4d945ef56af54bd3a) or [Rock,  Paper, Scissors](https://core.hash.ai/simulation/5e7a44d2d945ef3e5d54bd55) simulations.
+If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://hash.ai/index/5de534020860d432cb408b92/wildfires-regrowth) or [Rock,  Paper, Scissors](https://core.hash.ai/simulation/5e7a44d2d945ef3e5d54bd55) simulations.
 
 {% hint style="info" %}
 If you ever feel like you might be "re-inventing the wheel," make sure to check out [HASH Index](https://hash.ai/index/search?contentType=Behavior&sort=relevance&query=create&page=1) in case someone else has shared a similar behavior.
