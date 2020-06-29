@@ -244,13 +244,13 @@ const behavior = (state, context) => {
            update_min(overall_min, cost, shop, position, price, rgb)
          }
        }
- 
-       state.addMessage(individual_min.agent_id, "customer_cost", {
+     })
+     
+     state.addMessage(individual_min.agent_id, "customer_cost", {
          cost: individual_min.cost,
          position: individual_min.position,
          price: individual_min.price
        });
-     })
    })
  
    // Only update color if min cost was determined during this time step
@@ -262,7 +262,6 @@ const behavior = (state, context) => {
  const businesses = collect_business_data(context.messages());
  find_min(businesses);
 }
-
 ```
 {% endtab %}
 {% endtabs %}

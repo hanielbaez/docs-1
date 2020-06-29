@@ -212,7 +212,7 @@ Reset and run!
 
 If you followed all the steps above, run the simulation a couple times and you should see the customer agents change color based on their decision after a couple time steps. 
 
-![](../../../.gitbook/assets/lc_p1_customers.gif)
+![](../../../.gitbook/assets/lc_p2_customers.gif)
 
 {% tabs %}
 {% tab title="customer.js" %}
@@ -295,13 +295,13 @@ const behavior = (state, context) => {
            update_min(overall_min, cost, shop, position, price, rgb)
          }
        }
- 
-       state.addMessage(individual_min.agent_id, "customer_cost", {
+     })
+     
+     state.addMessage(individual_min.agent_id, "customer_cost", {
          cost: individual_min.cost,
          position: individual_min.position,
          price: individual_min.price
        });
-     })
    })
  
    // Only update color if min cost was determined during this time step
