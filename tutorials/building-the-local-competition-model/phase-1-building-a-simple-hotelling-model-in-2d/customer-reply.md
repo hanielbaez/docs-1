@@ -153,7 +153,7 @@ Now we can replace the ‘TODO’ comments with a call to update\_min\(\) with t
  }
 ```
 
-After all the comparisons have been made, we want to notify that particular Business where this Customer would prefer to shop. Let's send a message just below the comparisons within the key iterator.
+After all the comparisons have been made, we want to notify that particular Business where this Customer would prefer to shop. Let's send a message just below the businesses\[shop\].data.forEach\(\) call within the key iterator.
 
 ```javascript
 state.addMessage(individual_min.agent_id, "customer_cost", {
