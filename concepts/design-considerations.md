@@ -8,9 +8,11 @@ description: Important considerations to keep in mind when building your simulat
 
 HASH is designed around an [actor oriented programming model](https://en.wikipedia.org/wiki/Actor_model).
 
-* **Each agent in a simulation is an actor** with its own private state.
-* **Actors communicate by sending and receiving** [**messages**](../agent-messages/), through which they may attempt to influence other agents to change state.
-* **Ultimately agents are responsible for changing their own state.** An agent's state can only ever be modified by the agent itself.
+**Each agent in a simulation is an actor** with its own private state.
+
+**Actors communicate by sending and receiving** [**messages**](../agent-messages/), through which they may attempt to influence other agents to change state.
+
+**Ultimately agents are responsible for changing their own state.** An agent's state can only ever be modified by the agent itself.
 
 This is key to handling the computational complexity of large simulations, as it removes the need for lock-based synchronization. An unlimited number of agents can act without blocking one another's execution, and you can trust that an agent's state will only be changed by that agent, cleanly separating the inputs and outputs of agents.
 
