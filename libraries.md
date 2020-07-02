@@ -2,9 +2,9 @@
 
 ## HASH Standard Library
 
-HASH provides a set of functions you can use in your simulations by calling `hash_stdlib`
+HASH provides a set of functions through `hash_stdlib.` It contains common functions to simplify simulation construction.
 
-`hash_stdlib` _is currently only available in JavaScript behaviors, however we're expanding it to include Python._
+`hash_stdlib` _is currently only available in JavaScript behaviors; however, we're expanding it to include Python functions._
 
 ```javascript
 function behavior(state, context){
