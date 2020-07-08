@@ -25,9 +25,8 @@ The state object has accessor methods for getting and setting state.
 
 * state.**get**\(field\_name\) : returns the value of the field
 * state.**set**\(field\_name, value\) : sets the field as the value
-* state.**modify**\(field\_name, fn\(field\): return value\) : gets and sets the field.
 
-Example:
+**Example**:
 
 This behavior takes in the current state and [context](context.md) of the agent, adds 1 to the age property stored on the state, and then returns the state.
 
@@ -54,14 +53,17 @@ def behavior(state, context):
 
 or, using modify
 
-{% tabs %}
-{% tab title="Python" %}
-```python
-def behavior(state, context):
-    state.modify("age", lambda age: age + 1)
-```
-{% endtab %}
+Important: Only the agent can modify its own state. If an agent wants to prompt another agent to perform a state change, it can send a message to trigger an update.
 
+{% hint style="info" %}
+Agents can read one another's state - for example if agent "foo" is a [neighbor](context.md) of agent "bar", agent "bar" can access the fields of agent "foo", it just can't make any changes to those fields. That's what makes the state _**private**_.
+{% endhint %}
+
+{% hint style="info" %}
+We have a helper function, state.modify, that gets and sets in one line in JavaScript.
+{% endhint %}
+
+{% tabs %}
 {% tab title="Javascript" %}
 ```javascript
 function behavior(state, context) {
@@ -70,12 +72,6 @@ function behavior(state, context) {
 ```
 {% endtab %}
 {% endtabs %}
-
-Important: Only the agent can modify its own state. If an agent wants to prompt another agent to perform a state change, it can send a message to trigger an update.
-
-{% hint style="info" %}
-Agents can read one another's state - for example if agent "foo" is a [neighbor](context.md) of agent "bar", agent "bar" can access the fields of agent "foo", it just can't make any changes to those fields. That's what makes the state _**private**_.
-{% endhint %}
 
 
 
