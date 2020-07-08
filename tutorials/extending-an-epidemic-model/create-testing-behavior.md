@@ -5,7 +5,7 @@ To start let**'**s create a message from the Person agent that contains the basi
 ```javascript
 function check_hospital(state) {
    state.addMessage("Hospital", "test", {
-      test_sick: true,
+      test_sick: true
    })
  }
 ```
@@ -27,7 +27,7 @@ function behavior(state, context) {
 
   function check_hospital(){
     state.addMessage("Hospital", "test", {
-       test_sick: true,
+       test_sick: true
     })
   }
  
@@ -63,7 +63,7 @@ Make sure to attach it to the Hospital - you can add a behavior to an agent by p
     "template_position": "center",
     "behaviors": ["test_for_virus.js"],
     "height": 4,
-    "color": "blue",
+    "color": "blue"
   }
 ```
 
