@@ -9,7 +9,7 @@ Agents can \(and typically do\) have behaviors:
 ```javascript
 {
     ...
-    behaviors: ['eats_fruit', 'messages_friends_about_fruit', 'has_friends']
+    behaviors: ['eats_fruit.js', 'messages_friends_fruit.py', 'has_friends.js']
 }
 ```
 

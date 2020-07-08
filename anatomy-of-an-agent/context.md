@@ -5,7 +5,7 @@ Besides their [**state**](state.md), an agent always has access to their **conte
 The context is an object with three functions, **neighbors\(\), messages\(\)**, and **globals\(\)**.
 
 ```javascript
-Context {
+context {
     globals(): {
         /* returns an immutable JSON object of the simulation's 
            constants, as defined in globals.json */
