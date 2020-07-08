@@ -79,7 +79,7 @@ Or, we can follow the creator pattern and add it as a "stack" \(as it's at a spe
     "template_position": "center",
     "behaviors": [],
     "height": 4,
-    "color": "blue",
+    "color": "blue"
   }
 ]
 ```
