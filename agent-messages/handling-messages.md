@@ -5,20 +5,12 @@
 Context passed to every agent provides a list of messages in the agent's inbox in the `messages` field. Here, we can iterate through the list of messages sent to the agent and make some decisions.
 
 ```javascript
-Context {
-    globals(): {
-        /* access to the simulation's global constants, aka the 'Properties' tab. */
-    },
-    neighbors(): [
-        /* 
-        A collection of the agent's neighbors.
-        Neighbors are calculated using the 'position' field.
-        */
-    ],
+context {
     messages(): [
     /*  
-        Any messages send to the given agent on this step.
-        If the agent wants to preserve access to these on future steps, they'll need to store them in their own state.
+        Any messages sent to the given agent on this step.
+        If the agent wants to preserve access to these on future steps,
+        they'll need to store them in their own state.
     */
     ],
     /* other context values to come. */
@@ -33,7 +25,7 @@ It's best to think of the `messages` field like a mailbox.
 Notice the distinction. Context is immutable and any accidental changes made to it will not propagate.
 
 {% hint style="info" %}
-Send messages with `state`, and receive them with `context`.
+Send messages with `state.messages`and receive them with `context.messages()`.
 {% endhint %}
 
 Handling the messages here would be pretty simple - just iterating through the messages array in Context.
