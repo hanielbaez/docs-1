@@ -22,7 +22,7 @@ Quickly get started by playing with examples from the [HASH Index](https://hash.
 
 ## Community & Support
 
-You can also check out the [community forum](https://community.hash.ai/) or [join our public Slack](%20https://hash.ai/slack).
+You can also check out the [community forum](https://community.hash.ai/) or [join our public Slack](https://hash.ai/slack).
 
 ## Upcoming Features
 
