@@ -26,7 +26,15 @@ Using the playbar at the bottom of the right-hand view pane you can scrub forwar
 
 ## Step Explorer
 
-**Dive into the statistics and distribution of any single step in the simulation**  Select, filter, and visualize all the data of all the agents in your simulation with just a few clicks. Check out how to use the Step Explorer on an existing set of data here: [https://sanddance.js.org/app/](https://sanddance.js.org/app/)
+**Dive into the statistics and distribution of any single step in the simulation.** Select, filter, and visualize all the data of all the agents in your simulation with just a few clicks. 
+
+Step Explorer has easy to use auto-generated charts to probe and understand what's happening with your agents on a given step. SandDance uses unit visualizations, which apply a one-to-one mapping between agent properties and the data points in the charts.
+
+You can think of the Step Explorer as a counterpart to Plots tab. Plots tell you what's happening in aggregate across all of the time steps, while the Step Explorer lets you dive into a single time step and see what's happening within a population of agents.
+
+Step Explorer is useful for understanding the shape of the data within your simulation, and it's also helpful for debugging and noticing agent outliers.
+
+Check out how to use the Step Explorer on an existing set of data here: [https://sanddance.js.org/app/](https://sanddance.js.org/app/)
 
 
 
