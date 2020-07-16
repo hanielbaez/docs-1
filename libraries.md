@@ -102,6 +102,34 @@ neighborsBehind(
 )
 ```
 
+### Distributions
+
+```javascript
+stats.beta(alpha, beta)
+stats.centralF(df1, df2)
+stats.cauchy(local, scale)
+stats.chisquare(dof)
+stats.exponential(rate)
+stats.gamma(shape, scale)
+stats.invgamma(shape, scale)
+stats.kumaraswamy(alpha, beta)
+stats.lognormal(mu, sigma)
+stats.normal(mean, std)
+stats.pareto(scale, shape)
+stats.studentt(dof) 
+stats.tukey(nmeans, dof)
+stats.weibull(scale, shape)
+stats.uniform(a,b)
+stats.binomial
+stats.negbin
+stats.hypgeom
+stats.poisson
+stats.triangular
+stats.arcsine(a,b)
+```
+
+* We use the [jStat](http://jstat.github.io/distributions.html) library for distributions. Other statistic functions are available though undocumented as the interface/names might change.
+
 ## Python Packages
 
 We run Python3 in the browser through [Pyodide](https://github.com/iodide-project/pyodide) and [currently support all of the packages that Pyodide does](https://github.com/iodide-project/pyodide/tree/master/packages). These include:
