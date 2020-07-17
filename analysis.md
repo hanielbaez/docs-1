@@ -83,8 +83,8 @@ The "plots" list contains collections which define the different plots that visu
   "plots": [{
      "title": "title",
      "layout": {
-       "width": "% of analysis view width",
-       "height": "% of analysis view height%"
+       "width": "[% of analysis view width]",
+       "height": "[% of analysis view height%]"
      },
      "position": {
      //top left corner of plot
@@ -92,8 +92,7 @@ The "plots" list contains collections which define the different plots that visu
        "y": "0%"
      },
      //type of chart
-     "type": "type of chart",
-     "data": [
+     "[type of chart]": [
        {
          "y": "component_1",
          "name": "component_1_name"
@@ -101,7 +100,7 @@ The "plots" list contains collections which define the different plots that visu
        {
          "y": "component_2_name",
          "name": "component_2_name"
-       }
+       {
      ]
    },
    ...
