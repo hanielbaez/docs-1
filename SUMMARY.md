@@ -22,7 +22,11 @@
     * [Bounds and Wrapping](configuration/topology/bounds-and-wrapping.md)
     * [Wrapping Presets and Flags](configuration/topology/wrapping-presets-and-flags.md)
     * [Distance Functions](configuration/topology/distance-functions.md)
-* [Libraries](libraries.md)
+* [Libraries](libraries/README.md)
+  * [Spatial](libraries/spatial.md)
+  * [Neighbors](libraries/neighbors.md)
+  * [Statistics](libraries/statistics.md)
+  * [Python Packages](libraries/python-packages.md)
 
 ## Concepts
 
