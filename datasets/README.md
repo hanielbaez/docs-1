@@ -21,6 +21,16 @@ HASH parses imported datasets and generates a new field for you in `context.data
 * If the dataset is a JSON document, it gets parsed for you directly.
 * If a dataset is a CSV file, we parse it into an array of JSON objects with values keyed under the headers in the first row.
 
+To access a dataset:
+
+```javascript
+//For a dataset in Drive (a dataset you've uploaded)
+context.data()["/filename.[csv||json]"]
+
+//For a dataset from Index (a dataset you've published or imported")
+context.data()["@[user-handle||org-handle]/[short-name]/[dataset].[csv||json]")
+```
+
 {% hint style="info" %}
 **Coming soon:** we will be streamlining this process shortly, providing more optionality around parsing treatment, and expanding support for the types of datasets ingestible by HASH.
 {% endhint %}
