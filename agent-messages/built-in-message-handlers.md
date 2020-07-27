@@ -157,7 +157,7 @@ If you provided a valid request, the Mapbox message handler then returns you a r
 }
 ```
 
-For further information about the API and error messages, see the official documentation. Note that HASH only supports this specific call at the moment.
+For further information about the API and error messages, see the [official documentation](https://docs.mapbox.com/api/navigation/#directions). Note that HASH only supports this specific call at the moment.
 
 Check out these two examples to see Navigation in action:
 
