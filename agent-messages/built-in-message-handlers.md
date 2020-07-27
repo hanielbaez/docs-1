@@ -64,9 +64,11 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
-### Navigation with MapBox
+### Navigation with Mapbox
 
-Any agent can request navigation directions routed through a Mapbox API call. You first need to activate the Mapbox message handler in the `globals.json` file:
+**Message handlers can also be used to access 3rd party APIs during the runtime of a HASH simulation.** Presently we support just one external API, _Mapbox_, but in the coming months a number of others will be listed in [Index](https://hash.ai/index) and the ability to add new APIs will be opened up publicly.
+
+Using the existing Mapbox API message handler, any agent can request navigation directions between two points. But first, you'll need to activate the Mapbox message handler in your `globals.json` file:
 
 ```javascript
 {
