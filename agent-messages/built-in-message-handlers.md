@@ -64,9 +64,103 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
+### Navigation with MapBox
 
+Any agent can request navigation directions routed through a Mapbox API call. You first need to activate the Mapbox message handler in the `globals.json` file:
 
+```javascript
+{
+    "messageHandlers": ["mapbox"]
+}
+```
 
+You can then create the message by providing starting and ending coordinates, as well as the transportation method in the data field. The valid transportation methods are: `biking`, `walking`, `driving` and `driving-traffic`.
 
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+function behavior(state, context) {
+    // Longitude and Latitude coordinates
+    const start_lng_lat = [-71.117128, 42.389755];
+    const end_lng_lat = [-71.096227, 42.304433];
+    
+    const start_string = start_lng_lat[0] + "," + start_lng_lat[1];
+    const end_string = end_lng_lat[0] + "," + end_lng_lat[1];
+        
+    state.addMessage("mapbox", "mapbox_request", {
+        "transportation_method": "driving",
+        "request_route": start_string + ";" + end_string
+    });
+}
+```
+{% endtab %}
 
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    # Longitude and Latitude coordinates
+    start_lng_lat = [-71.117128, 42.389755]
+    end_lng_lat = [-71.096227, 42.304433]
+    
+    start_string = '{},{}'.format(start_lng_lat[0], start_lng_lat[1])
+    end_string = '{},{}'.format(end_lng_lat[0], end_lng_lat[1])
+        
+    state.add_message('mapbox', 'mapbox_request', {
+        'transportation_method': 'driving',
+        'request_route': start_string + ';' + end_string
+    })
+```
+{% endtab %}
+{% endtabs %}
+
+If you provided a valid request, the Mapbox message handler then returns you a results message. If your request was invalid, it will return an error message with a brief description of the error.
+
+```javascript
+// Returned route message
+{
+    "from": "mapbox",
+    "type": "mapbox_response",
+    "data": {
+      "routes": [
+        {
+          "distance": 1554.3,
+          "duration": 423.8,
+          "geometry": {
+            "coordinates": [
+              [
+                -74.003636,
+                40.743162
+              ],
+              [
+                -74.004329,
+                40.742431
+              ],
+              ...
+            ],
+            "type": "LineString"
+          },
+          ...
+        }
+      ],
+      ...
+    },
+}
+
+// Sample error message
+{
+  "from": "mapbox",
+  "type": "mapbox_response",
+  "data": {
+      "code": "InvalidInput",
+      "message": "Coordinate is invalid: 182,40.74317449"
+    },
+}
+```
+
+For further information about the API and error messages, see the official documentation. Note that HASH only supports this specific call at the moment.
+
+Check out these two examples to see Navigation in action:
+
+* [Citi Bike Visualization](https://hash.ai/index/5f1ee25c423871228390414c/gis)
+* [Product Delivery](https://hash.ai/index/5f15c22e4698014c8a0227ff/product-delivery)
 
