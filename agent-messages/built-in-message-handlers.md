@@ -159,10 +159,10 @@ If you provided a valid request, the Mapbox message handler then returns you a r
 }
 ```
 
-For further information about the API and error messages, see the [official documentation](https://docs.mapbox.com/api/navigation/#directions). Note that HASH only supports this specific call at the moment.
+For further information about the Mapbox API and error messages, see the [official documentation](https://docs.mapbox.com/api/navigation/#directions). Note that HASH only supports this specific call at the moment.
 
-Check out these two examples to see Navigation in action:
+**Check out these two examples to see Navigation in action:**
 
-* [Citi Bike Visualization](https://hash.ai/index/5f1ee25c423871228390414c/gis)
+* \*\*\*\*[Citi Bike Visualization](https://hash.ai/index/5f1ee25c423871228390414c/gis)
 * [Product Delivery](https://hash.ai/index/5f15c22e4698014c8a0227ff/product-delivery)
 
