@@ -2,9 +2,21 @@
 
 ## HASH Standard Library
 
-HASH provides a set of functions through `hash_stdlib.` It contains common functions to simplify simulation construction. 
+HASH provides a set of useful functions to help simplify simulation construction. These are provided through a standard library, `hash_stdlib`
 
-`hash_stdlib` __is currently only available in JavaScript behaviors; however, we're expanding it to include equivalent functions for Python and Rust. [The Python language environment also provides pyodide package_s._](python-packages.md)\_\_
+Currently the Stadard Library is only accessible in JavaScript; however, we're expanding this to include equivalent functions for Python and Rust. The Python language environment [also provides access to](https://docs.hash.ai/core/libraries/python-packages) a wide array of scientific Python packages_._
+
+### Types of functions in the HASH Standard Library
+
+The HASH Standard Library contains the following types of functions:
+
+| Category | Description |
+| :--- | :--- |
+| [Spatial](spatial.md) | Functions describing and modifying the location of agents in x,y,z space. |
+| [Neighbors](neighbors.md) | Functions related to neighbors and neighbor calculations. |
+| [Statistical](python-packages.md) | Functions for performing complex statistical modeling or analysis. |
+
+### Using the HASH Standard Library
 
 To call a standard library function, use the `hash_stblib` object followed by the function name, for example: 
 
@@ -13,16 +25,6 @@ function behavior(state, context) {
     let distance = hash_stdlib.distanceBetween(agentA, agentB)
 }
 ```
-
-hash\_stdlib contains the following types of functions:
-
-| Category | Description |
-| :--- | :--- |
-| [Spatial](spatial.md) | Functions describing and modifying the location of agents in x,y,z space. |
-| [Neighbors](neighbors.md) | Functions related to neighbors and neighbor calculations. |
-| [Statistical](python-packages.md) | Functions for performing complex statistical modeling or analysis. |
-
-
 
 
 
