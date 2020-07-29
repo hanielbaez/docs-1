@@ -26,5 +26,7 @@ function behavior(state, context) {
 }
 ```
 
+## Scientific Python
 
+HASH provides access to a number of scientific Python packages which can be utilized in simulations. [Read more &gt;](https://docs.hash.ai/core/libraries/python-packages)
 
