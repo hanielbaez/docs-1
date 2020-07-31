@@ -93,5 +93,5 @@ Messages are produced during a step, but are not delivered and processed until t
 
 ![Data flow for a single step in  HASH simulation](../.gitbook/assets/image%20%2812%29.png)
 
-Agents send messages by adding them to `state.messages`, and they receive them by checking `context.messages()`
+Agents send messages by adding them to `state.messages`, and they receive them by checking `context.messages().` 
 

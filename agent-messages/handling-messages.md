@@ -68,3 +68,5 @@ fn (state: AgentState, context: &Context) -> AgentState {
 {% endtab %}
 {% endtabs %}
 
+The messages that an agent receives are only available on the timestep they received them. context.Messaes\(\) is cleared between timesteps, so an agent will need to store the messages on their state if they want to preserve a message.
+
