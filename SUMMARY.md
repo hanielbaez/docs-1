@@ -31,6 +31,7 @@
 ## Concepts
 
 * [Designing with the Actor Model](concepts/design-considerations.md)
+* [Designing for Different Timescales](concepts/designing-for-different-timescales.md)
 
 ## Hello, World!
 
