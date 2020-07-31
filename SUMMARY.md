@@ -55,6 +55,7 @@
 ## Extra
 
 * [Error Reference & Debugging](extra/error-reference.md)
+* [Performance](extra/performance.md)
 * [System Requirements](extra/specs-requirements.md)
 * [Shortcuts](extra/shortcuts.md)
 
