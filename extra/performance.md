@@ -46,7 +46,9 @@ In the 3D viewer, you can `Open Controls > Toggle Stats` to view live stats on y
 * FPS: Frames per second in the 3d viewer.
 * MB: Total size of the simulation
 
-MS and FPS reflect the total time from state _t_ to state _t_+1. If this is taking thousands of MS, you likely have too many agents or too complex of behaviors. MB reflects the size of the simulation - each simulation run is stored locally. If a simulation has been run for tens of thousands of time steps, or if there are many agents, it might become too large for your browser.
+MS and FPS reflect the total time from state _t_ to state _t_+1. If this is taking thousands of MS, you likely have too many agents or too complex of behaviors. If the FPS are particularly low, consider turning on 2D mode.
+
+MB reflects the size of the simulation - each simulation run is stored locally. If a simulation has been run for tens of thousands of time steps, or if there are many agents, it might become too large for your browser.
 
 ![](../.gitbook/assets/kapture-2020-07-30-at-15.47.52.gif)
 
