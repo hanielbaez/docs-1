@@ -12,11 +12,15 @@ We're also happy to chat through techniques to improve your simulation's perform
 
 ## Data
 
-Running in-browser, HASH Core can comfortably initialize 100-1000 agents, with one to ten behaviors each, before running into performance constraints. And while you can import datasets of any size into a simulation, datasets &gt; 200MB will likely slow down your simulation.
+Running in-browser, HASH Core can comfortably initialize 100-1000 agents, with one to ten behaviors each, before running into performance constraints. And while you can import datasets of any size into a simulation, datasets greater than 200MB in size will presently contribute to slower running simulations.
 
 The general solution is to keep your initial simulation population small, and then once you have the core simulation dynamics modeled, increase the number of agents and run it on H-Cloud or let it run for a longer period of time in the background.
 
 For handling large datasets, consider preprocessing the data, for instance in an iPython notebook w/ Pandas, to only use the segments of data you need for the simulation. Often we've found people have imported a lot of extra data when, to simulate agents, they only need a small handful of columns from a much larger dataset.
+
+{% hint style="info" %}
+In the future we'll be bringing support for much larger datasets to both the client-side version of HASH Core and simulations running in HASH Cloud.
+{% endhint %}
 
 ## Compute
 
