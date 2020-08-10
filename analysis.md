@@ -73,7 +73,6 @@ The other operations besides "filter" are listed below. Most of these operations
 | min | n/a | Return the minimum of the elements in the current output |
 | max | n/a | Return the maximum of the elements in the current output |
 | mean | n/a | Return the mean of the elements in the current output |
-| movingAverage | _window_ | Return the moving average with _window_ length |
 
 ### Plots
 
