@@ -21,7 +21,7 @@ Here's an example for the `values` definition:
         "type": "values",
         "field": "radius",
         "values": [0,1,2,3,4,5,6],
-        "steps": 100,    
+        "steps": 100    
     }
 }
 ```

@@ -6,29 +6,29 @@ description: Reference for different experiment options
 
 ### Value sweeping
 
-For simulations with different categorical behavior or a very specific sampling of datapoints, it's possible to set entirely custom values. This unlocks multi-parameter sweep and categorical sampling that are not accurately described by the pre-defined sampling methods defined below.
+For simulations with different categorical behavior or a very specific sampling of datapoints, it's possible to set custom values. This unlocks multi-parameter sweep and categorical sampling that are not accurately described by the pre-defined sampling methods defined below.
 
 ```javascript
 "Radius values": {
-  steps: 100,
-  type: "values",
-  field: "radius",
-  values: [0, 1, 2, 3, 4, 5, 6, 7]
+  "steps": 100,
+  "type": "values",
+  "field": "radius",
+  "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 ```
 
 ### Linspace sweeping
 
-Linspace is one of the most common types of parameter sweeping. With a start, stop, and number of samples, it's possible to generate an even sampling between two numbers with a set number of datapoints.
+Linspace is one of the most common types of parameter sweeping. Define start, stop, and number of samples to generate an even sampling between two numbers with a set number of datapoints.
 
 ```javascript
 "Radius linspace": {
-  steps: 100,
-  type: "linspace",
-  field: "radius",
-  start: 0,
-  stop: 10,
-  samples: 11
+  "steps": 100,
+  "type": "linspace",
+  "field": "radius",
+  "start": 0,
+  "stop": 10,
+  "samples": 11
 }
 ```
 
@@ -38,12 +38,12 @@ Arange if also another one of the most common types of parameter sweeping. Inste
 
 ```javascript
 "Radius arange": {
-  steps: 100,
-  type: "arange",
-  field: "radius",
-  start: 0,
-  stop: 10,
-  increment: 0.5
+  "steps": 100,
+  "type": "arange",
+  "field": "radius",
+  "start": 0,
+  "stop": 10,
+  "increment": 0.5
 }
 ```
 
@@ -53,34 +53,34 @@ Monte carlo sweeping allows random sampling from a custom distribution. Each sup
 
 ```javascript
 "Radius monte": {
-  steps: 100,
-  type: "monte-carlo",
-  field: "radius",
-  samples: 10,
+  "steps": 100,
+  "type": "monte-carlo",
+  "field": "radius",
+  "samples": 10,
   
   // Either combination of distributions and parameters:
-  distribution: "normal",
-  mean: 1,
-  std: 1
+  "distribution": "normal",
+  "mean": 1,
+  "std": 1
   
   // or
-  distribution: "log-normal",
-  mu: 1,
-  sigma: 1
+  "distribution": "log-normal",
+  "mu": 1,
+  "sigma": 1
   
   // or  
-  distribution: "poisson",
-  rate: 1
+  "distribution": "poisson",
+  "rate": 1
   
   // or  
-  distribution: "beta",
-  alpha: 1,
-  beta: 1
+  "distribution": "beta",
+  "alpha": 1,
+  "beta": 1
   
   // or  
-  distribution: "gamma",
-  shape: 1,
-  scale: 1
+  "distribution": "gamma",
+  "shape": 1,
+  "scale": 1
 }
 ```
 
