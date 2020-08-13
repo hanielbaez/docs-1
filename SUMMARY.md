@@ -27,6 +27,8 @@
   * [Neighbors](libraries/neighbors.md)
   * [Statistics](libraries/statistics.md)
   * [Python Packages](libraries/python-packages.md)
+* [Experiments](experiments-1/README.md)
+  * [Experiment Types](experiments-1/experiment-types.md)
 
 ## Concepts
 
