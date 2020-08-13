@@ -17,7 +17,9 @@ Value sweeping runs a simulation for each specified value.
 }
 ```
 
+{% hint style="info" %}
 Value sweeping is particularly is useful for multi-parameter sweeps and categorical sampling.
+{% endhint %}
 
 ### Linspace sweeping
 
