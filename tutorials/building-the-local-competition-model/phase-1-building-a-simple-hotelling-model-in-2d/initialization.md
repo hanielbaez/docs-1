@@ -1,4 +1,4 @@
-# Initialization
+# Agent Initialization
 
 Now, open up init.json. This is where we will be writing our ****[**agent creator**](https://docs.hash.ai/core/anatomy-of-an-agent/initial-state) ****that will generate all our simulation agents. First, generate the Customer agents. 
 

@@ -5,7 +5,10 @@
 | Command | Windows | Mac |
 | :--- | :--- | :--- |
 | Save | `Ctrl` + `S` | `Command` + `S` |
-| Search | `Ctrl` + `F` | `Command` + `F` |
+| Search currently open file | `Ctrl` + `F` | `Command` + `F` |
+| Start/stop simulation | `Ctrl` + `Enter` | `Command` + `Enter` |
+| Pause and reset the simulation | `Alt` + `Enter` | `Alt` + `Enter` |
+| Single-step simulation | `Ctrl` + `Shift` + `Enter` | `Command` + `Shift` + `Enter` |
 | Increase Indent | `Tab` | `Tab` |
 | Decrease Indent | `Shift` + `Tab` | `Shift` + `Tab` |
 | Comment Out | `Ctrl` + `/` | `Command` + `/` |
@@ -32,4 +35,12 @@
 | Add multi-cursor below | `Ctrl` + `Alt` + `Down` | `Command` + `Alt` + `Down` |
 | Add multi-cursor above | `Ctrl` + `Alt` + `Shift` + `Up` | `Command` + `Alt` + `Shift` + `Up` |
 | Move multi-cursor from current line to the line below | `Ctrl` + `Alt` + `Shift` + `Down` | `Command` + `Alt` + `Shift` + `Down` |
+
+
+
+## Outside the editor
+
+| Command | Windows | Mac |
+| :--- | :--- | :--- |
+| Project-wide search | `Ctrl` + `F` | `Command` + `F` |
 

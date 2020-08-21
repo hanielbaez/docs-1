@@ -15,13 +15,15 @@ There are a couple of different ways you can solve this problem in HASH. Two com
 * Add delays to normalize the actions across timescales.
 * Use a "ManagerAgent" to signal when agents should pause to allow for different computation times
 
-**Delays**
+## Solutions
+
+### **Delays**
 
 A simple and straightforward approach is to "slow down" the simulation. In our example above, a time-step would now be 15 mins, and the agent would leave for work either on the first or second time-step, depending on whether they take a shower. They then leave work to return home on the 32nd time-step. 
 
 This has the advantage of being a straightforward, simple way of increasing the resolution of a simulation. The downside is it's inefficient - it's only in the first two steps of the simulation that we need the increased granularity. The additional 24 time-steps aren't really needed.
 
-**Managers**
+### **Managers**
 
 An alternative approach is to create a ManagerAgent that is responsible for managing the time scales. A ManagerAgent in this role - lets call it TimeManager - has a basic design:
 
