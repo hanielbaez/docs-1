@@ -12,8 +12,8 @@ The HASH Standard Library contains the following types of functions:
 
 | Category | Description |
 | :--- | :--- |
-| [Spatial](spatial.md) | Functions describing and modifying the location of agents in x,y,z space. |
-| [Neighbors](neighbors.md) | Functions related to neighbors and neighbor calculations. |
+| [Spatial](hash/spatial.md) | Functions describing and modifying the location of agents in x,y,z space. |
+| [Neighbors](hash/neighbors.md) | Functions related to neighbors and neighbor calculations. |
 | [Statistical](python-packages.md) | Functions for performing complex statistical modeling or analysis. |
 
 ### Using the HASH Standard Library

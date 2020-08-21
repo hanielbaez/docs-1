@@ -23,10 +23,11 @@
     * [Wrapping Presets and Flags](configuration/topology/wrapping-presets-and-flags.md)
     * [Distance Functions](configuration/topology/distance-functions.md)
 * [Libraries](libraries/README.md)
-  * [Spatial](libraries/spatial.md)
-  * [Neighbors](libraries/neighbors.md)
-  * [Statistics](libraries/statistics.md)
   * [Python Packages](libraries/python-packages.md)
+  * [Javascript Libraries](libraries/javascript-libraries.md)
+  * [HASH](libraries/hash/README.md)
+    * [Spatial](libraries/hash/spatial.md)
+    * [Neighbors](libraries/hash/neighbors.md)
 * [Experiments](experiments/README.md)
   * [Experiment Types](experiments/experiment-types.md)
 
@@ -34,6 +35,7 @@
 
 * [Designing with the Actor Model](concepts/design-considerations.md)
 * [Designing for Different Timescales](concepts/designing-for-different-timescales.md)
+* [Designing with Stochasticity](concepts/designing-with-stochasticity.md)
 
 ## Hello, World!
 

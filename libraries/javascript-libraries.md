@@ -1,12 +1,10 @@
-# Statistics
+# Javascript Libraries
 
-All statistics functions are available through the stats package, `hash_stdlib.stats`
+HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library through `hash_stdlib.stats` .
 
-HASH uses the [jStat](http://jstat.github.io/distributions.html) library to provide the following functions. Currently only the functions and classes listed below are "fully supported". Others are available and will work, though we've left them undocumented as the interface/names might change.
+Currently only the functions and classes listed below are "fully supported". Others are available and will work, though we've left them undocumented as the interface/names might change.
 
-### Vectors
-
-[jStat documentation](http://jstat.github.io/vector.html)
+### [jStat Vectors](http://jstat.github.io/vector.html)
 
 ```javascript
 sum()
@@ -45,9 +43,7 @@ covariance()
 corrcoeff()
 ```
 
-### Distributions
-
-[jStat documentation](http://jstat.github.io/distributions.html)
+### [jStat Distributions](http://jstat.github.io/distributions.html)
 
 ```javascript
 beta(alpha, beta)
@@ -73,7 +69,7 @@ triangular
 arcsine(a,b)
 ```
 
-Here's an example that uses a number of these distributions. This behavior creates a bird agent with the following attributes: 
+Here's an example that uses a number of these distributions to create bird agents: 
 
 * We've sampled a Poisson distribution to determine how many new birds arrive at each step.
 * We've sampled a uniform distribution to determine its `x` and `y` coordinates.
@@ -84,10 +80,8 @@ Here's an example that uses a number of these distributions. This behavior creat
 {% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
-  const poisson = hash_stdlib.stats.poisson;
-  const uniform = hash_stdlib.stats.uniform;
-  const triangular = hash_stdlib.stats.triangular;
-  const normal = hash_stdlib.stats.normal;
+  const { poisson, uniform, triangular, normal } = hash_stdlib.stats;
+
 
   const num_new_agents = poisson.sample(10); // expected occurence rate
 
@@ -108,8 +102,23 @@ function behavior(state, context) {
 {% endtab %}
 
 {% tab title="Python" %}
-```
+```python
+from scipy.stats import uniform, triang, norm, poisson
 
+def behavior(state, context):
+  num_new_agents = poisson.rvs(10); # expected occurence rate
+
+  for i in xrange(num_new_agents):
+    x = uniform.rvs(0, 10); # min, max
+    y = uniform.rvs(0, 10);
+
+    altitude = triang.rvs(10, 10000, 500) # min, max, mode
+
+    state.add_message("hash", "create_agent", {
+      "agent_name": "bird",
+      "position": [x, y, altitude],
+      "speed": norm.rvs(25, 10), # mean, standard deviation
+    })
 ```
 {% endtab %}
 {% endtabs %}
