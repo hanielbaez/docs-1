@@ -1,6 +1,6 @@
 # Designing with Stochasticity
 
-Multi-Agent Simulation approaches problem-solving from a stochastic lens. Instead of quantitatively or numerically determining the solution to a set of equations representing a system, HASH will let you empirically and statistically come to conclusions about how systems behave. In order to better approximate the real world, you'll often want to initialize agents with heterogeneous properties, and ensure your behaviors properly randomize when necessary. Here are a number of ways you can incorporate stochasticity into your HASH simulations.
+Multi-Agent Simulation approaches problem-solving from a stochastic lens. Instead of quantitatively or numerically determining the solution to a set of equations representing a system, HASH will let you approximate messy, complex real-world systems, and empirically and statistically come to conclusions about how they behave. In order to better approximate the real world, you'll often want to initialize agents with heterogeneous properties, and ensure your behaviors properly randomize when necessary. Here are a number of ways you can incorporate stochasticity into your HASH simulations.
 
 ## Distributions
 
@@ -32,6 +32,28 @@ function behavior(state, context) {
     })
   }
 };
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+from scipy.stats import uniform, triang, norm, poisson
+
+def behavior(state, context):
+  num_new_agents = poisson.rvs(10); # expected occurence rate
+
+  for i in range(num_new_agents):
+    x = uniform.rvs(0, 10); # min, max
+    y = uniform.rvs(0, 10);
+
+    altitude = triang.rvs(10, 10000, 500) # min, max, mode
+
+    state.add_message("hash", "create_agent", {
+      "agent_name": "bird",
+      "position": [x, y, altitude],
+      "speed": norm.rvs(25, 10), # mean, standard deviation
+    })
+
 ```
 {% endtab %}
 {% endtabs %}
