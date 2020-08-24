@@ -4,7 +4,7 @@ Multi-Agent Simulation approaches problem-solving from a stochastic lens. Instea
 
 ## Distributions
 
-Initializing agent properties using different types of distributions is a common practice in Multi-Agent models. In HASH, you can use the jStats library or the SciPy package for sampling distributions. Here's an example that uses a number of these distributions to create agents: 
+Initializing agent properties using different types of distributions is a common practice in Multi-Agent models. In HASH, you can use the jStats library or the NumPy package for sampling distributions. Here's an example that uses a number of these distributions to create agents: 
 
 * We've sampled a Poisson distribution to determine how many new birds arrive at each step.
 * We've sampled a uniform distribution to determine its `x` and `y` coordinates.
@@ -37,23 +37,22 @@ function behavior(state, context) {
 
 {% tab title="Python" %}
 ```python
-from scipy.stats import uniform, triang, norm, poisson
+from numpy.random import poisson, uniform, triangular, normal
 
 def behavior(state, context):
-  num_new_agents = poisson.rvs(10); # expected occurence rate
+  num_new_agents = poisson(1); # expected occurence rate
 
   for i in range(num_new_agents):
-    x = uniform.rvs(0, 10); # min, max
-    y = uniform.rvs(0, 10);
+    x = uniform(0, 10); # min, max
+    y = uniform(0, 10);
 
-    altitude = triang.rvs(10, 10000, 500) # min, max, mode
+    altitude = triangular(10, 50, 200) # min, mode, max
 
     state.add_message("hash", "create_agent", {
       "agent_name": "bird",
       "position": [x, y, altitude],
-      "speed": norm.rvs(25, 10), # mean, standard deviation
+      "speed": normal(25, 10), # mean, standard deviation
     })
-
 ```
 {% endtab %}
 {% endtabs %}
