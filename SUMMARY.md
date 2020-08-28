@@ -13,6 +13,7 @@
 * [Behaviors](behaviors/README.md)
   * [Composable behaviors](behaviors/composable-behaviors.md)
 * [Messages](agent-messages/README.md)
+  * [Sending Messages](agent-messages/sending-messages.md)
   * [Handling Messages](agent-messages/handling-messages.md)
   * [Built-in message handlers](agent-messages/built-in-message-handlers.md)
 * [Datasets](datasets/README.md)
