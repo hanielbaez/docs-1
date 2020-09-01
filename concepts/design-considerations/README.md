@@ -10,7 +10,7 @@ HASH is designed around an [actor oriented programming model](https://en.wikiped
 
 **Each agent in a simulation is an actor** with its own private state.
 
-**Actors communicate by sending and receiving** [**messages**](../agent-messages/), through which they may attempt to influence other agents to change state.
+**Actors communicate by sending and receiving** [**messages**](../../agent-messages/), through which they may attempt to influence other agents to change state.
 
 **Ultimately agents are responsible for changing their own state.** An agent's state can only ever be modified by the agent itself.
 
@@ -31,7 +31,7 @@ There won't be a situation where the order in which an agent is run changes the 
 
 Since HASH implements an actor oriented paradigm, information is sent between agents through messages. If at timestep 1 \(_t_\) Agent A sends Agent B a message, Agent B will receive it and be able to act on the message in timestep 2 \(_t+1_\). The earliest Agent A could receive a response is in timestep 3 \(_t+2_\).. 
 
-![](../.gitbook/assets/image%20%2815%29.png)
+![](../../.gitbook/assets/image%20%2815%29.png)
 
 ### Redundant Messaging
 
