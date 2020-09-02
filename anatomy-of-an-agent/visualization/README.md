@@ -1,4 +1,26 @@
 # Visualization
 
-Once you've created your model, it is equally important to create a compelling visualization that clearly demonstrates what your model is doing. Agents have predefined properties 
+Once you've developed and tested the logic and functioning of your model, it is equally important to create a compelling visualization that clearly turns your model into an explanatory tool. Agents have some predefined properties that allow you to modify their display:
+
+* `"shape": string` - if provided overrides the default "box" visualization for the agent. 
+
+  * Shape options are "box", "cone", "cylinder", "dodecahedron", "icosahedron", "octahedron", "plane", "sphere", "tetrahedron", "torus", or "torusknot".
+
+* `"height": i64` - if provided \(and agent is rendering on a 2d grid\), will set the display height of the agent.
+
+* `"scale": [i64, i64, i64]` - if provided, will re-render the agent in 3d space with the new scale. The position of the agent will remain the same \(e.g. for neighbor calculations\).
+
+* `"direction": [i64, i64, i64]` - if provided, will render the agent as a cone oriented along that unit vector
+
+* `"color": string` - if provided, will color the agent.  Named colors \("red", "green", "blue", etc.\) are supported, alongside hex color codes \(`#223344`\) and RGB values \(`rgb(12,244,155)`\).
+
+* `"rgb": [i64, i64, i64]` - an alternate way to color an agent by providing RGB values from 0 - 255.
+
+  * This will be overridden if the "color" field is also set on an agent.
+
+* `"hidden": bool` - if provided and true, the agent will not be rendered on the 3d viewer.
+
+
+
+In the [Index](https://hash.ai/index/search?query=display&sort=relevance&page=1) you can find published behaviors which have been created to help with more complicated visualization tasks.
 
