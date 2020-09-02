@@ -69,57 +69,5 @@ triangular
 arcsine(a,b)
 ```
 
-Here's an example that uses a number of these distributions to create bird agents: 
-
-* We've sampled a Poisson distribution to determine how many new birds arrive at each step.
-* We've sampled a uniform distribution to determine its `x` and `y` coordinates.
-* We've sampled a triangular distribution to determine its altitude.
-* We've sampled a normal distribution to determine its speed.
-
-{% tabs %}
-{% tab title="JavaScript" %}
-```javascript
-function behavior(state, context) {
-  const { poisson, uniform, triangular, normal } = hash_stdlib.stats;
-
-
-  const num_new_agents = poisson.sample(10); // expected occurence rate
-
-  for (let i = 0; i < num_new_agents; i++) {
-    const x = uniform.sample(0, 10); // min, max
-    const y = uniform.sample(0, 10);
-
-    const altitude = triangular.sample(10, 10000, 500) // min, max, mode
-
-    state.addMessage("hash", "create_agent", {
-      "agent_name": "bird",
-      "position": [x, y, altitude],
-      "speed": normal.sample(25, 10), // mean, standard deviation
-    })
-  }
-};
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-from scipy.stats import uniform, triang, norm, poisson
-
-def behavior(state, context):
-  num_new_agents = poisson.rvs(10); # expected occurence rate
-
-  for i in xrange(num_new_agents):
-    x = uniform.rvs(0, 10); # min, max
-    y = uniform.rvs(0, 10);
-
-    altitude = triang.rvs(10, 10000, 500) # min, max, mode
-
-    state.add_message("hash", "create_agent", {
-      "agent_name": "bird",
-      "position": [x, y, altitude],
-      "speed": norm.rvs(25, 10), # mean, standard deviation
-    })
-```
-{% endtab %}
-{% endtabs %}
+For an example that uses these statistics functions, see the example on the [Designing with Stochasticity](../concepts/designing-with-stochasticity.md) page.
 
