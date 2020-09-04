@@ -2,7 +2,7 @@
 
 You can share your datasets with others by publishing them to Index.
 
-To publish a Dataset, visit your Drive, select the data you want to publish, and click publish.
+To publish a Dataset, visit your hDrive, select the data you want to publish, and click publish.
 
 ![Publish Datasets](../.gitbook/assets/data_publish.webp)
 

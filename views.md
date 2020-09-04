@@ -10,11 +10,11 @@ Using the playbar at the bottom of the right-hand view pane you can scrub forwar
 
 ## 3D
 
-**Support for a full range of 3D models in Core's 3D viewer is coming soon.** In the meantime, the following primitives can be used to give form to agents: `box`, `cone`, `cylinder`, `dodecahedron` , `icosahedron`, `octahedron`, `plane`, `sphere`, `tetrahedron`, `torus`, `torusknot`
+**Support for a full range of 3D models in hCore's 3D viewer is coming soon.** In the meantime, the following primitives can be used to give form to agents: `box`, `cone`, `cylinder`, `dodecahedron` , `icosahedron`, `octahedron`, `plane`, `sphere`, `tetrahedron`, `torus`, `torusknot`
 
 ## Geospatial
 
-**Agents can be rendered on a map-view of the world by providing them with latlong co-ordinates.**  Various examples in the HASH Index showcase this \(e.g. [Local Competition](https://hash.ai/index/5e55694e10a3261046bfa8a6/local-competition), [Container Line](https://hash.ai/index/5f1b55b94238711b80904097/container-line)\)
+**Agents can be rendered on a map-view of the world by providing them with latlong co-ordinates.**  Various examples in the hIndex showcase this \(e.g. [Local Competition](https://hash.ai/index/5e55694e10a3261046bfa8a6/local-competition), [Container Line](https://hash.ai/index/5f1b55b94238711b80904097/container-line)\)
 
 ## Plots
 

@@ -1,14 +1,14 @@
 # Datasets
 
-HASH allows you to incorporate your own data into simulations, or download datasets from HASH Index. Data can be used in HASH to instantiate agents within a simulation, or to augment and enhance the properties of any number of agents.
+HASH allows you to incorporate your own data into simulations, or download datasets from hIndex. Data can be used in HASH to instantiate agents within a simulation, or to augment and enhance the properties of any number of agents.
 
 ### Importing your own data in HASH
 
-To import your own datasets into HASH, first navigate to your [HASH Drive](https://hash.ai/drive) and use the 'Add New' button to initiate a data upload or sync.
+To import your own datasets into HASH, first navigate to your [hDrive](https://hash.ai/drive) and use the 'Add New' button to initiate a data upload or sync.
 
 ### Integrating data into a simulation
 
-To integrate with a dataset from within HASH Core, navigate to the "Add to Simulation" interface in the bottom-left hand corner of the UI to select datasets from either Index or Drive to add. Once integrated, the dataset is listed in your simulation's file list.
+To integrate with a dataset from within hCore, navigate to the "Add to Simulation" interface in the bottom-left hand corner of the UI to select datasets from either hIndex or hDrive to add. Once integrated, the dataset is listed in your simulation's file list.
 
 HASH parses imported datasets and generates a new field for you in your simulation properties, `data`. This contains the content of datasets associated by the UI. At this time HASH supports datasets imported in CSV or JSON formats.
 

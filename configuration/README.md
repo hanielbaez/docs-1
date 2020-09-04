@@ -6,7 +6,7 @@ description: Configure your simulations for optimal performance and functionalit
 
 Imagine sitting down in front of a blank Python file and yet again configuring your environment, importing Numpy, Matplotlib, and SciPy, just to start plotting some results. We aim to avoid that with HAS by making configuration 
 
-HASH Core is extremely flexible right out of the box, filled with optimizations and tools that make developing simulations easier than ever.
+hCore is extremely flexible right out of the box, filled with optimizations and tools that make developing simulations easier than ever.
 
 With the configuration tools available to you, you can:
 
@@ -16,6 +16,6 @@ With the configuration tools available to you, you can:
 * Configure how distance functions work in different topologies using [Distance Functions](topology/distance-functions.md)
 
 {% hint style="info" %}
-Play around with simulations in HASH Index to get a feel for how these flags change simulation dynamics
+Play around with simulations in hIndex to get a feel for how these flags change simulation dynamics
 {% endhint %}
 

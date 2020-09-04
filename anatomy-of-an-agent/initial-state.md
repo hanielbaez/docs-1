@@ -71,6 +71,6 @@ state.add_message("hash", "create_agent", {
 If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://hash.ai/index/5de534020860d432cb408b92/wildfires-regrowth) or [Rock,  Paper, Scissors](https://core.hash.ai/simulation/5e7a44d2d945ef3e5d54bd55) simulations.
 
 {% hint style="info" %}
-If you ever feel like you might be "re-inventing the wheel," make sure to check out [HASH Index](https://hash.ai/index/search?contentType=Behavior&sort=relevance&query=create&page=1) in case someone else has shared a similar behavior.
+If you ever feel like you might be "re-inventing the wheel," make sure to check out [hIndex](https://hash.ai/index/search?contentType=Behavior&sort=relevance&query=create&page=1) in case someone else has shared a similar behavior.
 {% endhint %}
 

@@ -1,5 +1,5 @@
 ---
-description: Granular control of how the world is presented to HASH Core
+description: Granular control of how the world is presented to hCore
 ---
 
 # Wrapping Presets and Flags

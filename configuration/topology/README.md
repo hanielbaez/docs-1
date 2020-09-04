@@ -1,6 +1,6 @@
 # Topology
 
-Another important keyword recognized by HASH Core is `topology`. The topology keyword sits at the top level of the `globals.json` file object and drives a handful of important hardware-accelerated calculations used by behaviors in our simulation. A topology configuration might look like this:
+Another important keyword recognized by the hEngine is `topology`. The topology keyword sits at the top level of the `globals.json` file object and drives a handful of important hardware-accelerated calculations used by behaviors in our simulation. A topology configuration might look like this:
 
 ```javascript
 {
@@ -36,7 +36,7 @@ It's best to let HASH do the heavy lifting for you, especially for computational
 
 **Search Radius**
 
-Internally, HASH's Engine maintains a list of neighbors for each agent and updates the list with each time step. As agents move, their list of neighbors automatically updates - agents further away than a given search radius are removed and agents within the search radius are added. In the properties tab, this can be defined via a "search\_radius" keyword:
+Internally, hEngine maintains a list of neighbors for each agent and updates the list with each time step. As agents move, their list of neighbors automatically updates - agents further away than a given search radius are removed and agents within the search radius are added. In the properties tab, this can be defined via a "search\_radius" keyword:
 
 ```javascript
 {

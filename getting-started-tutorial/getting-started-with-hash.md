@@ -6,12 +6,12 @@ description: 'Estimated time: 20 mins'
 
 ## Tutorial: Build a Hospital
 
-In this tutorial we're going to augment one of our existing epidemiological simulations and add a hospital. Along the way you'll learn key features of HASH Core and how to use agent based modeling to simulate and answer complex questions.  
+In this tutorial we're going to augment one of our existing epidemiological simulations and add a hospital. Along the way you'll learn key features of hCore and how to use agent based modeling to simulate and answer complex questions.  
 
- [Start by opening our base template](https://hash.ai/index/5e86c068eb2a710a4a2fe11e/getting-started-base) and copying it into your H-Drive.
+ [Start by opening our base template](https://hash.ai/index/5e86c068eb2a710a4a2fe11e/getting-started-base) and copying it into your hDrive.
 
 {% hint style="info" %}
-If you start editing an example simulation it will be automatically copied into your H-Drive. Alternatively click copy in the top banner of the page.
+If you start editing an example simulation it will be automatically copied into your hDrive. Alternatively click copy in the top banner of the page.
 {% endhint %}
 
 We've provided a number of agents and behaviors already to simulate a virus spreading through a population. Look around at the files in the editor and click play to get a sense for how the simulation works now.
