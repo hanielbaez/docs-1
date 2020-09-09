@@ -4,7 +4,7 @@
 
 HASH allows you to incorporate your own data into simulations, or download datasets from [hIndex](https://hash.ai/index).
 
-### Importing your own data in HASH
+## Importing your own data in HASH
 
 To import your own datasets into HASH, first navigate to your [hDrive](https://hash.ai/drive) and use the 'Add New' button to initiate a data upload.
 
@@ -12,7 +12,7 @@ To import your own datasets into HASH, first navigate to your [hDrive](https://h
 **Coming soon:** data syncing from remote sources is currently only achievable through [Engine](https://hash.ai/engine), but remains on our roadmap for hCore.
 {% endhint %}
 
-### Integrating data into a simulation
+## Integrating data into a simulation
 
 To integrate with a dataset from within hCore, navigate to the "Add to Simulation" interface in the bottom-left hand corner of the UI to select datasets from either hIndex or hDrive to add. Once integrated, the dataset is listed in your simulation's file list.
 

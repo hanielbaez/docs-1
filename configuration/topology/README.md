@@ -15,10 +15,10 @@ Another important keyword recognized by the hEngine is `topology`. The topology 
 
         // Additionally, we can force 3D simulations to wrap along the Z axis
         "wrap_z_mode": "continuous",
-        
+
         // A global distance function agents use to localize
         "distance_function": "chebyshev"
-        
+
         // A global search radius
         "search_radius": 10
     },
@@ -26,13 +26,13 @@ Another important keyword recognized by the hEngine is `topology`. The topology 
 }
 ```
 
-Configuring topology properly lets you leverage HASH's built-in hardware acceleration to quickly find neighbors in the simulation, define extents of the simulation area, and navigate an agent from point A to B. 
+Configuring topology properly lets you leverage HASH's built-in hardware acceleration to quickly find neighbors in the simulation, define extents of the simulation area, and navigate an agent from point A to B.
 
 {% hint style="success" %}
 It's best to let HASH do the heavy lifting for you, especially for computationally-intensive work that we've already optimized.
 {% endhint %}
 
-#### Nearest-neighbor calculations
+## Nearest-neighbor calculations
 
 **Search Radius**
 
@@ -54,13 +54,13 @@ Any agents automatically found within the search radius of a given agent can be 
 ```javascript
 function behavior(state, context) {
     const neighbors = context.neighbors()
-    
+
     for (const neighbor of neighbors) {
         ...
     }
-    
+
     // OR
-    
+
     neighbors.forEach(n => {
         ...
     });
@@ -72,12 +72,12 @@ function behavior(state, context) {
 ```python
 def behavior(state, context):
     neighbors = context.neighbors()
-    
+
     for neighbor in neighbors:
         ...
-    
+
     # OR
-    
+
     map(lambda n: ..., neighbors)
 }
 ```

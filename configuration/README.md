@@ -4,7 +4,7 @@ description: Configure your simulations for optimal performance and functionalit
 
 # Configuration
 
-Imagine sitting down in front of a blank Python file and yet again configuring your environment, importing Numpy, Matplotlib, and SciPy, just to start plotting some results. We aim to avoid that with HAS by making configuration 
+Imagine sitting down in front of a blank Python file and yet again configuring your environment, importing Numpy, Matplotlib, and SciPy, just to start plotting some results. We aim to avoid that with HAS by making configuration
 
 hCore is extremely flexible right out of the box, filled with optimizations and tools that make developing simulations easier than ever.
 

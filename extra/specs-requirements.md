@@ -10,7 +10,7 @@ Certain HASH features rely on cutting-edge technology that may not be supported 
 | :--- | :--- | :--- | :--- |
 | Local JS Behaviors | ✔ | ✔ | ✔ |
 | Local Python Behaviors | ✔ | ✔ | 𝙓 |
-| Local Rust Behaviors  | 𝙓 | 𝙓 | 𝙓 |
+| Local Rust Behaviors | 𝙓 | 𝙓 | 𝙓 |
 | Cloud JS Behaviors | ✔ | ✔ | ✔ |
 | Cloud Python Behaviors | ✔ | ✔ | ✔ |
 | Cloud Rust behaviors | ✔ | ✔ | ✔ |

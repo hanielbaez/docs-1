@@ -1,12 +1,12 @@
 # Extending an Epidemic Model
 
-In this tutorial we're going to augment one of our existing epidemiological simulations and add a hospital. Along the way you'll learn key features of hCore and how to use agent based modeling to simulate and answer complex questions.  
+In this tutorial we're going to augment one of our existing epidemiological simulations and add a hospital. Along the way you'll learn key features of hCore and how to use agent based modeling to simulate and answer complex questions.
 
 [Start by opening our base template](https://hash.ai/index/5e86c068eb2a710a4a2fe11e/getting-started-base) and copying it into your hDrive.
 
 We've provided a number of agents and behaviors to simulate a virus spreading through a population. Look around at the files in the editor and click play to get a sense for how the simulation currently works.
 
-There are four distinct agents in the model. Three are locations - homes, groceries, and offices. The fourth are people. 
+There are four distinct agents in the model. Three are locations - homes, groceries, and offices. The fourth are people.
 
 ```javascript
  //init.json lines 9-35
@@ -40,7 +40,7 @@ There are four distinct agents in the model. Three are locations - homes, grocer
 //...
 ```
 
-Our people agents whiz about this simulated world, moving back and forth between groceries, work, and their homes, and occasionally \(depending on the parameters\), get sick. 
+Our people agents whiz about this simulated world, moving back and forth between groceries, work, and their homes, and occasionally \(depending on the parameters\), get sick.
 
 The rest of the tutorial will cover extending this model in Javascript:
 
@@ -48,6 +48,4 @@ The rest of the tutorial will cover extending this model in Javascript:
 2. Creating a Hospital agent
 3. Giving the Hospital the ability to test people to see if they're sick
 4. Creating intensive care behaviors for those who are especially sick.
-
-
 

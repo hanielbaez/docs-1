@@ -23,7 +23,6 @@ Every agent has a name and a unique identifier. As a simulation creator, you can
 class Agent:
     agent_id = <uuid v4> #Set on_create by the hEngine
     agent_name = <string>
-    
 ```
 {% endtab %}
 
@@ -39,7 +38,7 @@ struct Agent {
 
 Naming your agent is entirely optional. The simplest possible agent is simply `{}` \(although it won't do much of anything!\)
 
-An individual agent has a [state](state.md) and a [context](context.md). 
+An individual agent has a [state](state.md) and a [context](context.md).
 
 ![An Agent](../.gitbook/assets/image%20%2814%29.png)
 

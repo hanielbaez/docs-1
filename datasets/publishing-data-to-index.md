@@ -24,5 +24,3 @@ If you're part of an organization, you can publish the dataset on behalf of that
 "@[org-handle]/[short-name]/[dataset].[csv/json]"
 ```
 
-
-

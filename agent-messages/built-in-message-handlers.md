@@ -8,9 +8,9 @@ In addition to the custom messages you can send between individual agents in the
 
 Currently, the most powerful built-in message handlers allow agents to add or remove other agents from the simulation. These messages must be sent to `hash` to get processed by hCore. If not, they will be directed to an agent with a matching ID/name, and you will be very confused. If the agent with a matching name doesn't exist, the message goes unsent and nothing will happen. Again, you will be very confused.
 
-### Removing Agents via Messages
+## Removing Agents via Messages
 
-Any agent can remove any other agent with a special message sent directly to `hash`. Here, we remove an agent with the agent\_id of `Bill`. Before the next step starts executing, the message will be processed and `Bill` will be removed \(sorry Bill!\). 
+Any agent can remove any other agent with a special message sent directly to `hash`. Here, we remove an agent with the agent\_id of `Bill`. Before the next step starts executing, the message will be processed and `Bill` will be removed \(sorry Bill!\).
 
 {% hint style="warning" %}
 **Case sensitivity** **matters.** If a message is sent to `bill`, it will not be received by `Bill`. The only exception to this rule is that any message sent to hASh, Hash, HASH, haSh, or any similar variant will be forwarded to the master `hash` agent.
@@ -33,11 +33,11 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
-If a "remove\_agent" message is sent without a specified agent\_id, then the agent\_id defaults to that of the sender. We suggest setting the field as  `state.agent_id`  for readability but it can be used as shorthand.
+If a "remove\_agent" message is sent without a specified agent\_id, then the agent\_id defaults to that of the sender. We suggest setting the field as `state.agent_id` for readability but it can be used as shorthand.
 
-### Creating Agents via Messages
+## Creating Agents via Messages
 
-Any agent can also create new agents. Any message sent to `hash` with the `create_agent` type will result in the engine spawning a new agent. By default this agent will lack position or direction, and the engine will not try to place the agent for you. 
+Any agent can also create new agents. Any message sent to `hash` with the `create_agent` type will result in the engine spawning a new agent. By default this agent will lack position or direction, and the engine will not try to place the agent for you.
 
 Here, anything in the data field will be used to create the new agent. The `newborn` behavior is given to this agent, but remember, it will not be run until the next step.
 
@@ -64,7 +64,7 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
-### Navigation with Mapbox
+## Navigation with Mapbox
 
 **Message handlers can also be used to access 3rd party APIs during the runtime of a HASH simulation.** Presently we support just one external API, _Mapbox_, but in the coming months a number of others will be listed in [Index](https://hash.ai/index) and the ability to add new APIs will be opened up publicly.
 
@@ -85,10 +85,10 @@ function behavior(state, context) {
     // Longitude and Latitude coordinates
     const start_lng_lat = [-71.117128, 42.389755];
     const end_lng_lat = [-71.096227, 42.304433];
-    
+
     const start_string = start_lng_lat[0] + "," + start_lng_lat[1];
     const end_string = end_lng_lat[0] + "," + end_lng_lat[1];
-        
+
     state.addMessage("mapbox", "mapbox_request", {
         "transportation_method": "driving",
         "request_route": start_string + ";" + end_string
@@ -103,10 +103,10 @@ def behavior(state, context):
     # Longitude and Latitude coordinates
     start_lng_lat = [-71.117128, 42.389755]
     end_lng_lat = [-71.096227, 42.304433]
-    
+
     start_string = '{},{}'.format(start_lng_lat[0], start_lng_lat[1])
     end_string = '{},{}'.format(end_lng_lat[0], end_lng_lat[1])
-        
+
     state.add_message('mapbox', 'mapbox_request', {
         'transportation_method': 'driving',
         'request_route': start_string + ';' + end_string

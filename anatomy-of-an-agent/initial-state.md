@@ -13,7 +13,7 @@ Here's what explicitly defining your agents might look like:
 
 ![Defining five agents in init.json](../.gitbook/assets/screen-shot-2020-05-30-at-5.41.03-pm.png)
 
-With "creator" agents you can initialize more dynamic models. 
+With "creator" agents you can initialize more dynamic models.
 
 {% hint style="info" %}
 If you want to jump right into code you can take a look at our [Initialization Demo ](https://hash.ai/index/5e7548ed792e5d5adecdb5bd/initialization-demo)which demos creator agents.
@@ -37,13 +37,13 @@ There's a singly agent, named creator, that has a set of behaviors that will ref
 
 Next, `Create Scatters` distributes the "rabbits" across the environment. Each one is placed in a random location within the bounds specified in the `topology`.
 
-Now we want to make a few adjustments to the agents we've generated which requires a bit more logic. Luckily for us, HASH behaviors are composable. `Create Grids` and `Create Scatters` have created  "agent" objects in our creator and filled them. We access those agents by using the "template\_name" as a key: 
+Now we want to make a few adjustments to the agents we've generated which requires a bit more logic. Luckily for us, HASH behaviors are composable. `Create Grids` and `Create Scatters` have created "agent" objects in our creator and filled them. We access those agents by using the "template\_name" as a key:
 
 ![](../.gitbook/assets/screen-shot-2020-05-30-at-5.49.04-pm.png)
 
 Here we've randomly assigned the color of our "ground" agents, and given each of the "rabbits" a random starting amount of energy.
 
-Our creator then runs two more published behaviors. `Create Agents` sends messages to the engine to generate every agent in the "agents" object, and `Remove Self`  gets rid of the "creator" agent, since it's finished all it needs to do. Again, these behaviors can be found in the lower left sidebar.
+Our creator then runs two more published behaviors. `Create Agents` sends messages to the engine to generate every agent in the "agents" object, and `Remove Self` gets rid of the "creator" agent, since it's finished all it needs to do. Again, these behaviors can be found in the lower left sidebar.
 
 {% hint style="info" %}
 You can create new agents during your simulation by sending a message to the reserved hash keyword.
@@ -55,7 +55,6 @@ You can create new agents during your simulation by sending a message to the res
 state.addMessage("hash", "create_agent", {
     ...agent_details
  })
-
 ```
 {% endtab %}
 
@@ -68,7 +67,7 @@ state.add_message("hash", "create_agent", {
 {% endtab %}
 {% endtabs %}
 
-If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://hash.ai/index/5de534020860d432cb408b92/wildfires-regrowth) or [Rock,  Paper, Scissors](https://core.hash.ai/simulation/5e7a44d2d945ef3e5d54bd55) simulations.
+If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://hash.ai/index/5de534020860d432cb408b92/wildfires-regrowth) or [Rock, Paper, Scissors](https://core.hash.ai/simulation/5e7a44d2d945ef3e5d54bd55) simulations.
 
 {% hint style="info" %}
 If you ever feel like you might be "re-inventing the wheel," make sure to check out [hIndex](https://hash.ai/index/search?contentType=Behavior&sort=relevance&query=create&page=1) in case someone else has shared a similar behavior.
