@@ -2,7 +2,7 @@
 
 We've published some behaviors on Index to help you with more complicated visualization tasks. The behaviors below, for instance, allow you to link a property of your agent to one of the reserved display fields. When the driving property is updated, the display property will be as well. 
 
-To use use these behaviors on an agent, you will need to both add it to the "behaviors" array in an appropriate position \(most likely after the driving property has been updated\), and specify some other properties that the behavior requires. These properties are documented in the Index description of the behaviors.
+To use these behaviors on an agent, you will need to both add it to the "behaviors" array in an appropriate position \(most likely after the driving property has been updated\), and specify some other properties that the behavior requires. These properties are documented in the Index description of the behaviors.
 
 **Height**
 
