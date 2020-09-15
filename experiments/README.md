@@ -31,6 +31,10 @@ To run an experiment, click the "Experiment Runner" button in the runner control
 
 ![Sweep values demonstration](../.gitbook/assets/image%20%2816%29.png)
 
+{% hint style="success" %}
+If you want to run an experiment from another users published simulation - for instance an example simulation - first save a copy to your drive and then click the experiment runner.
+{% endhint %}
+
 Running this experiment will generate 7 new simulations, each with a slightly different globals.json. If we run the simulation, we can see exactly which parameters get changed in the sidebar:
 
 ![Radius options](../.gitbook/assets/image%20%2817%29.png)
@@ -44,6 +48,10 @@ const behavior = (state, context) => {
 ```
 
 Now, any behaviors that rely on the "radius" parameter from globals will use the corresponding value.
+
+{% hint style="info" %}
+You can run experiments locally or in [hCloud](../h.cloud.md)
+{% endhint %}
 
 
 

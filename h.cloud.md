@@ -20,7 +20,7 @@ Toggle the execution environment by clicking the toggle at the top of the Experi
 
 ![](.gitbook/assets/screen-shot-2020-09-11-at-11.06.42-am.png)
 
-Your browser will establish a web socket connection to our servers. Once a connection has been established you can run simulations and experiments in the cloud in the same way as if you were running locally.
+Your browser will establish a web socket connection to our servers. Once a connection has been established you can run experiments in the cloud in the same way as if you were running them locally.
 
 {% hint style="info" %}
 Connecting to h.Cloud does **not** count against your accounts cloud minutes. Only the time spent running simulations or experiments.
