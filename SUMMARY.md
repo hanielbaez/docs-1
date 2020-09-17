@@ -20,7 +20,7 @@
   * [Publishing Datasets to Index](datasets/publishing-data-to-index.md)
 * [Analysis](analysis.md)
 * [Views](views.md)
-* [h.Cloud](h.cloud.md)
+* [hCloud](h.cloud.md)
 * [Configuration](configuration/README.md)
   * [Globals](configuration/basic-properties.md)
   * [Topology](configuration/topology/README.md)
