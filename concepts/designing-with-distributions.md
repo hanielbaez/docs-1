@@ -1,4 +1,4 @@
-# Designing with Stochasticity
+# Designing with Distributions
 
 Multi-Agent Simulation approaches problem-solving from a stochastic lens. Instead of quantitatively or numerically determining the solution to a set of equations representing a system, HASH will let you approximate messy, complex real-world systems, and empirically and statistically come to conclusions about how they behave. In order to better approximate the real world, you'll often want to initialize agents with heterogeneous properties, and ensure your behaviors properly randomize when necessary. Here are a number of ways you can incorporate stochasticity into your HASH simulations.
 

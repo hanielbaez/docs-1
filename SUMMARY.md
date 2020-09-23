@@ -40,7 +40,7 @@
 * [Designing with the Actor Model](concepts/design-considerations/README.md)
   * [Managing Resource Access](concepts/design-considerations/managing-resource-access.md)
 * [Designing for Different Timescales](concepts/designing-for-different-timescales.md)
-* [Designing with Stochasticity](concepts/designing-with-stochasticity.md)
+* [Designing with Distributions](concepts/designing-with-distributions.md)
 
 ## Hello, World!
 

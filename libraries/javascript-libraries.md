@@ -69,5 +69,5 @@ triangular
 arcsine(a,b)
 ```
 
-For an example that uses these statistics functions, see the example on the [Designing with Stochasticity](../concepts/designing-with-stochasticity.md) page.
+For an example that uses these statistics functions, see the example on the [Designing with Stochasticity](../concepts/designing-with-distributions.md) page.
 
