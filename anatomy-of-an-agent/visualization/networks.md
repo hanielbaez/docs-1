@@ -1,6 +1,6 @@
 # Networks
 
-Networks are often found in multi-agent models, and the ability to visualize them can add an additional level of clarity to your model. The best way to visualize networks in HASH right now is to create an agent which represents a "link" or "edge" that connects two other agents. By giving this representative agent a **direction**, and a **scale** that makes it thin and long, lines can be drawn between interacting agents.
+Networks are often found in multi-agent models, and the ability to visualize them can add an additional level of clarity to your model. The best way to visualize networks in HASH right now is to create an agent which represents a "link" or "edge" that connects two other agents. By giving this representative agent a **direction** and a **scale** that makes it thin and long, lines can be drawn between interacting agents.
 
 In this example, bills are being processed and passed around to different employees \(represented by the green agents. Links highlight when a bill is passed along them.
 
