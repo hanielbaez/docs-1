@@ -57,6 +57,10 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
+You can find an example of these distribution methods being used in the Consumer Credit simulation. The _create\_client.js_ behavior uses three of the above methods to initialize heterogeneous agents.
+
+{% embed url="https://hash.ai/index/5f43d9248d1c03871929a28a/bank-and-consumer-credit" %}
+
 ### Empirical Distributions
 
 If you are creating simulations from data consisting of observations, as opposed to having summary statistics, you are trying to use empirical distributions in your simulation. There are potentially many ways you might implement this, but one of the simplest is using Python's `random.choice` method. By providing a list of values and a corresponding list of probabilities, you've effectively implemented an empirical distribution function. 
