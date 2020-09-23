@@ -136,7 +136,7 @@ function behavior(state, context) {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    greetings = filter(lambda m: m['type'] == "greeting", context.messages())
+    greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
 
     if (len(greetings) > 0):
         # do something
