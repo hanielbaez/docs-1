@@ -202,7 +202,7 @@ def behavior(state, context):
         state.set("color", "blue")
 
         for greeting in greetings:
-            state.add_message(greeting.from, "greeting", {
+            state.add_message(greeting['from'], "greeting", {
                 "msg": "Go away, I’m social-distancing!"
             })
 ```
