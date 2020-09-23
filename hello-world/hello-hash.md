@@ -52,6 +52,10 @@ When you've finished adding positions to your agents, click **Reset Simulation**
 
 Alice and Bob aren't very interesting right now. Let's teach them some manners. We can give the agents [behaviors](https://docs.hash.ai/core/behaviors) that enable them to act and respond to each other as well as their environment. In **init.json** let's add some file names into each of the behavior arrays.
 
+{% hint style="info" %}
+You can build Python behaviors instead of JavaScript behaviors if you prefer. Just make sure to name your files with a ".py" ending.
+{% endhint %}
+
 ```javascript
 [
   { 
@@ -112,7 +116,9 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
-\_\_[_state.addMessage is a helper function_](../agent-messages/) _for pushing messages to the state messages array._
+{% hint style="info" %}
+[_state.addMessage is a helper function_](../agent-messages/) _for pushing messages to the outgoing messages array._
+{% endhint %}
 
 Now click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _**Bob is sending this same message every timestep to Alice.**_
 
@@ -265,7 +271,7 @@ or:
     color = color === "purple" ? "red" : "purple"
 ```
 
-We'll need to refactor our code slightly to implement this - instead of using state.set\("color", "blue"\) we'll first get the field value and assign it to a variable, color, and then set the field as the variables value at the end of the behavior file \(a common pattern in HASH simulations\).
+We'll need to refactor our code to implement this - instead of using `state.set("color", "blue")` we'll first get the field value and assign it to a variable, color, and then set the field as the variables value at the end of the behavior file \(a common pattern in HASH simulations\).
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -298,8 +304,7 @@ def behavior(state, context):
 
     if (len(greetings) > 0):
         color = state.get("color")
-        if(color
-        color = red if color == "purple" else "purple"
+        color = "red" if color == "purple" else "purple"
         state.set("color", color)
 
     state.add_message(
