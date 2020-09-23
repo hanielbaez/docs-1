@@ -15,8 +15,8 @@ context {
     neighbors(): [
         /* 
             Returns a collection of the agent's neighbors.
-            Both the "position" and "search_radius" fields must be set in order
-            to properly calculate and return neighbors
+            The agent must have a "position" field defined, and 
+            globals.json must have "search_radius" defined in "topology"
         */
     ],
     messages(): [

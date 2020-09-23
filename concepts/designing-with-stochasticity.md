@@ -57,3 +57,13 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
+### Empirical Distributions
+
+If you are creating simulations from data consisting of observations, as opposed to having summary statistics, you are trying to use empirical distributions in your simulation. There are potentially many ways you might implement this, but one of the simplest is using Python's `random.choice` method. By providing a list of values and a corresponding list of probabilities, you've effectively implemented an empirical distribution function. 
+
+You can find a working example of this in the Alcoholism Intervention model. The _births\_intervention.py_ and _births\_control.py_ behaviors both make use of this python method in concert with a dataset.
+
+{% embed url="https://hash.ai/index/5f64e6d9d5bde36223f40676/alcoholism-intervention-empirical-distributions" %}
+
+By implementing more advanced methods, you can create empirical distributions with linear or polynomial interpolation. We encourage you to share whatever you create! 
+
