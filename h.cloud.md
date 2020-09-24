@@ -4,9 +4,17 @@ description: Run simulations on our cloud infrastructure
 
 # hCloud
 
-_hCloud is currently in limited release._ [_Please apply for early access._](https://sohostrategy.typeform.com/to/JftFRbaN)\_\_
+{% hint style="warning" %}
+**Please note: hCloud is currently in limited release as part of our Early Access Program**.  
+To sign up, __[_please apply for early access_.](https://sohostrategy.typeform.com/to/JftFRbaN)
+{% endhint %}
 
-You can run **hCore** in different environments: inside your browser, and on our cloud platform **hCloud**. 
+{% hint style="info" %}
+**60 minutes of free hCloud compute time is provided to every user each month.**  
+There will never be any limitations or caps on your ability to simulate things locally in-browser.
+{% endhint %}
+
+You can run simulations within **hCore** in different environments: locally inside your browser, or on our cloud platform **hCloud**. 
 
 | Use Case | Browser | Cloud |
 | :--- | :--- | :--- |
