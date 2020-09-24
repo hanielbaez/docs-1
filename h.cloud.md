@@ -16,9 +16,9 @@ There will never be any limitations or caps on your ability to simulate things l
 
 You can run simulations within **hCore** in different environments: locally inside your browser, or on our cloud platform **hCloud**. 
 
-| Use Case | Browser | Cloud |
+| **Use Case** | **Browser** | **Cloud** |
 | :--- | :--- | :--- |
-| Stage of Development |  Prototyping | Running Experiments or Large Simulations |
+| Stage of Development | Prototyping | Running Experiments or Large Simulations |
 | Number of Agents | 100-1,000 | 10,000+  |
 | Pricing | Always Free | Free tier + Subscription Membership |
 
