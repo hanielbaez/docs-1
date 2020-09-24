@@ -56,6 +56,8 @@ Alice and Bob aren't very interesting right now. Let's teach them some manners. 
 You can build Python behaviors instead of JavaScript behaviors if you prefer. Just make sure to name your files with a ".py" ending.
 {% endhint %}
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 [
   { 
@@ -70,6 +72,25 @@ You can build Python behaviors instead of JavaScript behaviors if you prefer. Ju
   }
 ]
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```javascript
+[
+  { 
+    "agent_name": "Alice", 
+    "behaviors": ["hello_alice.py"],
+    "position": [0,0] 
+  }, 
+  { 
+    "agent_name": "Bob", 
+    "behaviors": ["hello_bob.py"],
+    "position": [2,0] 
+  }
+]
+```
+{% endtab %}
+{% endtabs %}
 
 We can then create the corresponding behavior files by clicking the **New File** button in the left hand files sidebar.
 
@@ -324,6 +345,8 @@ Finally, since Alice clearly would like some socially-responsible distance from 
 
 ![](../.gitbook/assets/movement.gif)
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 [ 
   { 
@@ -338,6 +361,25 @@ Finally, since Alice clearly would like some socially-responsible distance from 
   }
 ]
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```javascript
+[
+  {
+    "agent_name": "Alice",
+    "behaviors": ["hello_bob.py", "@hash/random_movement.rs"], 
+    "position": [0,0] 
+  },
+  { 
+    "agent_name": "Bob", 
+    "behaviors": ["hello_alice.py", "@hash/random_movement.rs"], 
+    "position": [2,0] 
+  }
+]
+```
+{% endtab %}
+{% endtabs %}
 
 To prevent our agents from straying too far, we can set [bounds](https://docs.hash.ai/core/configuration/topology/bounds-and-wrapping) on their environment in the `globals.json` file as follows:
 
