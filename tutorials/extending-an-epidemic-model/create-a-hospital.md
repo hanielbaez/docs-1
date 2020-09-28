@@ -2,6 +2,8 @@
 
 Open up the `init.json` file. It should look like:
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 [
   {
@@ -34,11 +36,48 @@ Open up the `init.json` file. It should look like:
   }
 ]
 ```
+{% endtab %}
+
+{% tab title="Python" %}
+```javascript
+[
+  {
+    "behaviors": [
+      "@hash/create_scatters.js",
+      "create_people.py",
+      "@hash/create_agents.js",
+      "@hash/remove_self.js"
+    ],
+    "scatter_templates": [
+      {
+        "template_name": "homes",
+        "template_count": 100,
+        "height": 2,
+        "color": "yellow"
+      },
+      {
+        "template_name": "groceries",
+        "template_count": 3,
+        "height": 2,
+        "color": "purple"
+      },
+      {
+        "template_name": "offices",
+        "template_count": 10,
+        "height": 2,
+        "color": "grey"
+      }
+    ]
+  }
+]
+```
+{% endtab %}
+{% endtabs %}
 
 `init.json` defines our 'initial state', including those agent\(s\) which should be present in the world. In this case we're using some 'creator' utility functions, attached to a setup agent, who plays no role in our experiments beyond helping get our world set up correctly. This setup agent has four behaviors attached to it which will help populate our world. In order:
 
 * First run `@hash/create_scatters.js`. This is a [shared behavior](../../behaviors/) \([Index](https://hash.ai/index/5e754c3e792e5d85f4cdb5c4/create-scatters)\) that, when added to an agent, will create all of the associated "scatter\_templates". It's called _scatter_ because it's scattering the child agents around the map.
-* Second it will run `create_people.js`, a behavior local to this simulation. In this behavior we've defined our people agents and associated them with their homes, offices, and groceries.
+* Second it will run `create_people`, a behavior local to this simulation. In this behavior we've defined our people agents and associated them with their homes, offices, and groceries.
 * Third is the `@hash/create_agents.js` - another shared behavior \([Index](https://hash.ai/index/5e754d6c792e5d442bcdb5c8/create-agents)\). In our previous two functions we didn't fully create our agents, we just added them to an agents object on the "creator agent". This third behavior iterates through that object and sends messages to the [reserved hash keyword create\_agent](https://app.gitbook.com/@hash-1/s/core/~/drafts/-M3yIAt-weMIyGiVronu/agent-messages/built-in-message-handlers) to instantiate all of our new agents.
 * Finally the agent runs `@hash/remove_self.js`, which will appropriately enough remove itself from the simulation. We don't want to constantly be generating new grocery stores, which is what we'd end up with here otherwise!
 
@@ -48,11 +87,11 @@ Now that we understand how to instantiate our agents, let’s create a hospital.
 
 ```javascript
 {
- agent_name: "Hospital",
- position: SET_POSITION,
- height: SET_HEIGHT,
- color: SET_COLOR,
- behaviors: []
+  "agent_name": "Hospital",
+  "position": [0, 0],
+  "height": 4,
+  "color": "blue",
+  "behaviors": []
 }
 
 ```
@@ -71,15 +110,18 @@ Or, we can follow the creator pattern and add it as a "stack" \(as it's at a spe
       "@hash/create_agents.js",
       "@hash/remove_self.js"
     ],
-...
-"stack_templates": [
-  {
-    "template_name": "hospitals",
-    "template_count": 1,
-    "template_position": "center",
-    "behaviors": [],
-    "height": 4,
-    "color": "blue"
+// ...
+    "stack_templates": [
+      {
+        "template_name": "hospitals",
+        "template_count": 1,
+        "template_position": "center",
+        "agent_name": "Hospital",
+        "behaviors": [],
+        "height": 4,
+        "color": "blue"
+      }
+    ]
   }
 ]
 ```
