@@ -16,11 +16,11 @@ Please ensure you have at least one experiment defined in your `experiment.json`
 
 Simulations within **hCore** can be run in one of two ways: locally inside your browser, or at scale on our **hCloud** compute platform.
 
-| **Use Case** | **Browser** | **Cloud** |
+|  | **Browser** | **Cloud** |
 | :--- | :--- | :--- |
-| Stage of Development | Prototyping | Running Experiments or Large Simulations |
-| Number of Agents | 100-1,000 | 10,000+  |
-| Pricing | Always Free | Free tier + Subscription Membership |
+| **Stage of Development** | Prototyping | Running Experiments or Large Simulations |
+| **Number of Agents** | 100-1,000 | 10,000+  |
+| **Pricing** | Always Free | Free tier + Subscription Membership |
 
 ## How To Use hCloud
 
