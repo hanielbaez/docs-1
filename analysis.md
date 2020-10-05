@@ -82,8 +82,8 @@ The "plots" list contains collections which define the different plots that visu
   "plots": [{
      "title": "title",
      "layout": {
-       "width": "[% of analysis view width]",
-       "height": "[% of analysis view height%]"
+       "width": "100%", // % of analysis view width
+       "height": "50%" // % of analysis view height
      },
      "position": {
      //top left corner of plot
@@ -91,24 +91,37 @@ The "plots" list contains collections which define the different plots that visu
        "y": "0%"
      },
      //type of chart
-     "[type of chart]": [
+     "type": "timeseries", // "histogram", "barplot", etc...
+     "data": [
        {
          "y": "component_1",
          "name": "component_1_name"
+         // ...
        },
        {
          "y": "component_2_name",
          "name": "component_2_name"
+         //...
        {
      ]
    },
-   ...
+   //...
    ]
 ```
 
 By default the x-axis represents the step of the simulation. You can use line, bar, or area charts, among others.
 
 As a shortcut you may replace the "data" and "type" field with a "timeseries" array. Any outputs you place in the array will be plotted as lines.
+
+```javascript
+"plots": [{
+     "title": "title",
+     "layout": { "width": "100%", "height": "50%" },
+     "position": { "x": "0%", "y": "0%" },
+     // Timeseries shortcut
+     "timeseries": ["timeseries1", "timeseries2"]
+}]
+```
 
 HASH uses Plotly behind the scenes to render charts and graphs. As such, the platform supports any valid value it supports for layout, type, and data as [documented in their API](https://plotly.com/javascript/reference/).
 
