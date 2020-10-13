@@ -18,6 +18,7 @@
 * [Datasets](datasets/README.md)
   * [Publishing Datasets to Index](datasets/publishing-data-to-index.md)
 * [Analysis](analysis.md)
+* [Sharing and Releasing](sharing-releasing.md)
 * [Views](views.md)
 * [hCloud](h.cloud.md)
 * [Configuration](configuration/README.md)

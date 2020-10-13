@@ -6,9 +6,17 @@ Python and JavaScript behaviors can co-mingle and a single agent can use behavio
 
 **All user-authored behaviors can be shared on hIndex.** Behaviors published in this way can be mapped to schemas for easy-discovery during the agent creation process, and downloaded by anybody with a HASH account.
 
-You can publish by right-clicking on a behavior you've created in the **Simulation Files** sidebar and selecting Publish Behavior to Index.
+## Sharing a Behavior
+
+You can share by right-clicking on a behavior you've created in the **Simulation Files** sidebar and selecting Release Behavior to Index. This will create a fork \(copy\) of the current project, and convert that fork into a  Behavior project.
 
 ![Publishing a behavior to Index](../.gitbook/assets/screen-shot-2020-05-30-at-5.54.56-pm.png)
+
+When you want to edit this behavior and create new releases, you'll need do so in the forked project. You can find it by searching on your Profile page, or by clicking in the banner when you're looking at the shared behavior's file in any simulation.
+
+![Navigating to a shared behavior project](../.gitbook/assets/image%20%2821%29.png)
+
+## Importing a Behavior
 
 You can import a behavior by searching in the **Add to Simulation** sidebar, clicking on it and choosing Add to Simulation. Note that if you are using someone's published behavior in your simulation, updates will not automatically be applied to it. This ensures that breaking changes are not introduced to your simulation. You can update at any time by removing and re-adding the behavior.
 
