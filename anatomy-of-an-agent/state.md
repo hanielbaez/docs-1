@@ -23,8 +23,8 @@ Notice how we use multiple custom fields to store data in the agent.
 
 The state object has accessor methods for getting and setting state.
 
-* state.**get**\(field\_name\) : returns the value of the field
-* state.**set**\(field\_name, value\) : sets the field as the value
+* `state.get(field_name)` : returns the value of the field
+* `state.set(field_name, value)` : sets the field as the value
 
 **Example**:
 
@@ -51,17 +51,19 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
-or, using modify
-
 Important: Only the agent can modify its own state. If an agent wants to prompt another agent to perform a state change, it can send a message to trigger an update.
 
 {% hint style="info" %}
 Agents can read one another's state - for example if agent "foo" is a [neighbor](context.md) of agent "bar", agent "bar" can access the fields of agent "foo", it just can't make any changes to those fields. That's what makes the state _**private**_.
 {% endhint %}
 
-{% hint style="info" %}
-We have a helper function, state.modify, that gets and sets in one line in JavaScript.
-{% endhint %}
+### Modify
+
+HASH also has a "modify" helper function which allows you to make certain state changes a one-liner:
+
+* `state.modify(field_name, function)` 
+
+will allow you to pass a function that will be run on the given field in the agent's state. The above example can now be written like so:
 
 {% tabs %}
 {% tab title="Javascript" %}
@@ -71,9 +73,19 @@ function behavior(state, context) {
 }
 ```
 {% endtab %}
+
+{% tab title="Python" %}
+```python
+# We haven't yet enabled this helper function for Python
+```
+{% endtab %}
 {% endtabs %}
 
-## Reserved Fields
+{% hint style="info" %}
+The state value will be set to the **return value** of the function. If you use a method that modifies a variable in place, like`Array.push(x)`the return value is `x` and not the modified array.
+{% endhint %}
+
+### Reserved Fields
 
 While an agent can store arbitrary data in its own state, some state values have special meaning in HASH. The fields below are all reserved, in addition to fields tied to visualization which can be found [here](visualization/).
 
