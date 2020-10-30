@@ -16,7 +16,7 @@
   * [Handling Messages](agent-messages/handling-messages.md)
   * [Built-in message handlers](agent-messages/built-in-message-handlers.md)
 * [Datasets](datasets/README.md)
-  * [Publishing Datasets to Index](datasets/publishing-data-to-index.md)
+  * [Publishing Datasets](datasets/publishing-data-to-index.md)
 * [Analysis](analysis.md)
 * [Sharing and Releasing](sharing-releasing.md)
 * [Views](views.md)
