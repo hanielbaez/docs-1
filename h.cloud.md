@@ -1,8 +1,8 @@
 ---
-description: Run simulations on our cloud infrastructure
+description: Run simulations on our hCloud infrastructure
 ---
 
-# hCloud
+# Cloud Compute
 
 {% hint style="success" %}
 **60 minutes of free hCloud compute time is provided to every user each month.**  

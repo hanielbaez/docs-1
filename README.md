@@ -4,7 +4,7 @@ description: Getting started with HASH
 
 # Overview
 
-Welcome to [HASH](https://hash.ai), an end-to-end platform for quickly creating rich, massively parallelizable simulations.
+Welcome to [HASH](https://hash.ai), an end-to-end solution for quickly creating massive, rich, real-time simulations.
 
 ## Getting Started
 
@@ -12,19 +12,17 @@ Welcome to [HASH](https://hash.ai), an end-to-end platform for quickly creating 
 As a new user, the best way to learn HASH is to browse our [gallery of examples](https://hash.ai/index/search?categoryID=5dc3da74cc0cf804dcc66a5c) to find toy simulations with interesting dynamics you can tinker with
 {% endhint %}
 
-Simulations in HASH might be a bit different than what you're used to. We leverage concepts from agent-based modeling - composable _agents_ and _behaviors,_ to make it faster and easier for you to study the complex dynamics of the problem you're trying to solve.
+If you've used simulation modeling software before, you might find that models in HASH are a little different to those you're used to seeing. We leverage composable [agents](anatomy-of-an-agent/) and [behaviors](behaviors/) to make it faster and easier for you to create realistic, well-calibrated simulations.
 
-Read up on [Agent-Based Modeling Basics](agent-based-modeling-basics-1.md) if you're new to ABM, or if you want to better understand how these concepts translate into HASH.
+If you're new to agent-based modeling, or want to better understand how these concepts translate into HASH, read up on [the basics of agent-based modeling](agent-based-modeling-basics-1.md).
 
-You'll quickly find that the key to success in HASH is understanding and working with [Agents](anatomy-of-an-agent/) and [Behaviors](behaviors/).
-
-Quickly get started by playing with examples from the [hIndex](https://hash.ai/index) or carry on reading to learn more about the tools provided to you by the HASH platform.
+Quickly get started by playing with examples from the [hIndex](https://hash.ai/index) or carry on reading to learn more about the tools provided by the HASH platform.
 
 ## Community & Support
 
-You can also check out the [community forum](https://community.hash.ai/) or [join our public Slack](https://hash.ai/slack).
+If you need help or support, check out the [community forum](https://community.hash.ai/) or [join our public Slack](https://hash.ai/slack) \(this tends to be the fastest means of getting help\). You can reach out to us directly via our [contact page](https://hash.ai/contact) if you need to speak with us directly.
 
 ## Upcoming Features
 
-You can view our [changelog](https://hash.ai/updates) of recent updates to the platform, or check out our [roadmap](https://hash.ai/roadmap) to learn more about our future plans for HASH.
+View our [changelog](https://hash.ai/updates) to learn more about recent updates to HASH, or check out our [roadmap](https://hash.ai/roadmap) for advance insight as to our future plans.
 

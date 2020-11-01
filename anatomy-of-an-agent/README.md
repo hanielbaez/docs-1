@@ -6,7 +6,7 @@ description: The beating hearts of agent-based models
 
 As the name suggests, **agents** lie at the heart of _agent_-_based_ modeling.
 
-Every agent has a name and a unique identifier. As a simulation creator, you can set and change the name, but not the ID, so don't worry about including this when creating agents.
+Every agent has a name and a unique identifier. As a simulation creator, you can set and change the name, but not the ID. The HASH Engine takes care of this for you, so **don't worry about including the ID when creating agents.**
 
 {% tabs %}
 {% tab title="JavaScript" %}

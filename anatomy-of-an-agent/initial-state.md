@@ -4,10 +4,12 @@ description: Where simulated life begins
 
 # Initial Agents
 
-HASH simulations start life in the `init.json` file in your editor. In this file we generate the starting state, or _initial conditions_ of the simulated world. There are two ways to populate this. You can:
+All HASH simulations begin life in the `init.json` file found in the root of a HASH project. In this file we generate the starting state, or _initial conditions_ of the simulated world.
 
-1. Explicitly define the agents that will be in your model; or
-2. You can define "creator" agents with behaviors that will generate more complex initial states. You can do this with published behaviors, or create your own.
+There are two ways to populate an `init.json` file. You can:
+
+1. explicitly define the individual agents that will be in your model; or
+2. define "creator" agents with behaviors that will generate more complex initial states. You can do this with published behaviors, or create your own.
 
 Here's what explicitly defining your agents might look like:
 

@@ -8,8 +8,6 @@ Currently, we have functions implemented in the following categories:
 
 Functions that help with calculations for agent positioning and movement.
 
-
-
 ### [Neighbors](neighbors.md)
 
 Functions that can help filter for neighbors in specific positions relative to the agent.

@@ -90,7 +90,7 @@ Monte Carlo sweeping allows random sampling from a custom distribution. Each sup
 
 ### Groups
 
-You can run groups of experiments together by adding experiment keys to the `runs` array of a `group` definition.
+You can run groups of experiments together by adding experiment keys to the `runs` array of a `group` definition. The below code, for example, would execute each of our experiments outlined above as sub-experiments of a new experiment:
 
 ```javascript
 "Sweep radius": {
@@ -99,6 +99,4 @@ You can run groups of experiments together by adding experiment keys to the `run
   "runs": ["Radius values", "Radius linspace", "Radius arange", "Radius monte"]
 }
 ```
-
-
 

@@ -13,7 +13,7 @@ Agents can \(and typically do\) have behaviors:
 }
 ```
 
-Behaviors allow agents to have _agency_ in the simulation. An agent can have any number of behaviors.
+Behaviors allow agents to exhibit _agency_ in the simulation. An agent can have any number of behaviors.
 
 Behaviors are pure functions in the form of: `(current_state, context) => [next_state]`
 

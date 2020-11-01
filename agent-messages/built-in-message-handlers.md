@@ -163,6 +163,6 @@ For further information about the Mapbox API and error messages, see the [offici
 
 **Check out these two examples to see Navigation in action:**
 
-* \*\*\*\*[Citi Bike Visualization](https://hash.ai/index/5f1ee25c423871228390414c/gis)
+* [Citi Bike Visualization](https://hash.ai/index/5f1ee25c423871228390414c/gis)
 * [Product Delivery](https://hash.ai/index/5f15c22e4698014c8a0227ff/product-delivery)
 

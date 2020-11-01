@@ -20,7 +20,7 @@
 * [Analysis](analysis.md)
 * [Sharing and Releasing](sharing-releasing.md)
 * [Views](views.md)
-* [hCloud](h.cloud.md)
+* [Cloud Compute](h.cloud.md)
 * [Configuration](configuration/README.md)
   * [Globals](configuration/basic-properties.md)
   * [Topology](configuration/topology/README.md)
@@ -28,13 +28,15 @@
     * [Wrapping Presets and Flags](configuration/topology/wrapping-presets-and-flags.md)
     * [Distance Functions](configuration/topology/distance-functions.md)
 * [Libraries](libraries/README.md)
-  * [Python Packages](libraries/python-packages.md)
-  * [Javascript Libraries](libraries/javascript-libraries.md)
   * [HASH](libraries/hash/README.md)
     * [Spatial](libraries/hash/spatial.md)
     * [Neighbors](libraries/hash/neighbors.md)
+  * [Python Packages](libraries/python-packages.md)
+  * [Javascript Libraries](libraries/javascript-libraries.md)
 * [Experiments](experiments/README.md)
   * [Experiment Types](experiments/experiment-types.md)
+* [Collaboration](collaboration/README.md)
+  * [Organizations](collaboration/organizations.md)
 
 ## Concepts
 

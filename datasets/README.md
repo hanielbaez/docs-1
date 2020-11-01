@@ -9,7 +9,7 @@ HASH allows you to incorporate your own data into simulations, or download datas
 To import your own datasets into HASH, first navigate to your profile, click the  'New Project' button and select new Dataset. You can then set the display name and the project path, a  unique path that can be referenced from any simulation you create.
 
 {% hint style="info" %}
-**Coming soon:** data syncing from remote sources is currently only achievable through [Engine](https://hash.ai/engine), but remains on our roadmap for hCore.
+**Coming soon:** data syncing from remote sources is currently only achievable through [hEngine](https://hash.ai/platform/engine), but remains on our roadmap for [hCore](https://hash.ai/platform/core).
 {% endhint %}
 
 ## Integrating data into a simulation
@@ -32,7 +32,7 @@ context.data()["@[user-handle or org-handle]/[short-name]/[dataset].[csv or json
 **Coming soon:** we will be streamlining this process shortly, providing more optionality around parsing treatment, and expanding support for the types of datasets ingestible by HASH.
 {% endhint %}
 
-If you wish to explore the universe of data available in HASH outside of hCore, you can do so directly [within hIndex](https://hash.ai/index/search?contentType=Dataset&sort=popularity). As with behaviors, we attempt to match all data published to the hIndex to the type of '[Thing](https://hash.ai/index/schemas/Thing)' it represents in a global unified schema which subsequently makes finding data that accurately represents agents at the desired level of granularity easy.
+If you wish to explore the universe of data available in HASH outside of hCore, you can do so directly [within hIndex](https://hash.ai/index/search?contentType=Dataset&sort=popularity). As with behaviors, we encourage you to tag data in hIndex with the type of '[Thing](https://hash.ai/index/schemas/Thing)' it represents. This ensures that the data can subsequently be easily discovered and reused.
 
 **Example**
 
