@@ -91,7 +91,7 @@ def behavior(state, context):
 
 Messages are produced during a step, but are not delivered and processed until the next step.
 
-![Data flow for a single step in  HASH simulation](../.gitbook/assets/image%20%2812%29.png)
+![Data flow for a single simulation step in HASH](../.gitbook/assets/image%20%2824%29.png)
 
 Agents send messages by adding them to `state.messages`, and they receive them by checking `context.messages().` 
 
