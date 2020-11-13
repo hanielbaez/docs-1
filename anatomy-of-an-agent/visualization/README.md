@@ -20,13 +20,10 @@ Once you've developed and tested the logic and functioning of your model, it can
 
   * This will be overridden if the "color" field is also set on an agent.
 
-* `"hidden": bool` - if provided and true, the agent will not be rendered on the 3d viewer.
-
-  \`\`
-
+* `"hidden": bool` - if provided and true, the agent will not be rendered on the 3d viewer. 
 * `"direction": [i64, i64, i64]` - if an agent's shape is a 3D model, or a non-symmetric, the direction of an agent will affect its visualization.
 
-In the [Index](https://hash.ai/index/search?query=display&sort=relevance&page=1) you can find published behaviors which have been created to help with more complicated visualization tasks.
+In the [hIndex](https://hash.ai/index/search?query=display&sort=relevance&page=1) you can find published behaviors which have been created to help with more complicated visualization tasks.
 
 {% hint style="info" %}
 Not all models lend themselves well to spatial representation, and when viewing the results of multiple simulation runs at once \(as part of an [experiment](../../experiments/)\), it can be more useful to create [analysis charts and graphs](../../analysis.md).
