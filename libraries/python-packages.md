@@ -1,6 +1,12 @@
+---
+description: Python packages and libraries support in HASH
+---
+
 # Python Packages
 
-We run Python3 in the browser through [Pyodide](https://github.com/iodide-project/pyodide) and [currently support all of the packages that Pyodide does](https://github.com/iodide-project/pyodide/tree/master/packages). We think that the packages below are of particular interest to HASH modelers:
+We run Python3 in the browser through [Pyodide](https://github.com/iodide-project/pyodide) and [currently support all of the packages that Pyodide does](https://github.com/iodide-project/pyodide/tree/master/packages).
+
+**The packages below have proven particularly popular with modelers using HASH:**
 
 | Package | Version | Description |
 | :--- | :--- | :--- |

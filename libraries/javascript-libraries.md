@@ -1,4 +1,8 @@
-# Javascript Libraries
+---
+description: JavaScript packages and libraries support in HASH
+---
+
+# JavaScript
 
 HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library in behaviors through `hash_stdlib.stats` . HASH's autocomplete will help you out with suggestions and tooltips in CORE.
 

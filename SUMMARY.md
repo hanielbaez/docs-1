@@ -33,7 +33,7 @@
     * [Spatial](libraries/hash/spatial.md)
     * [Neighbors](libraries/hash/neighbors.md)
   * [Python Packages](libraries/python-packages.md)
-  * [Javascript Libraries](libraries/javascript-libraries.md)
+  * [JavaScript](libraries/javascript-libraries.md)
 * [Experiments](experiments/README.md)
   * [Experiment Types](experiments/experiment-types.md)
 * [Collaboration](collaboration/README.md)
