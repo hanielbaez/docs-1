@@ -1,27 +1,61 @@
 # Spatial
 
+### distanceBetween\(agentA, agentB, distanceFunction\)
+
+This function returns the distance between two agents, using a specific distance function. You can pass the current agent's `state` as one of the agents. The different distance functions are:
+
+* [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) \(default\)
+* [Manhattan](https://en.wikipedia.org/wiki/Taxicab_geometry)
+* [Euclidean Squared](https://en.wikipedia.org/wiki/Euclidean_distance#Squared_Euclidean_distance)
+* [Chebyshev](https://en.wikipedia.org/wiki/Chebyshev_distance)
+
 ```javascript
-/**
- * Returns the specified distance between two agents.
- *  distance is one of the four distance functions supported by HASH,
- *  defaults to manhattan distance.
- * @param a
- * @param b
- * @param distance
- */
-distanceBetween(agent, agent, distanceFunction = "manhattan")
+function behavior(state, context) {
+    const { neighborA, neighborB } = context.neighbors();
+    
+    // Find the closest of 2 neighbors to you
+    const distanceToA = hash_stdlib.distanceBetween(state, neighborA);
+    const distanceToB = hash_stdlib.distanceBetween(state, neighborB);
+    const closest = distanceToB > distanceToA ? "A" : "B";
+    
+    state.set("closest", closest);
+    
+    // Check if neighbors are closer to each other than to you
+    const neighborDistance = hash_stdlib.distanceBetween(neighborA, neighborB);
+    const selfDistance = closest === "A" ? distanceToA : distanceToB;
+    
+    state.set("closer_to_neighbors", selfDistance < neighborDistance);
+}
+```
 
+### normalizeVector\(vec\)
 
-/** Returns the unit vector of a vector
-* @param vec an array of numbers
-*/
-normalizeVector(vec: number[])
+This function returns the unit vector of the `vec` array. You can use it to normalize an agent's direction vector after it's modified.
 
-/**
- * Returns a position array of x,y,z is set to true
- * @param topology the Context.globals().topology object
- * @param z_plane defaults to false
- */
-randomPosition(topology: topology object, z_plane = false)
+```javascript
+function behavior(state, context) {
+    const dir = state.get("direction");
+    
+    // Modify the direction by adding a vector [1, 2, 0]
+    dir[0] += 1;
+    dir[1] += 2;
+    
+    // Turn it back into a unit vector
+    state.set("direction", hash_stdlib.normalizeVector(dir));
+}
+```
+
+### randomPosition\(topology, z\_plane\)
+
+This function returns a random integer position within the bounds of the `topology`. The Topology should be user-defined in **globals.json** \(see [Topology](../../configuration/topology/)\). By default`z_plane` is `false` and the returned position is in a 2D plane. Pass true to return a position in 3D space.
+
+```javascript
+function behavior(state, context) {
+    // Move to a random position
+    const topology = context.globals().topology;
+    const new_pos = hash_stdlib.randomPosition(topology);
+    
+    state.set("position", new_pos);
+}
 ```
 

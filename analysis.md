@@ -1,6 +1,6 @@
 # Analysis
 
-### What is Simulation Analysis?
+## What is Simulation Analysis?
 
 When running a simulation using HASH, you describe a system of agents that interact with each other in a given environment. The result of the simulation is determined by many factors:
 
@@ -14,9 +14,9 @@ While the simulation is running you may be able to glean insight from visually o
 * What emergent phenomena are appearing? 
 * How do stochasticity and the initial conditions affect the simulation run?
 
-These are the kinds of questions you can answer with HASH's analysis capabilities. It allows you to define "outputs" which you can then plot. The **analysis.json** file is organized as a JSON object with two major properties, outputs and plots. 
+These are the kinds of questions you can answer with HASH's analysis capabilities. It allows you to define "outputs" which you can then plot. The **analysis.json** file is organized as a JSON object with two major properties, outputs and plots.
 
-### Outputs
+## Outputs
 
 The **analysis.json** file contains two objects within it: "outputs" and "plots". Outputs is an object collection of JSON objects of the form:
 
@@ -37,7 +37,7 @@ The **analysis.json** file contains two objects within it: "outputs" and "plots"
 }
 ```
 
-The “feature” is an output of your simulation, represented as an array of data. For example, if you have a collection of agents with an age attribute, you might want to count the number over 50. You will chain together operations like so: 
+The “feature” is an output of your simulation, represented as an array of data. For example, if you have a collection of agents with an age attribute, you might want to count the number over 50. You will chain together operations like so:
 
 ```javascript
    "over_fifty": [
@@ -66,7 +66,7 @@ The other operations besides "filter" are listed below. Most of these operations
 
 | Operator Name | Additional Arguments | Operator Description |
 | :--- | :--- | :--- |
-| filter | _field_, _comparison_, _value_ | Filter the current output with the given _comparison_ and _value_ on the given _field_  of each element  |
+| filter | _field_, _comparison_, _value_ | Filter the current output with the given _comparison_ and _value_ on the given _field_  of each element |
 | count | n/a | Count the number of agents in the current output |
 | get | _field_ | Map the value from a field onto each element of the current output |
 | sum | n/a | Sum over the elements of the current output |
@@ -74,7 +74,7 @@ The other operations besides "filter" are listed below. Most of these operations
 | max | n/a | Return the maximum of the elements in the current output |
 | mean | n/a | Return the mean of the elements in the current output |
 
-### Plots
+## Plots
 
 The "plots" list contains collections which define the different plots that visualize the outputs. The basic configuration of a plot includes a name, data, type, layout, and position field:
 
@@ -125,7 +125,7 @@ As a shortcut you may replace the "data" and "type" field with a "timeseries" ar
 
 HASH uses Plotly behind the scenes to render charts and graphs. As such, the platform supports any valid value it supports for layout, type, and data as [documented in their API](https://plotly.com/javascript/reference/).
 
-### Exporting Simulation Runs
+## Exporting Simulation Runs
 
 You can save the data from any of your simulation runs by right clicking on an individual run and clicking export as JSON Files.
 

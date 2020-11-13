@@ -1,72 +1,76 @@
 # Javascript Libraries
 
-HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library through `hash_stdlib.stats` .
+HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library in behaviors through `hash_stdlib.stats` . HASH's autocomplete will help you out with suggestions and tooltips in CORE.
 
 Currently only the functions and classes listed below are "fully supported". Others are available and will work, though we've left them undocumented as the interface/names might change.
 
 ### [jStat Vectors](http://jstat.github.io/vector.html)
 
+These functions operate on arrays \(or arrays of arrays\) to calculate typical statistical measures.
+
 ```javascript
-sum()
-sumsqrd()
-sumsqerr()
-sumrow()
-product()
-min()
-max()
-mean()
-meansqerr()
-geomean()
-median()
-cumsum()
-cumprod()
-diff()
-rank()
-mode()
-range()
-variance()
-pooledvariance()
-deviation()
-stdev()
-pooledstdev()
-meandev()
-meddev()
-skewness()
-kurtosis()
-coeffvar()
-quartiles()
-quantiles()
-percentile()
-percentileOfScore()
-histogram()
-covariance()
-corrcoeff()
+sum(array)
+sumsqrd(array)
+sumsqerr(array)
+sumrow(arrayOfArrays)
+product(array)
+min(array)
+max(array)
+mean(array)
+meansqerr(array)
+geomean(array)
+median(array)
+cumsum(array)
+cumprod(array)
+diff(array)
+rank(array)
+mode(array)
+range(array)
+variance(array)
+pooledvariance(arrayOfArrays)
+deviation(array)
+stdev(array)
+pooledstdev(arrayOfArrays)
+meandev(array)
+meddev(array)
+skewness(array)
+kurtosis(array)
+coeffvar(array)
+quartiles(array)
+quantiles(arrayOfArrays)
+percentile(array, k, exclusive)
+percentileOfScore(array)
+histogram(array, bins)
+covariance(array1, array2)
+corrcoeff(array1, array2)
 ```
 
 ### [jStat Distributions](http://jstat.github.io/distributions.html)
 
+All of the classes below have methods to calculate typical properties relating to the named distribution. Check the jStat documentation, or hCORE's built-in autocomplete and tooltips for more information.
+
 ```javascript
-beta(alpha, beta)
-centralF(df1, df2)
-cauchy(local, scale)
-chisquare(dof)
-exponential(rate)
-gamma(shape, scale)
-invgamma(shape, scale)
-kumaraswamy(alpha, beta)
-lognormal(mu, sigma)
-normal(mean, std)
-pareto(scale, shape)
-studentt(dof) 
-tukey(nmeans, dof)
-weibull(scale, shape)
-uniform(a,b)
+beta
+centralF
+cauchy
+chisquare
+exponential
+gamma
+invgamma
+kumaraswamy
+lognormal
+normal
+pareto
+studentt
+tukey
+weibull
+uniform
 binomial
 negbin
 hypgeom
 poisson
 triangular
-arcsine(a,b)
+arcsine
 ```
 
 For an example that uses these statistics functions, see the example on the [Designing with Distributions](../concepts/designing-with-distributions.md) page.

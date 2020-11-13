@@ -1,61 +1,75 @@
 # Neighbors
 
+### neighborsOnPosition\(agentA, neighbors\)
+
+This function returns all neighbors that share the same position as `agentA`. The current agent's `state` can be passed in as `agentA`, and dummy agents can be used as well.
+
 ```javascript
-/**
- * Returns all neighbors that share an agent's position
- * @param agentA
- * @param neighbors - context.neighbors() array or array of agents
- * */
-neighborsOnPosition(agentA: PotentialAgent, neighbors: PotentialAgent[])
+function behavior(state, context) {
+    // Find neighbors on my position
+    const neighbors = context.neighbors();
+    const cohabitators = hash_stdlib.neighborsOnPosition(state, neighbors);
+    
+    // Create an adjacent "agent"
+    let adjPos = state.get("position");
+    adjPos[0] + 1;
+    const adjAgent = { "position": adjPos };
+    
+    // Find the agents adjacent to me
+    const adjacents = hash_stdlib.neighborsOnPosition({ "position": adjPos }, neighbors);
+    
+    ...
+}
+```
 
-/**
- * Returns all neighbors within a certain vision radius of an agent.
- * Defaults vision max_radius to 1, min_radius to 0
- * Default is 2D (z_axis set to false), set z_axis to true for 3D positions
- * @param agentA
- * @param neighbors - context.neighbors() array or array of agents
- * @param max_radius - defaults to 1
- * @param min_radius - defaults to 0
- * @param z_axis - defaults to false
- */
-neighborsInRadius(
-  agentA: PotentialAgent, 
-  neighbors: PotentialAgent[], max_radius = 1,
-  min_radius = 0,
-  z_axis = false
-) 
+### neighborsInRadius\(agentA, neighbors, max\_radius, min\_radius, z\_axis\)
 
-/**
- * Searches and returns all neighbors whose positions are in front of an agent.
- * Default is set to planer calculations and will return all neighbors located
- * in front of the plane created by the agent's direction
- *
- * Colinear - If set to true, will return all neighbors on the same line as agent a.
- * @param agentA
- * @param neighbors - context.neighbors() array or array of agents
- * @param colinear - defaults to false
- */
-neighborsInFront(
-  agentA: PotentialAgent,
-  neighbors: PotentialAgent[],
-  colinear = false
-)
+This function returns all neighbors within the specified radii. The current agent's `state` can be passed in as `agentA`, and dummy agents can be used as well. By default the max and min radii are \[1, 0\]. `z_axis` is false by default, but by passing true you can enable search in a spherical, as opposed to circular radius.
 
-/**
- * Searches and returns all neighbors whose positions are behind an agent.
- * Default is set to planer calculations and will return all neighbors located
- * behind the plane created by the agent's direction
- *
- * Colinear - If set to true, will return all neighbors on the same line as agent a.
- * @param agentA
- * @param neighbors - context.neighbors() array or array of agents
- * @param colinear - defaults to false
- */
+```javascript
+function behavior(state, context) {
+    // Count the number of electrons close to me
+    const electrons = context.neighbors().filter(n => n.agent_type === "electron");   
+    const close_electrons = neighborsInRadius(state, electrons, 2, 0, true).length;
 
-neighborsBehind(
-  agentA: PotentialAgent,
-  neighbors: PotentialAgent[],
-  colinear = false
-)
+    ...
+}
+```
+
+### neighborsInFront\(agentA, neighbors, colinear\)
+
+This function returns all neighbors located in front of an agent. `agentA` must have a "direction" property since "in front" is determined by the plane perpendicular to that vector. `colinear` defaults to false, but by passing true the function will only return agents on the same _line_ as the "direction". The current agent's `state` can be passed in as `agentA`, and dummy agents can be used as well.
+
+```javascript
+function behavior(state, context) {
+    const neighbors = context.neighbors();
+    
+    // Check which of my neighbors I can see "in front" of me
+    const visibleAgents = hash_stdlib.neighborsInFront(state, neighbors);
+    
+    // Check which agents are in front of one of my neighbors
+    const neighborFront = hash_stdlib.neighborsInFront(neighbors[0], neighbors);
+    
+    ...
+}
+```
+
+### neighborsBehind\(agentA, neighbors, colinear\)
+
+This function returns all neighbors located behind the agent. It functions identically to **neighborsInFront** _****_but returns agents behind the plane of `agentA`. The current agent's `state` can be passed in as `agentA`, and dummy agents can be used as well.
+
+```javascript
+function behavior(state, context) {
+    const neighbors = context.neighbors();
+    
+    // Check which of my neighbors are tailing me
+    const tailingAgents = hash_stdlib.neighborsBehind(state, neighbors, true);
+    
+    // Check if my neighbor is being tailed
+    const neighborTail = hash_stdlib.neighborsBehind(neighbors[0], neighbors, true);
+    const neighborTailed = neighborTail.length > 0;
+    
+    ...
+}
 ```
 
