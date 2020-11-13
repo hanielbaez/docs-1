@@ -2,7 +2,7 @@
 description: Python packages and libraries support in HASH
 ---
 
-# Python Packages
+# Python
 
 We run Python3 in the browser through [Pyodide](https://github.com/iodide-project/pyodide) and [currently support all of the packages that Pyodide does](https://github.com/iodide-project/pyodide/tree/master/packages).
 
