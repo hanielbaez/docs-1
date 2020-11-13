@@ -6,7 +6,7 @@ Once you've developed and tested the logic and functioning of your model, it can
 
 * `"shape": string` - if provided overrides the default "box" visualization for the agent. 
 
-  * Shape options are "box", "cone", "cylinder", "dodecahedron", "icosahedron", "octahedron", "plane", "sphere", "tetrahedron", "torus", or "torusknot".
+  * There are built-in geometric shapes and 3D models. See the [Shapes ](shapes.md)page for more information
 
 * `"height": i64` - if provided \(and agent is rendering on a 2d grid\), will set the display height of the agent.
 
@@ -21,6 +21,10 @@ Once you've developed and tested the logic and functioning of your model, it can
   * This will be overridden if the "color" field is also set on an agent.
 
 * `"hidden": bool` - if provided and true, the agent will not be rendered on the 3d viewer.
+
+  \`\`
+
+* `"direction": [i64, i64, i64]` - if an agent's shape is a 3D model, or a non-symmetric, the direction of an agent will affect its visualization.
 
 In the [Index](https://hash.ai/index/search?query=display&sort=relevance&page=1) you can find published behaviors which have been created to help with more complicated visualization tasks.
 

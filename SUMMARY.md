@@ -8,6 +8,7 @@
   * [Initial Agents](anatomy-of-an-agent/initial-state.md)
   * [Visualization](anatomy-of-an-agent/visualization/README.md)
     * [Published Behaviors](anatomy-of-an-agent/visualization/published-behaviors.md)
+    * [Shapes](anatomy-of-an-agent/visualization/shapes.md)
     * [Networks](anatomy-of-an-agent/visualization/networks.md)
 * [Behaviors](behaviors/README.md)
   * [Composable behaviors](behaviors/composable-behaviors.md)
