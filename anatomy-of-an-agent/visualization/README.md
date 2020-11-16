@@ -12,7 +12,7 @@ Once you've developed and tested the logic and functioning of your model, it can
 
 * `"scale": [i64, i64, i64]` - if provided, will re-render the agent in 3d space with the new scale. The position of the agent will remain the same \(e.g. for neighbor calculations\).
 
-* `"direction": [i64, i64, i64]` - if an agent's shape is a 3D model, or a non-symmetric geometric object, the direction of an agent will affect its visualization.
+* `"direction": [i64, i64, i64]` - if an agent's shape is a 3D model, or asymmetric, the direction given will affect the agent's visualization.
 
 * `"color": string` - if provided, will color the agent.  Named colors \("red", "green", "blue", etc.\) are supported, alongside hex color codes \(`#223344`\) and RGB values \(`rgb(12,244,155)`\).
 
