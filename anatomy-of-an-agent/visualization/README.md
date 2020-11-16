@@ -12,7 +12,7 @@ Once you've developed and tested the logic and functioning of your model, it can
 
 * `"scale": [i64, i64, i64]` - if provided, will re-render the agent in 3d space with the new scale. The position of the agent will remain the same \(e.g. for neighbor calculations\).
 
-* `"direction": [i64, i64, i64]` - if provided, will render the agent as a cone oriented along that unit vector
+* `"direction": [i64, i64, i64]` - if an agent's shape is a 3D model, or a non-symmetric geometric object, the direction of an agent will affect its visualization.
 
 * `"color": string` - if provided, will color the agent.  Named colors \("red", "green", "blue", etc.\) are supported, alongside hex color codes \(`#223344`\) and RGB values \(`rgb(12,244,155)`\).
 
@@ -20,8 +20,9 @@ Once you've developed and tested the logic and functioning of your model, it can
 
   * This will be overridden if the "color" field is also set on an agent.
 
-* `"hidden": bool` - if provided and true, the agent will not be rendered on the 3d viewer. 
-* `"direction": [i64, i64, i64]` - if an agent's shape is a 3D model, or a non-symmetric, the direction of an agent will affect its visualization.
+* `"hidden": bool` - if provided and true, the agent will not be rendered on the 3d viewer.
+
+
 
 In the [hIndex](https://hash.ai/index/search?query=display&sort=relevance&page=1) you can find published behaviors which have been created to help with more complicated visualization tasks.
 
