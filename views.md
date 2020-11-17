@@ -10,7 +10,7 @@ Using the playbar at the bottom of the right-hand view pane you can scrub forwar
 
 ## 3D
 
-**Support for a full range of 3D models in hCore's 3D viewer is coming soon.** In the meantime, the following primitives can be used to give form to agents: `box`, `cone`, `cylinder`, `dodecahedron` , `icosahedron`, `octahedron`, `plane`, `sphere`, `tetrahedron`, `torus`, `torusknot`
+**HASH natively supports rendering agents in 3D environments.** A wide array of meshes are built in to hCore directly and custom external meshes can be pulled in on demand. Read more about this on our [3D Agent Visualization](https://docs.hash.ai/core/anatomy-of-an-agent/visualization/shapes) page.
 
 ## Geospatial
 
