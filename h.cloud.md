@@ -19,8 +19,14 @@ Simulations within **hCore** can be run in one of two ways: locally inside your 
 |  | **Browser** | **Cloud** |
 | :--- | :--- | :--- |
 | **Stage of Development** | Prototyping | Running Experiments or Large Simulations |
-| **Number of Agents** | 100-1,000 | 10,000+  |
-| **Pricing** | Always Free | Free tier + Subscription Membership |
+| **Number of Agents** | 1..10,000 | 10,000+ to ∞ |
+| **Pricing** | Always Free | Free tier, pay-as-you-go, and subscription options |
+
+Exact in-browser limits will depend on the amount of processing power and RAM available to the browser tab running hCore. The prime constraint is often the power of the local machine's underlying hardware.
+
+{% hint style="warning" %}
+Devices with ARM processors will typically run in-browser hCore simulations faster than their Intel and AMD counterparts.
+{% endhint %}
 
 ## How To Use hCloud
 
