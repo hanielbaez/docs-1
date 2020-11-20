@@ -2,7 +2,13 @@
 
 **Data can be used in HASH to instantiate agents in a simulation, to set the properties of agents, or to influence any part of the simulation.**
 
-HASH allows you to incorporate your own data into simulations, or download datasets from [hIndex](https://hash.ai/index).
+HASH allows you to incorporate your own data into simulations, or download datasets from [hIndex](https://hash.ai/index) to use in a simulation.
+
+Example Simulations that use datasets:
+
+* [City Infection Model](https://core.hash.ai/@hash/city-infection-model/main)
+* [Local Competition](https://hash.ai/@hash/local-competition)
+* [Wholesale Warehouse](https://hash.ai/@hash/wholesale-warehouse1)
 
 ## Importing your own data in HASH
 
@@ -34,21 +40,37 @@ context.data()["@[user-handle or org-handle]/[short-name]/[dataset].[csv or json
 
 If you wish to explore the universe of data available in HASH outside of hCore, you can do so directly [within hIndex](https://hash.ai/index/search?contentType=Dataset&sort=popularity). As with behaviors, we encourage you to tag data in hIndex with the type of '[Thing](https://hash.ai/index/schemas/Thing)' it represents. This ensures that the data can subsequently be easily discovered and reused.
 
-**Example**
+**Example: Using a Dataset to initialize agents**
+
+In the [city infection model](https://core.hash.ai/@hash/city-infection-model/main) you can see an example of using data to create agents with heterogenous values. 
+
+The simulation contains a file, sf900homes100offices.csv, that appropriately contains listings of 900 homes and 100 offices. Each row contains a different building with a different lat, lng location
 
 ```javascript
-[{
-"data": {
-      "New York Census QuickFacts": [
-        {
-          "Population estimates base, April 1, 2010,  (V2018)": "19,378,124"
-        },
-        {
-          "Population, percent change - April 1, 2010 (estimates base) to July 1, 2018,  (V2018)": "0.80%"
-        },
-        ...
-      ]
-    }
-}]
+  use_def	                 neighborhood	       lat	           long
+0	Single Family Residential	Sunset/Parkside	-122.502183895904	37.763653457648
+1	Single Family Residential	Bernal Heights	-122.4170591352	37.747528129366
 ```
+
+An accompanying behavior, gis\_data\_upload.js, imports the data, performs transformations to it \(ex. cleaning the data, parsing it into floats\), and then pushes the data as objects into an array.
+
+```javascript
+let gis_data = context.data()["@b/property_data/sf900homes100offices.csv"]
+...
+let json_data = selected.map(row => ({
+    "use_def": row[0],
+    "neighborhood": row[1],
+    "lat": parseFloat(row[2]),
+    "lon": parseFloat(row[3]),
+    "type": transform_type(row[0])
+    })
+  )
+...
+json_data.forEach(e => agents.push(e))
+
+```
+
+Then another behavior, create\_agents.js, iterates through the agents array and [initializes the agents](../tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/initialization.md).
+
+Now the simulation has a collection of agents with unique positions derived from real world data.
 
