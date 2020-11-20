@@ -40,9 +40,9 @@ context.data()["@[user-handle or org-handle]/[short-name]/[dataset].[csv or json
 
 If you wish to explore the universe of data available in HASH outside of hCore, you can do so directly [within hIndex](https://hash.ai/index/search?contentType=Dataset&sort=popularity). As with behaviors, we encourage you to tag data in hIndex with the type of '[Thing](https://hash.ai/index/schemas/Thing)' it represents. This ensures that the data can subsequently be easily discovered and reused.
 
-### **Using Data to Initialize Agents**
+### **Using data to initialize agents**
 
-In the [city infection model](https://core.hash.ai/@hash/city-infection-model/main) you can see an example of using data to create agents with heterogenous values. 
+Initializing agents is one of the most common uses of data in HASH. In the [city infection model](https://core.hash.ai/@hash/city-infection-model/main) you can see an example of using data to create agents with heterogenous values. 
 
 The simulation contains a file, `sf900homes100offices.csv`, that appropriately contains listings of 900 homes and 100 offices. Each row contains a different building with a different lat, lng location
 
@@ -74,9 +74,15 @@ A third behavior, `create_agents.js`, then iterates through the agents array and
 
 Now the simulation has a collection of agents with unique positions derived from real world data.
 
-### Using Data to Calibrate Models
+### Using data to enrich agents
 
 {% hint style="info" %}
-This tutorial on backtesting and calibration is coming soon.
+This section on hydrating agents' properties with external data is coming soon.
+{% endhint %}
+
+### Using data to calibrate models
+
+{% hint style="info" %}
+This section on backtesting and calibration is coming soon.
 {% endhint %}
 
