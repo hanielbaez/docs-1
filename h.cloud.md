@@ -5,13 +5,13 @@ description: Run simulations on our hCloud infrastructure
 # Cloud Compute
 
 {% hint style="success" %}
-**60 minutes of free hCloud compute time is provided to every user each month.**  
-There will never be any limitations or caps on your ability to simulate things locally in-browser.
+**10 hours of free hCloud compute time is provided to every user each month.**  
+There are no limitations or caps on your ability to simulate things locally in-browser.
 {% endhint %}
 
 {% hint style="info" %}
-**You must have created at least one or more** [**experiments**](https://docs.hash.ai/core/experiments) **in order to run a model on hCloud.**  
-Please ensure you have at least one experiment defined in your `experiment.json` file before proceeding.
+**You must have created at least one** [**experiment**](https://docs.hash.ai/core/experiments) **in order to run a model on hCloud.**  
+Single-run simulations are not supported on hCloud at this time. Please ensure you have at least one experiment defined in your `experiment.json` file before proceeding.
 {% endhint %}
 
 Simulations within **hCore** can be run in one of two ways: locally inside your browser, or at scale on our **hCloud** compute platform.
