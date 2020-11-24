@@ -11,6 +11,7 @@
     * [Shapes](anatomy-of-an-agent/visualization/shapes.md)
     * [Networks](anatomy-of-an-agent/visualization/networks.md)
 * [Behaviors](behaviors/README.md)
+  * [Behavior Keys](behaviors/behavior-keys.md)
   * [Composable behaviors](behaviors/composable-behaviors.md)
 * [Messages](agent-messages/README.md)
   * [Sending Messages](agent-messages/sending-messages.md)
