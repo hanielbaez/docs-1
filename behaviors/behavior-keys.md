@@ -20,7 +20,7 @@ Types:
 | Structs \(objects with typed fields\) | {"foo": "bar"} |
 | Arrays \(ordered collections containing the same type\) | \[1,2,3\] |
 | Fixed-size Arrays | \[1,2,3\] \(max 3 elements\)  |
-| Any-type | JS objects, arrays, Python objects, etc |
+| Any | JS objects, arrays, Python objects, etc |
 
 The any-type designation can apply, appropriately enough, to any data type - it tells HASH to store the value as JSON and deserialize it at runtime. It's a generic that can be used to simplify your behavior key representations, but this will be slower than other type designations, so use it sparingly.
 
@@ -33,6 +33,10 @@ In a behavior file, click the brain icon, which is below the help icon, to toggl
 ![Click the brain icon to toggle the modal](../.gitbook/assets/screen-shot-2020-11-24-at-5.34.20-pm.png)
 
 For complex data types - lists, fixed sized lists, and structs, click the tree icon to assign the data types of members of the list or struct.
+
+{% hint style="info" %}
+Dynamically populated structs should be assigned the `any` type.
+{% endhint %}
 
 ![Click the tree icon on the right to assign the next level of data types](../.gitbook/assets/screen-shot-2020-11-24-at-5.36.17-pm.png)
 
