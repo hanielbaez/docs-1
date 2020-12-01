@@ -92,7 +92,7 @@ You can build Python behaviors instead of JavaScript behaviors if you prefer. Ju
 {% endtab %}
 {% endtabs %}
 
-We can then create the corresponding behavior files by clicking the **New File** button in the left hand files sidebar.
+We can then create the corresponding behavior files by clicking the **New File** button in the left hand files sidebar. Create two new files, `hello_alice.js` and`hello_bob.js`
 
 ![](../.gitbook/assets/screen-shot-2020-04-16-at-7.51.31-am.png)
 
