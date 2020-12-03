@@ -71,7 +71,7 @@ Find the messages field for a Business agent and it should be filled with “bus
 
 {% tabs %}
 {% tab title="business.js" %}
-```text
+```javascript
 const behavior = (state, context) => {
  const send_message = (agent_id, position, price) => {
    state.addMessage(agent_id, "business_movement", {

@@ -8,11 +8,11 @@ Check out the Local Competition Phase 1 model in [Index](https://hash.ai/index/5
 [
  {
    "behaviors": [
-     "@hash/create_grids.js",
-     "@hash/create_scatters.js",
+     "@hash/create-grids/create_grids.js",
+     "@hash/create-scatters/create_scatters.js",
      "update_businesses.js",
-     "@hash/create_agents.js",
-     "@hash/remove_self.js"
+     "@hash/create-agents/create_agents.js",
+     "@hash/remove-self/remove_self.js"
    ],
    "agents": {},
    "grid_templates": [
@@ -39,7 +39,7 @@ Check out the Local Competition Phase 1 model in [Index](https://hash.ai/index/5
        "counter_reset_at": 2,
        "counter_reset_to": 0,
        "behaviors": [
-         "@hash/counter.rs",
+         "@hash/counter/counter.rs",
          "business.js"
        ]
      }

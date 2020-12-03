@@ -2,7 +2,7 @@
 
 The final step for this simulation is for the Businesses to collect the Customer replies and update their position and price to the combination that produced the largest profit. Create a collect\_customer\_data\(\) function in business.js and add the following code.
 
-```text
+```javascript
  const collect_customer_data = (messages) => {
    let position_dictionary = {};
  
@@ -31,7 +31,7 @@ Here we are filtering through customer messages and storing estimated profit in 
 
 Now all that remains is to iterate through the dictionary, find the key \(position and price\) with the largest profit value, and update the business agent. Place this code after filtering and mapping the customer data.
 
-```text
+```javascript
    let largest_profit = 0;
    let new_position = state.get("position");
    let new_price = state.get("item_price");

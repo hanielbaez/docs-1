@@ -7,7 +7,7 @@ Now, open up init.json. This is where we will be writing our ****[**agent creato
 3. Select the **Create Grids** result and choose Add to Simulation.
 4. Repeat steps 2-3 for **Create Agents** and **Remove Self**.
 
-For phase 1 \(or P1\) of the simulation, Customers are evenly distributed in a grid across the environment. Thanks to HASH’s published behavior feature, this can be easily done by pulling the **Create Grids** behavior \(shortname: @hash/create\_grids.js\) into our Simulation Files. This will populate our agent creator’s agents field with Customer agents we define in our grid\_templates field. **Create Agents** \(shortname: @hash/create\_agents.js\)will then populate the environment with our agents. **Remove Self** \(shortname: @hash/remove\_self.js\) will remove the creator agent from the simulation after all agents have been initialized.
+For phase 1 \(or P1\) of the simulation, Customers are evenly distributed in a grid across the environment. Thanks to HASH’s published behavior feature, this can be easily done by pulling the **Create Grids** behavior \(shortname: @hash/create-grids/create\_grids.js\) into our Simulation Files. This will populate our agent creator’s agents field with Customer agents we define in our grid\_templates field. **Create Agents** \(shortname: @hash/create-agents/create\_agents.js\)will then populate the environment with our agents. **Remove Self** \(shortname: @hash/remove-self/remove\_self.js\) will remove the creator agent from the simulation after all agents have been initialized.
 
 {% tabs %}
 {% tab title="init.json" %}
@@ -15,9 +15,9 @@ For phase 1 \(or P1\) of the simulation, Customers are evenly distributed in a g
 [
     {
         "behaviors": [
-            "@hash/create_grids.js",
-            "@hash/create_agents.js",
-            "@hash/remove_self.js"
+            "@hash/create-grids/create_grids.js",
+            "@hash/create-agents/create_agents.js",
+            "@hash/remove-self/remove_self.js"
         ],
         "agents": {},
         "grid_templates": [
@@ -50,7 +50,7 @@ Now to create Business agents:
 
 1. Add the published behavior **Create Scatters** to Simulation Files.
 2. Create two new files - business.js and update\_businesses.js.
-3. Add the business scatter template and the two behaviors  \(@hash/create\_scatters.js and update\_businesses.js\) to the agent creator agent \[see image below for code changes\]
+3. Add the business scatter template and the two behaviors  \(@hash/create-scatters/create\_scatters.js and update\_businesses.js\) to the agent creator agent \[see image below for code changes\]
 
 {% tabs %}
 {% tab title="init.json" %}
@@ -58,11 +58,11 @@ Now to create Business agents:
 [
     {
         "behaviors": [
-            "@hash/create_grids.js",
-            "@hash/create_scatters.js",
+            "@hash/create-grids/create_grids.js",
+            "@hash/create-scatters/create_scatters.js",
             "update_businesses.js",
-            "@hash/create_agents.js",
-            "@hash/remove_self.js"
+            "@hash/create-agents/create_agents.js",
+            "@hash/remove-self/remove_self.js"
         ],
         "agents": {},
         "grid_templates": [

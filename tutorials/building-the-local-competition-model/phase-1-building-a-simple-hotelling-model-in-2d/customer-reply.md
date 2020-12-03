@@ -174,7 +174,7 @@ All that’s left to do now for customer.js is to update the agent’s color to 
 
 Finally, call find\_min\(\) below your call to collect\_business\_data\(\) and pass in the const variable businesses.
 
-```text
+```javascript
 const businesses = collect_business_data(context.messages());
 find_min(businesses);
 ```
@@ -188,7 +188,7 @@ To see **customer.js** in full, navigate to bottom of this section or click on �
 {% hint style="danger" %}
 Before we can see the code in action, we first need to add a counter to Business agents. Since Business agents are sending around 100 \(neighbors\) x 6 \(positions\) x 3 \(prices\) messages at one time, we don’t want this to occur every time step.
 
-1. Add the HASH shared behavior **Counter** \(shortname: @hash/counter.rs\) to your simulation and add the counter behavior to your business agents BEFORE your behavior business.js. \(You want the counter to increment before business.js is called\)
+1. Add the HASH shared behavior **Counter** \(shortname: @hash/counter/counter.rs\) to your simulation and add the counter behavior to your business agents BEFORE your behavior business.js. \(You want the counter to increment before business.js is called\)
 2. In init.json give your Business agents three more variables:
 
 * counter: 0
@@ -198,7 +198,7 @@ Before we can see the code in action, we first need to add a counter to Business
     ****3. Wrap your query\_customers\(\) call in the following if statement:
 {% endhint %}
 
-```text
+```javascript
 if (state.get(“counter”) === 0) {
      query_customers(context.neighbors(), state.get(“position”));
 }
@@ -321,11 +321,11 @@ const behavior = (state, context) => {
 [
  {
    "behaviors": [
-     "@hash/create_grids.js",
-     "@hash/create_scatters.js",
+     "@hash/create-grids/create_grids.js",
+     "@hash/create-scatters/create_scatters.js",
      "update_businesses.js",
-     "@hash/create_agents.js",
-     "@hash/remove_self.js"
+     "@hash/create-agents/create_agents.js",
+     "@hash/remove-self/remove_self.js"
    ],
    "agents": {},
    "grid_templates": [
@@ -352,7 +352,7 @@ const behavior = (state, context) => {
        "counter_reset_at": 2,
        "counter_reset_to": 0,
        "behaviors": [
-         "@hash/counter.rs",
+         "@hash/counter/counter.rs",
          "business.js"
        ]
      }
