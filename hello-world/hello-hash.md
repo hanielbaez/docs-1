@@ -351,12 +351,12 @@ Finally, since Alice clearly would like some socially-responsible distance from 
 [ 
   { 
     "agent_name": "Alice",
-    "behaviors": ["hello_bob.js", "@hash/random_movement.rs"], 
+    "behaviors": ["hello_bob.js", "@hash/random-movement/random_movement.rs"], 
     "position": [0,0] 
   },
   { 
     "agent_name": "Bob", 
-    "behaviors": ["hello_alice.js", "@hash/random_movement.rs"], 
+    "behaviors": ["hello_alice.js", "@hash/random-movement/random_movement.rs"], 
     "position": [2,0] 
   }
 ]
