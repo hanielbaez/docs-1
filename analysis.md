@@ -131,3 +131,108 @@ You can save the data from any of your simulation runs by right clicking on an i
 
 ![](.gitbook/assets/screen-shot-2020-06-18-at-7.41.03-pm.png)
 
+## Examples
+
+Below are a few snippets of outputs and plots.
+
+### [Model Market](https://core.hash.ai/@hash/model-market/4.4.1)
+
+```javascript
+{
+   "outputs":{
+      "recent_sales":[
+         {
+            "op":"filter",
+            "field":"color",
+            "comparison":"eq",
+            "value":"green"
+         },
+         {
+            "op":"count"
+         }
+      ],
+      "no_recent_sales":[
+         {
+            "op":"filter",
+            "field":"color",
+            "comparison":"eq",
+            "value":"skyblue"
+         },
+         {
+            "op":"count"
+         }
+      ]
+   },
+   "plots":[
+      {
+         "title":"Shop Status",
+         "timeseries":[
+            "no_recent_sales",
+            "recent_sales",
+            "closed"
+         ],
+         "layout":{
+            "width":"100%",
+            "height":"40%"
+         },
+         "position":{
+            "x":"0%",
+            "y":"0%"
+         }
+      }
+   ]
+}
+```
+
+### Civil Unrest
+
+```javascript
+{
+  "outputs": {
+    "active": [
+      {
+        "op": "filter",
+        "field": "active",
+        "comparison": "eq",
+        "value": true
+      },
+      { "op": "count" }
+    ],
+    "arrested": [
+      {
+        "op": "filter",
+        "field": "jail_time",
+        "comparison": "gt",
+        "value": 0
+      },
+      { "op": "count" }
+    ]
+  },
+  "plots": [
+    {
+      "title": "Active agents",
+      "timeseries": ["active"],
+      "layout": { "width": "100%", "height": "33%"},
+      "position": { "x": "0%", "y": "0%"}
+    },
+    {
+      "title": "Arrested agents",
+      "timeseries": ["arrested"],
+      "layout": { "width": "100%", "height": "33%"},
+      "position": { "x": "0%", "y": "68%"}
+    },
+    {
+      "title": "Active Agents Histogram",
+      "layout": { "width": "100%", "height": "33%" },
+      "position": { "x": "0%", "y": "34%" },
+      "type": "histogram",
+      "data": [
+        {
+          "x": "active"
+        }
+      ]
+    }
+  ]
+}
+```
+
