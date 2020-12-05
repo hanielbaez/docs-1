@@ -9,7 +9,7 @@ Agents can create a message to send to either another agent or the simulation en
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
     let messages = state.get("messages")
     messages.push({
         to: "schelling",
@@ -75,7 +75,7 @@ You can use the helper function state.addMessage\(to&lt;String&gt;, type&lt;Stri
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
     state.addMessage("foo", "bar", {msg: "hello"})
 }
 ```

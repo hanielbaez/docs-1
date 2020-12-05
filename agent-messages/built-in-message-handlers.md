@@ -19,7 +19,7 @@ Any agent can remove any other agent with a special message sent directly to `ha
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
     state.addMessage("hash", "remove_agent", { agent_id: "Bill" });
 }
 ```
@@ -44,7 +44,7 @@ Here, anything in the data field will be used to create the new agent. The `newb
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
     state.addMessage("hash", "create_agent", {
         parent: state.agent_id, 
         behaviors: ["newborn.js"]
@@ -81,7 +81,7 @@ You can then create the message by providing starting and ending coordinates, as
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
     // Longitude and Latitude coordinates
     const start_lng_lat = [-71.117128, 42.389755];
     const end_lng_lat = [-71.096227, 42.304433];

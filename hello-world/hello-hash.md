@@ -111,7 +111,7 @@ Since we're only sending a message to one agent, Alice, we can use her `agent_na
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
   state.addMessage(
       "Alice",
       "greeting",
@@ -150,7 +150,7 @@ Let's find all of the messages that are greetings:
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
   const greetings = context.messages().filter(msg => msg.type === "greeting");
 
   if (greetings.length > 0) {
@@ -176,7 +176,7 @@ Adding visual indicators of state changes is an easy way to communicate what's h
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
   const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
     state.set("color", "blue");
@@ -203,7 +203,7 @@ To respond to Bob's greeting, we can send a message back addressed to the first 
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
   const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
     state.set("color", "blue");
@@ -243,7 +243,7 @@ Over in **hello\_bob.js**, we can add a similar message handler for Bob, too.
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
   const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
         state.set("color", "red");
@@ -297,7 +297,7 @@ We'll need to refactor our code to implement this - instead of using `state.set(
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
   const greetings = context.messages().filter(msg => msg.type === "greeting");
 
 

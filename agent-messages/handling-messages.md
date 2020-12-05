@@ -33,7 +33,7 @@ Handling the messages here would be pretty simple - just iterating through the m
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
     for (const message in context.messages()) {
         ...
     }

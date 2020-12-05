@@ -33,7 +33,7 @@ This behavior takes in the current state and [context](context.md) of the agent,
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context){
+const behavior = (state, context) => {
     let age = state.get("age");
     age += 1;
     state.set("age", age);
@@ -68,7 +68,7 @@ will allow you to pass a function that will be run on the given field in the age
 {% tabs %}
 {% tab title="Javascript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
     state.modify("age", age => age + 1)
 }
 ```

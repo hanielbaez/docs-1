@@ -26,7 +26,7 @@ Most behaviors output a single state with the same `agent_id` as they received. 
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-function behavior(state, context) {
+const behavior = (state, context) => {
     state.modify("position", position => [position[0] + 1, position[1]]);
 }
 ```
