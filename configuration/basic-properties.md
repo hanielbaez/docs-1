@@ -42,5 +42,49 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
+## Visual Globals
 
+You can view and modify the parameters in `globals.json` either as code or as a form, with customizable inputs. Click the toggle visual globals button at the top right of the code editor pane.
+
+![Toggle between edit and input of globals](../.gitbook/assets/kapture-2020-12-09-at-11.52.28.gif)
+
+You can customize the type of field input for a global variable by adding a "schema" property to globals.
+
+```javascript
+  //globals.json
+  //adds a color picker selector to the color property
+  {
+    "color": "#ff0000",
+    "schema": {
+      "properties": {
+        "color": {
+          "type": "string",
+          "enum": "colors"
+        }
+      }
+    }
+    //...more properties
+  }
+```
+
+This would be rendered in the visual globals as:
+
+![](../.gitbook/assets/screen-shot-2020-12-09-at-12.06.10-pm.png)
+
+Currently visual globals supports:
+
+* Color Picker: 
+
+```javascript
+      "properties": {
+        "[property name]": {
+          "type": "string",
+          "enum": "colors"
+        }
+      }
+```
+
+{% hint style="info" %}
+By default a non-signed in viewer of a simulation will see and interact with the visual globals view.
+{% endhint %}
 
