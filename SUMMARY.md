@@ -47,25 +47,22 @@
 * [Designing for Different Timescales](concepts/designing-for-different-timescales.md)
 * [Designing with Distributions](concepts/designing-with-distributions.md)
 
-## Hello, World!
-
-* [Hello, HASH!](hello-world/hello-hash.md)
-
 ## Tutorials
 
+* [Hello, HASH!](tutorials/hello-hash.md)
 * [Extending an Epidemic Model](tutorials/extending-an-epidemic-model/README.md)
   * [Add heterogeneity](tutorials/extending-an-epidemic-model/add-heterogeneity.md)
   * [Create a Hospital](tutorials/extending-an-epidemic-model/create-a-hospital.md)
   * [Create Testing Behavior](tutorials/extending-an-epidemic-model/create-testing-behavior.md)
   * [Create an ICU](tutorials/extending-an-epidemic-model/create-an-icu.md)
-* [Building the Local Competition Model](tutorials/building-the-local-competition-model/README.md)
-  * [Phase 1: Building a Simple Hotelling Model in 2D](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/README.md)
-    * [Environment Setup](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/set-up-environment.md)
-    * [Agent Initialization](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/initialization.md)
-    * [Query Customers](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/query-customers.md)
-    * [Customer Reply](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/customer-reply.md)
-    * [Business Collect and Update](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/business-collect-and-update.md)
-    * [Phase 1 Final Code](tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/phase-1-final-code.md)
+* [Building a Simple Hotelling Model in 2D](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/README.md)
+  * [Environment Setup](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/set-up-environment.md)
+  * [Agent Initialization](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/initialization.md)
+  * [Query Customers](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/query-customers.md)
+  * [Customer Reply](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/customer-reply.md)
+  * [Business Collect and Update](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/business-collect-and-update.md)
+  * [Final Code](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/phase-1-final-code.md)
+  * [Extending the Model](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/building-the-local-competition-model.md)
 
 ## Extra
 

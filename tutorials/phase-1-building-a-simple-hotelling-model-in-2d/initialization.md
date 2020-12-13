@@ -7,7 +7,7 @@ Now, open up init.json. This is where we will be writing our ****[**agent creato
 3. Select the **Create Grids** result and choose Add to Simulation.
 4. Repeat steps 2-3 for **Create Agents** and **Remove Self**.
 
-For phase 1 \(or P1\) of the simulation, Customers are evenly distributed in a grid across the environment. Thanks to HASH’s published behavior feature, this can be easily done by pulling the **Create Grids** behavior \(shortname: @hash/create-grids/create\_grids.js\) into our Simulation Files. This will populate our agent creator’s agents field with Customer agents we define in our grid\_templates field. **Create Agents** \(shortname: @hash/create-agents/create\_agents.js\)will then populate the environment with our agents. **Remove Self** \(shortname: @hash/remove-self/remove\_self.js\) will remove the creator agent from the simulation after all agents have been initialized.
+Customers begin evenly distributed in a grid across the environment. Thanks to HASH’s published behavior feature, this can be easily done by pulling the **Create Grids** behavior \(shortname: @hash/create-grids/create\_grids.js\) into our Simulation Files. This will populate our agent creator’s agents field with Customer agents we define in our grid\_templates field. **Create Agents** \(shortname: @hash/create-agents/create\_agents.js\)will then populate the environment with our agents. **Remove Self** \(shortname: @hash/remove-self/remove\_self.js\) will remove the creator agent from the simulation after all agents have been initialized.
 
 {% tabs %}
 {% tab title="init.json" %}

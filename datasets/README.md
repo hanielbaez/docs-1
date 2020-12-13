@@ -70,7 +70,7 @@ json_data.forEach(e => agents.push(e))
 
 ```
 
-A third behavior, `create_agents.js`, then iterates through the agents array and [initializes the agents](../tutorials/building-the-local-competition-model/phase-1-building-a-simple-hotelling-model-in-2d/initialization.md).
+A third behavior, `create_agents.js`, then iterates through the agents array and [initializes the agents](../tutorials/phase-1-building-a-simple-hotelling-model-in-2d/initialization.md).
 
 Now the simulation has a collection of agents with unique positions derived from real world data.
 

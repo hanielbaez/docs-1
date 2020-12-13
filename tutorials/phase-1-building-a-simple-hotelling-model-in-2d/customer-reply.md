@@ -212,7 +212,7 @@ Reset and run!
 
 If you followed all the steps above, run the simulation a couple times and you should see the customer agents change color based on their decision after a couple time steps. 
 
-![](../../../.gitbook/assets/lc_p2_customers.gif)
+![](../../.gitbook/assets/lc_p2_customers.gif)
 
 {% tabs %}
 {% tab title="customer.js" %}

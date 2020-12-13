@@ -1,6 +1,6 @@
-# Phase 1 Final Code
+# Final Code
 
-Check out the Local Competition Phase 1 model in [Index](https://hash.ai/index/5ef60a24478e6e098f6a5f30/local-competition-phase-1)
+Check out the model \(Local Competition Phase 1\) in [Index](https://hash.ai/index/5ef60a24478e6e098f6a5f30/local-competition-phase-1)
 
 {% tabs %}
 {% tab title="init.json" %}
