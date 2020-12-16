@@ -20,7 +20,7 @@ From the behavior key panel you can define the field the behavior will need to a
 
 ### How do I know what fields I need to assign?
 
-Any custom fields your behavior is getting from state, or setting in state, should have an entry in your behavior keys. For example, if your behavior calls `state.set("cost", 300)`, you should have a behavior key called `cost` with type `number`. You do not need to create entries for special fields which HASH defines - see 'builtin fields' below.
+Any custom fields your behavior is getting from state, or setting in state, should have an entry in your behavior keys. For example, if your behavior calls `state.set("cost", 300)`, you should have a behavior key called `cost` with type `number`. You do not need to create entries for special fields which HASH defines - see 'Built-in Fields' below.
 
 ### Types
 
@@ -28,7 +28,7 @@ If you've used a statically defined language before - like Rust, Go, or Clojure 
 
 Types:
 
-| Type | Example(s) |
+| Type | Example |
 | :--- | :--- |
 | Strings | "Hello" |
 | Booleans | True |
