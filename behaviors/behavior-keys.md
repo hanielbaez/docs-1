@@ -53,5 +53,5 @@ Dynamically populated structs should be assigned the `any` type.
 Data type fields must be the same across behaviors. For instance if field **foo** in behavior A has type: number, field **foo** \(assuming its the same field\) in behavior B must have type: number.
 
 {% hint style="info" %}
-Field Names at the top level of your keys cannot match built-in fields \(e.g. `agent_id`, `position`\) and cannot start with double-underscore \(e.g. `__age`\), which are reserved for engine specific information. Structs below the top level (i.e. under another field) may contain these fields.
+Field Names at the top level of your keys cannot match built-in fields \(e.g. `agent_id`, `position`\) and cannot start with double-underscore \(e.g. `__age`\), which are reserved for engine specific information. Fields below the top level (i.e. as a child of a top-level field) may match those names.
 {% endhint %}
