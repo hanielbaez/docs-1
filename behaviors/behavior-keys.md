@@ -20,7 +20,7 @@ From the behavior key panel you can define the field the behavior will need to a
 
 ### How do I know what fields I need to assign?
 
-Any fields your behavior is getting from state, or setting in state, should have an entry in your behavior keys. For example, if your behavior calls `state.set("name", "Bob")`, you should have a behavior key called `name` with type `string`.
+Any custom fields your behavior is getting from state, or setting in state, should have an entry in your behavior keys. For example, if your behavior calls `state.set("cost", 300)`, you should have a behavior key called `cost` with type `number`. You do not need to create entries for special fields which HASH defines - see 'builtin fields' below.
 
 ### Types
 
@@ -28,11 +28,11 @@ If you've used a statically defined language before - like Rust, Go, or Clojure 
 
 Types:
 
-| Type | Example |
+| Type | Example(s) |
 | :--- | :--- |
 | Strings | "Hello" |
 | Booleans | True |
-| Numbers \(floats\) | 4.00 |
+| Numbers | 4.00 |
 | Structs \(objects with typed fields\) | {"foo": "bar"} |
 | Arrays \(ordered collections containing the same type\) | \[1,2,3\] |
 | Fixed-size Arrays | \[1,2,3\] \(max 3 elements\)  |
@@ -52,6 +52,23 @@ Dynamically populated structs should be assigned the `any` type.
 
 Data type fields must be the same across behaviors. For instance if field **foo** in behavior A has type: number, field **foo** \(assuming its the same field\) in behavior B must have type: number.
 
+### Built-in fields
 {% hint style="info" %}
 Field Names at the top level of your keys cannot match built-in fields \(e.g. `agent_id`, `position`\) and cannot start with double-underscore \(e.g. `__age`\), which are reserved for engine specific information. Fields below the top level (i.e. as a child of a top-level field) may match those names.
 {% endhint %}
+
+You do not need to define these in your behavior keys.
+- agent_id
+- agent_name
+- behaviors
+- color
+- direction
+- height
+- hidden
+- messages
+- position
+- position_was_corrected
+- rgb
+- scale
+- search_radius
+- shape
