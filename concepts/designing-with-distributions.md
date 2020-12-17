@@ -63,7 +63,7 @@ You can find an example of these distribution methods being used in the Consumer
 
 ### Empirical Distributions
 
-If you are creating simulations from data consisting of observations, as opposed to having summary statistics, you are trying to use empirical distributions in your simulation. There are potentially many ways you might implement this, but one of the simplest is using Python's `random.choice` method. By providing a list of values and a corresponding list of probabilities, you've effectively implemented an empirical distribution function. 
+If you are creating simulations from data consisting of observations, as opposed to having summary statistics, you are trying to use empirical distributions in your simulation. There are many ways you might implement this, but one of the simplest is using Python's `random.choice` method. By providing a list of values and a corresponding list of probabilities, you've effectively implemented an empirical distribution function. 
 
 You can find a working example of this in the Alcoholism Intervention model. The _births\_intervention.py_ and _births\_control.py_ behaviors both make use of this python method in concert with a dataset.
 

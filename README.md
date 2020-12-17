@@ -9,7 +9,7 @@ Welcome to [HASH](https://hash.ai), an end-to-end solution for quickly creating 
 ## Getting Started
 
 {% hint style="success" %}
-As a new user, the best way to learn HASH is to browse our [gallery of examples](https://hash.ai/index/search?categoryID=5dc3da74cc0cf804dcc66a5c) to find toy simulations with interesting dynamics you can tinker with
+As a new user, the best way to learn HASH is to browse our [gallery of examples](https://hash.ai/models?categoryID=5dc3da74cc0cf804dcc66a5c&page=1&sort=popularity) to find simulations with interesting dynamics you can tinker with, and try your hand at the [Tutorials](https://docs.hash.ai/core/tutorials/)
 {% endhint %}
 
 If you've used simulation modeling software before, you might find that models in HASH are a little different to those you're used to seeing. We leverage composable [agents](anatomy-of-an-agent/) and [behaviors](behaviors/) to make it faster and easier for you to create realistic, well-calibrated simulations.

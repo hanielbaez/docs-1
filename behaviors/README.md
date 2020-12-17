@@ -15,7 +15,7 @@ Agents can \(and typically do\) have behaviors:
 
 Behaviors allow agents to exhibit _agency_ in the simulation. An agent can have any number of behaviors.
 
-Behaviors are pure functions in the form of: `(current_state, context) => [next_state]`
+Behaviors are pure functions in the form of: `(current_state, context) => {next_state}`
 
 The exact semantics vary by programming language, but in spirit every behavior is a pure function which receives a given agent's state, the world context visible to that agent, and outputs its next state.
 

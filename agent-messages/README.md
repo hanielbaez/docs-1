@@ -64,7 +64,7 @@ If you want to jump right into code you can take a look at our [Message Passing 
 
 You'll notice that each message is comprised of three fields: "to", "type", and "data." 
 
-* `to`:  the name or ID of the agent that the message will be deliever to
+* `to`:  the `agent_name` or `agent_id` of the agent that the message will be deliever to
 * `type`: the type of message being sent for the message handler to select the right course of action
 * `data`: any data you want to send along with the message
 

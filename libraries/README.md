@@ -4,7 +4,7 @@
 
 HASH provides a set of useful functions to help simplify simulation construction. These are provided through a standard library, `hash_stdlib`
 
-Currently the Stadard Library is only accessible in JavaScript; however, we're expanding this to include equivalent functions for Python and Rust. The Python language environment [also provides access to](https://docs.hash.ai/core/libraries/python-packages) a wide array of scientific Python packages_._
+Currently the Standard Library is only accessible in JavaScript; however, we're expanding this to include equivalent functions for Python and Rust. The Python language environment [also provides access to](https://docs.hash.ai/core/libraries/python-packages) a wide array of scientific Python packages_._
 
 ### Types of functions in the HASH Standard Library
 

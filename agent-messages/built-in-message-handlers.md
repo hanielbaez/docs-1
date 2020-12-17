@@ -10,7 +10,7 @@ Currently, the most powerful built-in message handlers allow agents to add or re
 
 ## Removing Agents via Messages
 
-Any agent can remove any other agent with a special message sent directly to `hash`. Here, we remove an agent with the agent\_id of `Bill`. Before the next step starts executing, the message will be processed and `Bill` will be removed \(sorry Bill!\).
+Any agent can remove any other agent with a special message sent directly to `hash`. Here, we remove an agent with `agent_name: "Bill"`. Before the next step starts executing, the message will be processed and Bill will be removed \(sorry Bill!\).
 
 {% hint style="warning" %}
 **Case sensitivity** **matters.** If a message is sent to `bill`, it will not be received by `Bill`. The only exception to this rule is that any message sent to hASh, Hash, HASH, haSh, or any similar variant will be forwarded to the master `hash` agent.
@@ -33,7 +33,7 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
-If a "remove\_agent" message is sent without a specified agent\_id, then the agent\_id defaults to that of the sender. We suggest setting the field as `state.agent_id` for readability but it can be used as shorthand.
+If a "remove\_agent" message is sent without an id or name specified in the data, then the agent\_id defaults to that of the sender. We suggest setting the field as `state.agent_id` for readability but it can be used as shorthand when an agent needs to remove itself.
 
 ## Creating Agents via Messages
 
@@ -66,7 +66,7 @@ def behavior(state, context):
 
 ## Navigation with Mapbox
 
-**Message handlers can also be used to access 3rd party APIs during the runtime of a HASH simulation.** Presently we support just one external API, _Mapbox_, but in the coming months a number of others will be listed in [Index](https://hash.ai/index) and the ability to add new APIs will be opened up publicly.
+**Message handlers can also be used to access 3rd party APIs during the runtime of a HASH simulation.** Presently we support just one external API, _Mapbox_, but in the coming months a number of others will be listed in [hIndex](https://hash.ai/index) and the ability to add new APIs will be opened up publicly.
 
 Using the existing Mapbox API message handler, any agent can request navigation directions between two points. But first, you'll need to activate the Mapbox message handler in your `globals.json` file:
 

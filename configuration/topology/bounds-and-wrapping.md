@@ -18,7 +18,7 @@ A gas particle in a box might have a topology configuration like:
 Notice the `"wrapping_preset": "reflection"`  - this tells us that the agent will bounce off the borders, similar to how a ball might be reflected against a wall. If the agent has a direction, the direction will be flipped. This isn't always perfect though, so try to move the agent only once per chain of behaviors.
 
 {% hint style="info" %}
-Play around with the wrapping preset and bounds in [this HASH Simulation](https://hash.ai/index/5e7aec08d945ef0b5154bdc5/empty-simulation)
+Play around with the wrapping preset and bounds in [this HASH Simulation](https://hash.ai/@hash/wrapping-preset-playground)
 {% endhint %}
 
 The wrapping presents we support out-of-the box are:

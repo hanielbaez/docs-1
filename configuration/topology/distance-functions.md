@@ -23,7 +23,7 @@ When finding the neighbors of agents in a simulation, HASH depends on a few impo
 
 | Function Name | Behavior |
 | :--- | :--- |
-| `chebyshev` | The greatest distance between two points in any axis also known as the L-infty norm. [Wikipedia](https://en.wikipedia.org/wiki/Chebyshev_distance) |
+| `chebyshev` | The greatest distance between two points in any axis also known as the L-infinity norm. [Wikipedia](https://en.wikipedia.org/wiki/Chebyshev_distance) |
 | `conway` | Same as chebyshev. Named after John Conway because of its use in collecting all 8 neighbors in an [agent's neighborhood](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules). |
 | `manhattan` | Distance between agents are computed on a grid, where the distance is the total sum of the difference in each of the axes. [Wikipedia](https://en.wikipedia.org/wiki/Taxicab_geometry) |
 | `euclidean` | The point-point distance "as the crow flies" between two points [Wikipedia](https://en.wikipedia.org/wiki/Euclidean_distance) |

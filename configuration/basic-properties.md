@@ -2,7 +2,7 @@
 
 Global variables are defined in the `globals.json` file present within every simulation. These variables are immutable while the simulation is running and are accessible to all agents simultaneously.
 
-Accessing the properties of the simulation is as simple as using the keyword `properties` in our agent behavior.
+Accessing the properties of the simulation is as simple as using the `context.globals()` function in our agent behavior.
 
 To change properties while the simulation is running, make sure to pause the simulation, make the appropriate changes, and resume.
 
@@ -22,7 +22,7 @@ The associated tree growth behavior would follow:
 ```javascript
 function behavior(state, context) {
     ...
-    if (state.height + growth <= context.globals()['maxTreeHeight']) {
+    if (state.height + growth <= context.globals().maxTreeHeight) {
         growtree()
     }
     ...

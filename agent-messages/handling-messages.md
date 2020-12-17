@@ -28,7 +28,7 @@ Notice the distinction. Context is immutable and any accidental changes made to 
 Send messages with `state.messages`and receive them with `context.messages()`.
 {% endhint %}
 
-Handling the messages here would be pretty simple - just iterating through the messages array in Context.
+Handling the messages here would be pretty simple - just iterating through the messages array in context.
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -68,5 +68,5 @@ fn (state: AgentState, context: &Context) -> AgentState {
 {% endtab %}
 {% endtabs %}
 
-The messages that an agent receives are only available on the timestep they received them. context.Messaes\(\) is cleared between timesteps, so an agent will need to store the messages on their state if they want to preserve a message.
+The messages that an agent receives are only available on the timestep they received them. `context.messages()` is cleared between timesteps, so an agent will need to store the messages on their state if they want to preserve a message.
 

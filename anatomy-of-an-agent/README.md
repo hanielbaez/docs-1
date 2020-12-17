@@ -11,7 +11,7 @@ Every agent has a name and a unique identifier. As a simulation creator, you can
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-{
+const agent = {
     agent_id: <uuid v4>, //Set on_create by the hEngine
     agent_name: <string>
 }
@@ -20,9 +20,10 @@ Every agent has a name and a unique identifier. As a simulation creator, you can
 
 {% tab title="Python" %}
 ```python
-class Agent:
+agent = {
     agent_id = <uuid v4> #Set on_create by the hEngine
     agent_name = <string>
+}
 ```
 {% endtab %}
 

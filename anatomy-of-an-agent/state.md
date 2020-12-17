@@ -7,12 +7,12 @@ Your agents can have any fields you want. Here's an agent that uses the Monte-Ca
 ```javascript
 // LeaderAgent
 {
+    agent_name: "leader",
+    behaviors: ["spawn_samples.js", "estimate_pi.js"],
     spawned_datapoints: 0,
     neighbor_points: 0,
     pi_estimate: 0,
-    behaviors: ["spawn_samples", "estimate_pi"],
     position: [0, 0, 0],
-    agent_name: "leader",
     search_radius: 1,
 }
 ```

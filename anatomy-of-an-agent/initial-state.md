@@ -23,15 +23,15 @@ If you want to jump right into code you can take a look at our [Initialization D
 
 For example, by accessing published behaviors, we can very easily generate common agent placements. These behaviors can be found in the lower left corner; click on them to add them to your simulation:
 
-* `Create Grids`:  copy an agent to every unit within the topology bounds
-* `Create Scatters`: copy an agent to random locations within the topology bounds 
-* `Create Stacks`: copy an agent multiple times to the same location
+* `Create Grids (@hash/create-grids/create_grids.js)`:  copy an agent to every unit within the topology bounds
+* `Create Scatters (@hash/create-scatters/create_scatters.js)`: copy an agent to random locations within the topology bounds 
+* `Create Stacks (@hash/create-stacks/create_stacks.js)`: copy an agent multiple times to the same location
 
 Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://hash.ai/index/5e4b6aa3c9c6f7504be4f605/rabbits-grass-weeds), while grass and weeds grow around them:
 
-![](../.gitbook/assets/screen-shot-2020-05-30-at-5.43.10-pm.png)
+![](../.gitbook/assets/image%20%2829%29.png)
 
-There's a singly agent, named creator, that has a set of behaviors that will reference the "templates" we attached as properties on the creator agent.
+There's a singly agent that has a set of behaviors that will reference the "templates" we attached as properties on the creator agent.
 
 `Create Grids` looks at the agent templates in the "grid\_templates" array, in this case the "ground". We're copying it to fill the space defined in the bounds of our "topology" field in`globals.json`:
 
@@ -41,11 +41,11 @@ Next, `Create Scatters` distributes the "rabbits" across the environment. Each o
 
 Now we want to make a few adjustments to the agents we've generated which requires a bit more logic. Luckily for us, HASH behaviors are composable. `Create Grids` and `Create Scatters` have created "agent" objects in our creator and filled them. We access those agents by using the "template\_name" as a key:
 
-![](../.gitbook/assets/screen-shot-2020-05-30-at-5.49.04-pm.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 Here we've randomly assigned the color of our "ground" agents, and given each of the "rabbits" a random starting amount of energy.
 
-Our creator then runs two more published behaviors. `Create Agents` sends messages to the engine to generate every agent in the "agents" object, and `Remove Self` gets rid of the "creator" agent, since it's finished all it needs to do. Again, these behaviors can be found in the lower left sidebar.
+Our creator then runs two more published behaviors. `Create Agents (@hash/create-agents/create_agents.js)` sends messages to the engine to generate every agent in the "agents" object, and `Remove Self (@hash/remove-self/remove_self.js)` gets rid of the "creator" agent, since it's finished all it needs to do. Again, these behaviors can be found in the lower left sidebar.
 
 {% hint style="info" %}
 You can create new agents during your simulation by sending a message to the reserved hash keyword.

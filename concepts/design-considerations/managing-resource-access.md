@@ -2,21 +2,28 @@
 
 Managing shared resource access is a common software design challenge. For instance [mutexes](https://en.wikipedia.org/wiki/Lock_%28computer_science%29) and similar locking mechanisms might be implemented to ensure only one process is modifying the resource at once. To avoid the need for this, **HASH manages state through the actor model, with each individual actor controlling its own state.**
 
-This approach avoids common state management bugs that crop up in other paradigms, but to the uninitiated can complicate planning access to shared resources. For instance, if two agents, \(_A_\) and \(_B_\), in time step 1 want something from a third agent \(_C_\), they might both message the request to the third agent. Since agents execute in parallel, they will both send their message on the time step 1, and two messages will arrive to _C_**.** 
+This approach avoids common state management bugs that crop up in other paradigms, but to the uninitiated can complicate planning access to shared resources. For instance, if two agents, _\(A\)_ and _\(B\)_, in time step 1 want something from a third agent _\(C\)_, they might both message the request to the third agent. Since agents execute in parallel, they will both send their message on the time step 1, and two messages will arrive to _C_**.** 
 
 Agent _C_ ****now needs to determine which agent should receive the resources, sending a message to the winning agent and a message to the losing agent. 
 
 An example of this type of pattern is in [Sugarscape](https://hash.ai/index/5df7b0c0c36ba4aaa14f4a4e/sugarscape), in which agents search for and collect “sugar”. When an agent moves to a patch of sugar it sends a message to the patch, requesting sugar \(line 31 in `sugar_agent.js`\). 
 
+{% tabs %}
+{% tab title="JavaScript" %}
+{% code title="sugar\_agent.js" %}
 ```javascript
-//sugar_agent.js
 state.addMessage(bestPatch.agent_id, "request", {});
 ```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 The patch then sends sugar to only one of the agents who made a request \(lines 15-24 in `sugar_patch.js`\). This prevents multiple agents from “grabbing” the limited resource .
 
+{% tabs %}
+{% tab title="JavaScript" %}
+{% code title="sugar\_patch.js" %}
 ```javascript
-// sugar_patch.js
 if (requests.length) {
     // Send all sugar to randomly selected agent
     const randInd = Math.floor(Math.random() * requests.length);
@@ -28,6 +35,9 @@ if (requests.length) {
     sugar = 0;
 }
 ```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 Build checks for multiple of the same type requests into message handlers, to account for multiple agents requesting the same resource on a time step.
