@@ -16,8 +16,8 @@ description: Errors and what they mean
       <td style="text-align:left">ReferenceError: behavior is not defined <em>or</em> 
         <br />Can&#x2019;t find variable: behavior</td>
       <td style="text-align:left">
-        <p>Every HASH behavior file must have a function signature of
-          <br />function behavior().</p>
+        <p>Every HASH behavior file must have a function signature with a function
+          named behavior().</p>
         <p>If it is not properly defined, you&apos;ll see this error.</p>
         <p></p>
       </td>
@@ -25,23 +25,23 @@ description: Errors and what they mean
     <tr>
       <td style="text-align:left">ERROR running simulation: <code>[error]</code> did not match any variant
         of untagged enum OutboundMessage</td>
-      <td style="text-align:left">All messages must have a <code>to</code> and <code>type </code>- this error
-        indicates the type is missing.</td>
+      <td style="text-align:left">All <a href="../agent-messages/">messages</a> must have a <code>to</code> and <code>type </code>field
+        this error indicates the type is missing.</td>
     </tr>
     <tr>
       <td style="text-align:left">
         <p>D is not a function.</p>
         <p></p>
       </td>
-      <td style="text-align:left">Check analysis.json - this can indicate you referenced an output that
-        doesn&apos;t exist or used an incorrect operation.</td>
+      <td style="text-align:left">Check <a href="../analysis.md">analysis</a>.json - this can indicate you
+        referenced an output that doesn&apos;t exist or used an incorrect operation.</td>
     </tr>
     <tr>
       <td style="text-align:left">Agent &quot;<code>[agent id]</code>&quot; doesn&apos;t have a position.</td>
       <td
       style="text-align:left">Many operations on agents require a physical location on the x,y plane
-        - for example searching for neighbors. This error will be thrown if that&apos;s
-        the case.</td>
+        for example searching for neighbors. This error will be thrown if there
+        is no position defined for the agent.</td>
     </tr>
   </tbody>
 </table>

@@ -44,7 +44,7 @@ With the Customer agents outlined in init.json, we now need to create the custom
 
 Now click Reset Simulation and Run Simulation at the bottom of the 3D Viewer. You should see a grid of white agents!
 
-![](https://lh5.googleusercontent.com/jLFHH4sCxYEU33qEZ9g3xdZ-BinWBAQiQMQhy3qVIoDe7CvTk39Az8rgmKuPp1pect8JH_BFneOM5sJ1C6p8Aa5KT6pSwLqu9L8qhImtK-XhDVSTfVDycdGC7n99kbsynZCwW1m7)
+![Initial Grid of Agents](../../.gitbook/assets/screen-shot-2020-12-17-at-10.38.46-am.png)
 
 Now to create Business agents:
 
