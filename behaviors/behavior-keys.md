@@ -2,7 +2,7 @@
 
 Behavior Keys define the **data** **type** of the fields that a behavior accesses on an agent's state. HASH uses behavior keys to improve the runtime performance of simulations.
 
-![Adding behavior keys](../.gitbook/assets/image%20%2828%29.png)
+![Adding behavior keys](../.gitbook/assets/image%20%2828%29%20%281%29.png)
 
 {% hint style="info" %}
 Behavior Keys are **optional** for in-browser simulation runs, but are **required** for cloud runs.
