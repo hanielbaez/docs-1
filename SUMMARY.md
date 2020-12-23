@@ -66,6 +66,17 @@
 
 ## Extra
 
+* [Moving to HASH](extra/migrating/README.md)
+  * [Migrating to AnyLogic](extra/migrating/migrating-to-anylogic/README.md)
+    * [Mental Models](extra/migrating/migrating-to-anylogic/mental-models.md)
+    * [Planning the Build](extra/migrating/migrating-to-anylogic/planning-the-build.md)
+    * [Main Loop](extra/migrating/migrating-to-anylogic/main-loop.md)
+    * [Building the Simulation](extra/migrating/migrating-to-anylogic/building-the-simulation/README.md)
+      * [Tankers to Port](extra/migrating/migrating-to-anylogic/building-the-simulation/tankers-to-port.md)
+      * [Through the Pipeline](extra/migrating/migrating-to-anylogic/building-the-simulation/through-the-pipeline.md)
+      * [Trucks on the Move](extra/migrating/migrating-to-anylogic/building-the-simulation/trucks-on-the-move.md)
+      * [Full Initialization](extra/migrating/migrating-to-anylogic/building-the-simulation/full-initialization.md)
+      * [Improving our Visualization](extra/migrating/migrating-to-anylogic/building-the-simulation/improving-our-visualization.md)
 * [Error Reference & Debugging](extra/error-reference.md)
 * [Performance](extra/performance.md)
 * [System Requirements](extra/specs-requirements.md)
