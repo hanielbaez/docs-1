@@ -76,7 +76,7 @@ The other operations besides "filter" are listed below. Most of these operations
 
 ## Plots
 
-The "plots" list contains collections which define the different plots that visualize the outputs. The basic configuration of a plot includes a name, data, type, layout, and position field:
+The "plots" list contains collections which define the different plots that visualize the outputs. The basic configuration of a plot includes a title, data, type, layout, and position field:
 
 ```javascript
   "plots": [{
