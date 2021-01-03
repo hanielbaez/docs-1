@@ -1,4 +1,4 @@
-# Moving from AnyLogic
+# Migrating from AnyLogic
 
 AnyLogic is a 20+ year old desktop application that lets programmers write object-oriented Java to create simulations. AnyLogic also has limited support for visual programming, allowing non-programmers to create basic simulations.
 

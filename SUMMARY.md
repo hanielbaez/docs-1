@@ -67,7 +67,7 @@
 ## Extra
 
 * [Switching to HASH](extra/migrating/README.md)
-  * [Moving from AnyLogic](extra/migrating/anylogic/README.md)
+  * [Migrating from AnyLogic](extra/migrating/anylogic/README.md)
     * [Mental Models](extra/migrating/anylogic/mental-models.md)
     * [Planning the Build](extra/migrating/anylogic/planning-the-build.md)
     * [Main Loop](extra/migrating/anylogic/main-loop.md)
