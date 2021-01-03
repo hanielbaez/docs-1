@@ -1,8 +1,12 @@
-# Moving to HASH
+# Switching to HASH
 
-One of the frequent questions we hear from users is “We want to use HASH because it’s free/fast, but we’ve already built a simulation in \[software x\]. How can we port it over to HASH?”. To help users with existing simulations on different platforms, we've created a series of examples to show you how to convert it to a HASH model.
+One of the most common questions we hear from users is “We want to use HASH because it’s free, fast, and integrates with my other tools - but we’ve already built a simulation in another package. How can we easily port it over into HASH?”
 
-We’ll share tips and techniques for the conversion process, walk you through example conversions, and compare and contrast different simulation software approaches. At the end you'll understand how to move your simulation infrastructure to HASH and leverage the power of HASH’s modern simulation engine to build scalable simulations in JavaScript, or Python. 
+To help users with existing simulations built for different products, we've created a series of examples to show you how to convert these for use with HASH.
+
+In this section we’ll share tips and techniques for converting your simulation models, walk you through some example conversions, and compare and contrast different simulation software approaches.
+
+At the end you'll understand how to move your simulation infrastructure to HASH and leverage the power of HASH’s modern simulation engine to build scalable simulations in JavaScript, Python, or Rust. 
 
 
 
