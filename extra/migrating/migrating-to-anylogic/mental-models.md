@@ -1,6 +1,8 @@
 # Mental Models
 
-A mental model is a conceptual framework that can be applied to help solve problems. Our team is experienced in building simulations, and often in converting a model written in external software - for instance an excel sheet, a homegrown application - to HASH. After 100+ times, we’ve refined the process to a few key steps.
+Mental models are conceptual frameworks, or ways of thinking, that can be applied to help solve problems.
+
+Having built thousands of simulations from scratch, and converted many more originally written for Excel and other tools, or custom-coded, we've distilled down a number of the key elements here.
 
 ## Planning the Build
 
