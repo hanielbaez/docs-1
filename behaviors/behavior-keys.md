@@ -58,21 +58,5 @@ Data type fields must be the same across behaviors. For instance if field **foo*
 Field Names at the top level of your keys cannot match built-in fields \(e.g. `agent_id`, `position`\) and cannot start with double-underscore \(e.g. `__age`\), which are reserved for engine specific information. Fields below the top level \(i.e. as a child of a top-level field\) may match those names.
 {% endhint %}
 
-You do not need to define these in your behavior keys.
-
-* agent\_id
-* agent\_name
-* behaviors
-* color
-* direction
-* height
-* hidden
-* messages
-* position
-* position\_was\_corrected
-* rgb
-* scale
-* search\_radius
-* shape
-* velocity
+ You can find a full list of the built-in fields [here](../anatomy-of-an-agent/state.md#reserved-fields). You do not need to define these in your behavior keys.
 

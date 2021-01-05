@@ -96,9 +96,16 @@ While an agent can store arbitrary data in its own state, some state values have
   behaviors: [] // Filenames of the behaviors that the agent apply to advance their state every simulation step N to N+1. 
   messages: [] // Outbound messages from agent 
   position: [x, y, z] // displays agents in the viewer and used to calculate neighbors 
-  search_radius: i64 // context.neighbors() will return a list of all the agents within the search radius
-  direction: [x, y, z]
-  velocity: [x, y, z]
+  search_radius: number // context.neighbors() will return a list of all the agents within the search radius
+  direction: [x, y, z] // Will affect the visualization of the agent. Can be used for custom logic
+  velocity: [x, y, z] // Will affect the visualization of the agent. Can be used for custom logic
+  color: string // Color of the agent
+  rgb: [r, g, b] // Color of the agent represented as an rgb array
+  height: number // Height of the agent in the 3D Viewer
+  scale: [x, y, z] // Agent model will be scaled along the corresponding axes
+  shape: string // Determines the shape of the agent in the 3D Viewer
+  hidden: boolean // Determines whether the agent is hidden in the 3D Viewer
+  position_was_corrected: boolean // Used by the agent whenever agents reach topology bounds
 }
 ```
 
