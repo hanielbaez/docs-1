@@ -74,4 +74,5 @@ You do not need to define these in your behavior keys.
 * scale
 * search\_radius
 * shape
+* velocity
 
