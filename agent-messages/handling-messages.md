@@ -43,8 +43,6 @@ const behavior = (state, context) => {
     context.messages().forEach(m => {
         ...
     })
-    
-    return state;
 }
 ```
 {% endtab %}
@@ -54,16 +52,6 @@ const behavior = (state, context) => {
 def behavior(state, context):
     for message in context.messages():
         ...
-```
-{% endtab %}
-
-{% tab title="Rust" %}
-```rust
-fn (state: AgentState, context: &Context) -> AgentState {
-    context.messages()
-           .iter()
-           .map(|m: &Message| {...});
-}
 ```
 {% endtab %}
 {% endtabs %}

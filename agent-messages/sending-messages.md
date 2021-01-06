@@ -22,9 +22,17 @@ You can send a message to multiple agents - multicasting - by sending a message 
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-let messages = state.get("messages");
-messages.push({to: "people", type: "greeting", data: {"msg": "hello"}})
-state.set("messages", messages)
+const behavior = (state, context) => {
+    let messages = state.get("messages");
+    
+    messages.push({
+        to: "people", 
+        type: "greeting", 
+        data: {"msg": "hello"}
+    });
+    
+    state.set("messages", messages);
+}
 ```
 {% endtab %}
 
