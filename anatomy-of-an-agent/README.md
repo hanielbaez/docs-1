@@ -26,15 +26,6 @@ agent = {
 }
 ```
 {% endtab %}
-
-{% tab title="Rust" %}
-```rust
-struct Agent {
-    agent_id: uuid, //set on_create by the hEngine
-    agent_name: String
-}
-```
-{% endtab %}
 {% endtabs %}
 
 Naming your agent is entirely optional. The simplest possible agent is simply `{}` \(although it won't do much of anything!\)
