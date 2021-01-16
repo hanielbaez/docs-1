@@ -6,7 +6,7 @@ description: 'Get started creating agents in our Hello, HASH tutorial!'
 
 ## Getting started with HASH
 
-We're going to create a basic agent based model where two agents will exchange pleasantries.
+We're going to create a basic agent-based model where two agents will exchange pleasantries.
 
 To start, create a new simulation file from scratch by using the _File_ menu and clicking _New Simulation._
 

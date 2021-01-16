@@ -6,7 +6,7 @@ description: 'Estimated time: 20 mins'
 
 ## Tutorial: Build a Hospital
 
-In this tutorial we're going to augment one of our existing epidemiological simulations and add a hospital. Along the way you'll learn key features of hCore and how to use agent based modeling to simulate and answer complex questions.  
+In this tutorial we're going to augment one of our existing epidemiological simulations and add a hospital. Along the way you'll learn key features of hCore and how to use agent-based modeling to simulate and answer complex questions.  
 
  [Start by opening our base template](https://hash.ai/index/5e86c068eb2a710a4a2fe11e/getting-started-base) and copying it into your hDrive.
 
