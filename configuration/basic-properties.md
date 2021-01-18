@@ -1,4 +1,4 @@
-# Globals
+# Simulation Parameters
 
 Global variables are defined in the `globals.json` file present within every simulation. These variables are immutable while the simulation is running and are accessible to all agents simultaneously.
 

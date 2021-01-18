@@ -2,7 +2,7 @@
 description: Configure your simulations for optimal performance and functionality
 ---
 
-# Configuration
+# Globals
 
 Imagine sitting down in front of a blank Python file and yet again configuring your environment, importing _Numpy_, _Matplotlib_, and _SciPy_, just to start plotting some results. We aim to eliminate the need to set up and configure environments from scratch with [hCore](https://hash.ai/platform/core).
 
