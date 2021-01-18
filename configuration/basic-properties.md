@@ -1,10 +1,14 @@
+---
+description: >-
+  Capture truths or assumptions about the state of your world which can easily
+  be varied
+---
+
 # Simulation Parameters
 
-Global variables are defined in the `globals.json` file present within every simulation. These variables are immutable while the simulation is running and are accessible to all agents simultaneously.
+## Defining simulation parameters as global variables
 
-Accessing the properties of the simulation is as simple as using the `context.globals()` function in our agent behavior.
-
-To change properties while the simulation is running, make sure to pause the simulation, make the appropriate changes, and resume.
+Simulation parameters defined as part of a simulation's `globals.json` file are can be easily varied and subject to experimentation. This makes globals an ideal place to define key assumptions about your simulated world.
 
 If, for example, we wanted to cap the height of all trees in a [forest simulation](https://hash.ai/index/5e065650196c3fbd41d8bd43/forest), we might introduce the global variable `"maxTreeHeight"`. The `globals.json` file would contain something like:
 
@@ -44,11 +48,11 @@ def behavior(state, context):
 
 ## Visual Globals
 
-You can view and modify the parameters in `globals.json` either as code or as a form, with customizable inputs. Click the toggle visual globals button at the top right of the code editor pane.
+Parameters defined in `globals.json` can be viewed and modified either in code-form, or through hCore's visual interface. Click the _toggle visual globals_ button at the top right of the code editor pane to switch between these views.
 
 ![Toggle between edit and input of globals](../.gitbook/assets/kapture-2020-12-09-at-11.52.28.gif)
 
-You can customize the type of field input for a global variable by adding a "schema" property to globals.
+The type of field input for a simulation parameter can be varied by adding a "schema" property to globals. For example, to specify a color picker be displayed in the _visual globals_ interface, the following JSON could be used:
 
 ```javascript
   //globals.json
@@ -67,11 +71,11 @@ You can customize the type of field input for a global variable by adding a "sch
   }
 ```
 
-This would be rendered in the visual globals as:
+This would be rendered in the _visual globals_ view as:
 
 ![](../.gitbook/assets/screen-shot-2020-12-09-at-12.06.10-pm.png)
 
-Currently visual globals supports:
+Currently _visual globals_ supports:
 
 * Color Picker: 
 

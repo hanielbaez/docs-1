@@ -1,21 +1,24 @@
 ---
-description: Configure your simulations for optimal performance and functionality
+description: Globals are variables which are accessible to all agents in a simulation
 ---
 
 # Globals
 
-Imagine sitting down in front of a blank Python file and yet again configuring your environment, importing _Numpy_, _Matplotlib_, and _SciPy_, just to start plotting some results. We aim to eliminate the need to set up and configure environments from scratch with [hCore](https://hash.ai/platform/core).
+  
+Global variables are defined in the `globals.json` file present within every simulation. These variables are immutable while the simulation is running and are accessible to all agents simultaneously.‌
 
-hCore is extremely flexible right out of the box, filled with optimizations and tools that make developing simulation models easier than ever.
+Globals are typically used to specify environmental variables \(e.g. [topology](topology/)\) or macro assumptions \([simulation parameters](basic-properties.md)\) that define the state of the world. 
 
-With the default configuration tools available you can:
+Accessing these global variables is as simple as using the `context.globals()` function in any agent behavior.
 
-* Set [global variables](basic-properties.md) which capture truths or assumptions about the state of your world
-* Define the extents of the world using [bounds and wrapping](topology/bounds-and-wrapping.md)
-* Change how agents interact with the borders \(if any\) of spatial simulations using [wrapping presets and flags](topology/wrapping-presets-and-flags.md)
-* Configure how [distance functions](topology/distance-functions.md) work in different topologies
+To modify globals while a simulation is running, first pause the simulation before making any changes, reset the simulation, and resume.
 
 {% hint style="info" %}
-Play around with simulations in hIndex to get a feel for how these flags change simulation dynamics
+HASH does not support modifying globals mid-step, but support for modifying globals between steps is coming soon.
 {% endhint %}
+
+There are two types of global variables in HASH:
+
+* [simulation parameters](basic-properties.md) - these capture truths or assumptions about the state of your world
+* [topological parameters](topology/) - define the extent of the world using [bounds and wrapping](topology/bounds-and-wrapping.md), determine how agents interact with the borders \(if any\) of spatial simulations using [wrapping presets and flags](topology/wrapping-presets-and-flags.md), and configure how [distance calculations](topology/distance-functions.md) are conducted across topologies
 
