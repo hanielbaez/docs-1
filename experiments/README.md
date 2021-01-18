@@ -4,7 +4,9 @@ description: 'Sweep parameters, explore a search space, and find optimal configu
 
 # Experiments
 
-In addition to running single simulation runs, HASH enables simultaneous simulation runs with different parameters. In HASH, experiments are defined in the `experiments.json` file. Currently supported are:
+In addition to running single simulation runs, HASH enables simultaneous simulation runs with different parameters.
+
+In HASH, experiments are defined in the `experiments.json` file. Currently supported are:
 
 * `linspace` - vary a single parameter within a range
 * `arange` - vary a parameter based on an increment
