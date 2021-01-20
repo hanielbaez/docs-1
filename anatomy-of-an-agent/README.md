@@ -4,7 +4,9 @@ description: The beating hearts of agent-based models
 
 # Agents
 
-As the name suggests, **agents** lie at the heart of _agent_-_based_ modeling.
+As the name suggests, **agents** lie at the heart of _agent_-_based_ modeling. Agent's are made up of State, Behaviors, and Context.
+
+{% embed url="https://youtu.be/PTW6R-PrT38" caption="Anatomy of an Agent" %}
 
 Every agent has a name and a unique identifier. As a simulation creator, you can set and change the name, but not the ID. The HASH Engine takes care of this for you, so **don't worry about including the ID when creating agents.**
 
