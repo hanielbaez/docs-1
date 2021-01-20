@@ -34,10 +34,10 @@ In the "infection" behavior, when a **Person** agent gets infected, let's add lo
 {% tab title="JavaScript" %}
 ```javascript
 // line 81
-const severe_chance = state.get("at_risk") ? at_risk_chance_of_severe : chance_of_severe;
+const severe_chance = state.at_risk ? at_risk_chance_of_severe : chance_of_severe;
  
-if ((state.get("severity") === "moderate") && (Math.random() < severe_chance)) {
-    state.set("severity", "severe");
+if ((state.severity === "moderate") && (Math.random() < severe_chance)) {
+    state.severity = "severe";
 }
 ```
 {% endtab %}
@@ -47,8 +47,8 @@ if ((state.get("severity") === "moderate") && (Math.random() < severe_chance)) {
 # line 69
 severe_chance = g['at_risk_chance_of_severe'] if state.get('at_risk') else g['chance_of_severe']
  
-if (state.get('severity') == 'moderate') and (random() < severe_chance)) {
-    state.set('severity', severe);
+if (state["severity"]) == 'moderate') and (random() < severe_chance)) {
+    state["severity"] = 'severe';
 }
 ```
 {% endtab %}

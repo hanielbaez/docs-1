@@ -23,7 +23,7 @@ const behavior = (state, context) => {
         state.addMessage(agent_id, "business_movement", {
            position,
            price,
-           rgb: state.get("rgb") 
+           rgb: state.rgb
         });
     }
 }
@@ -35,7 +35,7 @@ The next step is to create the price\_messaging\(\) function. This function will
 
 ```javascript
 const price_messaging = (agent_id, position) => {
-    const item_price = state.get("item_price");
+    const item_price = state.item_price;
     send_message(agent_id, position, item_price);
     send_message(agent_id, position, item_price + 1);
     if (item_price > 1) {
@@ -64,7 +64,7 @@ const query_customers = (neighbors, state_position) => {
 You can test your new code by placing the following snippet underneath your function declarations \(at line 30\) and looking at the Raw Output view tab.
 
 ```text
-query_customers(context.neighbors(), state.get("position"));
+query_customers(context.neighbors(), state.position);
 ```
 
 Find the messages field for a Business agent and it should be filled with “business\_movement” type messages.
@@ -77,12 +77,12 @@ const behavior = (state, context) => {
    state.addMessage(agent_id, "business_movement", {
      position,
      price,
-     rgb: state.get("rgb")
+     rgb: state.rgb
    });
  }
  
  const price_messaging = (agent_id, position) => {
-   const item_price = state.get("item_price");
+   const item_price = state.item_price;
    send_message(agent_id, position, item_price);
    send_message(agent_id, position, item_price + 1);
    if (item_price > 1) {
@@ -101,7 +101,7 @@ const behavior = (state, context) => {
      })
  }
  
- query_customers(context.neighbors(), state.get("position"));
+ query_customers(context.neighbors(), state.position));
 }
 
 ```

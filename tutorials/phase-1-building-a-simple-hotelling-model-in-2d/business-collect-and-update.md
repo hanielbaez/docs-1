@@ -33,8 +33,8 @@ Now all that remains is to iterate through the dictionary, find the key \(positi
 
 ```javascript
    let largest_profit = 0;
-   let new_position = state.get("position");
-   let new_price = state.get("item_price");
+   let new_position = state.position;
+   let new_price = state.item_price;
  
    // Determine position with largest profit
    Object.keys(position_dictionary).forEach((position_price) => {
@@ -46,16 +46,16 @@ Now all that remains is to iterate through the dictionary, find the key \(positi
    })
  
    // Update business
-   state.set("position", new_position)
-   state.set("item_price", new_price);
+   state.position = new_position
+   state.item_price = new_price;
 ```
 
 Finally, call the collect\_customer\_data\(\) function with context.messages\(\). 
 
 ```javascript
-if (state.get("counter") === 0) {
-   query_customers(context.neighbors(), state.get("position"));
- } else if (state.get("counter") === 2) {
+if (state.counter === 0) {
+   query_customers(context.neighbors(), state.position);
+ } else if (state.counter === 2) {
    collect_customer_data(context.messages());
  }
 ```
@@ -76,12 +76,12 @@ const behavior = (state, context) => {
    state.addMessage(agent_id, "business_movement", {
      position,
      price,
-     rgb: state.get("rgb")
+     rgb: state.rgb
    });
  }
  
  const price_messaging = (agent_id, position) => {
-   const item_price = state.get("item_price");
+   const item_price = state.item_price;
    send_message(agent_id, position, item_price);
    send_message(agent_id, position, item_price + 1);
    if (item_price > 1) {
@@ -122,11 +122,11 @@ const behavior = (state, context) => {
        }
      })
  
-   // console.log(state.get("position"), position_dictionary);
+   // console.log(state.position, position_dictionary);
   
    let largest_profit = 0;
-   let new_position = state.get("position");
-   let new_price = state.get("item_price");
+   let new_position = state.position;
+   let new_price = state.item_price;
  
    // Determine position with largest profit
    Object.keys(position_dictionary).forEach((position_price) => {
@@ -138,13 +138,13 @@ const behavior = (state, context) => {
    })
  
    // Update business
-   state.set("position", new_position)
-   state.set("item_price", new_price);
+   state.position = new_position;
+   state.item_price = new_price;
  }
  
- if (state.get("counter") === 0) {
-   query_customers(context.neighbors(), state.get("position"));
- } else if (state.get("counter") === 2) {
+ if (state.counter === 0) {
+   query_customers(context.neighbors(), state.position);
+ } else if (state.counter === 2) {
    collect_customer_data(context.messages());
  }
 }
