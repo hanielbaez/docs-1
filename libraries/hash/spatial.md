@@ -16,15 +16,13 @@ function behavior(state, context) {
     // Find the closest of 2 neighbors to you
     const distanceToA = hash_stdlib.distanceBetween(state, neighborA);
     const distanceToB = hash_stdlib.distanceBetween(state, neighborB);
-    const closest = distanceToB > distanceToA ? "A" : "B";
-    
-    state.set("closest", closest);
+    state.closest = distanceToB > distanceToA ? "A" : "B";
     
     // Check if neighbors are closer to each other than to you
     const neighborDistance = hash_stdlib.distanceBetween(neighborA, neighborB);
-    const selfDistance = closest === "A" ? distanceToA : distanceToB;
+    const selfDistance = state.closest === "A" ? distanceToA : distanceToB;
     
-    state.set("closer_to_neighbors", selfDistance < neighborDistance);
+    state.closer_to_neighbors = selfDistance < neighborDistance;
 }
 ```
 
@@ -34,14 +32,14 @@ This function returns the unit vector of the `vec` array. You can use it to norm
 
 ```javascript
 function behavior(state, context) {
-    const dir = state.get("direction");
+    const dir = state.direction;
     
     // Modify the direction by adding a vector [1, 2, 0]
     dir[0] += 1;
     dir[1] += 2;
     
     // Turn it back into a unit vector
-    state.set("direction", hash_stdlib.normalizeVector(dir));
+    state.direction = hash_stdlib.normalizeVector(dir);
 }
 ```
 
@@ -55,7 +53,7 @@ function behavior(state, context) {
     const topology = context.globals().topology;
     const new_pos = hash_stdlib.randomPosition(topology);
     
-    state.set("position", new_pos);
+    state.position = new_pos;
 }
 ```
 

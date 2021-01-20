@@ -8,28 +8,39 @@ Agent _C_ ****now needs to determine which agent should receive the resources, s
 
 An example of this type of pattern is in [Sugarscape](https://hash.ai/index/5df7b0c0c36ba4aaa14f4a4e/sugarscape), in which agents search for and collect “sugar”. When an agent moves to a patch of sugar it sends a message to the patch, requesting sugar \(line 31 in `sugar_agent.js`\). 
 
-{% tabs %}
-{% tab title="JavaScript" %}
 {% code title="sugar\_agent.js" %}
 ```javascript
 state.addMessage(bestPatch.agent_id, "request", {});
 ```
 {% endcode %}
-{% endtab %}
-{% endtabs %}
 
 The patch then sends sugar to only one of the agents who made a request \(lines 15-24 in `sugar_patch.js`\). This prevents multiple agents from “grabbing” the limited resource .
 
-{% tabs %}
-{% tab title="JavaScript" %}
-{% code title="sugar\_patch.js" %}
+{% code title=" sugar\_patch.js" %}
 ```javascript
 if (requests.length) {
     // Send all sugar to randomly selected agent
     const randInd = Math.floor(Math.random() * requests.length);
     state.addMessage(requests[randInd].from, "delivery", { 
       "sugar": sugar,
-      "position": state.get("position")
+      "position": state.position
+    });
+
+    sugar = 0;
+}
+```
+{% endcode %}
+
+{% tabs %}
+{% tab title="JavaScript" %}
+{% code title=" sugar\_patch.js" %}
+```javascript
+if (requests.length) {
+    // Send all sugar to randomly selected agent
+    const randInd = Math.floor(Math.random() * requests.length);
+    state.addMessage(requests[randInd].from, "delivery", { 
+      "sugar": sugar,
+      "position": state.position
     });
 
     sugar = 0;

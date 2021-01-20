@@ -23,24 +23,23 @@ You can send a message to multiple agents - multicasting - by sending a message 
 {% tab title="JavaScript" %}
 ```javascript
 const behavior = (state, context) => {
-    let messages = state.get("messages");
-    
-    messages.push({
+    state.messages.push({
         to: "people", 
         type: "greeting", 
         data: {"msg": "hello"}
     });
-    
-    state.set("messages", messages);
 }
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
-messages = state.get("messages")
-messages.append({"to": "people", "type": "greeting", "data": {"msg": "hello"}})
-state.set("messages", messages)
+def behavior:
+    state['messages'].append({
+        "to": "people", 
+        "type": "greeting", 
+        "data": {"msg": "hello"}
+    })
 ```
 {% endtab %}
 {% endtabs %}
@@ -52,13 +51,16 @@ We provide helper functions on the state object for adding messages. state.addMe
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-state.addMessage("people", "greeting", {"msg": "hello"})
+const behavior = (state, context) => {
+    state.addMessage("people", "greeting", {"msg": "hello"})
+}
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
-state.add_message("people", "greeting", {"msg": "hello"})
+def behavior:
+    state.add_message("people", "greeting", {"msg": "hello"})
 ```
 {% endtab %}
 {% endtabs %}

@@ -21,10 +21,10 @@ Notice how we use multiple custom fields to store data in the agent.
 
 ## Getting and Setting State
 
-The state object has accessor methods for getting and setting state.
+The state object can be accessed as an object in JavaScript or a dictionary in Python.
 
-* `state.get(field_name)` : returns the value of the field
-* `state.set(field_name, value)` : sets the field as the value
+* `state.<field_name>` : access and edit the value of the field in JavaScript
+* `state['<field_name>']` : access and edit the field in Python
 
 **Example**:
 
@@ -34,9 +34,7 @@ This behavior takes in the current state and [context](context.md) of the agent,
 {% tab title="JavaScript" %}
 ```javascript
 const behavior = (state, context) => {
-    let age = state.get("age");
-    age += 1;
-    state.set("age", age);
+    state.age += 1;
 }
 ```
 {% endtab %}
@@ -44,9 +42,7 @@ const behavior = (state, context) => {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    age = state.get("age")
-    age += 1
-    state.set("age", age)
+    state['age'] += 1
 ```
 {% endtab %}
 {% endtabs %}
@@ -55,34 +51,6 @@ Important: Only the agent can modify its own state. If an agent wants to prompt 
 
 {% hint style="info" %}
 Agents can read one another's state - for example if agent "foo" is a [neighbor](context.md) of agent "bar", agent "bar" can access the fields of agent "foo", it just can't make any changes to those fields. That's what makes the state _**private**_.
-{% endhint %}
-
-### Modify
-
-HASH also has a "modify" helper function which allows you to make certain state changes a one-liner:
-
-* `state.modify(field_name, function)` 
-
-will allow you to pass a function that will be run on the given field in the agent's state. The above example can now be written like so:
-
-{% tabs %}
-{% tab title="Javascript" %}
-```javascript
-const behavior = (state, context) => {
-    state.modify("age", age => age + 1)
-}
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-# We haven't yet enabled this helper function for Python
-```
-{% endtab %}
-{% endtabs %}
-
-{% hint style="info" %}
-The state value will be set to the **return value** of the function. If you use a method that modifies a variable in place, like`Array.push(x)`the return value is `x` and not the modified array.
 {% endhint %}
 
 ### Reserved Fields

@@ -31,7 +31,7 @@ Most behaviors output a single state with the same `agent_id` as they received. 
 {% tab title="JavaScript" %}
 ```javascript
 const behavior = (state, context) => {
-    state.modify("position", position => [position[0] + 1, position[1]]);
+    state.position[0] += 1;
 }
 ```
 {% endtab %}
@@ -39,9 +39,7 @@ const behavior = (state, context) => {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-  def behavior(state, context):
-    position = state.get("position")
-    state.set("position", [position[0]+1, position[1]])
+    state["position"][0] += 1
   
 ```
 {% endtab %}

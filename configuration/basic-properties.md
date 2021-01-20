@@ -25,22 +25,18 @@ The associated tree growth behavior would follow:
 {% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
-    ...
-    if (state.height + growth <= context.globals().maxTreeHeight) {
+    if (state.height + growth <= context.globals()["maxTreeHeight"]) {
         growtree()
     }
-    ...
 }
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
-def behavior(state, context):
-    ...    
-    if state.height + growth <= context.globals()['maxTreeHeight']):
+def behavior(state, context):   
+    if state['height'] + growth <= context.globals()['maxTreeHeight']):
         growtree()
-    ...
 
 ```
 {% endtab %}

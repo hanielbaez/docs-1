@@ -10,50 +10,27 @@ Agents can create a message to send to either another agent or the simulation en
 {% tab title="JavaScript" %}
 ```javascript
 const behavior = (state, context) => {
-    let messages = state.get("messages");
-    messages.push({
+    state.messages.push({
         to: "schelling",
         type: "data_point",
         data: {
             num_agents: 50
         }
     });
-    
-    state.set("messages", messages);
 }
 ```
 {% endtab %}
 
 {% tab title="Python" %}
 ```python
-def behavior(state, context):
-  # we can use either a dict
-  messages = state.get("messages")
-  
-  message =	{
+def behavior(state, context):  
+  state['messages'].append({
     "to": "schelling",
     "type": "data_point",
     "data": {
       "num_agents": 50
     }
-  }
-  
-  # or a class
-  
-  message = Message()
-  
-  messages.append(message)
-
-  state.set("messages", messages)
-  
-  
-#########################
-class Message:
-  to = "schelling"
-  type = "data_point"
-  data = { "num_agents": 50 }
-
-
+  })
 ```
 {% endtab %}
 {% endtabs %}
