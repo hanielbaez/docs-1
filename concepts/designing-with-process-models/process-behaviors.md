@@ -9,7 +9,9 @@ The source behavior is the entry point to a process model. It can generate objec
 {% code title="parameters" %}
 ```javascript
 <block_name>: {
+    // REQUIRED - the number of time steps between each new object being generated
     "frequency": number,
+    // REQUIRED - the definition for each object sent through the process model
     "template": struct,
     // OPTIONAL - specify the block objects will be sent to next, 
     // instead of the subsequent one in the behaviors array 
@@ -22,7 +24,7 @@ The source behavior is the entry point to a process model. It can generate objec
 
 _@hash/process/sink.js_
 
-The sink behavior is generally the endpoint of a process model.
+The sink behavior is generally the endpoint of a process model. It disposes of objects and records data.
 
 {% code title="parameters" %}
 ```javascript
@@ -64,10 +66,16 @@ _@hash/process/seize.js_
 
 The seize behavior reserves and attaches resources to the object. Resource quantities are specified as numeric values on the agent containing the process model.
 
+The name of the resource being seized should match that of a resource recovered by a Release block.
+
 {% code title="parameters" %}
 ```javascript
 <block_name>: {
+    // REQUIRED - the name of the agent field which tracks the number of available 
+    // resources. The <string> field on the agent must contain a number.
     "resources": string,
+    // OPTIONAL - if true, objects will track the amount of time they wait for a
+    // resources to become available.
     "track_wait": boolean,
     // OPTIONAL - specify the block objects will be sent to next, 
     // instead of the subsequent one in the behaviors array 
@@ -82,9 +90,13 @@ _@hash/process/release.js_
 
 The release behavior removes resources from the object and returns them to the agent.
 
+The name of the resource being seized **must** match that of a resource reserved by a Seize block.
+
 {% code title="parameters" %}
 ```javascript
 <block_name>: {
+    // REQUIRED - the name of the agent field which tracks the number of available 
+    // resources. The <string> field on the agent must contain a number.
     "resource": string,
     // OPTIONAL - specify the block objects will be sent to next, 
     // instead of the subsequent one in the behaviors array 
@@ -97,14 +109,18 @@ The release behavior removes resources from the object and returns them to the a
 
 _@hash/process/service.js_
 
-The service behavior seizes resources, delays the object, and then releases the resources, functioning as a composite of those three behaviors.
+The service behavior seizes resources, delays the object, and then releases the resources, functioning as a composite of those three behaviors \(Seize, Delay, Release\).
 
 {% code title="parameters" %}
 ```javascript
 <block_name>: {
     // REQUIRED - the time an object will wait in the delay queue
     "time": number,
+    // REQUIRED - the name of the agent field which tracks the number of available 
+    // resources. The <string> field on the agent must contain a number.
     "resource": string,
+    // OPTIONAL - if true, objects will track the amount of time they wait for a
+    // resources to become available.
     "track_wait": boolean,
     // OPTIONAL - specify the block objects will be sent to next, 
     // instead of the subsequent one in the behaviors array 
@@ -150,7 +166,9 @@ This behavior records the time an object reached it, to enable calculating the e
 
 _@hash/process/time\_measure\_end.js_
 
-This behavior determines the elapsed time it took an object to travel from the corresponding Time Measure Start behavior, and records that value. The process label of this behavior must match that of its corresponding Time Measure Start behavior.
+This behavior determines the elapsed time it took an object to travel from the corresponding Time Measure Start behavior, and records that value. 
+
+The process label of this behavior must match that of its corresponding Time Measure Start behavior.
 
 {% code title="parameters" %}
 ```javascript
