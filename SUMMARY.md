@@ -48,7 +48,7 @@
 * [Designing with Distributions](concepts/designing-with-distributions.md)
 * [Designing with Process Models](concepts/designing-with-process-models/README.md)
   * [Structuring a Process Model](concepts/designing-with-process-models/structuring-a-process-model.md)
-  * [Process Behaviors](concepts/designing-with-process-models/process-behaviors.md)
+  * [Process Blocks](concepts/designing-with-process-models/process-blocks.md)
   * [Custom Behaviors](concepts/designing-with-process-models/custom-behaviors.md)
 
 ## Tutorials

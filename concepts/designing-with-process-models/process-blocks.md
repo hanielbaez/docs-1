@@ -1,4 +1,4 @@
-# Process Behaviors
+# Process Blocks
 
 ### Source
 
@@ -123,7 +123,7 @@ The service behavior seizes resources, delays the object, and then releases the 
     // resources to become available.
     "track_wait": boolean,
     // OPTIONAL - specify the block objects will be sent to next, 
-    // instead of the subsequent one in the behaviors array 
+    // instead of the subsequent one in the behaviors array.
     "next_block": string 
 }
 ```
@@ -133,14 +133,31 @@ The service behavior seizes resources, delays the object, and then releases the 
 
 _@hash/process/select\_output.js_
 
+This behavior allows a process to branch along two different paths, based on a conditional. There are two different ways to specify this conditional:
+
+* based on a whether a field on the object is `true` or not
+* based on a likelihood or rate
+
+After the Select Output block, you should specify the blocks that make up the rest of the "true" path, then the blocks that make up the "false" path. If the two paths eventually rejoin, specify the rest of the blocks after the "false" path.
+
+On the final block of the "true" path, specify the first block where the two paths rejoin using the `next_block` parameter.
+
 {% code title="parameters" %}
 ```javascript
 <block_name>: {
+    // ONE OF condition_field OR a_chance IS REQUIRED
+    
+    // Checks whether the <string> field on the object is true or false to 
+    // determine which path it will take.
     "condition_field": string
+    // Randomly determines whether an object will be sent along the
+    // "true" path. Other objects are sent to the false_block.
     "a_chance": number,
+    // REQUIRED - specify the block that objects failing the condition check
+    // will be sent to.
     "false_block": string,
     // OPTIONAL - specify the block objects will be sent to next, 
-    // instead of the subsequent one in the behaviors array 
+    // instead of the subsequent one in the behaviors array.
     "true_block": string 
 }
 ```
@@ -156,7 +173,7 @@ This behavior records the time an object reached it, to enable calculating the e
 ```javascript
 <block_name>: {
     // OPTIONAL - specify the block objects will be sent to next, 
-    // instead of the subsequent one in the behaviors array 
+    // instead of the subsequent one in the behaviors array.
     "next_block": string 
 }
 ```
@@ -175,7 +192,7 @@ The process label of this behavior must match that of its corresponding Time Mea
 // Block name must match the time_measure_start
 <block_name>: {
     // OPTIONAL - specify the block objects will be sent to next, 
-    // instead of the subsequent one in the behaviors array 
+    // instead of the subsequent one in the behaviors array.
     "next_block": string 
 }
 ```
