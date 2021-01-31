@@ -15,6 +15,10 @@ There are a couple of different ways you can solve this problem in HASH. Two com
 * Add delays to normalize the actions across timescales.
 * Use a "ManagerAgent" to signal when agents should pause to allow for different computation times
 
+{% hint style="info" %}
+We are also going to introduce in-built ways of handling a global timescale - enabling the duration or trigger points of behaviors to be specified in line with calendar-time schedules.
+{% endhint %}
+
 ## Solutions
 
 ### **Delays**
