@@ -10,7 +10,7 @@ description: >-
 
 In HASH, agents interact and change the world using an 'actor model', where each agent is an actor. This means that:
 
-* **Each agent has its own private** [state](../../anatomy-of-an-agent/state.md): an agent can only change its own state. No other agent can reach in from outside and change it directly. They must send a message instead.
+* **Each agent has its own private** [**state**](../../anatomy-of-an-agent/state.md): an agent can only change its own state. No other agent can reach in from outside and change it directly. They must send a message instead.
 * **Agents communicate by sending and receiving** [**messages**](../../agent-messages/): these messages might include requests, information, or responses to earlier messages. Messages are how agents influence the world around them.
 
 At the beginning of each time step, agents have an inbox of messages sent from other agents: a queue of requests, instructions, responses, and so on. In their [**behaviors**](../../behaviors/), they check these messages, and in response can do one or both of:
@@ -81,7 +81,7 @@ To streamline this, consider:
 We are introducing a new feature to eliminate the need for manager agents and multiple back-and-forth messages to resolve conflicts - instead, the dispute will be resolved between time steps, where agents involved can exchange the necessary messages while the rest of the model is paused. [**Contact us**](https://hash.ai/contact) if you want to be one of the first to try this feature.
 {% endhint %}
 
-See [**Managing Resource Acces**](managing-resource-access.md)**s** for more.
+See [**Managing Resource Access**](managing-resource-access.md) for more.
 
 ### Managing timescales
 
