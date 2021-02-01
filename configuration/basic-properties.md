@@ -48,43 +48,58 @@ Parameters defined in `globals.json` can be viewed and modified either in code-f
 
 ![Toggle between edit and input of globals](../.gitbook/assets/kapture-2020-12-09-at-11.52.28.gif)
 
-The type of field input for a simulation parameter can be varied by adding a "schema" property to globals. For example, to specify a color picker be displayed in the _visual globals_ interface, the following JSON could be used:
+{% hint style="info" %}
+By default a non-signed in viewer of a simulation will see and interact with the visual globals view.
+{% endhint %}
 
+The type of field input for a simulation parameter can be varied by adding a "schema" property to globals. Currently you can use schemas to specify these types of interfaces be displayed in the _visual globals_ interface:
+
+* Color Picker
+* Slider
+
+#### Color Picker
+
+{% code title="globals.json" %}
 ```javascript
-  //globals.json
-  //adds a color picker selector to the color property
+  // Adds a color picker selector to a property
   {
-    "color": "#ff0000",
+    "<property_name>": "#ff0000",
+    // More properties
+    
     "schema": {
       "properties": {
-        "color": {
+        "<property_name>": {
           "type": "string",
           "enum": "colors"
         }
       }
     }
-    //...more properties
+  }
+```
+{% endcode %}
+
+![A color selector in the visual globals pane](../.gitbook/assets/screen-shot-2020-12-09-at-12.06.10-pm.png)
+
+#### Slider
+
+```javascript
+  // Adds a slider selector to a property
+  {
+    "<property_name>": 5,
+    // More properties
+    
+    "schema": {
+      "properties": {
+        "<property_name>": {
+          "type": "number",
+          "minimum": 0, // The minimum value in the slider
+          "maximum": 10, // The maximum value in the slider
+          "multipleOf": 1 // The increment the slider moves by
+        }
+      }
+    }
   }
 ```
 
-This would be rendered in the _visual globals_ view as:
-
-![](../.gitbook/assets/screen-shot-2020-12-09-at-12.06.10-pm.png)
-
-Currently _visual globals_ supports:
-
-* Color Picker: 
-
-```javascript
-      "properties": {
-        "[property name]": {
-          "type": "string",
-          "enum": "colors"
-        }
-      }
-```
-
-{% hint style="info" %}
-By default a non-signed in viewer of a simulation will see and interact with the visual globals view.
-{% endhint %}
+![Sliders for number parameters in the visual globals pane](../.gitbook/assets/image%20%2832%29.png)
 
