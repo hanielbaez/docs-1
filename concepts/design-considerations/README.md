@@ -7,7 +7,7 @@ description: Understanding how agents communicate, influence the world and resol
 ## Actors and Messaging
 
 In HASH, agents interact and change the world using an 'actor model', where each agent is an actor. This means that:
-- **Each agent has its own private state**: an agent can only change its own state. No other agent can reach in from outside and change it directly. They must send a message instead.
+- **Each agent has its own private [**state**](../../anatomy-of-an-agent/state): an agent can only change its own state. No other agent can reach in from outside and change it directly. They must send a message instead.
 
 - **Agents communicate by sending and receiving** [**messages**](../../agent-messages/): these messages might include requests, information, or responses to earlier messages. Messages are how agents influence the world around them.
 
@@ -16,7 +16,7 @@ At the beginning of each time step, agents have an inbox of messages sent from o
 
 - **Queue a message to send to another agent**: e.g. confirming that the order has been fulfilled, or requesting further delivery of stock. This message is available to the receiving agent on the next time step.
 
-This process happens in private: given the same inbox, starting [**state**](../../anatomy-of-an-agent/state) and external [**context**](../../anatomy-of-an-agent/context), an agent will always end up with the same outbox and finishing state (unless there is dice rolling or other randomness in its behaviors).
+This process happens in private: given the same inbox, starting [**state**](../../anatomy-of-an-agent/state) and external [**context**](../../anatomy-of-an-agent/context), an agent will always end up with the same outbox and finishing state (unless there randomness in its behaviors).
 
 ## Benefits of the Actor Model
 
@@ -37,29 +37,6 @@ Because agents receive all the messages sent to them in the previous time step a
 
 Agent A will not know the result of the message it added in Step 1 until it receives the response in Step 3 (or even later if Agent B must communicate with a third agent before responding). Watch out for [**redundant messaging!**](#redundant-messaging) You should also consider the [**order of behaviors**](#sequential-behavior-execution) when processing inbox messages and queueing outbox messages.
 
-### Competition for resources
-
-What if agents are in competition for a resource? Agent A and B might both add a message to Agent C in the time step 1 requesting the same item. Now Agent C must decide what to do in time step 2 when it processes those messages, and inform A and B of the result. 
-
-A process for handling conflicts must be defined in any modeling approach - in the actor model, the fact that messages must be considered and responded to on successive time steps mean that a complex dispute might take several steps of back-and-forth messages to resolve.
-
-To streamline this, consider:
-- including any information in messages which might help resolve the dispute - e.g. include a second preference order if the first cannot be fulfilled (where the agent receiving the order can handle both).
-- for more complex scenarios, using a mediating or maanger agent which receives information on demand and supply from multiple agents, and can determine the best match in a single step. 
-
-{% hint style="info" %}
-We are introducing a new feature to eliminate the need for manager agents and multiple back-and-forth messages to resolve conflicts - instead, the dispute will be resolved between time steps, where agents involved can exchange the necessary messages while the rest of the model is paused. [**Contact us**](https://hash.ai/contact) if you want to be one of the first to try this feature.
-{% endhint %}
-
-See [**Managing Resource Access**](./managing-resource-access) for more.
-
-### Managing timescales
-
-By default, a 'step' in a simulation is simply the process of agents taking as input the messages received, state and context outputted from the previous step, and adjusting their internal state and producing messages as output for the next step. A step has no intrinsic relation to a particular unit of time.
-
-For many simulations, you will want to have a sense of the passage of clock or calendar time. This might mean an assumption that a step corresponds to a unit of time. This can introduce difficulties when an action that should take a long time only requires one step to process, or when an action that should be near-instantaneous takes several message-passing steps to resolve.
-
-There are strategies for aligning timescales discussed in detail in [**Designing for Different Timescales**](../designing-for-different-timescales).
 ### Redundant Messaging
 
 **Watch out for redundant messaging.** You can run into trouble with a naive message sending pattern where an agent sends messages until it receives a response.
@@ -77,6 +54,36 @@ function behavior(state, behavior) {
 This would send a message at timestep 1 \(_t_\) and timestep 2 \(_t+1_\), and if the message was prompting Agent B to make a change to its state, you might inadvertently apply an update twice.
 
 You can avoid this in several ways, including by modifying Agent A's send behavior to only send every n timesteps, or modifying Agent B such that the effect is the same whether it receives one or many messages \(e.g. an idempotent messaging pattern\).
+
+### Parallel Execution
+
+In each timestep all agents execute simultaneously. They receive the messages addressed to them, run their behaviors, and update their state. This enables fast, deterministic simulations -  but you’ll want to keep this parallel execution model in mind when designing your simulations. Since each agent is executing at the same time, every timestep, you need to include logic within the agent that handles situations where the agent shouldn’t do anything, for example because it should wait on the response of another agent. 
+
+There are multiple ways to ensure agents only execute when they should - you could add a check at the beginning of a behavior to see if it hasn’t received a particular message, or use a state flag that is set at the end of the last timestep (e.g. state.waiting = true).
+
+### Competition for resources
+
+What if agents are in competition for a resource? Agent A and B might both add a message to Agent C in the time step 1 requesting the same item. Now Agent C must decide what to do in time step 2 when it processes those messages, and inform A and B of the result. 
+
+A process for handling conflicts must be defined in any modeling approach - in the actor model, the fact that messages must be considered and responded to on successive time steps mean that a complex dispute might take several steps of back-and-forth messages to resolve.
+
+To streamline this, consider:
+- including any information in messages which might help resolve the dispute - e.g. include a second preference order if the first cannot be fulfilled (where the agent receiving the order can handle both).
+- for more complex scenarios, using a mediating or manager agent which receives information from multiple agents, and can determine the best match in a single step. 
+
+{% hint style="info" %}
+We are introducing a new feature to eliminate the need for manager agents and multiple back-and-forth messages to resolve conflicts - instead, the dispute will be resolved between time steps, where agents involved can exchange the necessary messages while the rest of the model is paused. [**Contact us**](https://hash.ai/contact) if you want to be one of the first to try this feature.
+{% endhint %}
+
+See [**Managing Resource Access**](./managing-resource-access) for more.
+
+### Managing timescales
+
+By default, a 'step' in a simulation is simply the process of agents taking as input the messages received, state and context outputted from the previous step, and adjusting their internal state and producing messages as output for the next step. A step has no intrinsic relation to a particular unit of time.
+
+For many simulations, you will want to have a sense of the passage of clock or calendar time. This might mean an assumption that a step corresponds to a unit of time. This can introduce difficulties when an action that should take a long time only requires one step to process, or when an action that should be near-instantaneous takes several message-passing steps to resolve.
+
+There are strategies for aligning timescales discussed in detail in [**Designing for Different Timescales**](../designing-for-different-timescales).
 
 ### Sequential Behavior Execution
 
