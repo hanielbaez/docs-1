@@ -78,7 +78,7 @@ To streamline this, consider:
 * for more complex scenarios, using a mediating or manager agent which receives information from multiple agents, and can determine the best match in a single step. 
 
 {% hint style="info" %}
-We are introducing a new feature to eliminate the need for manager agents and multiple back-and-forth messages to resolve conflicts - instead, the dispute will be resolved between time steps, where agents involved can exchange the necessary messages while the rest of the model is paused. [**Contact us**](https://hash.ai/contact) if you want to be one of the first to try this feature.
+We are introducing a new feature to eliminate the need for manager agents and multiple back-and-forth messages to resolve conflicts.  [**Contact us**](https://hash.ai/contact) if you want to be one of the first to try this feature.
 {% endhint %}
 
 See [**Managing Resource Access**](managing-resource-access.md) for more.
@@ -93,7 +93,7 @@ There are strategies for aligning timescales discussed in detail in [**Designing
 
 ### Sequential Behavior Execution
 
-**Another potential pitfall to be aware of is that behaviors run sequentially.** So if in Behavior A you send a message and in Behavior B you check if you received a message and set receivedRespone = True, if the agents behavior array is:
+**Another potential pitfall to be aware of is that behaviors run sequentially.** So if in Behavior A you send a message and in Behavior B you check if you received a message and set receivedResponse = True, if the agents behavior array is:
 
 ```javascript
  ["behaviorA", "behaviorB"]
