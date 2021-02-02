@@ -83,18 +83,20 @@ The parameters for each block must be specified in the agent's fields. Each para
         "end_process",
         ""
     ],
-    "start_process": {
-        // parameters for the Source block
-    },
-    "perform_action": {
-        // parameters for the first Delay block
-    },
-    "verify_action": {
-        // parameters for the second Delay block
-    },
-    "end_process": {
-        // parameters for the Sink block
-    }
+    "process_parameters" : {
+        "start_process": {
+            // parameters for the Source block
+        },
+        "perform_action": {
+            // parameters for the first Delay block
+        },
+        "verify_action": {
+            // parameters for the second Delay block
+        },
+        "end_process": {
+            // parameters for the Sink block
+        }
+     }
     ...
 }
 ```
