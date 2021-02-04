@@ -25,13 +25,21 @@ To integrate with a dataset from within hCore, navigate to the "Add to Simulatio
 HASH parses imported datasets and generates a new field in `context.data()`with the file name.  This contains the content of datasets associated in the simulation. At this time HASH supports datasets imported in CSV or JSON formats.
 
 * If the dataset is a JSON document, it gets parsed for you directly.
-* If a dataset is a CSV file, we parse it into an array of JSON objects with values keyed under the headers in the first row.
-
-To access a dataset:
+* If a dataset is a CSV file, when we load it into your project we parse it into an array of arrays \(where each row is an array\). If you have a header row, it will be the first array. See **Using data to initialize agents** below for a worked example.
 
 ```javascript
-//For a dataset from hIndex (a dataset you've published or imported)
-context.data()["@[user-handle or org-handle]/[short-name]/[dataset].[csv or json]")
+[
+  ["name", "age"],
+  ["Bob", 32],
+  ["Alice", 58]
+]
+```
+
+To access a dataset, use its path on `context.data()`- you can find its path by right-clicking on it in your files list, and clicking 'copy path to clipboard'.
+
+```javascript
+// Access a dataset in your simulation
+context.data()["dataset-path.csv")
 ```
 
 {% hint style="info" %}
