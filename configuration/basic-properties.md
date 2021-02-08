@@ -61,10 +61,8 @@ The type of field input for a simulation parameter can be varied by adding a "sc
 
 {% code title="globals.json" %}
 ```javascript
-  // Adds a color picker selector to a property
   {
     "<property_name>": "#ff0000",
-    // More properties
     
     "schema": {
       "properties": {
@@ -83,18 +81,16 @@ The type of field input for a simulation parameter can be varied by adding a "sc
 #### Slider
 
 ```javascript
-  // Adds a slider selector to a property
   {
     "<property_name>": 5,
-    // More properties
     
     "schema": {
       "properties": {
         "<property_name>": {
           "type": "number",
-          "minimum": 0, // The minimum value in the slider
-          "maximum": 10, // The maximum value in the slider
-          "multipleOf": 1 // The increment the slider moves by
+          "minimum": 0, 
+          "maximum": 10, 
+          "multipleOf": 1 
         }
       }
     }
