@@ -5,7 +5,7 @@
 * [Agents](anatomy-of-an-agent/README.md)
   * [State](anatomy-of-an-agent/state.md)
   * [Context](anatomy-of-an-agent/context.md)
-  * [Initial Agents](anatomy-of-an-agent/initial-state.md)
+  * [Initializing Agents](anatomy-of-an-agent/initial-state.md)
   * [Visualization](anatomy-of-an-agent/visualization/README.md)
     * [Published Behaviors](anatomy-of-an-agent/visualization/published-behaviors.md)
     * [Shapes](anatomy-of-an-agent/visualization/shapes.md)
