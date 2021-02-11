@@ -8,6 +8,8 @@ Behavior Keys define the **data** **type** of the fields that a behavior accesse
 Behavior Keys are **optional** for in-browser simulation runs, but are **required** for cloud runs.
 {% endhint %}
 
+{% embed url="https://youtu.be/oBrDX6JDCN8" caption="" %}
+
 ## Accessing Behavior Keys
 
 To view the behavior keys associated with a file, click the button containing the _brain_ icon, located beneath the help button, to toggle the key panel's visibility.
