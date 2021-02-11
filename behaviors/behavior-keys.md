@@ -22,6 +22,14 @@ From the behavior key panel you can define the field the behavior will need to a
 
 Any custom fields your behavior is getting from state, or setting in state, should have an entry in your behavior keys. For example, if your behavior calls `state.set("cost", 300)`, you should have a behavior key called `cost` with type `number`. You do not need to create entries for special fields which HASH defines - see 'Built-in Fields' below.
 
+## **Using fields defined in other behaviors**
+
+If a behavior uses state fields which already have keys defined in other behaviors in your project, you have two options:
+
+1. Click the “This behavior uses fields defined in other behaviors” checkbox in the behavior key panel. This will allow your behavior to access fields defined in any other behavior.
+
+2. Add a key with the same name and exact same type as already defined elsewhere. This gives the fastest performance, as it means we know exactly which fields to load for that behavior.
+
 ## Types
 
 If you've used a statically defined language before - like Rust, Go, or Clojure then you'll already be familiar with strong type systems. You select the type - `string`, `number`, `list`, etc. - of data that a field will store. This improves memory allocation and access speed, as well as making sure that if you assign an incorrect type to the field an error is thrown. **If you are unsure about typing a field, assign it an 'any' type - or ask us for help!**
