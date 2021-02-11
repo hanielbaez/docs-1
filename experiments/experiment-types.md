@@ -21,14 +21,14 @@ Value sweeping runs a simulation for each of the specified `values`. The `field`
 Value sweeping is particularly is useful for multi-parameter sweeps and categorical sampling.
 {% endhint %}
 
-### Fixed Sample Sweeping
+### Fixed Sample Sweeping \(linspace\)
 
-Fixed sample sweeping is one of the most common types of parameter sweeps. Define `start`, `stop`, and number of `samples` to generate an even sampling between two values with a set number of data points.
+Fixed sample sweeping or 'linspace' is one of the most common types of parameter sweeps. Define `start`, `stop`, and number of `samples` to generate an even sampling between two values with a set number of data points.
 
 ```javascript
 "Radius fixed sample": {
   "steps": 100,
-  "type": "fixed-sample",
+  "type": "linspace",
   "field": "radius",
   "start": 0,
   "stop": 10,
