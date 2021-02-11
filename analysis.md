@@ -16,6 +16,8 @@ While the simulation is running you may be able to glean insight from visually o
 
 These are the kinds of questions you can answer with HASH's analysis capabilities. It allows you to define "outputs" which you can then plot. The **analysis.json** file is organized as a JSON object with two major properties, outputs and plots.
 
+{% embed url="https://youtu.be/1ILw6dEbWoE" %}
+
 ## Outputs
 
 The **analysis.json** file contains two objects within it: "outputs" and "plots". Outputs is an object collection of JSON objects of the form:
