@@ -102,13 +102,13 @@ You can run groups of experiments together by adding experiment keys to the `run
 
 ### Multiparameter
 
-In order to discover interaction effects in your model, you'll have to perform sweeps over multiple parameters. The multiparameter experiment generates a full factorial design with all of the experiments defined in `parameters`.
+In order to discover interaction effects in your model, you'll have to perform sweeps over multiple parameters. The multiparameter experiment generates a full factorial design with all of the experiments defined in `runs`.
 
 ```javascript
 "Full factorial sweep": {
   "steps": 100,
   "type": "multiparameter",
-  "parameters": [
+  "runs": [
     "Radius values", 
     "Radius linspace", 
     "Radius arange", 
@@ -116,4 +116,6 @@ In order to discover interaction effects in your model, you'll have to perform s
   ]
 }
 ```
+
+
 
