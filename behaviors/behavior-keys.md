@@ -28,6 +28,8 @@ If a behavior uses state fields which already have keys defined in other behavio
 
 1. Click the “This behavior uses fields defined in other behaviors” checkbox in the behavior key panel. This will allow your behavior to access fields defined in any other behavior.
 
+![](../.gitbook/assets/screenshot-2021-02-11-at-15.20.15.png)
+
 2. Add a key with the same name and exact same type as already defined elsewhere. This gives the fastest performance, as it means we know exactly which fields to load for that behavior.
 
 ## Types
