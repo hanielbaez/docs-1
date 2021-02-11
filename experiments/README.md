@@ -13,6 +13,7 @@ In HASH, experiments are defined in the `experiments.json` file. Currently suppo
 * `values` - manually enter values for a specific parameter
 * `monte-carlo` - generate random numbers according to a distribution
 * `group` - group together multiple experiment types into a single experiment
+* `multiparameter` - create all possible parameter combinations from multiple experiments
 
 For example, this `values` experiment will run seven experiments, setting a different value of \[0..6\] in the radius field in each one.{
 
