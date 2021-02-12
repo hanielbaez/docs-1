@@ -10,7 +10,7 @@ Using the playbar at the bottom of the right-hand view pane you can scrub forwar
 
 ## 3D
 
-**HASH natively supports rendering agents in 3D environments.** [Read more &gt;](agent-messages/3d-viewer.md)
+**HASH natively supports rendering agents in 3D environments.** [Read more &gt;](3d-viewer.md)
 
 ## Geospatial
 
