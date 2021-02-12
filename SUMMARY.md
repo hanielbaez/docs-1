@@ -18,6 +18,7 @@
   * [Sending Messages](agent-messages/sending-messages.md)
   * [Handling Messages](agent-messages/handling-messages.md)
   * [Built-in message handlers](agent-messages/built-in-message-handlers.md)
+  * [3D Viewer](agent-messages/3d-viewer.md)
 * [Globals](configuration/README.md)
   * [Simulation Parameters](configuration/basic-properties.md)
   * [Topology](configuration/topology/README.md)
