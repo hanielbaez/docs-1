@@ -4,7 +4,7 @@ description: JavaScript packages and libraries support in HASH
 
 # JavaScript
 
-HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library in behaviors through `hash_stdlib.stats` . HASH's autocomplete will help you out with suggestions and tooltips in CORE.
+HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library in behaviors through `hash_stdlib.stats` and hCore's autocomplete function will help you out with suggestions and tooltips.
 
 Currently only the functions and classes listed below are "fully supported". Others are available and will work, though we've left them undocumented as the interface/names might change.
 
@@ -51,7 +51,7 @@ corrcoeff(array1, array2)
 
 ### [jStat Distributions](http://jstat.github.io/distributions.html)
 
-All of the classes below have methods to calculate typical properties relating to the named distribution. Check the jStat documentation, or hCORE's built-in autocomplete and tooltips for more information.
+All of the classes below have methods to calculate typical properties relating to the named distribution. Check the jStat documentation, or hCore's built-in autocomplete and tooltips for more information.
 
 ```javascript
 beta
