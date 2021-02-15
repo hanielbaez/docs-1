@@ -2,6 +2,8 @@
 
 Creating a process model in HASH starts with importing the [Process Modeling Library](https://hash.ai/@hash/process) into your simulation. To make use of the published behaviors it contains, you'll need to structure your model in a specific yet extensible way.
 
+See the [Hello Process Models](https://hash.ai/@hash/hello-process-models) simulation for a few simple examples as you read along in the documentation.
+
 ## Structure of the Agent
 
 Process models in HASH are built on a single agent, and there are three elements to their definition:
