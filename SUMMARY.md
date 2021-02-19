@@ -70,6 +70,10 @@
   * [Final Code](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/phase-1-final-code.md)
   * [Extending the Model](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/building-the-local-competition-model.md)
 
+## API
+
+* [Register for Access](api/register-for-access.md)
+
 ## Extra
 
 * [Switching to HASH](extra/migrating/README.md)
