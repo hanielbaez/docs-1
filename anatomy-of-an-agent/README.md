@@ -4,7 +4,7 @@ description: The beating hearts of agent-based models
 
 # Agents
 
-As the name suggests, **agents** lie at the heart of _agent_-_based_ modeling. Agent's are made up of State, Behaviors, and Context.
+As the name suggests, **agents** lie at the heart of _agent_-_based_ modeling. Agents are made up of State, Behaviors, and Context.
 
 {% embed url="https://youtu.be/PTW6R-PrT38" caption="Anatomy of an Agent" %}
 
@@ -14,7 +14,7 @@ Every agent has a name and a unique identifier. As a simulation creator, you can
 {% tab title="JavaScript" %}
 ```javascript
 const agent = {
-    agent_id: <uuid v4>, //Set on_create by the hEngine
+    agent_id: <uuid v4>, // Set on_create by the hEngine
     agent_name: <string>
 }
 ```

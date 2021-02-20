@@ -20,7 +20,7 @@ The real world doesn't fit into neat hierarchies. Modeling agents who are of mul
 
 ## Introducing Agent Types
 
-In HASH, agents are _in practice_ defined by their behaviors. Whilst users are free to add a `type` field to their agents, and many simulation authors do so, these _types_ have until now been symbolic labels that have made tracking agents over the course of simulations easier, and have primarily been used to generate descriptive metrics and plots.
+In HASH, agents are _in practice_ defined by their behaviors. While users are free to add a `type` field to their agents, and many simulation authors do so, these _types_ have until now been symbolic labels that have made tracking agents over the course of simulations easier, and have primarily been used to generate descriptive metrics and plots.
 
 We're now planning to introduce support for **Agent Types** in HASH which go further. In an upcoming update, hEngine will attempt to match the _type_ field of an agent, to a schema in hIndex.
 

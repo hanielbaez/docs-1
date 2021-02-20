@@ -25,10 +25,10 @@ With "creator" agents you can initialize more dynamic models.
 If you want to jump right into code you can take a look at our [Initialization Demo ](https://hash.ai/@hash/initialization-demo)which demos creator agents.
 {% endhint %}
 
-For example, by accessing published behaviors, we can very easily generate common agent placements. These behaviors can be found in the lower left corner; click on them to add them to your simulation:
+For example, by accessing published behaviors, we can very easily generate common agent placements. These behaviors can be found in the lower left corner; search for and then click on them to add them to your simulation:
 
-* `Create Grids (@hash/create-grids/create_grids.js)`:  copy an agent to every unit within the topology bounds
-* `Create Scatters (@hash/create-scatters/create_scatters.js)`: copy an agent to random locations within the topology bounds 
+* `Create Grids (@hash/create-grids/create_grids.js)`:  copy an agent to every unit within the [topology](https://docs.hash.ai/core/configuration/topology) bounds
+* `Create Scatters (@hash/create-scatters/create_scatters.js)`: copy an agent to random locations within the [topology](https://docs.hash.ai/core/configuration/topology) bounds 
 * `Create Stacks (@hash/create-stacks/create_stacks.js)`: copy an agent multiple times to the same location
 
 Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://hash.ai/@hash/rabbits-grass-weeds, while grass and weeds grow around them:

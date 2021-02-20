@@ -4,6 +4,8 @@ Information in a simulation can propagate in one of two ways - either through ne
 
 Messages are a simple yet powerful way of moving data around a simulation and can be used to do things like adding, removing, and collecting data from agents that are not necessarily near each other. 
 
+Agents send messages by adding them to `state.messages`, and they receive them by checking `context.messages().`
+
 Agents can create a message to send to either another agent or the simulation engine itself. Here, we send a message to an agent with the name of `schelling`:
 
 {% tabs %}
@@ -69,6 +71,4 @@ def behavior(state, context):
 Messages are produced during a step, but are not delivered and processed until the next step.
 
 ![Data flow for a single simulation step in HASH](../.gitbook/assets/image%20%2824%29.png)
-
-Agents send messages by adding them to `state.messages`, and they receive them by checking `context.messages().` 
 
