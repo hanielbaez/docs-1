@@ -2,11 +2,11 @@
 
 Managing shared resource access is a common software design challenge. For instance [mutexes](https://en.wikipedia.org/wiki/Lock_%28computer_science%29) and similar locking mechanisms might be implemented to ensure only one process is modifying the resource at once. To avoid the need for this, **HASH manages state through the actor model, with each individual actor controlling its own state.**
 
-This approach avoids common state management bugs that crop up in other paradigms, but to the uninitiated can complicate planning access to shared resources. For instance, if two agents, _\(A\)_ and _\(B\)_, in time step 1 want something from a third agent _\(C\)_, they might both message the request to the third agent. Since agents execute in parallel, they will both send their message on the time step 1, and two messages will arrive to _C_**.** 
+This approach avoids common state management bugs that crop up in other paradigms, but to the uninitiated can complicate planning access to shared resources. For instance, if two agents, _\(A\)_ and _\(B\)_, in time step 1 want something from a third agent _\(C\)_, they might both message the request to the third agent. Since agents execute in parallel, they will both send their message on the time step 1, and two messages will arrive to _C_**.**
 
-Agent _C_ ****now needs to determine which agent should receive the resources, sending a message to the winning agent and a message to the losing agent. 
+Agent _C_ _\*\*_now needs to determine which agent should receive the resources, sending a message to the winning agent and a message to the losing agent.
 
-An example of this type of pattern is in [Sugarscape](https://hash.ai/@hash/sugarscape), in which agents search for and collect “sugar”. When an agent moves to a patch of sugar it sends a message to the patch, requesting sugar \(line 31 in `sugar_agent.js`\). 
+An example of this type of pattern is in [Sugarscape](https://hash.ai/@hash/sugarscape), in which agents search for and collect “sugar”. When an agent moves to a patch of sugar it sends a message to the patch, requesting sugar \(line 31 in `sugar_agent.js`\).
 
 {% code title="sugar\_agent.js" %}
 ```javascript
@@ -54,13 +54,13 @@ if (requests.length) {
 Build checks for multiple of the same type requests into message handlers, to account for multiple agents requesting the same resource on a time step.
 {% endhint %}
 
-Another problem that can arise is managing timescales. In the example above it will take two timesteps before agents _A_ and _B_ know which will have access to the resource from agent _C_, and since one of the agents didn't get access, that agent needs to spend more time either waiting \(and pinging the agent\) or going to alternative resources providers. This can be tedious if, for instance, you're trying to match _N_ agents to _N_ resource providers, and each agent is independently messaging providers, in the worst case every agent will message the same provider, _N-1_ will be rejected and then all message the same next provider, etc. A costly and lengthy operation. 
+Another problem that can arise is managing timescales. In the example above it will take two timesteps before agents _A_ and _B_ know which will have access to the resource from agent _C_, and since one of the agents didn't get access, that agent needs to spend more time either waiting \(and pinging the agent\) or going to alternative resources providers. This can be tedious if, for instance, you're trying to match _N_ agents to _N_ resource providers, and each agent is independently messaging providers, in the worst case every agent will message the same provider, _N-1_ will be rejected and then all message the same next provider, etc. A costly and lengthy operation.
 
 {% hint style="info" %}
 We discuss similar situations in [Designing for Different Timescales](../designing-for-different-timescales.md).
 {% endhint %}
 
-The best solution here is often to leverage manager agents to help resolve these conflicts. A manager agent acts as a matcher, receiving requests from every requesting agent and every provider, before looping through to match requests with providers, and messaging each the `agent_id` of their counterpart. 
+The best solution here is often to leverage manager agents to help resolve these conflicts. A manager agent acts as a matcher, receiving requests from every requesting agent and every provider, before looping through to match requests with providers, and messaging each the `agent_id` of their counterpart.
 
 ```javascript
 //manager agent receives messages
@@ -74,6 +74,5 @@ const {matched, unmatched} = match(requests, providers)
 // and notifies unmatched agents no resources are available for them. 
 matched.forEach(m => state.addMessage(m.agent_id, "match", {partner: m.partner_id}))
 unmatched.forEach(u => state.addMessage(u.agent_id, "unmatched"))
-
 ```
 

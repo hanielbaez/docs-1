@@ -10,7 +10,7 @@ We're going to create a basic agent-based model where two agents will exchange p
 
 To start, create a new simulation file from scratch by using the _File_ menu and clicking _New Simulation._
 
-In your new simulation workspace, open the **init.json** file _\*\*_shown in the lefthand side panel. You'll see an empty pair of square brackets.
+In your new simulation workspace, open the **init.json** file \_\*\*\_shown in the lefthand side panel. You'll see an empty pair of square brackets.
 
 The **init.json** file defines the 'initial state' or starting point of a simulation as a collection of objects in a JSON array.
 

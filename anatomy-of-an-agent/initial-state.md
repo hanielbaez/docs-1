@@ -11,9 +11,7 @@ There are two ways to populate an `init.json` file. You can:
 1. explicitly define the individual agents that will be in your model; or
 2. define "creator" agents with behaviors that will generate more complex initial states. You can do this with published behaviors, or create your own.
 
-{% embed url="https://youtu.be/AyKYRX1zyjA" %}
-
-
+{% embed url="https://youtu.be/AyKYRX1zyjA" caption="" %}
 
 Here's what explicitly defining your agents might look like:
 
@@ -31,7 +29,7 @@ For example, by accessing published behaviors, we can very easily generate commo
 * `Create Scatters (@hash/create-scatters/create_scatters.js)`: copy an agent to random locations within the [topology](https://docs.hash.ai/core/configuration/topology) bounds 
 * `Create Stacks (@hash/create-stacks/create_stacks.js)`: copy an agent multiple times to the same location
 
-Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://hash.ai/@hash/rabbits-grass-weeds, while grass and weeds grow around them:
+Take a look at how we can use published behaviors in the following example, where \[rabbits forage for food and reproduce\]\([https://hash.ai/@hash/rabbits-grass-weeds](https://hash.ai/@hash/rabbits-grass-weeds), while grass and weeds grow around them:
 
 ![](../.gitbook/assets/image%20%2829%29.png)
 

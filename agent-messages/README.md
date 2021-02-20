@@ -1,8 +1,8 @@
 # Messages
 
-Information in a simulation can propagate in one of two ways - either through neighbors which we cover in [Behaviors](../behaviors/) and [Topology](../configuration/topology/), or through message passing. 
+Information in a simulation can propagate in one of two ways - either through neighbors which we cover in [Behaviors](../behaviors/) and [Topology](../configuration/topology/), or through message passing.
 
-Messages are a simple yet powerful way of moving data around a simulation and can be used to do things like adding, removing, and collecting data from agents that are not necessarily near each other. 
+Messages are a simple yet powerful way of moving data around a simulation and can be used to do things like adding, removing, and collecting data from agents that are not necessarily near each other.
 
 Agents send messages by adding them to `state.messages`, and they receive them by checking `context.messages().`
 
@@ -41,7 +41,7 @@ def behavior(state, context):
 If you want to jump right into code you can take a look at our [Message Passing Colors ](https://hash.ai/@hash/message-passing-colors)simulation, which demos message passing among many agents.
 {% endhint %}
 
-You'll notice that each message is comprised of three fields: "to", "type", and "data." 
+You'll notice that each message is comprised of three fields: "to", "type", and "data."
 
 * `to`:  the `agent_name` or `agent_id` of the agent that the message will be deliever to
 * `type`: the type of message being sent for the message handler to select the right course of action

@@ -46,7 +46,6 @@ Check out the model \(Local Competition Phase 1\) in [hIndex](https://hash.ai/@h
    ]
  }
 ]
-
 ```
 {% endtab %}
 
@@ -65,7 +64,6 @@ Check out the model \(Local Competition Phase 1\) in [hIndex](https://hash.ai/@h
    "search_radius": 10
  }
 }
-
 ```
 {% endtab %}
 
@@ -76,7 +74,6 @@ const behavior = (state, context) => {
    b.rgb = [Math.random() * 255, Math.random() * 255, Math.random() * 255];
  })
 }
-
 ```
 {% endtab %}
 
@@ -90,7 +87,7 @@ const behavior = (state, context) => {
      rgb: state.rgb
    });
  }
- 
+
  const price_messaging = (agent_id, position) => {
    const item_price = state.item_price;
    send_message(agent_id, position, item_price);
@@ -99,7 +96,7 @@ const behavior = (state, context) => {
      send_message(agent_id, position, item_price - 1);
    }
  }
- 
+
  const query_customers = (neighbors, state_position) => {
    const possible_movement = [[-1, 0], [0, 0], [1, 0], [0, -1], [0, 1]];
    neighbors.filter((neighbor) => neighbor.behaviors.includes("customer.js"))
@@ -110,18 +107,18 @@ const behavior = (state, context) => {
        })
      })
  }
- 
+
  const collect_customer_data = (messages) => {
    let position_dictionary = {};
- 
+
    messages.filter((message) => message.type === "customer_cost")
      .map((message) => {
        const position = JSON.stringify(message.data.position);
        const profit = JSON.parse(message.data.cost);
        const price = message.data.price;
- 
+
        const position_price = JSON.stringify(position + price)
- 
+
        if (position_price in position_dictionary) {
          position_dictionary[position_price].profit += profit
        } else {
@@ -132,11 +129,11 @@ const behavior = (state, context) => {
          }
        }
      })
-  
+
    let largest_profit = 0;
    let new_position = state.position;
    let new_price = state.item_price;
- 
+
    // Determine position with largest profit
    Object.keys(position_dictionary).forEach((position_price) => {
      if (position_dictionary[position_price].profit > largest_profit) {
@@ -145,19 +142,18 @@ const behavior = (state, context) => {
        new_price = position_dictionary[position_price].price;
      }
    })
- 
+
    // Update business
    state.position = new_position;
    state.item_price = new_price;
  }
- 
+
  if (state.counter === 0) {
    query_customers(context.neighbors(), state.position);
  } else if (state.counter === 2) {
    collect_customer_data(context.messages());
  }
 }
-
 ```
 {% endtab %}
 
@@ -169,13 +165,13 @@ const behavior = (state, context) => {
    const state_position = state.get("position");
    return price + Math.sqrt(Math.pow((state_position[0] - position[0]), 2) + Math.pow((state_position[1] - position[1]), 2))
  }
- 
+
  const collect_business_data = (messages) => {
    let shops = {};
    messages.filter((message) => message.type === "business_movement")
      .forEach((message) => {
        const agent_id = message.from;
- 
+
        if (agent_id in shops) {
          shops[agent_id].data.push([message.data.position, message.data.price, message.data.rgb]);
        } else {
@@ -184,10 +180,10 @@ const behavior = (state, context) => {
          }
        }
      });
- 
+
    return shops;
  }
- 
+
  // Update properties of 'type' object (individual_min or overall_min)
  const update_min = (type, cost, id, position, price, rgb) => {
    type.cost = cost
@@ -196,7 +192,7 @@ const behavior = (state, context) => {
    type.price = price
    type.rgb = rgb
  }
- 
+
  const find_min = (businesses) => {
    let overall_min = {
      cost: null,
@@ -205,7 +201,7 @@ const behavior = (state, context) => {
      price: 0,
      rgb: null
    };
- 
+
    Object.keys(businesses).forEach((shop) => {
      let individual_min = {
        cost: null,
@@ -214,15 +210,15 @@ const behavior = (state, context) => {
        price: 0,
        rgb: null
      }
- 
+
      // Find min cost for each business
      businesses[shop].data.forEach((business_change) => {
        const position = business_change[0]
        const price = business_change[1]
        const rgb = business_change[2]
- 
+
        const cost = calculate_cost(position, price)
- 
+
        // Check min for individual business
        if (cost < individual_min.cost || individual_min.cost === null) {
          update_min(individual_min, cost, shop, position, price, rgb)
@@ -231,7 +227,7 @@ const behavior = (state, context) => {
            update_min(individual_min, cost, shop, position, price, rgb)
          }
        }
- 
+
        // Check min for all business
        if (cost < overall_min.cost || overall_min.cost === null) {
          update_min(overall_min, cost, shop, position, price, rgb)
@@ -242,20 +238,20 @@ const behavior = (state, context) => {
          }
        }
      })
-     
+
      state.addMessage(individual_min.agent_id, "customer_cost", {
          cost: individual_min.cost,
          position: individual_min.position,
          price: individual_min.price
        });
    })
- 
+
    // Only update color if min cost was determined during this time step
    if (overall_min.rgb !== null) {
      state.set("rgb", overall_min.rgb);
    }
  }
- 
+
  const businesses = collect_business_data(context.messages());
  find_min(businesses);
 }

@@ -22,7 +22,7 @@ function make_edge(a, b) {
 
     const mid_x = dx/2 + a[0];
     const mid_y = dy/2 + a[1];
-    
+
     const edge_agent = {
         "scale": [0.05, norm, 0.05],
         "height": 0,
@@ -39,15 +39,13 @@ function make_edge(a, b) {
 
 Below are a few simulations which use network visualizations. Inspect the relevant code from their behaviors and add it to the models you're building:
 
-{% embed url="https://hash.ai/@hash/oil-supply-chain" %}
+{% embed url="https://hash.ai/@hash/oil-supply-chain" caption="" %}
 
 **"edge.js"** and **"create\_pipeline.js"** in the Oil Supply Chain.
 
-{% embed url="https://hash.ai/@hash/billing-department %}
-
 **"edge.js"** and **"create\_edges.js"** in the Billing Department.
 
-{% embed url="https://hash.ai/@hash/interconnected-call-center" %}
+{% embed url="https://hash.ai/@hash/interconnected-call-center" caption="" %}
 
 **"create\_links.js"** in the Interconnected Call Center.
 

@@ -47,7 +47,7 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
-Important: Only the agent can modify its own state. If an agent wants to prompt another agent to perform a state change, it can send a [message](../agent-messages) to trigger an update.
+Important: Only the agent can modify its own state. If an agent wants to prompt another agent to perform a state change, it can send a [message](../agent-messages/) to trigger an update.
 
 {% hint style="info" %}
 Agents can read one another's state - for example if agent "foo" is a [neighbor](context.md) of agent "bar", agent "bar" can access the fields of agent "foo", it just can't make any changes to those fields. That's what makes the state _**private**_.
@@ -63,53 +63,53 @@ We've suggested ranges of values for you to start off with as you're getting to 
 { 
   // Auto-created identifier. Agents receive messages addressed to their ID
   "agent_id": string, 
-  
+
   // Optional identifier. Agents receive messages that are addressed to their name
   "agent_name": string,  
-  
+
   // Filenames of the behaviors that the agents run to advance 
   // their state every simulation step
   "behaviors": [],
-  
+
   // Contains outbound messages from the agent
   "messages": [],
-  
+
   // Displays agents in the viewer and used to calculate neighbors
   // Suggested values: [-10, -10, -10] to [10, 10, 10]
   "position": [x, y, z],
-  
+
   // Agents within the search-radius are considered its neighbors
   // Suggested values: 0 to 10
   "search_radius": number, 
-  
+
   // Can be used for custom movement logic. Will affect the agent's visualization
   // Suggested values: 0 to 1 for each axis 
   "direction": [x, y, z], 
-  
+
   // Can be used for custom movement logic. Will affect the agent's visualization
   // Suggested values: 0 to 1 for each axis
   "velocity": [x, y, z], 
-  
+
   // Color of the agent
   "color": string, 
-  
+
   // Color of the agent represented as an rgb array. RGB values are 0 to 255
   "rgb": [r, g, b], 
-  
+
   // Height of the agent in the 3D Viewer
   // Suggested values: 0.1 to 10
   "height": number, 
-  
+
   // Agent model will be scaled along the corresponding axes
   // Suggested values: [1, 1, 1] to [5, 5, 5]
   "scale": [x, y, z], 
-  
+
   // Determines the shape of the agent in the 3D Viewer.
   "shape": string, 
-  
+
   // Determines whether the agent is hidden in the 3D Viewer.
   "hidden": boolean, 
-  
+
   // Used by the agent whenever it passes topology boundaries.
   "position_was_corrected": boolean ,
 }

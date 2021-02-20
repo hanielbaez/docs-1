@@ -8,7 +8,7 @@ Python and JavaScript behaviors can co-mingle and a single agent can use behavio
 
 ## Sharing a Behavior
 
-You can share by right-clicking on a behavior you've created in the **Simulation Files** sidebar and selecting Release Behavior to Index. This will create a fork \(copy\) of the current project, and convert that fork into a  Behavior project.
+You can share by right-clicking on a behavior you've created in the **Simulation Files** sidebar and selecting Release Behavior to Index. This will create a fork \(copy\) of the current project, and convert that fork into a Behavior project.
 
 ![Publishing a behavior to hIndex](../.gitbook/assets/screen-shot-2020-05-30-at-5.54.56-pm.png)
 

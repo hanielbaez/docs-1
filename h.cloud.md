@@ -63,9 +63,3 @@ If you're interested in running larger-scale simulations, or want to distribute 
 **HASH Enterprise** is required to run "unbounded" models, and distribute single runs across multiple instances in hCloud. [Contact us](https://hash.ai/contact) to register an interest.
 {% endhint %}
 
-Enterprise 
-
-To distribute single runs across multiple instances, contact us 
-
-
-

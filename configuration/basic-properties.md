@@ -37,7 +37,6 @@ function behavior(state, context) {
 def behavior(state, context):   
     if state['height'] + growth <= context.globals()['maxTreeHeight']):
         growtree()
-
 ```
 {% endtab %}
 {% endtabs %}
@@ -57,13 +56,13 @@ The type of field input for a simulation parameter can be varied by adding a "sc
 * Color Picker
 * Slider
 
-#### Color Picker
+### Color Picker
 
 {% code title="globals.json" %}
 ```javascript
   {
     "<property_name>": "#ff0000",
-    
+
     "schema": {
       "properties": {
         "<property_name>": {
@@ -78,12 +77,12 @@ The type of field input for a simulation parameter can be varied by adding a "sc
 
 ![A color selector in the visual globals pane](../.gitbook/assets/screen-shot-2020-12-09-at-12.06.10-pm.png)
 
-#### Slider
+### Slider
 
 ```javascript
   {
     "<property_name>": 5,
-    
+
     "schema": {
       "properties": {
         "<property_name>": {

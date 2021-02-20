@@ -93,7 +93,6 @@ Now that we understand how to instantiate our agents, let’s create a hospital.
   "color": "blue",
   "behaviors": []
 }
-
 ```
 
 Or, we can follow the creator pattern and add it as a "stack" \(as it's at a specific location\). To do that we'd add `stack_templates` to our agent, as well as add the `@hash/create-stacks/create_stacks.js` behavior. Since it's a shared behavior, you can search in the index panel in the lower left for it. Double click and it will be added to your simulation.
@@ -126,14 +125,14 @@ Or, we can follow the creator pattern and add it as a "stack" \(as it's at a spe
 ]
 ```
 
-You can set the position, color, and height as whatever you’d like. 
+You can set the position, color, and height as whatever you’d like.
 
 * Position is an \[x,y\] array that determines the location of the agent on the 3D viewer.
 * Height can be any integer - the default size is 1. 
 
-Click Reset Simulation in the bottom right under the 3D viewer. If you added the hospital directly to  `init.json` you should see it appear in the viewer - if you're using `create_stacks` then click Start Simulation. After three frames you should see it.  Congratulations, you’ve built your first hospital! We’re proud of you.
+Click Reset Simulation in the bottom right under the 3D viewer. If you added the hospital directly to `init.json` you should see it appear in the viewer - if you're using `create_stacks` then click Start Simulation. After three frames you should see it. Congratulations, you’ve built your first hospital! We’re proud of you.
 
-At the moment the hospital doesn’t do anything. It just sits there, begging for a purpose. So let's add some functionality. There’s two things we want our hospital to do. 
+At the moment the hospital doesn’t do anything. It just sits there, begging for a purpose. So let's add some functionality. There’s two things we want our hospital to do.
 
 1. **Provide tests to people.** If a person is infected and suspects they are sick, they should be able to contact the hospital and request a test. The hospital will see if they’re sick and send them the results.
 2. **ICU capacity.** If a person is really sick, they get admitted into the hospital’s ICU. The hospital should only have a limited set of beds, and if they’re over capacity the person will be turned away.

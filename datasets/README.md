@@ -26,7 +26,7 @@ There are also third-party datasets published in hIndex you can add to your proj
 
 ## Using data in projects
 
-HASH parses imported datasets and generates a new field in `context.data()`with the file name.  This contains the content of datasets associated in the simulation. At this time HASH supports datasets imported in CSV or JSON formats.
+HASH parses imported datasets and generates a new field in `context.data()`with the file name. This contains the content of datasets associated in the simulation. At this time HASH supports datasets imported in CSV or JSON formats.
 
 * If the dataset is a JSON document, it gets parsed for you directly.
 * If a dataset is a CSV file, when we load it into your project we parse it into an array of arrays \(where each row is an array\). If you have a header row, it will be the first array. See **Using data to initialize agents** below for a worked example.
@@ -54,14 +54,14 @@ If you wish to explore the universe of data available in HASH outside of hCore, 
 
 ### **Using data to initialize agents**
 
-Initializing agents is one of the most common uses of data in HASH. In the [city infection model](https://core.hash.ai/@hash/city-infection-model/stable) you can see an example of using data to create agents with heterogenous values. 
+Initializing agents is one of the most common uses of data in HASH. In the [city infection model](https://core.hash.ai/@hash/city-infection-model/stable) you can see an example of using data to create agents with heterogenous values.
 
 The simulation contains a file, `sf900homes100offices.csv`, that appropriately contains listings of 900 homes and 100 offices. Each row contains a different building with a different lat, lng location
 
 ```javascript
-  use_def	                 neighborhood	       lat	           long
-0	Single Family Residential	Sunset/Parkside	-122.502183895904	37.763653457648
-1	Single Family Residential	Bernal Heights	-122.4170591352	37.747528129366
+  use_def                     neighborhood           lat               long
+0    Single Family Residential    Sunset/Parkside    -122.502183895904    37.763653457648
+1    Single Family Residential    Bernal Heights    -122.4170591352    37.747528129366
 ```
 
 An accompanying behavior, `gis_data_upload.js`, imports the data, performs transformations to it \(ex. cleaning the data, parsing it into floats\), and then pushes the data as objects into an array.
@@ -79,7 +79,6 @@ let json_data = selected.map(row => ({
   )
 ...
 json_data.forEach(e => agents.push(e))
-
 ```
 
 A third behavior, `create_agents.js`, then iterates through the agents array and [initializes the agents](../tutorials/phase-1-building-a-simple-hotelling-model-in-2d/initialization.md).

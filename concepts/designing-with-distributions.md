@@ -4,7 +4,7 @@ Multi-Agent Simulation approaches problem-solving from a stochastic lens. Instea
 
 ## Distributions
 
-Initializing agent properties using different types of distributions is a common practice in Multi-Agent models. In HASH, you can use the [jStats ](http://jstat.github.io/distributions.html)library or the [NumPy ](https://docs.scipy.org/doc/numpy-1.15.4/reference/routines.random.html)package for sampling distributions. Here's an example that uses a number of these distributions to create agents: 
+Initializing agent properties using different types of distributions is a common practice in Multi-Agent models. In HASH, you can use the [jStats ](http://jstat.github.io/distributions.html)library or the [NumPy ](https://docs.scipy.org/doc/numpy-1.15.4/reference/routines.random.html)package for sampling distributions. Here's an example that uses a number of these distributions to create agents:
 
 * We've sampled a Poisson distribution to determine how many new birds arrive at each step.
 * We've sampled a uniform distribution to determine its `x` and `y` coordinates.
@@ -59,15 +59,15 @@ def behavior(state, context):
 
 You can find an example of these distribution methods being used in the Consumer Credit simulation. The _create\_client.js_ behavior uses three of the above methods to initialize heterogeneous agents.
 
-{% embed url="https://hash.ai/@hash/consumer-credit" %}
+{% embed url="https://hash.ai/@hash/consumer-credit" caption="" %}
 
 ### Empirical Distributions
 
-If you are creating simulations from data consisting of observations, as opposed to having summary statistics, you are trying to use empirical distributions in your simulation. There are many ways you might implement this, but one of the simplest is using Python's `random.choice` method. By providing a list of values and a corresponding list of probabilities, you've effectively implemented an empirical distribution function. 
+If you are creating simulations from data consisting of observations, as opposed to having summary statistics, you are trying to use empirical distributions in your simulation. There are many ways you might implement this, but one of the simplest is using Python's `random.choice` method. By providing a list of values and a corresponding list of probabilities, you've effectively implemented an empirical distribution function.
 
 You can find a working example of this in the Alcoholism Intervention model. The _births\_intervention.py_ and _births\_control.py_ behaviors both make use of this python method in concert with a dataset.
 
-{% embed url="https://hash.ai/@hash/alcohol-use-dynamics-empirical-distributions" %}
+{% embed url="https://hash.ai/@hash/alcohol-use-dynamics-empirical-distributions" caption="" %}
 
-By implementing more advanced methods, you can create empirical distributions with linear or polynomial interpolation. We encourage you to share whatever you create! 
+By implementing more advanced methods, you can create empirical distributions with linear or polynomial interpolation. We encourage you to share whatever you create!
 
