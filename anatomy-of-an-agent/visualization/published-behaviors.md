@@ -6,20 +6,20 @@ To use these behaviors on an agent, you will need to both add it to the "behavio
 
 **Height**
 
-* [**Scaling Height**](https://hash.ai/index/5ede56d720a1586ddc96fe8f/display-height-scaling)\*\*\*\*
-* \*\*\*\*[**Discrete Heights**](https://hash.ai/index/5ede565720a1581a3896fe8d/display-height-discrete)\*\*\*\*
+* [**Scaling Height**](https://hash.ai/@hash/display-height-scale)\*\*\*\*
+* \*\*\*\*[**Discrete Heights**](https://hash.ai/@hash/display-height-discrete)\*\*\*\*
 
 **Color**
 
-* \*\*\*\*[**Discrete Color**](https://hash.ai/index/5ede55de20a1583a7096fe89/display-color-discrete)\*\*\*\*
-* \*\*\*\*[**Scaling RGB**](https://hash.ai/index/5ede570820a158532d96fe91/display-rgb-scaling)\*\*\*\*
+* \*\*\*\*[**Discrete Color**](https://hash.ai/@hash/display-color-discrete)\*\*\*\*
+* \*\*\*\*[**Scaling RGB**](https://hash.ai/@hash/display-rgb-scale)\*\*\*\*
 
 **Shape**
 
-* \*\*\*\*[**Discrete Shape**](https://hash.ai/index/5ee3d43f2b8d971b155eeb2a/display-shape-discrete)\*\*\*\*
-* \*\*\*\*[**Scaling "Scale"**](https://hash.ai/index/5f4f974cce99a43cf046fcd6)
+* \*\*\*\*[**Discrete Shape**](https://hash.ai/@hash/display-shape-discrete\*\*\*\*
+* \*\*\*\*[**Scaling "Scale"**](https://hash.ai/@hash/display-scale-scaling)
 
-You can find a working demonstration of these behaviors in the [Published Display Behaviors ](https://hash.ai/index/5e947ac835fa2924c76f4f80/published-display-behaviors)simulation.
+You can find a working demonstration of these behaviors in the [Published Display Behaviors ](https://hash.ai/@hash/published-display-behaviors)simulation.
 
 We encourage you to develop and publish your own behaviors which can enable more complex visualization tasks. 
 

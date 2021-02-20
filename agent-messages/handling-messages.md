@@ -2,7 +2,7 @@
 
 **What happens when an agent receives a message?**
 
-Context passed to every agent provides a list of messages in the agent's inbox in the `messages` field. Here we can iterate through the list of messages sent to the agent and make some decisions.
+Context passed to every agent provides a list of messages in the agent's inbox accessible via the `context.messages` function. Here we can iterate through the list of messages sent to the agent and make some decisions.
 
 ```javascript
 context {

@@ -22,16 +22,16 @@ Here's what explicitly defining your agents might look like:
 With "creator" agents you can initialize more dynamic models.
 
 {% hint style="info" %}
-If you want to jump right into code you can take a look at our [Initialization Demo ](https://hash.ai/index/5e7548ed792e5d5adecdb5bd/initialization-demo)which demos creator agents.
+If you want to jump right into code you can take a look at our [Initialization Demo ](https://hash.ai/@hash/initialization-demo)which demos creator agents.
 {% endhint %}
 
-For example, by accessing published behaviors, we can very easily generate common agent placements. These behaviors can be found in the lower left corner; click on them to add them to your simulation:
+For example, by accessing published behaviors, we can very easily generate common agent placements. These behaviors can be found in the lower left corner; search for and then click on them to add them to your simulation:
 
-* `Create Grids (@hash/create-grids/create_grids.js)`:  copy an agent to every unit within the topology bounds
-* `Create Scatters (@hash/create-scatters/create_scatters.js)`: copy an agent to random locations within the topology bounds 
+* `Create Grids (@hash/create-grids/create_grids.js)`:  copy an agent to every unit within the [topology](https://docs.hash.ai/core/configuration/topology) bounds
+* `Create Scatters (@hash/create-scatters/create_scatters.js)`: copy an agent to random locations within the [topology](https://docs.hash.ai/core/configuration/topology) bounds 
 * `Create Stacks (@hash/create-stacks/create_stacks.js)`: copy an agent multiple times to the same location
 
-Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://hash.ai/index/5e4b6aa3c9c6f7504be4f605/rabbits-grass-weeds), while grass and weeds grow around them:
+Take a look at how we can use published behaviors in the following example, where [rabbits forage for food and reproduce](https://hash.ai/@hash/rabbits-grass-weeds, while grass and weeds grow around them:
 
 ![](../.gitbook/assets/image%20%2829%29.png)
 
@@ -73,9 +73,9 @@ state.add_message("hash", "create_agent", {
 {% endtab %}
 {% endtabs %}
 
-If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://hash.ai/index/5de534020860d432cb408b92/wildfires-regrowth) or [Rock, Paper, Scissors](https://core.hash.ai/simulation/5e7a44d2d945ef3e5d54bd55) simulations.
+If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://hash.ai/@hash/wildfires-regrowth) or [Rock, Paper, Scissors](https://core.hash.ai/@hash/rock-paper-scissors/stable) simulations.
 
 {% hint style="info" %}
-If you ever feel like you might be "reinventing the wheel," check out [hIndex](https://hash.ai/index/search?contentType=Behavior&sort=relevance&query=create&page=1). There you'll find hundreds of pre-made, ready-to-use simulation components.
+If you ever feel like you might be "reinventing the wheel," check out [hIndex](https://hash.ai/search?contentType=Behavior&sort=relevance&query=create&page=1). There you'll find hundreds of pre-made, ready-to-use simulation components.
 {% endhint %}
 

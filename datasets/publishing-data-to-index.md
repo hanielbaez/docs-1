@@ -1,6 +1,6 @@
 # Publishing Datasets
 
-You can share your datasets with others by publishing them to Index.
+You can share your datasets with others by publishing them to hIndex.
 
 To publish a Dataset, visit your profile, select the data you want to publish, and click Edit Project.
 

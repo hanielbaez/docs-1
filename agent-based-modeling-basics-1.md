@@ -17,7 +17,7 @@ A popular example of an agent-based simulation is Conway's _Game of Life_ - a si
 These simple interactions produce what is called _emergent behavior_, where simple rules create complex results.
 
 {% hint style="info" %}
-Check out [Conway's _Game of Life_](https://hash.ai/index/5de93f49d4b4c15ea799dcd9/conway%27s-game-of-life) model in HASH
+Check out [Conway's _Game of Life_](https://hash.ai/@hash/conways-game-of-life) model in HASH
 {% endhint %}
 
 _Game of Life_ enthusiasts have spent years exploring the search space of the model and its possible creations.

@@ -4,6 +4,8 @@ Information in a simulation can propagate in one of two ways - either through ne
 
 Messages are a simple yet powerful way of moving data around a simulation and can be used to do things like adding, removing, and collecting data from agents that are not necessarily near each other. 
 
+Agents send messages by adding them to `state.messages`, and they receive them by checking `context.messages().`
+
 Agents can create a message to send to either another agent or the simulation engine itself. Here, we send a message to an agent with the name of `schelling`:
 
 {% tabs %}
@@ -36,7 +38,7 @@ def behavior(state, context):
 {% endtabs %}
 
 {% hint style="info" %}
-If you want to jump right into code you can take a look at our [Message Passing Colors ](https://hash.ai/index/5e1c9163fee0a34d2f9be2c6/message-passing-colors)simulation, which demos message passing among many agents.
+If you want to jump right into code you can take a look at our [Message Passing Colors ](https://hash.ai/@hash/message-passing-colors)simulation, which demos message passing among many agents.
 {% endhint %}
 
 You'll notice that each message is comprised of three fields: "to", "type", and "data." 
@@ -69,6 +71,4 @@ def behavior(state, context):
 Messages are produced during a step, but are not delivered and processed until the next step.
 
 ![Data flow for a single simulation step in HASH](../.gitbook/assets/image%20%2824%29.png)
-
-Agents send messages by adding them to `state.messages`, and they receive them by checking `context.messages().` 
 

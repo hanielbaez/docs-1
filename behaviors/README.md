@@ -15,7 +15,7 @@ Agents can \(and typically do\) have behaviors:
 
 Behaviors allow agents to exhibit _agency_ in the simulation. An agent can have any number of behaviors.
 
-Behaviors are pure functions in the form of: `(current_state, context) => {next_state}`
+Behaviors are pure functions in the form of: `(current_state, context) => { // update state }`
 
 {% hint style="warning" %}
 To run your simulation [with hCloud](../h.cloud.md), you'll need to [define Behavior Keys](behavior-keys.md) for each behavior in your simulation.
@@ -46,6 +46,6 @@ def behavior(state, context):
 {% endtabs %}
 
 {% hint style="info" %}
-Agents can use behaviors to create new agents by sending a message to the special `hash` `agent_id`. This is covered more in-depth in [Messages](../agent-messages/handling-messages.md).
+Agents can use behaviors to create new agents by sending a message to the special `hash` agent. This is covered more in-depth in [Messages](../agent-messages/built-in-message-handlers#creating-agents-via-messages).
 {% endhint %}
 
