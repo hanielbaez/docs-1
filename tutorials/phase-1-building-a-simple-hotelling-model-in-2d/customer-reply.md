@@ -24,7 +24,7 @@ Create the function calculate\_cost\(\) in customer.js.
 const behavior = (state, context) => {
     // Function to determine cost --> Business price * distance from Business
     const calculate_cost = (position, price) => {
-        const state_position = state.get("position");
+        const state_position = state.position;
         return price + Math.sqrt(Math.pow((state_position[0] - position[0]), 2) + Math.pow((state_position[1] - position[1]), 2));
     }
 }
@@ -168,7 +168,7 @@ All that’s left to do now for customer.js is to update the agent’s color to 
 ```javascript
 // Only update color if min cost was determined during this time step
  if (overall_min.rgb !== null) {
-   state.set("rgb", overall_min.rgb);
+   state.rgb = overall_min.rgb;
  }
 ```
 
@@ -199,8 +199,8 @@ Before we can see the code in action, we first need to add a counter to Business
 {% endhint %}
 
 ```javascript
-if (state.get(“counter”) === 0) {
-     query_customers(context.neighbors(), state.get(“position”));
+if (state.counter === 0) {
+     query_customers(context.neighbors(), state.position);
 }
 ```
 
@@ -220,7 +220,7 @@ If you followed all the steps above, run the simulation a couple times and you s
 const behavior = (state, context) => {
  // Function to determine cost --> business price + distance from business
  const calculate_cost = (position, price) => {
-   const state_position = state.get("position");
+   const state_position = state.position;
    return price + Math.sqrt(Math.pow((state_position[0] - position[0]), 2) + Math.pow((state_position[1] - position[1]), 2))
  }
  
@@ -306,7 +306,7 @@ const behavior = (state, context) => {
  
    // Only update color if min cost was determined during this time step
    if (overall_min.rgb !== null) {
-     state.set("rgb", overall_min.rgb);
+     state.rgb = overall_min.rgb;
    }
  }
  
@@ -370,12 +370,12 @@ const behavior = (state, context) => {
    state.addMessage(agent_id, "business_movement", {
      position,
      price,
-     rgb: state.get("rgb")
+     rgb: state.rgb
    });
  }
  
  const price_messaging = (agent_id, position) => {
-   const item_price = state.get("item_price");
+   const item_price = state.item_price;
    send_message(agent_id, position, item_price);
    send_message(agent_id, position, item_price + 1);
    if (item_price > 1) {
@@ -395,8 +395,8 @@ const behavior = (state, context) => {
  }
  
  
- if (state.get("counter") === 0) {
-   query_customers(context.neighbors(), state.get("position"));
+ if (state.counter === 0) {
+   query_customers(context.neighbors(), state.position);
  }
 }
 

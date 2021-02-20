@@ -11,6 +11,10 @@ There are two ways to populate an `init.json` file. You can:
 1. explicitly define the individual agents that will be in your model; or
 2. define "creator" agents with behaviors that will generate more complex initial states. You can do this with published behaviors, or create your own.
 
+{% embed url="https://youtu.be/AyKYRX1zyjA" %}
+
+
+
 Here's what explicitly defining your agents might look like:
 
 ![Defining five agents in init.json](../.gitbook/assets/screen-shot-2020-05-30-at-5.41.03-pm.png)

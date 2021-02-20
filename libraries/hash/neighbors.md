@@ -11,7 +11,7 @@ function behavior(state, context) {
     const cohabitators = hash_stdlib.neighborsOnPosition(state, neighbors);
     
     // Create an adjacent "agent"
-    let adjPos = state.get("position");
+    let adjPos = state.position;
     adjPos[0] + 1;
     const adjAgent = { "position": adjPos };
     

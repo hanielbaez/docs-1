@@ -1,4 +1,4 @@
-# Composable behaviors
+# Composable Behaviors
 
 **All user-authored behaviors, regardless of language, are** _**composable**_**.** This means they can be combined in any fashion with any number of others behaviors.
 

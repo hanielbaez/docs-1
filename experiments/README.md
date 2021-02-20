@@ -4,7 +4,9 @@ description: 'Sweep parameters, explore a search space, and find optimal configu
 
 # Experiments
 
-In addition to running single simulation runs, HASH enables simultaneous simulation runs with different parameters. In HASH, experiments are defined in the `experiments.json` file. Currently supported are:
+In addition to running single simulation runs, HASH enables simultaneous simulation runs with different parameters.
+
+In HASH, experiments are defined in the `experiments.json` file. Currently supported are:
 
 * `linspace` - vary a single parameter within a range
 * `arange` - vary a parameter based on an increment
@@ -12,9 +14,10 @@ In addition to running single simulation runs, HASH enables simultaneous simulat
 * `monte-carlo` - generate random numbers according to a distribution
 * `group` - group together multiple experiment types into a single experiment
 
-For example, this `values` experiment will run seven experiments, setting a different value of \[0..6\] in the radius field in each one.
+For example, this `values` experiment will run seven experiments, setting a different value of \[0..6\] in the radius field in each one.{
 
-{% code title="experiments.json" %}
+{% tabs %}
+{% tab title="experiments.json" %}
 ```javascript
 {
     "Sweep values": {
@@ -25,7 +28,8 @@ For example, this `values` experiment will run seven experiments, setting a diff
     }
 }
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 To run an experiment, click the "Experiment Runner" button in the runner controls, denoted with a beaker icon. The option "Sweep Values" will be available in the selector. 
 

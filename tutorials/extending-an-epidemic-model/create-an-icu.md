@@ -57,7 +57,7 @@ In this case, let's include a key-value pair in the message data packet for `at_
 function check_hospital(){
    state.addMessage("Hospital", "test", {
        "test_sick": true,
-       "at_risk": state.get("at_risk")
+       "at_risk": state.at_risk
     })
  }
 ```
@@ -68,7 +68,7 @@ function check_hospital(){
 def check_hospital():
    state.add_message("Hospital", "test", {
        'test_sick': True,
-       'at_risk': state.get('at_risk')
+       'at_risk': state['at_risk']
     })
 ```
 {% endtab %}
@@ -83,8 +83,8 @@ test_messages.forEach(m => {
     // ... 
     let icu_or_home = false;
     
-    if (state.get("icu_beds") && m.data.at_risk) {
-        state.modify("icu_beds", icu => icu - 1);
+    if (state.icu_beds && m.data.at_risk) {
+        state.icu_beds -= 1;
         icu_or_home = true;
     }	
 })
@@ -96,10 +96,10 @@ test_messages.forEach(m => {
 for msg in test_messages:
     # ...
     icu_or_home = False
-    icu_beds = state.get('icu_beds')
+    icu_beds = state['icu_beds']
     
     if icu_beds > 0 and msg['data']['at_risk']:
-        state.set('icu_beds', icu_beds - 1)
+        state['icu_beds'] = state['icu_beds'] - 1;
         icu_or_home = True
 ```
 {% endtab %}
@@ -114,8 +114,8 @@ test_messages.forEach(m => {
     // ... 
     let icu_or_home = false;
     
-    if (state.get("icu_beds") && m.data.at_risk) {
-      state.modify("icu_beds", icu => icu - 1);
+    if (state.icu_beds && m.data.at_risk) {
+      state.icu_beds -= 1;
       icu_or_home = true;
     }
     
@@ -132,10 +132,10 @@ test_messages.forEach(m => {
 for msg in test_messages:
     # ...
     icu_or_home = False
-    icu_beds = state.get('icu_beds')
+    icu_beds = state['icu_beds']
     
     if icu_beds > 0 and msg['data']['at_risk']:
-        state.set('icu_beds', icu_beds - 1)
+        state['icu_beds'] = state['icu_beds'] - 1;
         icu_or_home = True
         
     state.add_message(m['from'], 'test_result', {
@@ -156,10 +156,10 @@ let msgs = context.messages().filter(msg => msg.type === "test_result");
 
 msgs.forEach(msg => {
    if (msg.data.sick && msg.data.icu_or_home) {
-      state.set("icu", true); 
-      state.set("destination", state.get("hospital"));      
+      state.icu = true
+      state.destination = state.hospital);      
    } else if (msg.data.sick) {
-      state.set("destination", state.get("home")); 
+      state.destination = state.home; 
 })
 ```
 {% endtab %}
@@ -171,10 +171,10 @@ msgs = list(filter(lambda m: m['type'] == 'test_result', context.messages()))
 
 for msg in msgs:
   if msg['data']['sick'] and msg['data']['icu_or_home']:
-    state.set('icu', True)
-    state.set('destination', state.get('hospital'))
+    state['icu'] = True
+    state['destination'] = state['hospital']
   elif msg['data']['sick']:
-    state.set('destination', state.get('home')
+    state['destination'] = state['home']
 ```
 {% endtab %}
 {% endtabs %}
@@ -187,7 +187,7 @@ We'll need to make a change to the `daily_movement` file as well, to prevent the
 {% tab title="JavaScript" %}
 ```javascript
 // Line 53
-if (state.get("social_distancing") || state.get("icu")) {
+if (state.social_distancing || state.icu) {
   return;
 }
 ```
@@ -196,7 +196,7 @@ if (state.get("social_distancing") || state.get("icu")) {
 {% tab title="Python" %}
 ```python
 # Line 53
-if state.get('social_distancing') or state.get('icu')):
+if state['social_distancing'] or state['icu']:
   return
     
 ```
@@ -216,9 +216,9 @@ The `infection` behavior handles the logic for infection state:
 {% tab title="JavaScript" %}
 ```javascript
 // Line 87
-if (state.get("infection_duration") === 0) {
-    state.set("health_status", Math.random() < immunity_proportion ? "immune" : "healthy");
-    state.set("color", "green");
+if (state.infection_duration === 0) {
+    state.health_status = Math.random() < immunity_proportion ? "immune" : "healthy");
+    state.color = "green";
     //TODO: notify the hospital the person has recovered
 }
 ```
@@ -227,10 +227,10 @@ if (state.get("infection_duration") === 0) {
 {% tab title="Python" %}
 ```python
 # Line 74
-if state.get('infection_duration') == 0:
+if state['infection_duration'] == 0:
   status = 'immune' if random() < g['immunity_proportion'] else 'healthy'
-  state.set('health_status', status)
-  state.set('color', 'green')
+  state['health_status'] = status
+  state['color'] = 'green'
   # TODO: notify the hospital the person has recovered
 ```
 {% endtab %}
@@ -246,17 +246,17 @@ A key paradigm for HASH is message passing. HASH is based on the [actor model](h
 {% tab title="JavaScript" %}
 ```javascript
 // Line 87
-if (state.get("infection_duration") === 0) {
-    state.set("health_status", Math.random() < immunity_proportion ? "immune" : "healthy");
-    state.set("color", "green");
+if (state.infection_duration === 0) {
+    state.health_status = Math.random() < immunity_proportion ? "immune" : "healthy");
+    state.color = "green";
     
-    if (state.get("icu")) {
+    if (state.icu) {
         state.addMessage("Hospital", "recovered", {
             "msg": "All Better!"
         })
-        state.set("icu", false);
-        state.set("destination", state.get("home"));
-        state.set("out", true);
+        state.icu = false;
+        state.destination = state.home;
+        state.out = true;
     }
 }
 
@@ -266,18 +266,18 @@ if (state.get("infection_duration") === 0) {
 {% tab title="Python" %}
 ```python
 # Line 74
-if state.get('infection_duration') == 0:
+if state.infection_duration == 0:
   status = 'immune' if random() < g['immunity_proportion'] else 'healthy'
-  state.set('health_status', status)
-  state.set('color', 'green')
+  state['health_status'] = status
+  state['color'] = 'green'
   
-  if state.get('icu'):
+  if state['icu']:
     state.add_message('Hospital', 'recovered', {
       'msg': 'All Better!'
     })
-    state.set('icu', False)
-    state.set('destination', state.get('home')
-    state.set('out', True)
+    state['icu'] = False
+    state['destination'] = state['home']
+    state['out'] = True
 ```
 {% endtab %}
 {% endtabs %}
@@ -289,7 +289,7 @@ Finally, let's handle the message logic on the Hospitals side in the "test\_for\
 ```javascript
  const recovered_messages = context.messages().filter(m => m.type === "recovered");
  //Frees up a bed for each (recovered,severe) case
- recovered_messages.forEach(m => state.modify("icu_beds", icu => icu + 1));
+ recovered_messages.forEach(m => state.icu_beds += 1));
 ```
 {% endtab %}
 
@@ -298,19 +298,12 @@ Finally, let's handle the message logic on the Hospitals side in the "test\_for\
 recovered_messages = list(filter(lambda m: m['type'] == 'recovered', context.messages()))
 
 # Free up a bed for each (recovered and severe) case
-icu_beds = state.get('icu_beds')
-
 for msg in recovered_messages:
-    icu_beds += 1
+    state['icu_beds'] += 1
 
-state.set('icu_beds', icu_beds)
 ```
 {% endtab %}
 {% endtabs %}
 
 Congratulations! You've added a hospital and some basic behaviors to your simulation. You should now be starting to see how adding agents and behaviors can quickly create models that mirror the real world.
-
-{% hint style="info" %}
-**Coming soon:** creating plots in this epidemic model. In the meantime, learn more about HASH's [analysis tools](https://docs.hash.ai/core/analysis) in general terms.
-{% endhint %}
 

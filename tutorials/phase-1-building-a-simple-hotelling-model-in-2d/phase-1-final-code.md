@@ -72,12 +72,9 @@ Check out the model \(Local Competition Phase 1\) in [Index](https://hash.ai/@ha
 {% tab title="update\_businesses.js" %}
 ```javascript
 const behavior = (state, context) => {
- agents = state.get("agents");
- agents["businesses"].map((b) => {
+ state.agents["businesses"].map((b) => {
    b.rgb = [Math.random() * 255, Math.random() * 255, Math.random() * 255];
  })
- 
- state.set("agents", agents);
 }
 
 ```
@@ -90,12 +87,12 @@ const behavior = (state, context) => {
    state.addMessage(agent_id, "business_movement", {
      position,
      price,
-     rgb: state.get("rgb")
+     rgb: state.rgb
    });
  }
  
  const price_messaging = (agent_id, position) => {
-   const item_price = state.get("item_price");
+   const item_price = state.item_price;
    send_message(agent_id, position, item_price);
    send_message(agent_id, position, item_price + 1);
    if (item_price > 1) {
@@ -137,8 +134,8 @@ const behavior = (state, context) => {
      })
   
    let largest_profit = 0;
-   let new_position = state.get("position");
-   let new_price = state.get("item_price");
+   let new_position = state.position;
+   let new_price = state.item_price;
  
    // Determine position with largest profit
    Object.keys(position_dictionary).forEach((position_price) => {
@@ -150,13 +147,13 @@ const behavior = (state, context) => {
    })
  
    // Update business
-   state.set("position", new_position)
-   state.set("item_price", new_price);
+   state.position = new_position;
+   state.item_price = new_price;
  }
  
- if (state.get("counter") === 0) {
-   query_customers(context.neighbors(), state.get("position"));
- } else if (state.get("counter") === 2) {
+ if (state.counter === 0) {
+   query_customers(context.neighbors(), state.position);
+ } else if (state.counter === 2) {
    collect_customer_data(context.messages());
  }
 }

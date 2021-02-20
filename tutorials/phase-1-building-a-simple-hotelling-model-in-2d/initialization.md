@@ -103,27 +103,22 @@ Since our agent creator is first defined in init.json, which, as a JSON file can
 We’re going to update the rgb value of each Business to a random color in update\_businesses.js. 
 
 {% hint style="info" %}
-State fields can be accessed and set using the following three methods: state.get\(\), state.set\(\), and state.modify\(\). Read more in ****[**Docs**](https://docs.hash.ai/core/anatomy-of-an-agent/state#getting-and-setting-state)**.**
+Read more about [accessing and setting state](https://docs.hash.ai/core/anatomy-of-an-agent/state#getting-and-setting-state)**.**
 {% endhint %}
 
 {% tabs %}
 {% tab title="update\_businesses.js" %}
 ```javascript
 const behavior = (state, context) => {
-    agents = state.get("agents");
-    agents["businesses"].map((b) => {
+    state.agents["businesses"].map((b) => {
         b.rgb = [Math.random() * 255, Math.random() * 255, Math.random() * 255];
     })
-    
-    state.set("agents", agents);
 }
 ```
 {% endtab %}
 {% endtabs %}
 
 Now after hitting Reset and Run, the Customer agents should reappear along with two taller Business agents with randomized colors**.**
-
-![](https://lh6.googleusercontent.com/z8zoPbPCXM4kcBdLuzM6APM4sjpUvnyqkNFlZ7lB9H6Ang_mikDVLwIsmZlMXE4lDq_e7_BGUkmyMJEW4j5HJ9WTPuAne-bZCMikXym8VdRlnkwbWhYlUlwWv315VuyLyR_OvLEf)
 
 Both agents are now initialized! Time to move onto building out the business.js and customer.js behaviors. First let's look at the business.js file.
 

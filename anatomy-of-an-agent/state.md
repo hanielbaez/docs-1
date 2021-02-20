@@ -21,10 +21,10 @@ Notice how we use multiple custom fields to store data in the agent.
 
 ## Getting and Setting State
 
-The state object has accessor methods for getting and setting state.
+The state object can be accessed as an object in JavaScript or a dictionary in Python.
 
-* `state.get(field_name)` : returns the value of the field
-* `state.set(field_name, value)` : sets the field as the value
+* `state.<field_name>` : access and edit the value of the field in JavaScript
+* `state['<field_name>']` : access and edit the field in Python
 
 **Example**:
 
@@ -34,9 +34,7 @@ This behavior takes in the current state and [context](context.md) of the agent,
 {% tab title="JavaScript" %}
 ```javascript
 const behavior = (state, context) => {
-    let age = state.get("age");
-    age += 1;
-    state.set("age", age);
+    state.age += 1;
 }
 ```
 {% endtab %}
@@ -44,9 +42,7 @@ const behavior = (state, context) => {
 {% tab title="Python" %}
 ```python
 def behavior(state, context):
-    age = state.get("age")
-    age += 1
-    state.set("age", age)
+    state['age'] += 1
 ```
 {% endtab %}
 {% endtabs %}
@@ -57,55 +53,65 @@ Important: Only the agent can modify its own state. If an agent wants to prompt 
 Agents can read one another's state - for example if agent "foo" is a [neighbor](context.md) of agent "bar", agent "bar" can access the fields of agent "foo", it just can't make any changes to those fields. That's what makes the state _**private**_.
 {% endhint %}
 
-### Modify
-
-HASH also has a "modify" helper function which allows you to make certain state changes a one-liner:
-
-* `state.modify(field_name, function)` 
-
-will allow you to pass a function that will be run on the given field in the agent's state. The above example can now be written like so:
-
-{% tabs %}
-{% tab title="Javascript" %}
-```javascript
-const behavior = (state, context) => {
-    state.modify("age", age => age + 1)
-}
-```
-{% endtab %}
-
-{% tab title="Python" %}
-```python
-# We haven't yet enabled this helper function for Python
-```
-{% endtab %}
-{% endtabs %}
-
-{% hint style="info" %}
-The state value will be set to the **return value** of the function. If you use a method that modifies a variable in place, like`Array.push(x)`the return value is `x` and not the modified array.
-{% endhint %}
-
 ### Reserved Fields
 
 While an agent can store arbitrary data in its own state, some state values have special meaning in HASH. The fields below are all reserved, in addition to fields tied to visualization which can be found [here](visualization/).
 
+We've suggested ranges of values for you to start off with as you're getting to know HASH
+
 ```javascript
 { 
-  agent_id: string // auto-created identifier. Agents receive messages to their ID.
-  agent_name: string // optional identifier. Agent's receive messages to their name. 
-  behaviors: [] // Filenames of the behaviors that the agent apply to advance their state every simulation step N to N+1. 
-  messages: [] // Outbound messages from agent 
-  position: [x, y, z] // displays agents in the viewer and used to calculate neighbors 
-  search_radius: number // context.neighbors() will return a list of all the agents within the search radius
-  direction: [x, y, z] // Will affect the visualization of the agent. Can be used for custom logic
-  velocity: [x, y, z] // Will affect the visualization of the agent. Can be used for custom logic
-  color: string // Color of the agent
-  rgb: [r, g, b] // Color of the agent represented as an rgb array
-  height: number // Height of the agent in the 3D Viewer
-  scale: [x, y, z] // Agent model will be scaled along the corresponding axes
-  shape: string // Determines the shape of the agent in the 3D Viewer
-  hidden: boolean // Determines whether the agent is hidden in the 3D Viewer
-  position_was_corrected: boolean // Used by the agent whenever agents reach topology bounds
+  // Auto-created identifier. Agents receive messages addressed to their ID
+  "agent_id": string, 
+  
+  // Optional identifier. Agents receive messages that are addressed to their name
+  "agent_name": string,  
+  
+  // Filenames of the behaviors that the agents run to advance 
+  // their state every simulation step
+  "behaviors": [],
+  
+  // Contains outbound messages from the agent
+  "messages": [],
+  
+  // Displays agents in the viewer and used to calculate neighbors
+  // Suggested values: [-10, -10, -10] to [10, 10, 10]
+  "position": [x, y, z],
+  
+  // Agents within the search-radius are considered its neighbors
+  // Suggested values: 0 to 10
+  "search_radius": number, 
+  
+  // Can be used for custom movement logic. Will affect the agent's visualization
+  // Suggested values: 0 to 1 for each axis 
+  "direction": [x, y, z], 
+  
+  // Can be used for custom movement logic. Will affect the agent's visualization
+  // Suggested values: 0 to 1 for each axis
+  "velocity": [x, y, z], 
+  
+  // Color of the agent
+  "color": string, 
+  
+  // Color of the agent represented as an rgb array. RGB values are 0 to 255
+  "rgb": [r, g, b], 
+  
+  // Height of the agent in the 3D Viewer
+  // Suggested values: 0.1 to 10
+  "height": number, 
+  
+  // Agent model will be scaled along the corresponding axes
+  // Suggested values: [1, 1, 1] to [5, 5, 5]
+  "scale": [x, y, z], 
+  
+  // Determines the shape of the agent in the 3D Viewer.
+  "shape": string, 
+  
+  // Determines whether the agent is hidden in the 3D Viewer.
+  "hidden": boolean, 
+  
+  // Used by the agent whenever it passes topology boundaries.
+  "position_was_corrected": boolean ,
 }
 ```
 

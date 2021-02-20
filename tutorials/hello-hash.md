@@ -179,7 +179,7 @@ Adding visual indicators of state changes is an easy way to communicate what's h
 const behavior = (state, context) => {
   const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
-    state.set("color", "blue");
+    state.color = "blue"
   }
 }
 ```
@@ -191,7 +191,7 @@ def behavior(state, context):
     greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
 
     if (len(greetings) > 0):
-        state.set("color", "blue")
+        state["color"] = "blue"
 ```
 {% endtab %}
 {% endtabs %}
@@ -206,7 +206,7 @@ To respond to Bob's greeting, we can send a message back addressed to the first 
 const behavior = (state, context) => {
   const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
-    state.set("color", "blue");
+    state.color = "blue";
 
     greetings.forEach(m => state.addMessage(
       m.from, 
@@ -226,7 +226,7 @@ def behavior(state, context):
     greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
 
     if (len(greetings) > 0):
-        state.set("color", "blue")
+        state["color"] = "blue"
 
         for greeting in greetings:
             state.add_message(greeting['from'], "greeting", {
@@ -246,7 +246,7 @@ Over in **hello\_bob.js**, we can add a similar message handler for Bob, too.
 const behavior = (state, context) => {
   const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
-        state.set("color", "red");
+        state.color = "red";
   }
   state.addMessage(
       "Alice",
@@ -265,7 +265,7 @@ def behavior(state, context):
     greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
 
     if (len(greetings) > 0):
-        state.set("color", "red")
+        state["color"] = "red"
 
     state.add_message(
       "Alice",
@@ -302,9 +302,7 @@ const behavior = (state, context) => {
 
 
   if (greetings.length > 0) {
-    let color = state.get("color")
-    color = color == "purple" ? "red" : "purple"
-    state.set("color", color)
+    state.color = color == "purple" ? "red" : "purple"
   }
 
   state.addMessage(
@@ -324,9 +322,7 @@ def behavior(state, context):
     greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
 
     if (len(greetings) > 0):
-        color = state.get("color")
-        color = "red" if color == "purple" else "purple"
-        state.set("color", color)
+        state["color"] = "red" if color == "purple" else "purple"
 
     state.add_message(
       "Alice",

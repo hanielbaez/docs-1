@@ -46,7 +46,7 @@ function behavior(state, context) {
   }
  
 
-  if (state.get("infected") && state.get("infection_length") >= time_to_symptoms) {
+  if (state.infected && state.infection_length >= time_to_symptoms) {
     check_hospital();
   }
 }
@@ -64,7 +64,7 @@ def behavior(state, context):
     })
  
 
-  if state.get('infected') and state.get('infection_length') >= time_to_symptoms:
+  if state['infected'] and state.infection_length >= time_to_symptoms:
     check_hospital();
 ```
 {% endtab %}
@@ -192,7 +192,7 @@ The `daily_movement` behavior contains our agent's  movement logic. Importantly,
 const grocery = random_choice(agents["groceries"]).position;
 const office = random_choice(agents["offices"]).position;
 
-const template = state.get("people_template");
+const template = state.people_template;
 
   agents["people"].push({
     ...template,
@@ -232,7 +232,7 @@ const grocery = random_choice(agents["groceries"]).position;
 const office = random_choice(agents["offices"]).position;
 const hospital = random_choice(agents["offices"]).position;
 
-const template = state.get("people_template");
+const template = state.people_template;
 
   agents["people"].push({
     ...template,
@@ -265,7 +265,7 @@ person = {
 {% endtab %}
 {% endtabs %}
 
-If we `state.set("destination", "hospital")` the Person will head to the hospital \(we'll need that in the future\).
+If we set `state.destination = "hospital"` the Person will head to the hospital \(we'll need that in the future\).
 
 For now though in `check_infected`, you can set the destination as home.
 
@@ -275,7 +275,7 @@ For now though in `check_infected`, you can set the destination as home.
 let msgs = context.messages().filter(msg => msg.type === "test_result");
  msgs.forEach(msg => {
    if (msg.data.sick) {
-      state.set("destination", state.get("home")); 
+      state.destination = "home"); 
    }
  })
 ```
@@ -286,7 +286,7 @@ let msgs = context.messages().filter(msg => msg.type === "test_result");
 msgs = list(filter(lambda m: m['type'] == 'test_result', context.messages()))
 for msg in msgs:
   if msg['data']['sick']:
-    state.set('destination', state.get('home'))
+    state['destination'] = state['home']
 ```
 {% endtab %}
 {% endtabs %}
@@ -308,11 +308,11 @@ function behavior(state, context) {
   let msgs = context.messages().filter(msg => msg.type === "test_result");
    msgs.forEach(msg => {
      if (msg.data.sick) {
-        state.set(destination, state.get("home")); 
+        state.destination = "home"; 
      }
    })
    
-  if (state.get("infected") && state.get("infection_length") === time_to_symptoms) {
+  if (state.infected && state.infection_length === time_to_symptoms) {
      check_hospital();
    }
 }
@@ -332,9 +332,9 @@ def behavior(state, context):
   msgs = list(filter(lambda m: m['type'] == 'test_result', context.messages()))
   for msg in msgs:
     if msg['data']['sick']:
-      state.set('destination', state.get('home'))
+      state['destination'] = state['home']
    
-  if state.get('infected') and state.get('infection_length') >= time_to_symptoms:
+  if state['infected'] and state['infection_length'] >= time_to_symptoms:
     check_hospital();
 ```
 {% endtab %}
