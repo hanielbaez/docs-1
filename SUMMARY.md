@@ -5,7 +5,7 @@
 * [Agents](anatomy-of-an-agent/README.md)
   * [State](anatomy-of-an-agent/state.md)
   * [Context](anatomy-of-an-agent/context.md)
-  * [Initial Agents](anatomy-of-an-agent/initial-state.md)
+  * [Initializing Agents](anatomy-of-an-agent/initial-state.md)
   * [Visualization](anatomy-of-an-agent/visualization/README.md)
     * [Published Behaviors](anatomy-of-an-agent/visualization/published-behaviors.md)
     * [Shapes](anatomy-of-an-agent/visualization/shapes.md)
@@ -28,7 +28,8 @@
   * [Publishing Datasets](datasets/publishing-data-to-index.md)
 * [Analysis](analysis.md)
 * [Sharing and Releasing](sharing-releasing.md)
-* [Views](views.md)
+* [Views](views/README.md)
+  * [3D Viewer](views/3d-viewer.md)
 * [Cloud Compute](h.cloud.md)
 * [Libraries](libraries/README.md)
   * [HASH](libraries/hash/README.md)
@@ -68,6 +69,10 @@
   * [Business Collect and Update](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/business-collect-and-update.md)
   * [Final Code](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/phase-1-final-code.md)
   * [Extending the Model](tutorials/phase-1-building-a-simple-hotelling-model-in-2d/building-the-local-competition-model.md)
+
+## API
+
+* [Register for Access](api/register-for-access.md)
 
 ## Extra
 

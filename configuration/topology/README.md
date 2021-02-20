@@ -13,17 +13,13 @@ A topology configuration might look like this:
         "y_bounds": [0, 20],
         "z_bounds": [0, 20],
 
-        // This is the same as setting "wrapping_preset": "torus"
         "wrap_x_mode": "continuous",
         "wrap_y_mode": "continuous"
 
-        // Additionally, we can force 3D simulations to wrap along the Z axis
         "wrap_z_mode": "continuous",
 
-        // A global distance function agents use to localize
         "distance_function": "chebyshev"
 
-        // A global search radius
         "search_radius": 10
     },
     ...

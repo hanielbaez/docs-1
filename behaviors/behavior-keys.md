@@ -8,6 +8,8 @@ Behavior Keys define the **data** **type** of the fields that a behavior accesse
 Behavior Keys are **optional** for in-browser simulation runs, but are **required** for cloud runs.
 {% endhint %}
 
+{% embed url="https://youtu.be/oBrDX6JDCN8" caption="" %}
+
 ## Accessing Behavior Keys
 
 To view the behavior keys associated with a file, click the button containing the _brain_ icon, located beneath the help button, to toggle the key panel's visibility.
@@ -21,6 +23,16 @@ From the behavior key panel you can define the field the behavior will need to a
 ## How do I know what fields I need to assign?
 
 Any custom fields your behavior is getting from state, or setting in state, should have an entry in your behavior keys. For example, if your behavior calls `state.set("cost", 300)`, you should have a behavior key called `cost` with type `number`. You do not need to create entries for special fields which HASH defines - see 'Built-in Fields' below.
+
+## **Using fields defined in other behaviors**
+
+If a behavior uses state fields which already have keys defined in other behaviors in your project, you have two options:
+
+1. Click the “This behavior uses fields defined in other behaviors” checkbox in the behavior key panel. This will allow your behavior to access fields defined in any other behavior.
+
+![](../.gitbook/assets/screenshot-2021-02-11-at-15.20.15.png)
+
+2. Add a key with the same name and exact same type as already defined elsewhere. This gives the fastest performance, as it means we know exactly which fields to load for that behavior.
 
 ## Types
 

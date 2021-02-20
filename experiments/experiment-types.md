@@ -4,9 +4,9 @@ description: Reference for different experiment options
 
 # Experiment Types
 
-### Value sweeping
+### Value Sweeping
 
-Value sweeping runs a simulation for each specified value.
+Value sweeping runs a simulation for each of the specified `values`. The `field` in **globals.json** is populated with the value for each run.
 
 ```javascript
 "Radius values": {
@@ -21,12 +21,12 @@ Value sweeping runs a simulation for each specified value.
 Value sweeping is particularly is useful for multi-parameter sweeps and categorical sampling.
 {% endhint %}
 
-### Linspace sweeping
+### Fixed Sample Sweeping \(linspace\)
 
-Linspace is one of the most common types of parameter sweeping. Define start, stop, and number of samples to generate an even sampling between two numbers with a set number of datapoints.
+Fixed sample sweeping or 'linspace' is one of the most common types of parameter sweeps. Define `start`, `stop`, and number of `samples` to generate an even sampling between two values with a set number of data points.
 
 ```javascript
-"Radius linspace": {
+"Radius fixed sample": {
   "steps": 100,
   "type": "linspace",
   "field": "radius",
@@ -36,7 +36,7 @@ Linspace is one of the most common types of parameter sweeping. Define start, st
 }
 ```
 
-### Arange sweeping
+### Fixed Step Sweeping
 
 Instead of using a set number of samples like linspace, arange samples every "increment" between the specified start and stop fields.
 
@@ -93,10 +93,29 @@ Monte Carlo sweeping allows random sampling from a custom distribution. Each sup
 You can run groups of experiments together by adding experiment keys to the `runs` array of a `group` definition. The below code, for example, would execute each of our experiments outlined above as sub-experiments of a new experiment:
 
 ```javascript
-"Sweep radius": {
+"Group Sweep": {
   "steps": 100,
   "type": "group",
   "runs": ["Radius values", "Radius linspace", "Radius arange", "Radius monte"]
 }
 ```
+
+### Multiparameter
+
+In order to discover interaction effects in your model, you'll have to perform sweeps over multiple parameters. The multiparameter experiment generates a full factorial design with all of the experiments defined in `runs`.
+
+```javascript
+"Full factorial sweep": {
+  "steps": 100,
+  "type": "multiparameter",
+  "runs": [
+    "Radius values", 
+    "Radius linspace", 
+    "Radius arange", 
+    "Radius monte"
+  ]
+}
+```
+
+
 

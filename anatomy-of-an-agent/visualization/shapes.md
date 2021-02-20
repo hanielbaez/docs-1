@@ -32,9 +32,11 @@ HASH also allows you to use 3D mesh models. Use any of these keyword strings in 
 * pipe
 * crate
 * radar
+* windturbine
 
 #### Vehicles
 
+* boat
 * train-tracks
 * cybertruck
 * plane

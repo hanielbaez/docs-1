@@ -10,7 +10,7 @@ Using the playbar at the bottom of the right-hand view pane you can scrub forwar
 
 ## 3D
 
-**HASH natively supports rendering agents in 3D environments.** A wide array of meshes are built in to hCore directly and custom external meshes can be pulled in on demand. Read more about this on our [3D Agent Visualization](https://docs.hash.ai/core/anatomy-of-an-agent/visualization/shapes) page.
+**HASH natively supports rendering agents in 3D environments.** [Read more &gt;](3d-viewer.md)
 
 ## Geospatial
 
@@ -33,4 +33,10 @@ The _Step Explorer_ has easy to use auto-generated charts to probe and understan
 You can think of the Step Explorer as a counterpart to _Plots_, which tells you what's happening in aggregate across all of the time steps in a simulation run, while the Step Explorer lets you dive into a single time step and see what's happening within a population of agents in detail.
 
 Step Explorer is useful for understanding the shape of the data within your simulation, and it's also helpful for debugging and noticing agent outliers, without having to write code or JSON.
+
+## Custom Views
+
+{% hint style="info" %}
+Allowing users to develop custom views is part of our public [product roadmap](https://hash.ai/roadmap).
+{% endhint %}
 

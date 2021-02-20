@@ -2,7 +2,7 @@
 description: Where simulated life begins
 ---
 
-# Initial Agents
+# Initializing Agents
 
 All HASH simulations begin life in the `init.json` file found in the root of a HASH project. In this file we generate the starting state, or _initial conditions_ of the simulated world.
 
@@ -76,6 +76,6 @@ state.add_message("hash", "create_agent", {
 If you'd like to explore another simple example that uses these published behaviors, take a look at the [Wildfires](https://hash.ai/@hash/wildfires-regrowth) or [Rock, Paper, Scissors](https://core.hash.ai/@hash/rock-paper-scissors/stable) simulations.
 
 {% hint style="info" %}
-If you ever feel like you might be "re-inventing the wheel," make sure to check out [hIndex](https://hash.ai/search?contentType=Behavior&sort=relevance&query=create&page=1) in case someone else has shared a similar behavior.
+If you ever feel like you might be "reinventing the wheel," check out [hIndex](https://hash.ai/search?contentType=Behavior&sort=relevance&query=create&page=1). There you'll find hundreds of pre-made, ready-to-use simulation components.
 {% endhint %}
 

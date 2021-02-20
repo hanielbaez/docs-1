@@ -9,10 +9,8 @@ When finding the neighbors of agents in a simulation, HASH depends on a few impo
 ```javascript
 {
     "topology": {
-        // A global distance function agents use to localize
         "distance_function": "chebyshev"
         
-        // A global search radius
         "search_radius": 10
     },
     ...

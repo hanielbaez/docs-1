@@ -2,6 +2,8 @@
 
 Creating a process model in HASH starts with importing the [Process Modeling Library](https://hash.ai/@hash/process) into your simulation. To make use of the published behaviors it contains, you'll need to structure your model in a specific yet extensible way.
 
+See the [Hello Process Models](https://hash.ai/@hash/hello-process-models) simulation for a few simple examples as you read along in the documentation.
+
 ## Structure of the Agent
 
 Process models in HASH are built on a single agent, and there are three elements to their definition:
@@ -83,18 +85,20 @@ The parameters for each block must be specified in the agent's fields. Each para
         "end_process",
         ""
     ],
-    "start_process": {
-        // parameters for the Source block
-    },
-    "perform_action": {
-        // parameters for the first Delay block
-    },
-    "verify_action": {
-        // parameters for the second Delay block
-    },
-    "end_process": {
-        // parameters for the Sink block
-    }
+    "process_parameters" : {
+        "start_process": {
+            // parameters for the Source block
+        },
+        "perform_action": {
+            // parameters for the first Delay block
+        },
+        "verify_action": {
+            // parameters for the second Delay block
+        },
+        "end_process": {
+            // parameters for the Sink block
+        }
+     }
     ...
 }
 ```
