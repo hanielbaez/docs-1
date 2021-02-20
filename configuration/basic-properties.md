@@ -6,7 +6,7 @@ Accessing the properties of the simulation is as simple as using the `context.gl
 
 To change properties while the simulation is running, make sure to pause the simulation, make the appropriate changes, and resume.
 
-If, for example, we wanted to cap the height of all trees in a [forest simulation](https://hash.ai/index/5e065650196c3fbd41d8bd43/forest), we might introduce the global variable `"maxTreeHeight"`. The `globals.json` file would contain something like:
+If, for example, we wanted to cap the height of all trees in a [forest simulation](https://hash.ai/@hash/forest), we might introduce the global variable `"maxTreeHeight"`. The `globals.json` file would contain something like:
 
 ```javascript
 {

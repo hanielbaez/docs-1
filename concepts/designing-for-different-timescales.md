@@ -33,7 +33,7 @@ An alternative approach is to create a ManagerAgent that is responsible for mana
 * The agents that are signaled by the time manager will need a behavior that can handle this message; most likely it will change the agents behavior array`state.set("behaviors", ['time_handler.js'])`
 * The time manager, if it receives a message that the faster agent has finished, will send a restart message to the other messages.
 
-In essence the time manager is specifying which agents run on any given time-step based on business logic. [We've published an example simulation using a time manager](https://hash.ai/index/5ec1c324fabf52143e4b2738/time-management).
+In essence the time manager is specifying which agents run on any given time-step based on business logic. [We've published an example simulation using a time manager](https://hash.ai/@hash/time-management).
 
 {% hint style="warning" %}
 Timescale management is a particularly common issue for new HASH users because [we utilize an actor model where there is "information lag" ](design-considerations/#actor-model)- a roundtrip message will take, at minimum, three time-steps.

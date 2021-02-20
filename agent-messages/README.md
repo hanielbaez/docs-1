@@ -59,7 +59,7 @@ class Message:
 {% endtabs %}
 
 {% hint style="info" %}
-If you want to jump right into code you can take a look at our [Message Passing Colors ](https://hash.ai/index/5e1c9163fee0a34d2f9be2c6/message-passing-colors)simulation, which demos message passing among many agents.
+If you want to jump right into code you can take a look at our [Message Passing Colors ](https://hash.ai/@hash/message-passing-colors)simulation, which demos message passing among many agents.
 {% endhint %}
 
 You'll notice that each message is comprised of three fields: "to", "type", and "data." 

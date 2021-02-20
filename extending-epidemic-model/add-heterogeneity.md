@@ -4,7 +4,7 @@ One thing that sets agent-based modeling apart from analytic techniques or syste
 
 These different values can allow our agents to all behave in slightly different ways, or cause other agents to interact with them differently.
 
-In our [Getting Started](https://hash.ai/index/5e86c068eb2a710a4a2fe11e/getting-started-base) model, we'll start by providing our agents with an 'at\_risk' property. Different people agents will have different chances of having a severe response to getting sick. In create\_people.js, add a line for the property at\_risk: 
+In our [Getting Started](https://hash.ai/@hash/getting-started-base) model, we'll start by providing our agents with an 'at\_risk' property. Different people agents will have different chances of having a severe response to getting sick. In create\_people.js, add a line for the property at\_risk: 
 
 ```javascript
 {

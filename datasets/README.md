@@ -38,11 +38,11 @@ context.data()["@[user-handle or org-handle]/[short-name]/[dataset].[csv or json
 **Coming soon:** we will be streamlining this process shortly, providing more optionality around parsing treatment, and expanding support for the types of datasets ingestible by HASH.
 {% endhint %}
 
-If you wish to explore the universe of data available in HASH outside of hCore, you can do so directly [within hIndex](https://hash.ai/index/search?contentType=Dataset&sort=popularity). As with behaviors, we encourage you to tag data in hIndex with the type of '[Thing](https://hash.ai/index/schemas/Thing)' it represents. This ensures that the data can subsequently be easily discovered and reused.
+If you wish to explore the universe of data available in HASH outside of hCore, you can do so directly [within hIndex](https://hash.ai/data?sort=popularity). As with behaviors, we encourage you to tag data in hIndex with the type of '[Thing](https://hash.ai/schemas/Thing)' it represents. This ensures that the data can subsequently be easily discovered and reused.
 
 ### **Using data to initialize agents**
 
-Initializing agents is one of the most common uses of data in HASH. In the [city infection model](https://core.hash.ai/@hash/city-infection-model/main) you can see an example of using data to create agents with heterogenous values. 
+Initializing agents is one of the most common uses of data in HASH. In the [city infection model](https://core.hash.ai/@hash/city-infection-model/stable) you can see an example of using data to create agents with heterogenous values. 
 
 The simulation contains a file, `sf900homes100offices.csv`, that appropriately contains listings of 900 homes and 100 offices. Each row contains a different building with a different lat, lng location
 
