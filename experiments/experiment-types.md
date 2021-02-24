@@ -117,5 +117,9 @@ In order to discover interaction effects in your model, you'll have to perform s
 }
 ```
 
+### Optimizations
 
+{% hint style="info" %}
+**Optimization experiments are coming soon.** If you're interested in receiving early access, [contact us](https://hash.ai/contact) and let us know what you can about your use case.
+{% endhint %}
 

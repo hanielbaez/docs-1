@@ -15,7 +15,7 @@ In HASH, experiments are defined in the `experiments.json` file. Currently suppo
 * `group` - group together multiple experiment types into a single experiment
 * `multiparameter` - create all possible parameter combinations from multiple experiments
 
-For example, this `values` experiment will run seven experiments, setting a different value of \[0..6\] in the radius field in each one.{
+For example, this `values` experiment will run seven experiments, setting a different value of \[0..6\] in the radius field in each one.
 
 {% tabs %}
 {% tab title="experiments.json" %}
@@ -58,5 +58,5 @@ Now, any behaviors that rely on the "radius" parameter from globals will use the
 You can run experiments locally or in [hCloud](../h.cloud.md)
 {% endhint %}
 
-
+For more information on how to use experiments, read more about [Experiment Types](experiment-types.md).
 
