@@ -35,10 +35,12 @@
   * [HASH](libraries/hash/README.md)
     * [Spatial](libraries/hash/spatial.md)
     * [Neighbors](libraries/hash/neighbors.md)
+    * [Random](libraries/hash/random.md)
   * [Python](libraries/python-packages.md)
   * [JavaScript](libraries/javascript-libraries.md)
 * [Experiments](experiments/README.md)
   * [Experiment Types](experiments/experiment-types.md)
+* [Determinism](determinism.md)
 * [Collaboration](collaboration/README.md)
   * [Organizations](collaboration/organizations.md)
 
