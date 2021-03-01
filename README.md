@@ -26,5 +26,5 @@ If you need help or support, check out the [community forum](https://community.h
 
 ## Upcoming Features
 
-View our [changelog](https://hash.ai/updates) to learn more about recent updates to HASH, or check out our [roadmap](https://hash.ai/roadmap) for advance insight as to our future plans.
+Check out our [changelog](https://hash.ai/updates) to learn more about recent updates to HASH, or visit our [roadmap](https://hash.ai/roadmap) for a look at what's next.
 
