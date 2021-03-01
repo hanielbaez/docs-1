@@ -54,6 +54,7 @@
   * [Structuring a Process Model](concepts/designing-with-process-models/structuring-a-process-model.md)
   * [Process Blocks](concepts/designing-with-process-models/process-blocks.md)
   * [Custom Behaviors](concepts/designing-with-process-models/custom-behaviors.md)
+* [Designing with the Material Handling Libraries](concepts/designing-with-the-material-handling-libraries.md)
 
 ## Tutorials
 
