@@ -11,9 +11,9 @@ Each pair of borders share a specific wrapping behavior. This could be any one o
 * `continuous` : Pacman-style wrapping where the agent is teleported to the opposite border 
 * `reflection`: Agents are bounced off against borders 
 * `offset_reflection`: Agents are reflected and shifted halfway along the border 
-* `none`: agents fly off to infinity
+* `torus`: Like the classic arcade games Asteroids and Pacman, agents will be wrapped continuously on both borders. This only applies to the X and Y axis
 
-These can easily set in the `globals.json` file by the way of:
+These parameters are set in the `globals.json:`
 
 ```javascript
 {
