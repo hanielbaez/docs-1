@@ -4,7 +4,7 @@ One thing that sets agent-based modeling apart from analytic techniques or syste
 
 These different values can allow our agents to all behave in slightly different ways, or cause other agents to interact with them differently.
 
-In our Getting Started model \(\[Python \]\([https://hash.ai/@hash/getting-started-base-pythonor](https://hash.ai/@hash/getting-started-base-pythonor) [Javascript](https://hash.ai/@hash/getting-started-base\), we'll start by providing our agents with an 'at\_risk' property. Different people agents will have different chances of having a severe response to getting sick. In the "create\_people" behavior, new agents are defined in the `person` variable. In that block of code, add a line for the property "at\_risk":
+In our Getting Started model ([Python](https://hash.ai/@hash/getting-started-base-python) or [Javascript](https://hash.ai/@hash/getting-started-base)), we'll start by providing our agents with an 'at\_risk' property. Different people agents will have different chances of having a severe response to getting sick. In the "create\_people" behavior, new agents are defined in the `person` variable. In that block of code, add a line for the property "at\_risk":
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -47,9 +47,8 @@ if ((state.severity === "moderate") && (Math.random() < severe_chance)) {
 # line 69
 severe_chance = g['at_risk_chance_of_severe'] if state.get('at_risk') else g['chance_of_severe']
 
-if (state["severity"]) == 'moderate') and (random() < severe_chance)) {
-    state["severity"] = 'severe';
-}
+if (state["severity"]) == 'moderate') and (random() < severe_chance):
+    state["severity"] = 'severe'
 ```
 {% endtab %}
 {% endtabs %}
@@ -83,7 +82,7 @@ agents["people"].push({
 # line 18
 person = {
     # ...
-    'at_risk': True if random() < g['at_risk_percent'] else False
+    'at_risk': True if random() < at_risk_percent else False
 }
 ```
 {% endtab %}
