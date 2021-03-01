@@ -30,6 +30,7 @@
 * [Sharing and Releasing](sharing-releasing.md)
 * [Views](views/README.md)
   * [3D Viewer](views/3d-viewer.md)
+  * [Geospatial Viewer](views/geospatial-viewer.md)
 * [Cloud Compute](h.cloud.md)
 * [Libraries](libraries/README.md)
   * [HASH](libraries/hash/README.md)
