@@ -24,18 +24,24 @@ state.foo = hash_stdlib.random() > 0.5 ? true : false
 
 or by using one of the [Statistic libraries](libraries/#hash-standard-library) included in HASH, such as those outlined in [Designing with Distributions](concepts/designing-with-distributions.md).
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
   const { poisson, uniform, triangular, normal } = hash_stdlib.stats;
   ...
   
   let foo = triangular.sample(0, 100, 50)
 ```
+{% endtab %}
+{% endtabs %}
 
 To ensure the same numbers are generated every execution run, you can **set the seed** of the random number generator.
 
 1. Call `hash_stdlib.setSeed(str: s)` to set a seed at the beginning of your simulation run. 
 2. Use `hash_stdlib` functions for stochasticity. They'll return the same random number every simulation run.
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 if (state.timestep == 1) {
   // If it's the first timestep, set the initial seed of the sim.
@@ -45,8 +51,12 @@ if (state.timestep == 1) {
 // will return the same sample every run
 const num_new_agents = poisson.sample(10); 
 ```
+{% endtab %}
+{% endtabs %}
 
 {% embed url="https://hash.ai/@hash/determinism" caption="An example simulation demonstrating Determinism" %}
+
+HASH standard library functions for distributions and random number generation are currently only available in JavaScript; [Python supports setting a seed natively](https://docs.python.org/3/library/random.html) and, if creating a Python simulation, you should consider using `random.seed()` and/or [numpy](libraries/python-packages.md).
 
 {% hint style="warning" %}
 hEngine execution order can, at times, cause different agents to execute in different orders, causing different random numbers to be pulled between runs. We'll be building in guarantees around this in an upcoming update.
