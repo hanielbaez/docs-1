@@ -20,12 +20,6 @@ Often you'll create simulations with probabilities, where an agent takes an acti
 state.foo = hash_stdlib.random() > 0.5 ? true : false
 ```
 {% endtab %}
-
-{% tab title="Python" %}
-```python
-state['foo'] = True if hash_stdlib.random() > 0.5 else False
-```
-{% endtab %}
 {% endtabs %}
 
 or by using one of the [Statistic libraries](libraries/#hash-standard-library) included in HASH, such as those outlined in [Designing with Distributions](concepts/designing-with-distributions.md).
@@ -52,7 +46,7 @@ if (state.timestep == 1) {
 const num_new_agents = poisson.sample(10); 
 ```
 
-{% embed url="https://hash.ai/@hash/determinism" caption="An example simulation demonstrating setting the seed of a simulation run." %}
+{% embed url="https://hash.ai/@hash/determinism" caption="An example simulation demonstrating Determinism" %}
 
 {% hint style="warning" %}
 hEngine execution order can, at times, cause different agents to execute in different orders, causing different random numbers to be pulled between runs. We'll be building in guarantees around this in an upcoming update.
