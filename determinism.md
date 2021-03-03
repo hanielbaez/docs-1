@@ -52,6 +52,8 @@ if (state.timestep == 1) {
 const num_new_agents = poisson.sample(10); 
 ```
 
+{% embed url="https://hash.ai/@hash/determinism" caption="An example simulation demonstrating setting the seed of a simulation run." %}
+
 {% hint style="warning" %}
 hEngine execution order can, at times, cause different agents to execute in different orders, causing different random numbers to be pulled between runs. We'll be building in guarantees around this in an upcoming update.
 {% endhint %}
