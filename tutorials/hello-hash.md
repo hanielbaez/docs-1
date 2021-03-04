@@ -62,12 +62,12 @@ You can build Python behaviors instead of JavaScript behaviors if you prefer. Ju
 [
   { 
     "agent_name": "Alice", 
-    "behaviors": ["hello_alice.js"],
+    "behaviors": ["hello_bob.js"],
     "position": [0,0] 
   }, 
   { 
     "agent_name": "Bob", 
-    "behaviors": ["hello_bob.js"],
+    "behaviors": ["hello_alice.js"],
     "position": [2,0] 
   }
 ]
