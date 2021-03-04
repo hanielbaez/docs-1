@@ -98,7 +98,7 @@ We can then create the corresponding behavior files by clicking the **New File**
 
 In **hello\_bob.js**, we want to send a message **from** Bob **to** Alice.
 
-HASH has built in support for message passing. Push a message object to an agent's message array, and it will deliver the message to the target agent in the next timestep. The message array attached to an agent's state is like its outbox.
+HASH has built in support for message passing. Push a message object to an agent's message array, and it will deliver the message to the target agent in the next time step. The message array attached to an agent's state is like its outbox.
 
 A message has three parts:
 
@@ -196,7 +196,7 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
-Now **reset** your simulation and **run** it. On the second timestep you should notice that Alice's agent changes color to blue. Neat!
+Now **reset** your simulation and **run** it. On the second time step you should notice that Alice's agent changes color to blue. Neat!
 
 To respond to Bob's greeting, we can send a message back addressed to the first message sender, with an appropriate response.
 
