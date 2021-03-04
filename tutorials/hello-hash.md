@@ -342,7 +342,7 @@ def behavior(state, context):
     greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
 
     if (len(greetings) > 0):
-        state["color"] = "red" if color == "purple" else "purple"
+        state["color"] = "red" if state["color"] == "purple" else "purple"
 
     state.add_message(
       "Alice",
