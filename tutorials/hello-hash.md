@@ -138,7 +138,7 @@ def behavior(state, context):
 {% endtabs %}
 
 {% hint style="info" %}
-[_state.addMessage is a helper function_](../agent-messages/) _for pushing messages to the outgoing messages array._
+[_state.addMessage is a helper function_](../agent-messages/) _for pushing_ [_messages_](../agent-messages/) _to the outgoing messages array._
 {% endhint %}
 
 Now click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _**Bob is sending this same message every time step to Alice.**_
