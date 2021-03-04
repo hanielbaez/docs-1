@@ -24,6 +24,10 @@ There are also third-party datasets published in hIndex you can add to your proj
 **Coming soon:** data syncing from remote sources is currently only achievable through [hEngine](https://hash.ai/platform/engine), but remains on our roadmap for [hCore](https://hash.ai/platform/core).
 {% endhint %}
 
+{% hint style="success" %}
+**Let us know which integrations you'd like to see natively supported by completing our** [**data connectors survey**](https://sohostrategy.typeform.com/to/WROAmyhH)**.** 
+{% endhint %}
+
 ## Using data in projects
 
 HASH parses imported datasets and generates a new field in `context.data()`with the file name. This contains the content of datasets associated in the simulation. At this time HASH supports datasets imported in CSV or JSON formats.
