@@ -357,7 +357,7 @@ def behavior(state, context):
 
 ![Hello HASH!](../.gitbook/assets/blocks_flipping.gif)
 
-Finally, since Alice clearly would like some socially-responsible distance from Bob, we can add movement to the agents. I'm going to use a shared behavior @hash/random\_movement.rs , to let each agent will move about the environment at random. I'll import the behavior from the hIndex, and then add the file name to each agent.
+Finally, since Alice clearly would like some socially-responsible distance from Bob, we can add movement to the agents. I'm going to use a shared behavior `@hash/random_movement/random_movement.r`s , to let each agent will move about the environment at random. I'll import the behavior from the hIndex, and then add the file name to each agent.
 
 ![](../.gitbook/assets/movement.gif)
 
