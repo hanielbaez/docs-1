@@ -143,7 +143,7 @@ def behavior(state, context):
 
 Now click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _**Bob is sending this same message every time step to Alice.**_
 
-In our **hello\_alice.js** function, we want Alice to handle messages she receives. When an agent receives a message addressed to them, it's stored in their "[context](../anatomy-of-an-agent/context.md)", in `context.messages()`. `context.messages()` is like an agents inbox. Agents can iterate through their messages array and act on specific messages.
+In our **hello\_alice.js** function, we want Alice to handle messages she receives. When an agent receives a message addressed to them, it's stored in their [Context](../anatomy-of-an-agent/context.md), in `context.messages()`. `context.messages()` is like an agents inbox. Agents can iterate through their messages array and act on specific messages.
 
 Let's find all of the messages that are greetings:
 
