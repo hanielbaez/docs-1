@@ -282,14 +282,18 @@ def behavior(state, context):
 
 It's a little boring to just have them stay red and blue throughout the rest of the simulation. We can help visualize better what's going on in the simulation by having both agents flip colors whenever they receive a new message. The logic we want is:
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
-    color = color === "blue" ? "green" : "blue"
+    state.color = color === "blue" ? "green" : "blue"
 ```
+{% endtab %}
+{% endtabs %}
 
 or:
 
 ```javascript
-    color = color === "purple" ? "red" : "purple"
+    state.color = color === "purple" ? "red" : "purple"
 ```
 
 We'll need to refactor our code to implement this - instead of using `state.set("color", "blue")` we'll first get the field value and assign it to a variable, color, and then set the field as the variables value at the end of the behavior file \(a common pattern in HASH simulations\).
