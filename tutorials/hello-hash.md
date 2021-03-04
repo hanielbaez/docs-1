@@ -285,18 +285,34 @@ It's a little boring to just have them stay red and blue throughout the rest of 
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-    state.color = color === "blue" ? "green" : "blue"
+    state.color = state.color === "blue" ? "green" : "blue"
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+    state['color'] = "blue" if state['color] == "green" else "blue"
 ```
 {% endtab %}
 {% endtabs %}
 
 or:
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
-    state.color = color === "purple" ? "red" : "purple"
+    state.color = state.color === "purple" ? "red" : "purple"
 ```
+{% endtab %}
 
-We'll need to refactor our code to implement this - instead of using `state.set("color", "blue")` we'll first get the field value and assign it to a variable, color, and then set the field as the variables value at the end of the behavior file \(a common pattern in HASH simulations\).
+{% tab title="Python" %}
+```python
+    state['color'] = "purple" if state['color'] == "red" else "red"
+```
+{% endtab %}
+{% endtabs %}
+
+We can refactor our code slightly to implement this:
 
 {% tabs %}
 {% tab title="JavaScript" %}
