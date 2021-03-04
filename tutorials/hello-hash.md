@@ -312,7 +312,7 @@ or:
 {% endtab %}
 {% endtabs %}
 
-We can refactor our code slightly to implement this:
+We can refactor our code slightly to implement this \(make sure to make the change for both agents with the colors you want\):
 
 {% tabs %}
 {% tab title="JavaScript" %}
