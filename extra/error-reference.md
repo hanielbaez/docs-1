@@ -4,6 +4,8 @@ description: Errors and what they mean
 
 # Error Reference & Debugging
 
+{% embed url="https://youtu.be/lqEZk0Xp51U" caption="Debugging tutorial" %}
+
 <table>
   <thead>
     <tr>
