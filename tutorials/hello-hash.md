@@ -322,7 +322,7 @@ const behavior = (state, context) => {
 
 
   if (greetings.length > 0) {
-    state.color = color == "purple" ? "red" : "purple"
+    state.color = state.color == "purple" ? "red" : "purple"
   }
 
   state.addMessage(
