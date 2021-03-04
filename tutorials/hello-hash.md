@@ -238,7 +238,7 @@ def behavior(state, context):
 
 Here we're iterating through filtered messages and pushing a new message to Alice's message array, addressed to whichever agent sent the message, 'greeting' them back.
 
-Over in **hello\_bob.js**, we can add a similar message handler for Bob, too.
+Over in **hello\_alice.js**, we can add a similar message handler for Bob, too.
 
 {% tabs %}
 {% tab title="JavaScript" %}
