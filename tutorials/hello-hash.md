@@ -96,7 +96,7 @@ We can then create the corresponding behavior files by clicking the **New File**
 
 ![To create a new behavior file click the new behavior in the top left](../.gitbook/assets/image%20%2833%29.png)
 
-In **hello\_alice.js**, we want to send a message **from** Bob **to** Alice.
+In **hello\_alice**, we want to send a message **from** Bob **to** Alice.
 
 HASH has built in support for [message](../agent-messages/) passing. Push a message object to an agent's message array, and it will deliver the message to the target agent in the next time step. The message array attached to an agent's state is like its outbox.
 
@@ -121,6 +121,8 @@ const behavior = (state, context) => {
   )
 }
 ```
+
+**hello\_alice.js**
 {% endtab %}
 
 {% tab title="Python" %}
@@ -134,6 +136,8 @@ def behavior(state, context):
       }
   )
 ```
+
+**hello\_alice.py**
 {% endtab %}
 {% endtabs %}
 
@@ -143,7 +147,7 @@ def behavior(state, context):
 
 Now click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _**Bob is sending this same message every time step to Alice.**_
 
-In our **hello\_bob.js** function, we want Alice to handle messages she receives. When an agent receives a message addressed to them, it's stored in their [Context](../anatomy-of-an-agent/context.md), in `context.messages()`. `context.messages()` is like an agents inbox. Agents can iterate through their messages array and act on specific messages.
+In our **hello\_bob** function, we want Alice to handle messages she receives. When an agent receives a message addressed to them, it's stored in their [Context](../anatomy-of-an-agent/context.md), in `context.messages()`. `context.messages()` is like an agents inbox. Agents can iterate through their messages array and act on specific messages.
 
 Let's find all of the messages that are greetings:
 
@@ -158,6 +162,8 @@ const behavior = (state, context) => {
     }
 }
 ```
+
+**hello\_bob.js**
 {% endtab %}
 
 {% tab title="Python" %}
@@ -168,6 +174,8 @@ def behavior(state, context):
     if (len(greetings) > 0):
         # do something
 ```
+
+**hello\_bob.py**
 {% endtab %}
 {% endtabs %}
 
@@ -183,6 +191,8 @@ const behavior = (state, context) => {
   }
 }
 ```
+
+**hello\_bob.js**
 {% endtab %}
 
 {% tab title="Python" %}
@@ -193,6 +203,8 @@ def behavior(state, context):
     if (len(greetings) > 0):
         state["color"] = "blue"
 ```
+
+**hello\_bob.py**
 {% endtab %}
 {% endtabs %}
 
@@ -218,6 +230,8 @@ const behavior = (state, context) => {
   }
 }
 ```
+
+**hello\_bob.js**
 {% endtab %}
 
 {% tab title="Python" %}
@@ -233,12 +247,14 @@ def behavior(state, context):
                 "msg": "Go away, I’m social-distancing!"
             })
 ```
+
+**hello\_bob.py**
 {% endtab %}
 {% endtabs %}
 
 Here we're iterating through filtered messages and pushing a new message to Alice's message array, addressed to whichever agent sent the message, 'greeting' them back.
 
-Over in **hello\_alice.js**, we can add a similar message handler for Bob, too.
+Over in **hello\_alice**, we can add a similar message handler for Bob, too.
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -257,6 +273,8 @@ const behavior = (state, context) => {
   )
 }
 ```
+
+**hello\_alice.js**
 {% endtab %}
 
 {% tab title="Python" %}
@@ -275,6 +293,8 @@ def behavior(state, context):
       }
   )
 ```
+
+**hello\_alice.py**
 {% endtab %}
 {% endtabs %}
 
@@ -312,9 +332,13 @@ or:
 {% endtab %}
 {% endtabs %}
 
-We can refactor our code slightly to implement this \(make sure to make the change for both agents with the colors you want\):
+We can refactor our code slightly to implement this.
 
 {% tabs %}
+{% tab title="" %}
+
+{% endtab %}
+
 {% tab title="JavaScript" %}
 ```javascript
 const behavior = (state, context) => {
@@ -322,7 +346,7 @@ const behavior = (state, context) => {
 
 
   if (greetings.length > 0) {
-    state.color = state.color == "purple" ? "red" : "purple"
+    state.color = state.color === "purple" ? "red" : "purple"
   }
 
   state.addMessage(
@@ -334,6 +358,8 @@ const behavior = (state, context) => {
   )
 }
 ```
+
+**hello\_alice.js**
 {% endtab %}
 
 {% tab title="Python" %}
@@ -352,6 +378,48 @@ def behavior(state, context):
       }
   )
 ```
+
+**hello\_alice.py**
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+const behavior = (state, context) => {
+  const greetings = context.messages().filter(msg => msg.type === "greeting");
+  if (greetings.length > 0) {
+    state.color = "blue";
+
+    greetings.forEach(m => state.addMessage(
+      m.from, 
+      "greeting", 
+      {
+        msg: "Go away, I’m social-distancing!"
+      }
+    ));
+  }
+}
+```
+
+**hello\_bob.py**
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+def behavior(state, context):
+    greetings = list(filter(lambda m: m['type'] == "greeting", context.messages()))
+
+    if (len(greetings) > 0):
+        state["color"] = "blue" if state["color"] == "green" else "green"
+
+        for greeting in greetings:
+            state.add_message(greeting['from'], "greeting", {
+                "msg": "Go away, I’m social-distancing!"
+            })
+```
+
+**hello\_bob.py**
 {% endtab %}
 {% endtabs %}
 
