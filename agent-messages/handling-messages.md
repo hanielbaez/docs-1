@@ -34,14 +34,14 @@ Handling the messages here would be pretty simple - just iterating through the m
 {% tab title="JavaScript" %}
 ```javascript
 const behavior = (state, context) => {
-    for (const message in context.messages()) {
-        ...
+    for (const message of context.messages()) {
+    	// ...
     }
 
     // OR
 
     context.messages().forEach(m => {
-        ...
+    	// ...
     })
 }
 ```
