@@ -335,10 +335,6 @@ or:
 We can refactor our code slightly to implement this.
 
 {% tabs %}
-{% tab title="" %}
-
-{% endtab %}
-
 {% tab title="JavaScript" %}
 ```javascript
 const behavior = (state, context) => {
