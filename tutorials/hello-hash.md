@@ -17,6 +17,7 @@ The **init.json** file defines the 'initial state' or starting point of a simula
 We'll begin by adding two agents into the array, and give them names.
 
 ```javascript
+// init.json
 [ 
   { 
     "agent_name": "Alice" 
@@ -34,6 +35,7 @@ Click the **Start Simulating** button beneath the workspace's right-hand view-pa
 However, if you toggle back from the raw output view to the 3D viewer, you may notice... nothing at all. Alice and Bob haven't been rendered, because they haven't been given a position in space. Let's go ahead and fix that.
 
 ```javascript
+// init.json
 [ 
   { 
     "agent_name": "Alice", 
@@ -79,12 +81,12 @@ You can build Python behaviors instead of JavaScript behaviors if you prefer. Ju
 [
   { 
     "agent_name": "Alice", 
-    "behaviors": ["hello_alice.py"],
+    "behaviors": ["hello_bob.py"],
     "position": [0,0] 
   }, 
   { 
     "agent_name": "Bob", 
-    "behaviors": ["hello_bob.py"],
+    "behaviors": ["hello_alice.py"],
     "position": [2,0] 
   }
 ]
@@ -94,11 +96,11 @@ You can build Python behaviors instead of JavaScript behaviors if you prefer. Ju
 
 We can then create the corresponding behavior files by clicking the **New File** button in the left hand files sidebar. Create two new files, `hello_alice.js` and`hello_bob.js`
 
-![](../.gitbook/assets/screen-shot-2020-04-16-at-7.51.31-am.png)
+![To create a new behavior file click the new behavior in the top left](../.gitbook/assets/image%20%2833%29.png)
 
 In **hello\_alice.js**, we want to send a message **from** Bob **to** Alice.
 
-HASH has built in support for message passing. Push a message object to an agent's message array, and it will deliver the message to the target agent in the next time step. The message array attached to an agent's state is like its outbox.
+HASH has built in support for [message](../agent-messages/) passing. Push a message object to an agent's message array, and it will deliver the message to the target agent in the next time step. The message array attached to an agent's state is like its outbox.
 
 A message has three parts:
 
