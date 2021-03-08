@@ -10,7 +10,7 @@ We're going to create a basic agent-based model where two agents will exchange p
 
 To start, create a new simulation file from scratch by using the _File_ menu and clicking _New Simulation._
 
-In your new simulation workspace, open the **init.json** file \_\*\*\_shown in the lefthand side panel. You'll see an empty pair of square brackets.
+In your new simulation workspace, open the **init.json** file shown in the left-hand side panel. You'll see an empty pair of square brackets.
 
 The **init.json** file defines the 'initial state' or starting point of a simulation as a collection of objects in a JSON array.
 
@@ -27,9 +27,11 @@ We'll begin by adding two agents into the array, and give them names.
 ]
 ```
 
-_`agent_name` is a_ [_reserved keyword on agents_](https://docs.hash.ai/core/anatomy-of-an-agent) _- you can reference and send messages through `agent_name`._
+{% hint style="info" %}
+`agent_name` is a [reserved keyword on agents](https://docs.hash.ai/core/anatomy-of-an-agent) - you can reference and send messages through `agent_name`
+{% endhint %}
 
-Click the **Start Simulating** button beneath the workspace's right-hand view-pane, and then select the raw output tab in the viewer. Congratulations! You've given life to Alice and Bob.
+Beneath the workspace's right-hand view-pane, you'll find the simulation control buttons. Click the **Reset** button \(circular arrow\) and then select the Raw Output tab in the viewer. Congratulations! You've given life to Alice and Bob.
 
 However, if you toggle back from the raw output view to the 3D viewer, you may notice... nothing at all. Alice and Bob haven't been rendered, because they haven't been given a position in space. Let's go ahead and fix that.
 
@@ -46,7 +48,7 @@ However, if you toggle back from the raw output view to the 3D viewer, you may n
 ]
 ```
 
-When you've finished adding positions to your agents, click **Reset Simulation**. You should now see two blocks in the 3D viewer representing our agents.
+When you've finished adding positions to your agents, reset the simulation. You should now see two blocks in the 3D viewer representing our agents.
 
 ### Saying Hello
 
@@ -92,9 +94,9 @@ You can build Python behaviors instead of JavaScript behaviors if you prefer. Ju
 {% endtab %}
 {% endtabs %}
 
-We can then create the corresponding behavior files by clicking the **New File** button in the left hand files sidebar. Create two new files, `hello_alice.js` and`hello_bob.js`
+We can then create the corresponding behavior files by clicking the **New File** button at the top of the left hand files sidebar. Create two new files, `hello_alice.js` and`hello_bob.js`
 
-![To create a new behavior file click the new behavior in the top left](../.gitbook/assets/image%20%2833%29.png)
+![To create a new behavior file click the button in the top left corner](../.gitbook/assets/image%20%2833%29.png)
 
 In **hello\_alice**, we want to send a message **from** Bob **to** Alice.
 
@@ -147,7 +149,7 @@ def behavior(state, context):
 
 Now click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _**Bob is sending this same message every time step to Alice.**_
 
-In our **hello\_bob** function, we want Alice to handle messages she receives. When an agent receives a message addressed to them, it's stored in their [Context](../anatomy-of-an-agent/context.md), in `context.messages()`. `context.messages()` is like an agents inbox. Agents can iterate through their messages array and act on specific messages.
+In our **hello\_bob** function, we want Alice to handle messages she receives. When an agent receives a message addressed to them, it's stored in their [Context](../anatomy-of-an-agent/context.md), in `context.messages()`. `context.messages()` functions as an agent's inbox. Agents can iterate through their messages array and act on specific messages.
 
 Let's find all of the messages that are greetings:
 
@@ -311,7 +313,7 @@ It's a little boring to just have them stay red and blue throughout the rest of 
 
 {% tab title="Python" %}
 ```python
-    state['color'] = "blue" if state['color] == "green" else "blue"
+    state['color'] = 'blue' if state['color'] == 'green' else 'blue'
 ```
 {% endtab %}
 {% endtabs %}
@@ -327,7 +329,7 @@ or:
 
 {% tab title="Python" %}
 ```python
-    state['color'] = "purple" if state['color'] == "red" else "red"
+    state['color'] = 'purple' if state['color'] == 'red' else 'red'
 ```
 {% endtab %}
 {% endtabs %}
@@ -385,7 +387,7 @@ def behavior(state, context):
 const behavior = (state, context) => {
   const greetings = context.messages().filter(msg => msg.type === "greeting");
   if (greetings.length > 0) {
-    state.color = "blue";
+    state.color = state.color === "blue" ? "green" : "blue";
 
     greetings.forEach(m => state.addMessage(
       m.from, 
@@ -421,7 +423,7 @@ def behavior(state, context):
 
 ![Hello HASH!](../.gitbook/assets/blocks_flipping.gif)
 
-Finally, since Alice clearly would like some socially-responsible distance from Bob, we can add movement to the agents. I'm going to use a shared behavior `@hash/random_movement/random_movement.r`s , to let each agent will move about the environment at random. I'll import the behavior from the hIndex, and then add the file name to each agent.
+Finally, since Alice clearly would like some socially-responsible distance from Bob, we can add movement to the agents. I'm going to use a shared behavior `@hash/random_movement/random_movement.rs` , to cause each agent move about the environment at random. I'll import the behavior from the hIndex, and then add the file name to each agent.
 
 ![](../.gitbook/assets/movement.gif)
 

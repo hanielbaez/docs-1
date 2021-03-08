@@ -35,13 +35,13 @@ Handling the messages here would be pretty simple - just iterating through the m
 ```javascript
 const behavior = (state, context) => {
     for (const message of context.messages()) {
-    	// ...
+        // ...
     }
 
     // OR
 
     context.messages().forEach(m => {
-    	// ...
+        // ...
     })
 }
 ```
