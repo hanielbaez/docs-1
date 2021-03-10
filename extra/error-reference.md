@@ -35,8 +35,8 @@ description: Errors and what they mean
         <p>D is not a function.</p>
         <p></p>
       </td>
-      <td style="text-align:left">Check <a href="../analysis.md">analysis</a>.json - this can indicate you
-        referenced an output that doesn&apos;t exist or used an incorrect operation.</td>
+      <td style="text-align:left">Check <a href="../views/analysis.md">analysis</a>.json - this can indicate
+        you referenced an output that doesn&apos;t exist or used an incorrect operation.</td>
     </tr>
     <tr>
       <td style="text-align:left">Agent &quot;<code>[agent id]</code>&quot; doesn&apos;t have a position.</td>

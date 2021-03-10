@@ -2,7 +2,7 @@
 description: Accessing data and insights from simulation runs
 ---
 
-# Views
+# Simulation Outputs
 
 **HASH lets users access their simulation outputs in a variety of ways.** These include custom viewers for the 3D rendering, geospatial display, and charting/plotting of outputted simulation state.
 

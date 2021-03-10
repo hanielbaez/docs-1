@@ -22,13 +22,13 @@ In the same way you can create private projects as an individual user, visible o
 
 Should you choose to allow it, projects in [hCore](https://hash.ai/platform/core) can be shared with anybody, even if they don't have a HASH account, and opened directly in the browser -- no special software required.
 
-To generate a share link, click the 'Share' button in the top-right hand corner of HASH.
+To generate a share link, click the 'Share' button in the top-right hand corner of HASH. [Read more about sharing simulations &gt;](sharing-releasing.md)
 
 ## Coming soon...
 
 Other features coming soon include:
 
-* Pull Requests in hCore and hIndex
+* Merge Requests in hCore and hIndex
 * Google Docs-style editing history
 * Real-time editing \(Google Docs-style\) - see other editors'
 * Cross-team billing

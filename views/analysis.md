@@ -131,7 +131,7 @@ HASH uses Plotly behind the scenes to render charts and graphs. As such, the pla
 
 You can save the data from any of your simulation runs by right clicking on an individual run and clicking export as JSON Files.
 
-![](.gitbook/assets/screen-shot-2020-06-18-at-7.41.03-pm.png)
+![](../.gitbook/assets/screen-shot-2020-06-18-at-7.41.03-pm.png)
 
 ## Examples
 

@@ -1,4 +1,4 @@
-# 3D Viewer
+# 3D Environment
 
 The 3D viewer in HASH is designed to make viewing simulation data as fast and convenient as possible.
 
