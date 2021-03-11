@@ -91,7 +91,8 @@ Now that we understand how to instantiate our agents, let’s create a hospital.
   "position": [0, 0],
   "height": 4,
   "color": "blue",
-  "behaviors": []
+  "behaviors": [],
+  "type": "hospital"
 }
 ```
 
