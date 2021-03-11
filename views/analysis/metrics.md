@@ -1,26 +1,6 @@
 # Metrics
 
-## What is Simulation Analysis?
-
-When running a simulation using HASH, you describe a system of agents that interact with each other in a given environment. The result of the simulation is determined by many factors:
-
-* the initial conditions
-* the behaviors assigned to each agent
-* randomness
-
-While the simulation is running you may be able to glean insight from visually observing your model. To supplement this, HASH provides you with a **Plots** view that can allow you to learn more about your simulation. For instance:
-
-* Is a certain variable converging upon a value? 
-* What emergent phenomena are appearing? 
-* How do stochasticity and the initial conditions affect the simulation run?
-
-These are the kinds of questions you can answer with HASH's analysis capabilities. It allows you to define Metrics, and then use them to create Plots.
-
-{% embed url="https://youtu.be/1ILw6dEbWoE" %}
-
-## Metrics
-
-Your first step is to define Metrics that you are interested in plotting.  Each Metric is an output of your simulation, represented as an array of data. Metrics are defined as a series of Operations which transform your simulation data into an array of specific data, typically by filtering for specific agents, then retrieving a certain value from each agent. The available Operations are listed below.
+Your first step is to define Metrics that you are interested in plotting. Each Metric is an output of your simulation, represented as an array of data. Metrics are defined as a series of Operations which transform your simulation data into an array of specific data, typically by filtering for specific agents, then retrieving a certain value from each agent. The available Operations are listed below.
 
 <table>
   <thead>
@@ -37,7 +17,7 @@ Your first step is to define Metrics that you are interested in plotting.  Each 
       <td style="text-align:left">
         <p><code>&quot;field&quot;</code>  <code>&quot;comparison&quot;</code>
         </p>
-        <p><code>&quot;value&quot;</code> 
+        <p><code>&quot;value&quot;</code>
         </p>
       </td>
       <td style="text-align:left">Filter the current output with the given <em>comparison</em> and <em>value</em> on
@@ -83,17 +63,19 @@ Your first step is to define Metrics that you are interested in plotting.  Each 
   </tbody>
 </table>
 
-Many of these operations are aggregators: they will reduce the current output array to a single value. 
+‌
 
-Like many data pipelines you first filter your data to the set you're interested in, and then aggregate it into a final metric.
+Many of these operations are aggregators: they will reduce the current output array to a single value.‌
 
-The Metrics Wizard will help you construct your metrics and fill in the appropriate parameters. 
+Like many data pipelines you first filter your data to the set you're interested in, and then aggregate it into a final metric.‌
 
-![The location of the New Metric and New Plot buttons](../../.gitbook/assets/image%20%2835%29.png)
+The Metrics Wizard will help you construct your metrics and fill in the appropriate parameters.​‌
 
-For example, if you have a collection of agents with an age attribute in your simulation, you might want to count the number over 50. You will chain together operations like so:
+![](https://gblobscdn.gitbook.com/assets%2F-M3CpctISatx3qXBSyvk%2F-MVWlyxFlxI_fI__mX_k%2F-MVXgDrVSHf54Fj5tFGZ%2Fimage.png?alt=media&token=8124f91d-c2c1-4d3c-9564-fcee83ca866b)
 
-![](../../.gitbook/assets/image%20%2836%29.png)
+For example, if you have a collection of agents with an age attribute in your simulation, you might want to count the number over 50. You will chain together operations like so:​‌
+
+![](https://gblobscdn.gitbook.com/assets%2F-M3CpctISatx3qXBSyvk%2F-MVSkob4T_EOZreFokxV%2F-MVSoOYFhg0C6tzucRYC%2Fimage.png?alt=media&token=fd6c62a5-aab8-476d-bb8b-b65fb4617ff3)
 
 It's likely that the most common operation you'll use is "filter". You can filter with numeric, boolean, and string values. The valid comparisons are listed below:
 
