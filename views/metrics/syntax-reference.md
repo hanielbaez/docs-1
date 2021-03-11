@@ -1,47 +1,99 @@
-# Analysis
+# Syntax Reference
 
-## What is Simulation Analysis?
+We recommend using hCore's fully featured wizards to define metrics and generate plots. If you would like to define them manually for any reason, you can reference the below for an explanation of the structure and syntax of the **analysis.json** file.
 
-When running a simulation using HASH, you describe a system of agents that interact with each other in a given environment. The result of the simulation is determined by many factors:
+The **analysis.json** file contains two items within it: an "outputs" object and a "plots" list.
 
-* the initial conditions
-* the behaviors assigned to each agent
-* randomness
+## Metrics
 
-While the simulation is running you may be able to glean insight from visually observing your model. To supplement this, HASH provides you with a **Plots** view that can allow you to learn more about your simulation. For instance:
-
-* Is a certain variable converging upon a value? 
-* What emergent phenomena are appearing? 
-* How do stochasticity and the initial conditions affect the simulation run?
-
-These are the kinds of questions you can answer with HASH's analysis capabilities. It allows you to define "outputs" which you can then plot. The **analysis.json** file is organized as a JSON object with two major properties, outputs and plots.
-
-{% embed url="https://youtu.be/1ILw6dEbWoE" %}
-
-## Outputs
-
-The **analysis.json** file contains two objects within it: "outputs" and "plots". Outputs is an object collection of JSON objects of the form:
+Metrics are defined as an object collection of JSON objects of the form:
 
 ```javascript
 "outputs": {
-    "feature_1": [
+    "metric_1": [
         {
-            Operation
+            operation
         },
         {
-            Operation
+            operation
         }
         ...
     ],
-    "feature_2": [
+    "metric_2": [
     ...
     ]
 }
 ```
 
-The “feature” is an output of your simulation, represented as an array of data. For example, if you have a collection of agents with an age attribute, you might want to count the number over 50. You will chain together operations like so:
+The “metric” is referenced by plot definitions, and will correspond to an array of data \(or array of arrays\). The "operations" are objects corresponding to those described in the [Analysis ](./)page, with all of the same fields that are described there. Chaining operations works identically to the wizard.
+
+Operations must have an `"op"` field which designates their type. Some operations have additional arguments. The valid types and additional arguments are listed below:
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Operator Name</th>
+      <th style="text-align:left">Additional Arguments</th>
+      <th style="text-align:left">Operator Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>&quot;filter&quot;</code>
+      </td>
+      <td style="text-align:left">
+        <p><code>&quot;field&quot;</code>  <code>&quot;comparison&quot;</code>
+        </p>
+        <p><code>&quot;value&quot;</code> 
+        </p>
+      </td>
+      <td style="text-align:left">Filter the current output with the given <em>comparison</em> and <em>value</em> on
+        the given <em>field</em> of each element</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>&quot;count&quot;</code>
+      </td>
+      <td style="text-align:left">n/a</td>
+      <td style="text-align:left">Count the number of agents in the current output</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>&quot;get&quot;</code>
+      </td>
+      <td style="text-align:left"><code>&quot;field&quot;</code>
+      </td>
+      <td style="text-align:left">Retrieve the <em>field</em> value from each agent in the current output</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>&quot;sum&quot;</code>
+      </td>
+      <td style="text-align:left">n/a</td>
+      <td style="text-align:left">Sum over the elements of the current output</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>&quot;min&quot;</code>
+      </td>
+      <td style="text-align:left">n/a</td>
+      <td style="text-align:left">Return the minimum of the elements in the current output</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>&quot;max&quot;</code>
+      </td>
+      <td style="text-align:left">n/a</td>
+      <td style="text-align:left">Return the maximum of the elements in the current output</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>&quot;mean&quot;</code>
+      </td>
+      <td style="text-align:left">n/a</td>
+      <td style="text-align:left">Return the mean of the elements in the current output</td>
+    </tr>
+  </tbody>
+</table>
+
+For example, if you have a collection of agents with an age attribute, you might want to count the number over age 50. You would chain together operations like so:
 
 ```javascript
+"outputs": {
    "over_fifty": [
    {
        "op": "filter",
@@ -51,34 +103,13 @@ The “feature” is an output of your simulation, represented as an array of da
      },
      { "op": "count"}
    ],
+   ...
+}
 ```
-
-It's likely that the most common operation you'll use is "filter". You can filter with numeric, boolean, and string values. The valid comparisons are listed below:
-
-| Comparison Name | Comparison Description |
-| :--- | :--- |
-| eq | Equal to \(===\) |
-| neq | Not equal to \(!==\) |
-| lt | Less than \(&lt;\) |
-| lte | Less than or equal to \(&lt;=\) |
-| gt | Greater than \(&gt;\) |
-| gte | Greater than or equal to \(&gt;=\) |
-
-The other operations besides "filter" are listed below. Most of these operations are aggregators: they will reduce the current output array to a single value. In general, an output feature will contain a number of "filters", a "get" and an aggregator. Like many data pipelines you first filter your data to the set you're interested in, and then aggregate it into a final metric.
-
-| Operator Name | Additional Arguments | Operator Description |
-| :--- | :--- | :--- |
-| filter | _field_, _comparison_, _value_ | Filter the current output with the given _comparison_ and _value_ on the given _field_  of each element |
-| count | n/a | Count the number of agents in the current output |
-| get | _field_ | Map the value from a field onto each element of the current output |
-| sum | n/a | Sum over the elements of the current output |
-| min | n/a | Return the minimum of the elements in the current output |
-| max | n/a | Return the maximum of the elements in the current output |
-| mean | n/a | Return the mean of the elements in the current output |
 
 ## Plots
 
-The "plots" list contains collections which define the different plots that visualize the outputs. The basic configuration of a plot includes a title, data, type, layout, and position field:
+The "plots" list contains objects which define the different plots that visualize the outputs. The basic configuration of a plot includes a title, data, type, layout, and position field:
 
 ```javascript
   "plots": [{
@@ -126,12 +157,6 @@ As a shortcut you may replace the "data" and "type" field with a "timeseries" ar
 ```
 
 HASH uses Plotly behind the scenes to render charts and graphs. As such, the platform supports any valid value it supports for layout, type, and data as [documented in their API](https://plotly.com/javascript/reference/).
-
-## Exporting Simulation Runs
-
-You can save the data from any of your simulation runs by right clicking on an individual run and clicking export as JSON Files.
-
-![](../.gitbook/assets/screen-shot-2020-06-18-at-7.41.03-pm.png)
 
 ## Examples
 

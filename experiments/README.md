@@ -15,6 +15,10 @@ In HASH, experiments are defined in the `experiments.json` file. Currently suppo
 * `group` - group together multiple experiment types into a single experiment
 * `multiparameter` - create all possible parameter combinations from multiple experiments
 
+Experiments can be created with the Experiments Wizard, or by manually defining them in the **experiments.json** file. You can access the wizard through the Experiments icon \(beaker\) in the runner controls, or from the menu bar along the top of hCore.
+
+![The Experiment Creation Wizard](../.gitbook/assets/image%20%2838%29.png)
+
 For example, this `values` experiment will run seven experiments, setting a different value of \[0..6\] in the radius field in each one.
 
 {% tabs %}
@@ -37,14 +41,14 @@ To run an experiment, click the "Experiment Runner" button in the runner control
 ![Sweep values demonstration](../.gitbook/assets/image%20%2816%29.png)
 
 {% hint style="success" %}
-If you want to run an experiment from another users published simulation - for instance an example simulation - first save a copy to your drive and then click the experiment runner.
+If you want to run an experiment from another user's published simulation - for instance an example simulation - first save a copy to your drive and then click the experiment runner.
 {% endhint %}
 
 Running this experiment will generate 7 new simulations, each with a slightly different globals.json. If we run the simulation, we can see exactly which parameters get changed in the sidebar:
 
 ![Radius options](../.gitbook/assets/image%20%2817%29.png)
 
-To access the changed varied parameter from within the simulation, we simply access that parameter in globals:
+To access the changed varied parameter from within the simulation, we simply access that parameter from `context.globals()`:
 
 ```javascript
 const behavior = (state, context) => {
@@ -52,11 +56,11 @@ const behavior = (state, context) => {
 };
 ```
 
-Now, any behaviors that rely on the "radius" parameter from globals will use the corresponding value.
+Now, any behaviors that rely on the "radius" parameter from **globals.json** will use the corresponding value.
 
 {% hint style="info" %}
 You can run experiments locally or in [hCloud](../h.cloud.md)
 {% endhint %}
 
-For more information on how to use experiments, read more about [Experiment Types](experiment-types.md).
+For more information on specific syntax, read more about [Experiment Types](experiment-types.md).
 

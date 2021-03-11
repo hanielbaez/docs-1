@@ -18,7 +18,7 @@ Using the playbar at the bottom of the right-hand view pane you can scrub forwar
 
 ## Plots
 
-**Charts and plots are in many cases the best way to view simulation outputs in HASH.** When you're not interested in the behavior of an individual agent, but aggregate trends over time or outcomes observed across the entire system, graphing variables of interest can enable you to quickly identify and analyze outcomes.
+**Plots are in many cases the best way to view simulation outputs in HASH.** When you're not interested in the behavior of an individual agent, but aggregate trends over time or outcomes observed across the entire system, graphing variables of interest can enable you to quickly identify and analyze outcomes.
 
 ## Raw Output
 
