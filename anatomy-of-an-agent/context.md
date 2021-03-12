@@ -1,23 +1,20 @@
 # Context
 
-Besides their [**state**](state.md), an agent always has access to their **context**. The context is the parts of the simulation that the agent is exposed to; another way of thinking about it is that an agent's context are the parts of the simulation  that the agent "can see".
+Besides their [**state**](state.md), an agent always has access to their **context**. The context is the parts of the simulation that the agent is exposed to; another way of thinking about it is that an agent's context are the parts of the simulation that the agent "can see".
 
 The `context` object is passed to each behavior, and it has the following methods:
-  
-  - `neighbors`
-  - `messages`
-  - `globals`
-  - `data`
-  - `step`
 
-All values accessed through `context` are *read-only*, and if modified, will not directly
-change the state of the simulation or any other agent.
+* `neighbors`
+* `messages`
+* `globals`
+* `data`
+* `step`
+
+All values accessed through `context` are _read-only_, and if modified, will not directly change the state of the simulation or any other agent.
 
 ## Neighbors
 
-The `context.neighbors()` method returns a collection of the agent's neighbors. The agent 
-must have a `"position"` field defined, and either its own `"search_radius"` field or
-`globals.json` must have `"search_radius"` defined in the [topology](configuration/topology/README.md).
+The `context.neighbors()` method returns a collection of the agent's neighbors. The agent must have a `"position"` field defined, and either its own `"search_radius"` field or `globals.json` must have `"search_radius"` defined in the [topology](https://github.com/hashintel/docs/tree/bcca8c2507880c83101c7eafdc3c73376e615b70/anatomy-of-an-agent/configuration/topology/README.md).
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -42,29 +39,24 @@ def behavior(state, context):
 {% endtabs %}
 
 {% hint style="info" %}
-An agent can read the state of its neighbors, but agents cannot directly modify another 
-agent's state. However, agents may communicate by 
-[sending messages](agent-messages/sending-messages.md) to each other.
+An agent can read the state of its neighbors, but agents cannot directly modify another agent's state. However, agents may communicate by [sending messages](https://github.com/hashintel/docs/tree/bcca8c2507880c83101c7eafdc3c73376e615b70/anatomy-of-an-agent/agent-messages/sending-messages.md) to each other.
 {% endhint %}
 
 ## Messages
 
-The `context.messages()` method returns a collection of messages received by the agent in this step of the simulation. For more details see [Handling Messages](agent-messages/handling-messages.md).
+The `context.messages()` method returns a collection of messages received by the agent in this step of the simulation. For more details see [Handling Messages](https://github.com/hashintel/docs/tree/bcca8c2507880c83101c7eafdc3c73376e615b70/anatomy-of-an-agent/agent-messages/handling-messages.md).
 
 ## Globals
 
-The `context.globals()` method returns an immutable JSON object of the simulation's constants, as defined in `globals.json`. For more details see [Globals](configuration/README.md).
-
+The `context.globals()` method returns an immutable JSON object of the simulation's constants, as defined in `globals.json`. For more details see [Globals](https://github.com/hashintel/docs/tree/bcca8c2507880c83101c7eafdc3c73376e615b70/anatomy-of-an-agent/configuration/README.md).
 
 ## Data
 
-The `context.data()` method returns an immutable JSON object of the simulation's datasets
-that have been added through the "Add to Simulation" toolbar. For more details see [Datasets](datasets/README.md).
- 
- ## Step
+The `context.data()` method returns an immutable JSON object of the simulation's datasets that have been added through the "Add to Simulation" toolbar. For more details see [Datasets](https://github.com/hashintel/docs/tree/bcca8c2507880c83101c7eafdc3c73376e615b70/anatomy-of-an-agent/datasets/README.md).
 
- The `context.step()` method returns the current step number of the simulation. Simulation
- steps start at the number 1.
+## Step
+
+The `context.step()` method returns the current step number of the simulation. Simulation steps start at the number 1.
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -82,3 +74,4 @@ def behavior(state, context):
 ```
 {% endtab %}
 {% endtabs %}
+
