@@ -17,7 +17,7 @@ change the state of the simulation or any other agent.
 
 The `context.neighbors()` method returns a collection of the agent's neighbors. The agent 
 must have a `"position"` field defined, and either its own `"search_radius"` field or
-`globals.json` must have `"search_radius"` defined in the [topology](configuration/topology/README.md).
+`globals.json` must have `"search_radius"` defined in the [topology](../configuration/topology/README.md).
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -44,22 +44,22 @@ def behavior(state, context):
 {% hint style="info" %}
 An agent can read the state of its neighbors, but agents cannot directly modify another 
 agent's state. However, agents may communicate by 
-[sending messages](agent-messages/sending-messages.md) to each other.
+[sending messages](../agent-messages/sending-messages.md) to each other.
 {% endhint %}
 
 ## Messages
 
-The `context.messages()` method returns a collection of messages received by the agent in this step of the simulation. For more details see [Handling Messages](agent-messages/handling-messages.md).
+The `context.messages()` method returns a collection of messages received by the agent in this step of the simulation. For more details see [Handling Messages](../agent-messages/handling-messages.md).
 
 ## Globals
 
-The `context.globals()` method returns an immutable JSON object of the simulation's constants, as defined in `globals.json`. For more details see [Globals](configuration/README.md).
+The `context.globals()` method returns an immutable JSON object of the simulation's constants, as defined in `globals.json`. For more details see [Globals](../configuration/README.md).
 
 
 ## Data
 
 The `context.data()` method returns an immutable JSON object of the simulation's datasets
-that have been added through the "Add to Simulation" toolbar. For more details see [Datasets](datasets/README.md).
+that have been added through the "Add to Simulation" toolbar. For more details see [Datasets](../datasets/README.md).
  
  ## Step
 
