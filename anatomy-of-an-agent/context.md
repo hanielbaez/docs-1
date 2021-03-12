@@ -2,7 +2,7 @@
 
 Besides their [**state**](state.md), an agent always has access to their **context**. The context is the parts of the simulation that the agent is exposed to; another way of thinking about it is that an agent's context are the parts of the simulation  that the agent "can see".
 
-The `context` is an object is passed to each behavior, and it has the following methods:
+The `context` object is passed to each behavior, and it has the following methods:
   
   - `neighbors`
   - `messages`
