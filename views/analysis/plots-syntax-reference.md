@@ -6,7 +6,7 @@
 
 {% tabs %}
 {% tab title="Code" %}
-```text
+```javascript
 {
   "title": "My histogram",
   "type": "histogram",
@@ -26,7 +26,7 @@
 
 {% tabs %}
 {% tab title="Code" %}
-```text
+```javascript
 {
   "title": "My horizontal histogram",
   "type": "histogram",
@@ -46,7 +46,7 @@
 
 {% tabs %}
 {% tab title="Code" %}
-```text
+```javascript
 {
   "title": "Two histograms on the same plot",
   "type": "histogram",
@@ -66,7 +66,7 @@
 
 {% tabs %}
 {% tab title="Code" %}
-```text
+```javascript
 {
   "title": "Two horizontal histograms on the same plot",
   "type": "histogram",
@@ -214,6 +214,3 @@
 ![](../../.gitbook/assets/screenshot-2021-03-11-at-15.15.03.png)
 {% endtab %}
 {% endtabs %}
-
-
-
