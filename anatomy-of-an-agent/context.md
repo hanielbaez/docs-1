@@ -1,23 +1,20 @@
 # Context
 
-Besides their [**state**](state.md), an agent always has access to their **context**. The context is the parts of the simulation that the agent is exposed to; another way of thinking about it is that an agent's context are the parts of the simulation  that the agent "can see".
+Besides their [**state**](state.md), an agent always has access to their **context**. The context is the parts of the simulation that the agent is exposed to; another way of thinking about it is that an agent's context are the parts of the simulation that the agent "can see".
 
 The `context` object is passed to each behavior, and it has the following methods:
-  
-  - `neighbors`
-  - `messages`
-  - `globals`
-  - `data`
-  - `step`
 
-All values accessed through `context` are *read-only*, and if modified, will not directly
-change the state of the simulation or any other agent.
+* `neighbors`
+* `messages`
+* `globals`
+* `data`
+* `step`
+
+All values accessed through `context` are _read-only_, and if modified, will not directly change the state of the simulation or any other agent.
 
 ## Neighbors
 
-The `context.neighbors()` method returns a collection of the agent's neighbors. The agent 
-must have a `"position"` field defined, and either its own `"search_radius"` field or
-`globals.json` must have `"search_radius"` defined in the [topology](../configuration/topology/README.md).
+The `context.neighbors()` method returns a collection of the agent's neighbors. The agent must have a `"position"` field defined, and either its own `"search_radius"` field or `globals.json` must have `"search_radius"` defined in the [topology](../configuration/topology/README.md).
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -63,8 +60,7 @@ that have been added through the "Add to Simulation" toolbar. For more details s
  
  ## Step
 
- The `context.step()` method returns the current step number of the simulation. Simulation
- steps start at the number 1.
+The `context.step()` method returns the current step number of the simulation. Simulation steps start at the number 1.
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -82,3 +78,4 @@ def behavior(state, context):
 ```
 {% endtab %}
 {% endtabs %}
+
