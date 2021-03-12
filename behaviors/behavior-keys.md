@@ -34,6 +34,10 @@ If a behavior uses state fields which already have keys defined in other behavio
 
 2. Add a key with the same name and exact same type as already defined elsewhere. This gives the fastest performance, as it means we know exactly which fields to load for that behavior.
 
+{% hint style="warning" %}
+You'll also need to check the box if your behavior uses a _**variable**_ ****to access state, e.g. `state[field_name]`
+{% endhint %}
+
 ## Types
 
 If you've used a statically defined language before - like Rust, Go, or Clojure then you'll already be familiar with strong type systems. You select the type - `string`, `number`, `list`, etc. - of data that a field will store. This improves memory allocation and access speed, as well as making sure that if you assign an incorrect type to the field an error is thrown. **If you are unsure about typing a field, assign it an 'any' type - or ask us for help!**
@@ -63,6 +67,10 @@ Dynamically populated structs should be assigned the `any` type.
 ![Click the tree icon on the right to assign the next level of data types](../.gitbook/assets/screen-shot-2020-11-24-at-5.36.17-pm.png)
 
 Data type fields must be the same across behaviors. For instance if field **foo** in behavior A has type: number, field **foo** \(assuming its the same field\) in behavior B must have type: number.
+
+{% hint style="warning" %}
+Once you define a field's behavior key, your simulation will return an error if you attempt to assign a value of the incorrect type \(unless it is an `any` type\).
+{% endhint %}
 
 ## Built-in fields
 
