@@ -14,10 +14,10 @@ Process models in HASH are built on a single agent, and there are three elements
 
 ### Behavior Array
 
-The `behavior` array of an agent running a process model must contain two specific starting and ending behaviors, and can then contain a mix of custom and published behaviors. The first in the agent's array must be[`@hash/age/age.rs`](https://hash.ai/@hash/age) , and the last must be `@hash/process/reset_behavior_ind.js`.
+The `behavior` array of an agent running a process model must start with the [`@hash/age/age.rs`](https://hash.ai/@hash/age) behavior, and can then contain a mix of custom and published behaviors.
 
 {% hint style="warning" %}
-These behaviors provide the agent with functionality and fields that allows the other process behaviors to run. Without them the other Process Library behaviors will throw errors.
+This behavior provides the agent with a field that allows the other process behaviors to run. Without it the other Process Library behaviors will throw errors.
 {% endhint %}
 
 {% code title="init.json" %}
@@ -25,8 +25,7 @@ These behaviors provide the agent with functionality and fields that allows the 
 {
     "behaviors": [
         "@hash/age/age.rs",
-        // more process behaviors such as source, delay, etc... 
-        "@hash/process/reset_behavior_ind.js"
+        // more process behaviors such as source, delay, etc...
     ],
     ...
 }
@@ -44,15 +43,13 @@ The agent must also contain an array of labels for each process behavior. The la
         "@hash/age/age.rs",
         "@hash/process/source.js", 
         "@hash/process/delay.js", 
-        "@hash/process/sink.js", 
-        "@hash/process/reset_behavior_ind.js"
+        "@hash/process/sink.js"
     ],
     "process_labels": [
         "",
         "start_process",
         "perform_action",
-        "end_process",
-        ""
+        "end_process"
     ],
     ...
 }
@@ -74,16 +71,14 @@ The parameters for each block must be specified in the agent's fields. Each para
         "@hash/process/source.js", 
         "@hash/process/delay.js",
         "@hash/process/delay.js", 
-        "@hash/process/sink.js", 
-        "@hash/process/reset_behavior_ind.js"
+        "@hash/process/sink.js"
     ],
     "process_labels": [
         "",
         "start_process",
         "perform_action",
         "verify_action",
-        "end_process",
-        ""
+        "end_process"
     ],
     "process_parameters" : {
         "start_process": {

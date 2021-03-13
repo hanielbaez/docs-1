@@ -11,8 +11,8 @@ Custom behaviors can be used to modify objects travelling through the system, ad
 Each process block has a queue associated with it where incoming objects wait. A custom behavior will always access the queue of the process block that will follow it, to perform any modifications or other functions. This code will allow you to access that queue:
 
 ```javascript
-// Get the queue of the next process block
-  let next_process_ind = state.behavior_index + 1;
+  // Get the queue of the next process block
+  let next_process_ind = state.behaviorIndex();
   const behaviors = state.behaviors;
   
   // Find the index of the next process block
@@ -42,11 +42,5 @@ Once your custom behavior has performed the functions it need to on or with the 
 
 ```javascript
   state[next_process + "_queue"] = queue;
-```
-
-Finally, the custom behavior must have a specific line of code at the end, which ensures that the agent is always aware of which process block it is currently running:
-
-```javascript
-state.behavior_index ++;
 ```
 
