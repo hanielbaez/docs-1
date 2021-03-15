@@ -14,6 +14,7 @@
   * [Composable Behaviors](behaviors/composable-behaviors.md)
   * [Behavior Keys](behaviors/behavior-keys.md)
   * [Inheriting Behaviors](behaviors/inheritance.md)
+  * [Getting the Behavior Index](behaviors/behavior-index.md)
 * [Messages](agent-messages/README.md)
   * [Sending Messages](agent-messages/sending-messages.md)
   * [Handling Messages](agent-messages/handling-messages.md)
