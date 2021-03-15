@@ -23,3 +23,25 @@ def behavior(state, context):
 {% endtab %}
 {% endtabs %}
 
+You can see an example use of this method in the Wildfires simulation. When a tree burns down, or begins to regrow, it cycles through three behaviors: `tree.js`, `fire.js` and `ember.js`. 
+
+{% embed url="https://core.hash.ai/@hash/wildfires-regrowth/stable" caption="The Wildfires simulation" %}
+
+The switching is accomplished by indexing into the agent's behavior array using `state.behaviorIndex()` and assigning the next behavior.
+
+{% code title="fire.js" %}
+```javascript
+function behavior(state, context) {
+
+  // Replace the fire behavior with the ember behavior
+  state.behaviors[state.behaviorIndex()] = "ember.js";
+
+  state.color = context.globals().fireColor;
+  state.shape = "fire";
+  state.height = 3;
+};
+```
+{% endcode %}
+
+
+
