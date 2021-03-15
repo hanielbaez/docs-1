@@ -34,6 +34,10 @@ You can think of the Step Explorer as a counterpart to _Plots_, which tells you 
 
 Step Explorer is useful for understanding the shape of the data within your simulation, and it's also helpful for debugging and noticing agent outliers, without having to write code or JSON.
 
+## API
+
+**The HASH API allows for programmatic access to simulation outputs.** [Read more &gt;](api-1.md)
+
 ## Custom Views
 
 {% hint style="info" %}
