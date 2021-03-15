@@ -121,23 +121,23 @@
 {% tab title="Code" %}
 ```javascript
 {
-	"title": "Two box plots example",
-	"layout": {
-		"width": "100%",
-		"height": "100%"
-	},
-	"position": {
-		"x": "0%",
-		"y": "0%"
-	},
-	"type": "box",
-	"data": [{
-			"y": "BlueTeamMetric"
-		},
-		{
-			"y": "OrangeTeamMetric"
-		}
-	]
+    "title": "Two box plots example",
+    "layout": {
+        "width": "100%",
+        "height": "100%"
+    },
+    "position": {
+        "x": "0%",
+        "y": "0%"
+    },
+    "type": "box",
+    "data": [{
+            "y": "BlueTeamMetric"
+        },
+        {
+            "y": "OrangeTeamMetric"
+        }
+    ]
 }
 ```
 {% endtab %}
@@ -155,23 +155,23 @@
 {% tab title="Code" %}
 ```javascript
 {
-	"title": "Two timeseries example",
-	"layout": {
-		"width": "100%",
-		"height": "100%"
-	},
-	"position": {
-		"x": "0%",
-		"y": "0%"
-	},
-	"type": "line",
-	"data": [{
-		"y": "BlueTeamMetric",
-		"name": "Blue team"
-	},{
-		"y": "OrangeTeamMetric",
-		"name": "Orange team"
-	}]
+    "title": "Two timeseries example",
+    "layout": {
+        "width": "100%",
+        "height": "100%"
+    },
+    "position": {
+        "x": "0%",
+        "y": "0%"
+    },
+    "type": "line",
+    "data": [{
+        "y": "BlueTeamMetric",
+        "name": "Blue team"
+    },{
+        "y": "OrangeTeamMetric",
+        "name": "Orange team"
+    }]
 }
 ```
 {% endtab %}
@@ -183,29 +183,29 @@
 
 ## Scatter
 
-#### **Two time-series in the same plot**
+### **Two time-series in the same plot**
 
 {% tabs %}
 {% tab title="Code" %}
 ```javascript
 {
-	"title": "Two timeseries example",
-	"layout": {
-		"width": "100%",
-		"height": "100%"
-	},
-	"position": {
-		"x": "0%",
-		"y": "0%"
-	},
-	"type": "scatter",
-	"data": [{
-		"y": "BlueTeamMetric",
-		"name": "Blue team"
-	},{
-		"y": "OrangeTeamMetric",
-		"name": "Orange team"
-	}]
+    "title": "Two timeseries example",
+    "layout": {
+        "width": "100%",
+        "height": "100%"
+    },
+    "position": {
+        "x": "0%",
+        "y": "0%"
+    },
+    "type": "scatter",
+    "data": [{
+        "y": "BlueTeamMetric",
+        "name": "Blue team"
+    },{
+        "y": "OrangeTeamMetric",
+        "name": "Orange team"
+    }]
 }
 ```
 {% endtab %}
@@ -214,3 +214,4 @@
 ![](../../.gitbook/assets/screenshot-2021-03-11-at-15.15.03.png)
 {% endtab %}
 {% endtabs %}
+
