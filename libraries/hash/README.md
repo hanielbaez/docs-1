@@ -12,3 +12,11 @@ Functions that help with calculations for agent positioning and movement.
 
 Functions that can help filter for neighbors in specific positions relative to the agent.
 
+### [Statistics](javascript-libraries.md)
+
+Functions to help calculate distributions and statistics.
+
+### [Random](random.md)
+
+Functions for generating random numbers.
+

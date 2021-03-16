@@ -1,8 +1,8 @@
 ---
-description: JavaScript packages and libraries support in HASH
+description: Statistics packages and libraries support in HASH
 ---
 
-# JavaScript
+# Statistics
 
 HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library in behaviors through `hash_stdlib.stats` and hCore's autocomplete function will help you out with suggestions and tooltips.
 
@@ -77,5 +77,5 @@ triangular
 arcsine
 ```
 
-For an example that uses these statistics functions, see the example on the [Designing with Distributions](../concepts/designing-with-distributions.md) page.
+For an example that uses these statistics functions, see the example on the [Designing with Distributions](../../concepts/designing-with-distributions.md) page.
 
