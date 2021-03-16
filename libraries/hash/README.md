@@ -20,3 +20,7 @@ Functions to help calculate distributions and statistics.
 
 Functions for generating random numbers.
 
+### [Agent](agent.md)
+
+Functions that help with creating or setting properties on agents.
+

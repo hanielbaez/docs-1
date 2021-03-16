@@ -16,7 +16,7 @@ The HASH Standard Library contains the following types of functions:
 | [Neighbors](hash/neighbors.md) | Functions related to neighbors and neighbor calculations. |
 | [Statistical](hash/javascript-libraries.md) | Functions for performing complex statistical modeling or analysis. |
 | [Random](hash/random.md) | Functions related to random number generation |
-| Agent | Functions for helping build and use agents. |
+| [Agent](hash/agent.md) | Functions for helping build and use agents. |
 
 ### Using the HASH Standard Library
 
