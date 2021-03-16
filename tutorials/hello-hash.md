@@ -12,7 +12,7 @@ To start, create a new simulation file from scratch by using the _File_ menu and
 
 In your new simulation workspace, open the **init.json** file shown in the left-hand side panel. You'll see an empty pair of square brackets.
 
-The **init.json** file defines the 'initial state' or starting point of a simulation as a collection of objects in a JSON array.
+The **init.json** file defines the 'initial state' of the simulation as a collection of objects in a JSON array.
 
 We'll begin by adding two agents into the array, and give them names.
 
@@ -31,7 +31,7 @@ We'll begin by adding two agents into the array, and give them names.
 `agent_name` is a [reserved keyword on agents](https://docs.hash.ai/core/anatomy-of-an-agent) - you can reference and send messages through `agent_name`
 {% endhint %}
 
-Beneath the workspace's right-hand view-pane, you'll find the simulation control buttons. Click the **Reset** button \(circular arrow\) and then select the Raw Output tab in the viewer. Congratulations! You've given life to Alice and Bob.
+Beneath the workspace's right-hand view-pane, you'll find the simulation control buttons. Click the **Reset** button \(circular arrow\) and then select the [Raw Output](../views/raw-data.md#raw-output) tab in the viewer. Congratulations! You've given life to Alice and Bob.
 
 However, if you toggle back from the raw output view to the 3D viewer, you may notice... nothing at all. Alice and Bob haven't been rendered, because they haven't been given a position in space. Let's go ahead and fix that.
 
@@ -52,7 +52,7 @@ When you've finished adding positions to your agents, reset the simulation. You 
 
 ### Saying Hello
 
-Alice and Bob aren't very interesting right now. Let's teach them some manners. We can give the agents [behaviors](https://docs.hash.ai/core/behaviors) that enable them to act and respond to each other as well as their environment. In **init.json** let's add some file names into each of the behavior arrays.
+Alice and Bob aren't very interesting right now. Let's teach them some manners. We can give the agents [behaviors](https://docs.hash.ai/core/behaviors) that enable them to act and respond to each other. In **init.json** let's add some file names into each of the behavior arrays.
 
 {% hint style="info" %}
 You can build Python behaviors instead of JavaScript behaviors if you prefer. Just make sure to name your files with a ".py" ending.
@@ -147,7 +147,11 @@ def behavior(state, context):
 [_state.addMessage is a helper function_](../agent-messages/) _for pushing_ [_messages_](../agent-messages/) _to the outgoing messages array._
 {% endhint %}
 
-Now click **Run Simulation**. You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _**Bob is sending this same message every time step to Alice.**_
+Now click **Run Simulation**.
+
+![The Run Simulation is the &apos;Running Person&apos; Icon in the bottom left of the editor.](../.gitbook/assets/image%20%2831%29.png)
+
+You won't see anything happen in the 3D viewer, but if you click Raw Output you'll see our Bob agent now has an array of messages with one message to Alice. _**Bob is sending this same message every time step to Alice.**_
 
 In our **hello\_bob** function, we want Alice to handle messages she receives. When an agent receives a message addressed to them, it's stored in their [Context](../anatomy-of-an-agent/context.md), in `context.messages()`. `context.messages()` functions as an agent's inbox. Agents can iterate through their messages array and act on specific messages.
 
