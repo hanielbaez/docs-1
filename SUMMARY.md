@@ -33,6 +33,7 @@
     * [Neighbors](libraries/hash/neighbors.md)
     * [Statistics](libraries/hash/javascript-libraries.md)
     * [Random](libraries/hash/random.md)
+    * [Agent](libraries/hash/agent.md)
   * [Python](libraries/python-packages.md)
 * [Simulation Outputs](views/README.md)
   * [3D](views/3d-viewer.md)
