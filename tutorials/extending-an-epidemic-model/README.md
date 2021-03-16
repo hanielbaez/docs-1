@@ -1,3 +1,7 @@
+---
+description: Adding and extending features in a simulation.
+---
+
 # Extending an Epidemic Model
 
 In this tutorial we're going to augment one of our existing epidemiological simulations and add a hospital. Along the way you'll learn key features of hCore and how to use agent based modeling to simulate and answer complex questions.
