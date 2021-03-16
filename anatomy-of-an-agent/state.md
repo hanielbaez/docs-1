@@ -115,3 +115,29 @@ We've suggested ranges of values for you to start off with as you're getting to 
 }
 ```
 
+### Get and Set
+
+Additionally, we provide helper methods for **getting** and **setting** a property on an agent when you want to **deep-copy** a property / value.
+
+{% tabs %}
+{% tab title="JavaScript" %}
+```javascript
+let foo = state.get("field_name")
+state.set("field_name", "value")
+```
+{% endtab %}
+
+{% tab title="Python" %}
+```python
+foo = state.get("field_name")
+state.set("field_name", "value")
+```
+{% endtab %}
+{% endtabs %}
+
+state.get will deep copy a value from the field into the local scope of the behavior, and set will take a value and deep copy it into the field property. There are cases where this is helpful, but it's a more computationally expensive operation to perform.
+
+{% hint style="info" %}
+You might see state.get and state.set used frequently in older simulations or tutorials - these methods used to be the primary means of getting and setting state properties, but have largely been **deprecated** in favor of`state.<field_name>` and `state['<field_name>'].`
+{% endhint %}
+
