@@ -1,5 +1,5 @@
 ---
-description: hash_stdlib functions for generating pseudo-random numbers.
+description: hstd functions for generating pseudo-random numbers.
 ---
 
 # Random
@@ -10,7 +10,7 @@ Returns a number between 0 and 1. If setSeed has been called, it uses the [sfc32
 
 ```javascript
 function behavior(state, context) {
-    if (hash_stdlib.random() > 0.5) {
+    if (hstd.random() > 0.5) {
         // do something
     }
 }
@@ -24,7 +24,7 @@ Sets a seed for the random number generator used in hash\_stdlib.random\(\) and 
 function behavior(state, context) {
     if (state.timestep == 1) {
     // If it's the first timestep, set the initial seed of the sim.
-        hash_stdlib.setSeed("initial_seed");
+        hstd.setSeed("initial_seed");
     }
     const num_new_agents = poisson.sample(10); // will return the same sample every run
 }

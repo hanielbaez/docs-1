@@ -4,7 +4,7 @@ description: JavaScript packages and libraries support in HASH
 
 # JavaScript
 
-HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library in behaviors through `hash_stdlib.stats` and hCore's autocomplete function will help you out with suggestions and tooltips.
+HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library in behaviors through `hstd.stats` and hCore's autocomplete function will help you out with suggestions and tooltips.
 
 Currently only the functions and classes listed below are "fully supported". Others are available and will work, though we've left them undocumented as the interface/names might change.
 

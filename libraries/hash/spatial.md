@@ -14,12 +14,12 @@ function behavior(state, context) {
     const { neighborA, neighborB } = context.neighbors();
     
     // Find the closest of 2 neighbors to you
-    const distanceToA = hash_stdlib.distanceBetween(state, neighborA);
-    const distanceToB = hash_stdlib.distanceBetween(state, neighborB);
+    const distanceToA = hstd.distanceBetween(state, neighborA);
+    const distanceToB = hstd.distanceBetween(state, neighborB);
     state.closest = distanceToB > distanceToA ? "A" : "B";
     
     // Check if neighbors are closer to each other than to you
-    const neighborDistance = hash_stdlib.distanceBetween(neighborA, neighborB);
+    const neighborDistance = hstd.distanceBetween(neighborA, neighborB);
     const selfDistance = state.closest === "A" ? distanceToA : distanceToB;
     
     state.closer_to_neighbors = selfDistance < neighborDistance;
@@ -39,7 +39,7 @@ function behavior(state, context) {
     dir[1] += 2;
     
     // Turn it back into a unit vector
-    state.direction = hash_stdlib.normalizeVector(dir);
+    state.direction = hstd.normalizeVector(dir);
 }
 ```
 
@@ -51,7 +51,7 @@ This function returns a random integer position within the bounds of the `topolo
 function behavior(state, context) {
     // Move to a random position
     const topology = context.globals().topology;
-    const new_pos = hash_stdlib.randomPosition(topology);
+    const new_pos = hstd.randomPosition(topology);
     
     state.position = new_pos;
 }

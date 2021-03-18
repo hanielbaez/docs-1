@@ -16,7 +16,7 @@ function new_coords(lng_lat, destination) {
   const dx = destination[0] - lng_lat[0];
   const dy = destination[1] - lng_lat[1];
 
-  const vec = hash_stdlib.normalizeVector([dx, dy]);
+  const vec = hstd.normalizeVector([dx, dy]);
   
   return [lng_lat[0] + (vec[0] * state.get("speed")), lng_lat[1] + (vec[1] * state.get("speed"))]
 }

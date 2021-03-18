@@ -2,7 +2,7 @@
 
 ## HASH Standard Library
 
-HASH provides a set of useful functions to help simplify simulation construction. These are provided through a standard library, `hash_stdlib`
+HASH provides a set of useful functions to help simplify simulation construction. These are provided through a standard library, `hstd`
 
 Currently the Standard Library is only accessible in JavaScript; however, we're expanding this to include equivalent functions for Python and Rust. The Python language environment [also provides access to](https://docs.hash.ai/core/libraries/python-packages) a wide array of scientific Python packages_._
 
@@ -23,7 +23,7 @@ To call a standard library function, use the `hash_stblib` object followed by th
 
 ```javascript
 function behavior(state, context) {
-    let distance = hash_stdlib.distanceBetween(agentA, agentB)
+    let distance = hstd.distanceBetween(agentA, agentB)
 }
 ```
 
