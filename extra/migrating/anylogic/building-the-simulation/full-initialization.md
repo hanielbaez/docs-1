@@ -61,7 +61,7 @@ const behavior = (state, context) => {
 
   for (year in yearly_supply) {
     const supply = yearly_supply[year]
-    yearly_supply[year] = hash_stdlib.stats.sum(supply) / supply.length
+    yearly_supply[year] = hstd.stats.sum(supply) / supply.length
   }
 
   state.set("yearly_supply", yearly_supply);

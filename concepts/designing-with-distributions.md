@@ -15,7 +15,7 @@ Initializing agent properties using different types of distributions is a common
 {% tab title="JavaScript" %}
 ```javascript
 function behavior(state, context) {
-  const { poisson, uniform, triangular, normal } = hash_stdlib.stats;
+  const { poisson, uniform, triangular, normal } = hstd.stats;
 
   const num_new_agents = poisson.sample(10); // expected occurence rate
 
@@ -72,6 +72,6 @@ You can find a working example of this in the Alcoholism Intervention model. The
 By implementing more advanced methods, you can create empirical distributions with linear or polynomial interpolation. We encourage you to share whatever you create!
 
 {% hint style="info" %}
-You can ensure deterministic runs by using HASH standard library functions and [setting the seed of the random number generators](../extra/determinism.md) with `hash_stdlib.setSeed("[string]")`
+You can ensure deterministic runs by using HASH standard library functions and [setting the seed of the random number generators](../extra/determinism.md) with `hstd.setSeed("[string]")`
 {% endhint %}
 
