@@ -30,7 +30,7 @@ This function returns all neighbors within the specified radii. The current agen
 function behavior(state, context) {
     // Count the number of electrons close to me
     const electrons = context.neighbors().filter(n => n.agent_type === "electron");   
-    const close_electrons = neighborsInRadius(state, electrons, 2, 0, true).length;
+    const close_electrons = hash_stdlib.neighborsInRadius(state, electrons, 2, 0, true).length;
 
     ...
 }
