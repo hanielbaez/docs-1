@@ -11,7 +11,7 @@ function behavior(state, context) {
     }
     
     // Creates a valid UUID-V4 address for a HASH agent
-    let agent_id = hash_stdlib.generateAgentID();
+    let agent_id = hstd.generateAgentID();
     agent.agent_id = agent_id;
     state.addMessage("hash", "create_agent", agent)
     

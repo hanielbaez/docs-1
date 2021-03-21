@@ -2,14 +2,14 @@
 
 ## HASH Standard Library
 
-HASH provides a set of functions through `hash_stdlib.` It contains common functions to simplify simulation construction.
+HASH provides a set of functions through `hstd.` It contains common functions to simplify simulation construction.
 
-`hash_stdlib` _is currently only available in JavaScript behaviors; however, we're expanding it to include Python functions._
+`hstd` _is currently only available in JavaScript behaviors; however, we're expanding it to include Python functions._
 
 ```javascript
 function behavior(state, context){
   //...
-  let distance = hash_stdlib.distanceBetween(agentA, agentB)
+  let distance = hstd.distanceBetween(agentA, agentB)
 }
 
 ```

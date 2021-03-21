@@ -8,7 +8,7 @@ This function returns all neighbors that share the same position as `agentA`. Th
 function behavior(state, context) {
     // Find neighbors on my position
     const neighbors = context.neighbors();
-    const cohabitators = hash_stdlib.neighborsOnPosition(state, neighbors);
+    const cohabitators = hstd.neighborsOnPosition(state, neighbors);
     
     // Create an adjacent "agent"
     let adjPos = state.position;
@@ -16,7 +16,7 @@ function behavior(state, context) {
     const adjAgent = { "position": adjPos };
     
     // Find the agents adjacent to me
-    const adjacents = hash_stdlib.neighborsOnPosition({ "position": adjPos }, neighbors);
+    const adjacents = hstd.neighborsOnPosition({ "position": adjPos }, neighbors);
     
     ...
 }
@@ -45,10 +45,10 @@ function behavior(state, context) {
     const neighbors = context.neighbors();
     
     // Check which of my neighbors I can see "in front" of me
-    const visibleAgents = hash_stdlib.neighborsInFront(state, neighbors);
+    const visibleAgents = hstd.neighborsInFront(state, neighbors);
     
     // Check which agents are in front of one of my neighbors
-    const neighborFront = hash_stdlib.neighborsInFront(neighbors[0], neighbors);
+    const neighborFront = hstd.neighborsInFront(neighbors[0], neighbors);
     
     ...
 }
@@ -63,10 +63,10 @@ function behavior(state, context) {
     const neighbors = context.neighbors();
     
     // Check which of my neighbors are tailing me
-    const tailingAgents = hash_stdlib.neighborsBehind(state, neighbors, true);
+    const tailingAgents = hstd.neighborsBehind(state, neighbors, true);
     
     // Check if my neighbor is being tailed
-    const neighborTail = hash_stdlib.neighborsBehind(neighbors[0], neighbors, true);
+    const neighborTail = hstd.neighborsBehind(neighbors[0], neighbors, true);
     const neighborTailed = neighborTail.length > 0;
     
     ...
