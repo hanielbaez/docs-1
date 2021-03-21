@@ -20,7 +20,7 @@ The HASH Standard Library contains the following types of functions:
 
 ### Using the HASH Standard Library
 
-To call a standard library function, use the `hash_stblib` object followed by the function name, for example: 
+To call a standard library function, use the `hash_stblib` object followed by the function name, for example:
 
 ```javascript
 function behavior(state, context) {

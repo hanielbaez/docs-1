@@ -29,7 +29,7 @@ or by using one of the [Statistic libraries](../libraries/#hash-standard-library
 ```javascript
   const { poisson, uniform, triangular, normal } = hstd.stats;
   ...
-  
+
   let foo = triangular.sample(0, 100, 50)
 ```
 {% endtab %}
@@ -49,7 +49,7 @@ if (state.timestep == 1) {
 }
 
 // will return the same sample every run
-const num_new_agents = poisson.sample(10); 
+const num_new_agents = poisson.sample(10);
 ```
 {% endtab %}
 {% endtabs %}
@@ -72,7 +72,7 @@ HASH's [actor model](https://hash.ai/wiki/actor-model) lets the engine execute a
 
 #### Neighbors
 
-Once all agents have computed their states for the next time step, hEngine calculates an agent's neighbors and delivers them to each agent's `context`. Neighbors are not calculated deterministically. This means that even in a simulation with identical initialization, globals, and behaviors, an agent will not necessarily see its neighbors in the same order every time. On the other hand, hEngine does not guarantee randomization either. 
+Once all agents have computed their states for the next time step, hEngine calculates an agent's neighbors and delivers them to each agent's `context`. Neighbors are not calculated deterministically. This means that even in a simulation with identical initialization, globals, and behaviors, an agent will not necessarily see its neighbors in the same order every time. On the other hand, hEngine does not guarantee randomization either.
 
 #### Messages
 
@@ -83,6 +83,4 @@ Like with neighbors, randomization is not guaranteed. Shuffling messages before 
 {% hint style="info" %}
 If your simulation relies upon the order of the messages and neighbors array, consider adding a sorting function to the simulation that will return the agents in a predictable manner. For example, sort based on an `agent_name` field you specify in the initialization of the simulation.
 {% endhint %}
-
-
 
