@@ -80,7 +80,7 @@ We've suggested ranges of values for you to start off with as you're getting to 
 
   // Agents within the search-radius are considered its neighbors
   // Suggested values: 0 to 10
-  "search_radius": number, 
+  "search_radius": int, 
 
   // Can be used for custom movement logic. Will affect the agent's visualization
   // Suggested values: 0 to 1 for each axis 
@@ -111,7 +111,7 @@ We've suggested ranges of values for you to start off with as you're getting to 
   "hidden": boolean, 
 
   // Used by the agent whenever it passes topology boundaries.
-  "position_was_corrected": boolean ,
+  "position_was_corrected": boolean,
 }
 ```
 
