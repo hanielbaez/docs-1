@@ -2,7 +2,7 @@
 
 We've built all our logic to run this simulation, but we want to have more than just one agent of each type in our model. We're going to create a dataset to represent a network of ports, refineries, storages, etc. and use it to initialize our model. We'll also import some historical oil supply data to populate the demand gas stations experience.
 
-### Initializing from a Network
+## Initializing from a Network
 
 In the AnyLogic model, the agents are initialized from a database. When the simulation starts, all of the agent values are filled in from individual properties in the db.
 
@@ -31,9 +31,9 @@ for loc in pipelines['nodes']:
 
 Our creator function will parse the dataset and assign the necessary properties and behaviors to every agent. An upcoming version of HASH will include a click-through wizard that will do this on your behalf.
 
-### Initializing from Historical Data
+## Initializing from Historical Data
 
-We'll use another dataset to determine the demand **Retailers** experience. The U.S Energy Information Administration has a database that includes historical gasoline supply. We'll import [that dataset](https://hash.ai/@useia/petrol-and-liquids) and write a behavior to process the data, and allow our `initialize.js` file to use it in assigning the `avg_demand` for **Retailers** 
+We'll use another dataset to determine the demand **Retailers** experience. The U.S Energy Information Administration has a database that includes historical gasoline supply. We'll import [that dataset](https://hash.ai/@useia/petrol-and-liquids) and write a behavior to process the data, and allow our `initialize.js` file to use it in assigning the `avg_demand` for **Retailers**
 
 {% code title="process\_data.js" %}
 ```javascript
@@ -61,7 +61,7 @@ const behavior = (state, context) => {
 
   for (year in yearly_supply) {
     const supply = yearly_supply[year]
-    yearly_supply[year] = hash_stdlib.stats.sum(supply) / supply.length
+    yearly_supply[year] = hstd.stats.sum(supply) / supply.length
   }
 
   state.set("yearly_supply", yearly_supply);

@@ -4,11 +4,11 @@ description: Statistics packages and libraries support in HASH
 
 # Statistics
 
-HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library in behaviors through `hash_stdlib.stats` and hCore's autocomplete function will help you out with suggestions and tooltips.
+HASH currently provides access to the [jStat](http://jstat.github.io/distributions.html) library for accessing statistics classes and functions. You can access the library in behaviors through `hstd.stats` and hCore's autocomplete function will help you out with suggestions and tooltips.
 
 Currently only the functions and classes listed below are "fully supported". Others are available and will work, though we've left them undocumented as the interface/names might change.
 
-### [jStat Vectors](http://jstat.github.io/vector.html)
+## [jStat Vectors](http://jstat.github.io/vector.html)
 
 These functions operate on arrays \(or arrays of arrays\) to calculate typical statistical measures.
 
@@ -49,7 +49,7 @@ covariance(array1, array2)
 corrcoeff(array1, array2)
 ```
 
-### [jStat Distributions](http://jstat.github.io/distributions.html)
+## [jStat Distributions](http://jstat.github.io/distributions.html)
 
 All of the classes below have methods to calculate typical properties relating to the named distribution. Check the jStat documentation, or hCore's built-in autocomplete and tooltips for more information.
 

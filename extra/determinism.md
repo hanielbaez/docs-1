@@ -12,12 +12,12 @@ HASH is designed to execute deterministically; however, there can be situations 
 
 ### 1. Simulation Logic
 
-Often you'll create simulations with probabilities, where an agent takes an action X% of the time. This might be by drawing random numbers using the [`hash_stdlib.random()`](../libraries/hash/random.md#random) function
+Often you'll create simulations with probabilities, where an agent takes an action X% of the time. This might be by drawing random numbers using the [`hstd.random()`](../libraries/hash/random.md#random) function
 
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-state.foo = hash_stdlib.random() > 0.5 ? true : false
+state.foo = hstd.random() > 0.5 ? true : false
 ```
 {% endtab %}
 {% endtabs %}
@@ -27,9 +27,9 @@ or by using one of the [Statistic libraries](../libraries/#hash-standard-library
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
-  const { poisson, uniform, triangular, normal } = hash_stdlib.stats;
+  const { poisson, uniform, triangular, normal } = hstd.stats;
   ...
-  
+
   let foo = triangular.sample(0, 100, 50)
 ```
 {% endtab %}
@@ -37,19 +37,19 @@ or by using one of the [Statistic libraries](../libraries/#hash-standard-library
 
 To ensure the same numbers are generated every execution run, you can **set the seed** of the random number generator.
 
-1. Call `hash_stdlib.setSeed(str: s)` to set a seed at the beginning of your simulation run. 
-2. Use `hash_stdlib` functions for stochasticity. They'll return the same random number every simulation run.
+1. Call `hstd.setSeed(str: s)` to set a seed at the beginning of your simulation run. 
+2. Use `hstd` functions for stochasticity. They'll return the same random number every simulation run.
 
 {% tabs %}
 {% tab title="JavaScript" %}
 ```javascript
 if (state.timestep == 1) {
   // If it's the first timestep, set the initial seed of the sim.
-  hash_stdlib.setSeed("initial_seed");
+  hstd.setSeed("initial_seed");
 }
 
 // will return the same sample every run
-const num_new_agents = poisson.sample(10); 
+const num_new_agents = poisson.sample(10);
 ```
 {% endtab %}
 {% endtabs %}
@@ -72,7 +72,7 @@ HASH's [actor model](https://hash.ai/wiki/actor-model) lets the engine execute a
 
 #### Neighbors
 
-Once all agents have computed their states for the next time step, hEngine calculates an agent's neighbors and delivers them to each agent's `context`. Neighbors are not calculated deterministically. This means that even in a simulation with identical initialization, globals, and behaviors, an agent will not necessarily see its neighbors in the same order every time. On the other hand, hEngine does not guarantee randomization either. 
+Once all agents have computed their states for the next time step, hEngine calculates an agent's neighbors and delivers them to each agent's `context`. Neighbors are not calculated deterministically. This means that even in a simulation with identical initialization, globals, and behaviors, an agent will not necessarily see its neighbors in the same order every time. On the other hand, hEngine does not guarantee randomization either.
 
 #### Messages
 
@@ -83,6 +83,4 @@ Like with neighbors, randomization is not guaranteed. Shuffling messages before 
 {% hint style="info" %}
 If your simulation relies upon the order of the messages and neighbors array, consider adding a sorting function to the simulation that will return the agents in a predictable manner. For example, sort based on an `agent_name` field you specify in the initialization of the simulation.
 {% endhint %}
-
-
 
